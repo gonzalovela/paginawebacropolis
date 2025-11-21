@@ -52,12 +52,14 @@ export const CourseSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="text-lg bg-primary hover:bg-primary/90">
-                Inscríbete ahora
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="text-lg bg-primary hover:bg-primary/90" asChild>
+                <a href="/inscripcion">
+                  Inscríbete ahora
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg">
-                Ver programa completo
+              <Button size="lg" variant="outline" className="text-lg" asChild>
+                <a href="/filosofia">Ver programa completo</a>
               </Button>
             </div>
 

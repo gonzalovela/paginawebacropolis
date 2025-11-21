@@ -45,8 +45,8 @@ export const SimplifiedLocations = () => {
               <p className="text-foreground/60 mb-6">
                 También contamos con sedes en Arequipa, Cusco, Trujillo, Piura y otras ciudades.
               </p>
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Contáctanos para más información
+              <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                <a href="/inscripcion">Contáctanos para más información</a>
               </Button>
             </div>
           </Card>
@@ -61,8 +61,8 @@ export const SimplifiedLocations = () => {
             <p className="text-lg opacity-90 mb-6">
               Únete a nuestra próxima promoción del curso "Conócete a Ti Mismo"
             </p>
-            <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
-              Inscríbete ahora
+            <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90" asChild>
+              <a href="/inscripcion">Inscríbete ahora</a>
             </Button>
           </Card>
         </div>
