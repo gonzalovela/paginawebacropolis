@@ -61,6 +61,11 @@ export default {
         turquoise: "hsl(var(--turquoise))",
         orange: "hsl(var(--orange))",
       },
+      extend: {
+        animation: {
+          float: "float 6s ease-in-out infinite",
+        },
+      },
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
         "gradient-warm": "var(--gradient-warm)",

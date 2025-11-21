@@ -2,11 +2,8 @@ import { Hero } from "@/components/Hero";
 import { WhatIsNA } from "@/components/WhatIsNA";
 import { ThreePrinciples } from "@/components/ThreePrinciples";
 import { PhilosophyCircle } from "@/components/PhilosophyCircle";
-import { AppliedPhilosophy } from "@/components/AppliedPhilosophy";
 import { CourseSection } from "@/components/CourseSection";
-import { CultureActivities } from "@/components/CultureActivities";
-import { Volunteering } from "@/components/Volunteering";
-import { Locations } from "@/components/Locations";
+import { SimplifiedLocations } from "@/components/SimplifiedLocations";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -16,11 +13,8 @@ const Index = () => {
       <WhatIsNA />
       <ThreePrinciples />
       <PhilosophyCircle />
-      <AppliedPhilosophy />
       <CourseSection />
-      <CultureActivities />
-      <Volunteering />
-      <Locations />
+      <SimplifiedLocations />
       <Footer />
     </div>
   );
