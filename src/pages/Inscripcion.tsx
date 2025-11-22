@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
+import { Link } from "react-router-dom";
 
 const Inscripcion = () => {
   return (
@@ -12,20 +13,20 @@ const Inscripcion = () => {
         <div className="container px-4 md:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" asChild className="hover:bg-muted">
-              <a href="/" aria-label="Volver al inicio">
+              <Link to="/" aria-label="Volver al inicio">
                 <ArrowRight className="h-5 w-5 rotate-180" />
-              </a>
+              </Link>
             </Button>
-            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
               <img src={logo} alt="Nueva Acrópolis - Escuela de Filosofía" className="h-12 md:h-14" />
-            </a>
+            </Link>
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <a href="/filosofia" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Filosofía</a>
-            <a href="/cultura" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Cultura</a>
-            <a href="/voluntariado" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Voluntariado</a>
+            <Link to="/filosofia" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Filosofía</Link>
+            <Link to="/cultura" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Cultura</Link>
+            <Link to="/voluntariado" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Voluntariado</Link>
             <Button size="sm" variant="outline" asChild>
-              <a href="/">Inicio</a>
+              <Link to="/">Inicio</Link>
             </Button>
           </nav>
         </div>

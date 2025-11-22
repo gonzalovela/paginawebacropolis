@@ -3,6 +3,7 @@ import { ArrowRight, BookOpen, MapPin } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import heroImage from "@/assets/hero-sunset-vibrant.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -35,11 +36,11 @@ export const Hero = () => {
             className="text-lg px-8 py-6 shadow-medium hover:scale-105 transition-transform"
             asChild
           >
-            <a href="/filosofia">
+            <Link to="/filosofia">
               <BookOpen className="mr-2 h-5 w-5" />
               Conoce nuestra Escuela
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            </Link>
           </Button>
 
           <Button 
@@ -48,10 +49,10 @@ export const Hero = () => {
             className="text-lg px-8 py-6 bg-background/10 hover:bg-background/20 text-primary-foreground border-primary-foreground/30 hover:border-primary-foreground/50"
             asChild
           >
-            <a href="/inscripcion">
+            <Link to="/inscripcion">
               <MapPin className="mr-2 h-5 w-5" />
               Inscríbete ahora
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
