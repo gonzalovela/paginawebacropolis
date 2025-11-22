@@ -90,9 +90,16 @@ const Filosofia = () => {
       {/* Header */}
       <header className="border-b border-border bg-background sticky top-0 z-50">
         <div className="container px-4 md:px-6 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Nueva Acrópolis - Escuela de Filosofía" className="h-12 md:h-14" />
-          </a>
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="icon" asChild className="hover:bg-muted">
+              <a href="/" aria-label="Volver al inicio">
+                <ArrowRight className="h-5 w-5 rotate-180" />
+              </a>
+            </Button>
+            <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+              <img src={logo} alt="Nueva Acrópolis - Escuela de Filosofía" className="h-12 md:h-14" />
+            </a>
+          </div>
           <nav className="hidden md:flex items-center gap-6">
             <a href="/filosofia" className="text-sm font-medium text-primary">Filosofía</a>
             <a href="/cultura" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Cultura</a>
