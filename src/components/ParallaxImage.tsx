@@ -4,25 +4,33 @@ interface ParallaxImageProps {
   src: string;
   alt: string;
   speed?: number;
+  isHero?: boolean;
 }
 
-export const ParallaxImage = ({ src, alt, speed = 0.5 }: ParallaxImageProps) => {
+export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: ParallaxImageProps) => {
   const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (!imageRef.current) return;
       
-      const rect = imageRef.current.getBoundingClientRect();
+      const rect = imageRef.current.parentElement?.getBoundingClientRect();
+      if (!rect) return;
+      
       const scrolled = window.scrollY;
-      const elementTop = rect.top + scrolled;
-      const elementHeight = rect.height;
       const viewportHeight = window.innerHeight;
       
       // Calculate if element is in viewport
       if (rect.top < viewportHeight && rect.bottom > 0) {
-        const yPos = -(scrolled - elementTop) * speed;
-        imageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        // For hero, use a different calculation to ensure coverage
+        if (isHero) {
+          const yPos = scrolled * speed;
+          imageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        } else {
+          const elementTop = rect.top + scrolled - viewportHeight;
+          const yPos = (scrolled - elementTop) * speed;
+          imageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        }
       }
     };
 
@@ -30,14 +38,19 @@ export const ParallaxImage = ({ src, alt, speed = 0.5 }: ParallaxImageProps) => 
     handleScroll(); // Initial call
     
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [speed]);
+  }, [speed, isHero]);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
       <div 
         ref={imageRef}
-        className="absolute inset-0 w-full h-[120%] -top-[10%]"
-        style={{ willChange: "transform" }}
+        className="absolute w-full"
+        style={{ 
+          willChange: "transform",
+          top: isHero ? "-20%" : "-10%",
+          bottom: isHero ? "-20%" : "-10%",
+          height: isHero ? "140%" : "120%"
+        }}
       >
         <img 
           src={src} 

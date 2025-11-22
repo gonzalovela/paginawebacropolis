@@ -6,8 +6,14 @@ import logo from "@/assets/logo-escuela-filosofia.png";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Voluntariado = () => {
+  const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
+  const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
+  const { elementRef: areasRef, isVisible: areasVisible } = useScrollAnimation();
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+
   const principles = [
     "Creemos en un mundo mejor",
     "No hay imposibles",
@@ -113,7 +119,12 @@ const Voluntariado = () => {
       </section>
 
       {/* Key Messages */}
-      <section className="py-20 bg-background">
+      <section 
+        ref={principlesRef}
+        className={`py-20 bg-background transition-all duration-1000 ${
+          principlesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -137,7 +148,12 @@ const Voluntariado = () => {
       </section>
 
       {/* Introduction */}
-      <section className="py-20 md:py-32 bg-gradient-subtle">
+      <section 
+        ref={introRef}
+        className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
+          introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="max-w-5xl mx-auto space-y-8">
             {/* Hero Image */}
@@ -182,7 +198,12 @@ const Voluntariado = () => {
       </section>
 
       {/* Areas of Action */}
-      <section className="py-20 md:py-32 bg-background">
+      <section 
+        ref={areasRef}
+        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+          areasVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
@@ -233,7 +254,12 @@ const Voluntariado = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 md:py-32 bg-gradient-subtle">
+      <section 
+        ref={ctaRef}
+        className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
+          ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <Card className="p-8 md:p-12 bg-gradient-hero text-primary-foreground">

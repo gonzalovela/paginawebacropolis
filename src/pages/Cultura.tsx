@@ -6,8 +6,13 @@ import logo from "@/assets/logo-escuela-filosofia.png";
 import cultureImage from "@/assets/culture-activities.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Cultura = () => {
+  const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
+  const { elementRef: activitiesRef, isVisible: activitiesVisible } = useScrollAnimation();
+  const { elementRef: participationRef, isVisible: participationVisible } = useScrollAnimation();
+
   const activities = [
     {
       icon: BookOpen,
@@ -91,7 +96,12 @@ const Cultura = () => {
       </section>
 
       {/* Introduction */}
-      <section className="py-20 md:py-32 bg-background">
+      <section 
+        ref={introRef}
+        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+          introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="max-w-5xl mx-auto space-y-12">
             {/* Hero Image */}
@@ -137,7 +147,12 @@ const Cultura = () => {
       </section>
 
       {/* Activities */}
-      <section className="py-20 md:py-32 bg-gradient-subtle">
+      <section 
+        ref={activitiesRef}
+        className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
+          activitiesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
@@ -185,7 +200,12 @@ const Cultura = () => {
       </section>
 
       {/* Participation */}
-      <section className="py-20 md:py-32 bg-background">
+      <section 
+        ref={participationRef}
+        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+          participationVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <Card className="p-8 md:p-12 bg-gradient-hero text-primary-foreground">

@@ -6,8 +6,13 @@ import logo from "@/assets/logo-escuela-filosofia.png";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Filosofia = () => {
+  const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
+  const { elementRef: courseRef, isVisible: courseVisible } = useScrollAnimation();
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+
   const courseModules = [
     {
       title: "El ser humano y el universo",
@@ -119,7 +124,12 @@ const Filosofia = () => {
       </section>
 
       {/* Introduction */}
-      <section className="py-20 md:py-32 bg-background">
+      <section 
+        ref={introRef}
+        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+          introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-elegant order-2 lg:order-1">
@@ -150,7 +160,12 @@ const Filosofia = () => {
       </section>
 
       {/* Course Section */}
-      <section className="py-20 md:py-32 bg-gradient-subtle">
+      <section 
+        ref={courseRef}
+        className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
+          courseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
@@ -219,7 +234,12 @@ const Filosofia = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 md:py-32 bg-background">
+      <section 
+        ref={ctaRef}
+        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+          ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container px-4 md:px-6">
           <Card className="p-8 md:p-12 bg-gradient-warm text-secondary-foreground text-center max-w-3xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
