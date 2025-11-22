@@ -53,7 +53,7 @@ export const WhoWeAre = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/DRU5bhj8wb8"
+                  src="https://www.youtube.com/embed/NgxhR_ppPmI"
                   title="¿Qué es Nueva Acrópolis?"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
