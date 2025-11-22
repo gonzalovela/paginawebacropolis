@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import cultureImage from "@/assets/culture-activities.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
+import { ParallaxImage } from "@/components/ParallaxImage";
 
 const Cultura = () => {
   const activities = [
@@ -70,14 +71,8 @@ const Cultura = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={bannerCultura} 
-            alt="Cultura" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
-        </div>
+        <ParallaxImage src={bannerCultura} alt="Cultura" speed={0.4} />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-background/20 rounded-full text-sm font-semibold mb-4">

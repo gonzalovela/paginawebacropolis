@@ -2,19 +2,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, MapPin } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import heroImage from "@/assets/hero-sunset-vibrant.jpg";
+import { ParallaxImage } from "@/components/ParallaxImage";
 
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Hero background image */}
-      <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="Contemplación filosófica" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-      </div>
+      {/* Hero background image with parallax */}
+      <ParallaxImage src={heroImage} alt="Contemplación filosófica" speed={0.5} />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-[1]" />
 
       <div className="container relative z-10 px-4 md:px-6 text-center">
         <div className="animate-fade-in-up mb-8">
@@ -62,7 +57,7 @@ export const Hero = () => {
       </div>
 
       {/* Wave decoration at bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0 z-[2]">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
           <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
         </svg>

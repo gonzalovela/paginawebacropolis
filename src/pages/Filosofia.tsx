@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
+import { ParallaxImage } from "@/components/ParallaxImage";
 
 const Filosofia = () => {
   const courseModules = [
@@ -100,14 +101,8 @@ const Filosofia = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={bannerFilosofia} 
-            alt="Filosofía" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
-        </div>
+        <ParallaxImage src={bannerFilosofia} alt="Filosofía" speed={0.4} />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-block px-4 py-2 bg-secondary/20 text-secondary-foreground rounded-full text-sm font-semibold mb-4">
