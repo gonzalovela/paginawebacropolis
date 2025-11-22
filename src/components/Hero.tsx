@@ -1,15 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, MapPin } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
+import heroImage from "@/assets/hero-sunset-contemplation.jpg";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0C46.569 0 60 13.431 60 30s-13.431 30-30 30S0 46.569 0 30 13.431 0 30 0zm0 58C45.464 58 58 45.464 58 30S45.464 2 30 2 2 14.536 2 30s12.536 28 28 28z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-        }} />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero background image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Contemplación filosófica" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       </div>
 
       <div className="container relative z-10 px-4 md:px-6 text-center">

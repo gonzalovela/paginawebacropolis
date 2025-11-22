@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Heart, Sprout, Users, Lightbulb, HandHeart, TreePine, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo-escuela-filosofia.png";
+import volunteeringImage from "@/assets/volunteering-action.jpg";
 
 const Voluntariado = () => {
   const principles = [
@@ -134,8 +135,17 @@ const Voluntariado = () => {
       {/* Introduction */}
       <section className="py-20 md:py-32 bg-gradient-subtle">
         <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="text-center space-y-6">
+          <div className="max-w-5xl mx-auto space-y-8">
+            {/* Hero Image */}
+            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-elegant">
+              <img 
+                src={volunteeringImage} 
+                alt="Voluntariado en acción" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            <div className="text-center space-y-6 max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                 ¿Qué es el Voluntariado Filosófico?
               </h2>
