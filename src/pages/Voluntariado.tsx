@@ -111,18 +111,19 @@ const Voluntariado = () => {
         
         {/* Decorative orange elements */}
         <div className="absolute inset-0 z-[2] pointer-events-none">
-          <div className="absolute top-1/4 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-accent/15 rounded-full blur-3xl animate-float-slower"></div>
-          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-full opacity-20 animate-rotate-slow" viewBox="0 0 800 800" fill="none">
-            <circle cx="400" cy="400" r="300" stroke="hsl(var(--accent))" strokeWidth="2" opacity="0.3" />
-            <circle cx="400" cy="400" r="200" stroke="hsl(var(--accent))" strokeWidth="2" opacity="0.5" />
-            <circle cx="400" cy="400" r="100" fill="hsl(var(--accent))" opacity="0.2" />
+          <div className="absolute top-1/4 right-10 w-80 h-80 bg-secondary/35 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-orange/30 rounded-full blur-3xl animate-float-slower"></div>
+          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-full opacity-30 animate-rotate-slow" viewBox="0 0 800 800" fill="none">
+            <circle cx="400" cy="400" r="300" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.4" />
+            <circle cx="400" cy="400" r="200" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.5" />
+            <circle cx="400" cy="400" r="100" fill="hsl(35, 90%, 55%)" opacity="0.3" />
           </svg>
+          <div className="absolute top-1/3 left-1/3 w-48 h-48 bg-secondary/30 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4 border border-accent/30">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/25 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4 border border-secondary/40">
               <HandHeart className="h-4 w-4" />
               VOLUNTARIADO FILOSÓFICO
             </div>
