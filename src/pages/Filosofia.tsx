@@ -4,6 +4,7 @@ import { BookOpen, Heart, Compass, Star, CheckCircle2, ArrowRight } from "lucide
 import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
+import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 
 const Filosofia = () => {
   const courseModules = [
@@ -98,16 +99,24 @@ const Filosofia = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-hero text-primary-foreground">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={bannerFilosofia} 
+            alt="Filosofía" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+        </div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-block px-4 py-2 bg-secondary/20 text-secondary-foreground rounded-full text-sm font-semibold mb-4">
               ESCUELA DE FILOSOFÍA
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold">
+            <h1 className="text-4xl md:text-6xl font-bold text-white">
               Filosofía para la Vida
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
               Una propuesta diferente de filosofía: práctica, viva y aplicable a los desafíos del mundo moderno.
             </p>
           </div>
