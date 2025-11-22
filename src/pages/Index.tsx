@@ -1,7 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { WhatIsNA } from "@/components/WhatIsNA";
 import { ThreePrinciples } from "@/components/ThreePrinciples";
-import { PhilosophyCircle } from "@/components/PhilosophyCircle";
 import { CourseSection } from "@/components/CourseSection";
 import { SimplifiedLocations } from "@/components/SimplifiedLocations";
 import { Footer } from "@/components/Footer";
@@ -10,7 +9,6 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const Index = () => {
   const { elementRef: whatIsRef, isVisible: whatIsVisible } = useScrollAnimation();
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
-  const { elementRef: circleRef, isVisible: circleVisible } = useScrollAnimation();
   const { elementRef: courseRef, isVisible: courseVisible } = useScrollAnimation();
   const { elementRef: locationsRef, isVisible: locationsVisible } = useScrollAnimation();
 
@@ -32,14 +30,6 @@ const Index = () => {
         }`}
       >
         <ThreePrinciples />
-      </div>
-      <div 
-        ref={circleRef}
-        className={`transition-all duration-1000 ${
-          circleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-      >
-        <PhilosophyCircle />
       </div>
       <div 
         ref={courseRef}
