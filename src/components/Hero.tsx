@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, MapPin } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
-import heroImage from "@/assets/hero-sunset-contemplation.jpg";
+import heroImage from "@/assets/hero-sunset-vibrant.jpg";
 
 export const Hero = () => {
   return (

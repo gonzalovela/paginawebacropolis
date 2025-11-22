@@ -4,6 +4,7 @@ import { Palette, Music, Theater, BookOpen, Globe, Users, ArrowRight } from "luc
 import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import cultureImage from "@/assets/culture-activities.jpg";
+import bannerCultura from "@/assets/banner-cultura.jpg";
 
 const Cultura = () => {
   const activities = [
@@ -68,17 +69,25 @@ const Cultura = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-warm text-secondary-foreground">
-        <div className="container px-4 md:px-6">
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={bannerCultura} 
+            alt="Cultura" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+        </div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-background/20 rounded-full text-sm font-semibold mb-4">
               <Palette className="h-4 w-4" />
               CULTURA FILOSÓFICA
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold">
+            <h1 className="text-4xl md:text-6xl font-bold text-white">
               Cultura con Sentido
             </h1>
-            <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
               La cultura es una vía de acceso a la comprensión entre personas, épocas y civilizaciones. 
               Construimos puentes, no trincheras.
             </p>
