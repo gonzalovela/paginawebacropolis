@@ -107,30 +107,45 @@ const Voluntariado = () => {
       {/* Hero Section */}
       <section className="relative py-24 md:py-36 overflow-hidden">
         <ParallaxImage src={bannerVoluntariado} alt="Voluntariado" speed={0.5} isHero />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60 z-[1]" />
         
-        {/* Decorative orange elements */}
+        {/* Decorative orange graphic elements */}
         <div className="absolute inset-0 z-[2] pointer-events-none">
-          <div className="absolute top-1/4 right-10 w-80 h-80 bg-secondary/35 rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-orange/30 rounded-full blur-3xl animate-float-slower"></div>
-          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-full opacity-30 animate-rotate-slow" viewBox="0 0 800 800" fill="none">
-            <circle cx="400" cy="400" r="300" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.4" />
-            <circle cx="400" cy="400" r="200" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.5" />
-            <circle cx="400" cy="400" r="100" fill="hsl(35, 90%, 55%)" opacity="0.3" />
+          {/* Large orange circles */}
+          <div className="absolute top-1/4 right-10 w-[420px] h-[420px] bg-secondary/40 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-orange/35 rounded-full blur-3xl animate-float-slower"></div>
+          
+          {/* Concentric circles animation */}
+          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-50 animate-rotate-slow" viewBox="0 0 800 800">
+            <circle cx="400" cy="400" r="300" stroke="hsl(35, 90%, 55%)" strokeWidth="4" fill="none" opacity="0.4" />
+            <circle cx="400" cy="400" r="220" stroke="hsl(35, 90%, 55%)" strokeWidth="4" fill="none" opacity="0.5" />
+            <circle cx="400" cy="400" r="140" stroke="hsl(35, 90%, 55%)" strokeWidth="4" fill="none" opacity="0.6" />
+            <circle cx="400" cy="400" r="80" fill="hsl(35, 90%, 55%)" opacity="0.3" />
           </svg>
-          <div className="absolute top-1/3 left-1/3 w-48 h-48 bg-secondary/30 rounded-full blur-3xl"></div>
+          
+          {/* Geometric accents */}
+          <div className="absolute top-1/3 right-1/4 w-32 h-32 border-4 border-secondary/80 rounded-full animate-pulse-glow"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-24 h-24 bg-orange/70 rotate-45 animate-float-slow"></div>
+          
+          <svg className="absolute top-20 right-1/3 w-40 h-40 opacity-70" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="hsl(35, 90%, 55%)" opacity="0.5" />
+          </svg>
+          
+          <svg className="absolute bottom-20 left-1/4 w-36 h-36 opacity-65 animate-float-slower" viewBox="0 0 100 100">
+            <rect x="20" y="20" width="60" height="60" fill="hsl(35, 90%, 55%)" opacity="0.5" rx="10" />
+          </svg>
         </div>
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/25 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4 border border-secondary/40">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-sm font-bold mb-4 shadow-lg">
               <HandHeart className="h-4 w-4" />
               VOLUNTARIADO FILOSÓFICO
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
+            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
               Somos lo que Hacemos
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/95 leading-relaxed drop-shadow-md">
               El voluntariado es la filosofía en acción. No basta con pensar en un mundo mejor, 
               hay que construirlo con nuestras propias manos.
             </p>

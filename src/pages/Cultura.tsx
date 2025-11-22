@@ -84,34 +84,44 @@ const Cultura = () => {
       {/* Hero Section */}
       <section className="relative py-24 md:py-36 overflow-hidden">
         <ParallaxImage src={bannerCultura} alt="Cultura" speed={0.5} isHero />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/50 z-[1]" />
         
-        {/* Decorative orange elements */}
+        {/* Decorative orange graphic elements */}
         <div className="absolute inset-0 z-[2] pointer-events-none">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-orange/30 rounded-full blur-3xl animate-pulse-glow"></div>
-          <div className="absolute bottom-10 right-20 w-80 h-80 bg-secondary/35 rounded-full blur-3xl animate-float-slow"></div>
-          <svg className="absolute bottom-0 left-0 w-1/2 h-full opacity-40 animate-float-slower" viewBox="0 0 400 800" fill="none">
-            <path d="M400 0 Q200 200 0 400 Q200 600 400 800 Z" fill="url(#orangeGradientCultura)" />
-            <defs>
-              <linearGradient id="orangeGradientCultura" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="hsl(35, 90%, 55%)" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="hsl(35, 90%, 55%)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
+          {/* Large orange circles */}
+          <div className="absolute top-0 left-0 w-[450px] h-[450px] bg-secondary/40 rounded-full blur-3xl animate-pulse-glow"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange/35 rounded-full blur-3xl animate-float-slow"></div>
+          
+          {/* Geometric shapes */}
+          <div className="absolute top-1/4 left-20 w-56 h-56 border-4 border-orange/70 rounded-3xl rotate-12 animate-float-slower"></div>
+          <div className="absolute bottom-1/4 right-32 w-40 h-40 bg-secondary/60 clip-path-triangle animate-float-slow"></div>
+          
+          {/* SVG patterns */}
+          <svg className="absolute top-1/3 left-10 w-72 h-72 opacity-60 animate-float-slower" viewBox="0 0 200 200">
+            <rect x="40" y="40" width="120" height="120" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="4" rx="20" />
+            <rect x="60" y="60" width="80" height="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.7" rx="10" />
+            <circle cx="100" cy="100" r="30" fill="hsl(35, 90%, 55%)" opacity="0.4" />
           </svg>
-          <div className="absolute top-1/3 right-1/3 w-40 h-40 bg-orange/35 rounded-full blur-2xl"></div>
+          
+          <svg className="absolute bottom-1/4 left-1/3 w-48 h-48 opacity-70" viewBox="0 0 100 100">
+            <polygon points="50,10 90,90 10,90" fill="hsl(35, 90%, 55%)" opacity="0.5" />
+          </svg>
+          
+          {/* Accent elements */}
+          <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-secondary rounded-full opacity-75 animate-pulse-glow"></div>
+          <div className="absolute bottom-1/3 left-1/2 w-14 h-14 bg-orange rotate-45 opacity-65"></div>
         </div>
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/25 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4 border border-secondary/40">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-sm font-bold mb-4 shadow-lg">
               <Palette className="h-4 w-4" />
               CULTURA FILOSÓFICA
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
+            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
               Cultura con Sentido
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/95 leading-relaxed drop-shadow-md">
               La cultura es una vía de acceso a la comprensión entre personas, épocas y civilizaciones. 
               Construimos puentes, no trincheras.
             </p>
