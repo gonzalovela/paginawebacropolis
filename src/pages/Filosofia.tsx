@@ -115,9 +115,25 @@ const Filosofia = () => {
       <section className="relative py-24 md:py-36 overflow-hidden">
         <ParallaxImage src={bannerFilosofia} alt="Filosofía" speed={0.5} isHero />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
+        
+        {/* Decorative orange elements */}
+        <div className="absolute inset-0 z-[2] pointer-events-none">
+          <div className="absolute top-10 right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/15 rounded-full blur-3xl"></div>
+          <svg className="absolute top-0 right-0 w-1/3 h-full opacity-30" viewBox="0 0 400 800" fill="none">
+            <path d="M0 0 Q200 200 400 400 Q200 600 0 800 Z" fill="url(#orangeGradient)" />
+            <defs>
+              <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-block px-4 py-2 bg-secondary/20 text-secondary-foreground rounded-full text-sm font-semibold mb-4">
+            <div className="inline-block px-4 py-2 bg-accent/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4 border border-accent/30">
               ESCUELA DE FILOSOFÍA
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white">
