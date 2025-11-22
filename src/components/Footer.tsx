@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -26,24 +27,24 @@ export const Footer = () => {
             <h3 className="font-bold mb-4">Navegación</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <Link to="/" className="hover:text-accent transition-colors">
                   Inicio
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <Link to="/filosofia" className="hover:text-accent transition-colors">
                   Curso Conócete a Ti Mismo
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Actividades
-                </a>
+                <Link to="/cultura" className="hover:text-accent transition-colors">
+                  Actividades Culturales
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Sedes
-                </a>
+                <Link to="/voluntariado" className="hover:text-accent transition-colors">
+                  Voluntariado
+                </Link>
               </li>
             </ul>
           </div>

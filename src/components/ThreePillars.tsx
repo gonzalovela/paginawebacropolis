@@ -1,6 +1,7 @@
 import { BookOpen, Palette, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const ThreePillars = () => {
   const pillars = [
@@ -75,9 +76,9 @@ export const ThreePillars = () => {
 
                 <div className="mt-8 pt-6 border-t border-border">
                   <Button variant="outline" className="w-full" asChild>
-                    <a href={pillar.link}>
+                    <Link to={pillar.link}>
                       Conoce más
-                    </a>
+                    </Link>
                   </Button>
                 </div>
               </Card>
