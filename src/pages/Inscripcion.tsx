@@ -1,39 +1,17 @@
+import { Navigation } from "@/components/Navigation";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
-import logo from "@/assets/logo-escuela-filosofia.png";
 import { Link } from "react-router-dom";
 
 const Inscripcion = () => {
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="border-b border-border bg-background sticky top-0 z-50">
-        <div className="container px-4 md:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" asChild className="hover:bg-muted">
-              <Link to="/" aria-label="Volver al inicio">
-                <ArrowRight className="h-5 w-5 rotate-180" />
-              </Link>
-            </Button>
-            <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img src={logo} alt="Nueva Acrópolis - Escuela de Filosofía" className="h-12 md:h-14" />
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link to="/filosofia" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Filosofía</Link>
-            <Link to="/cultura" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Cultura</Link>
-            <Link to="/voluntariado" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Voluntariado</Link>
-            <Button size="sm" variant="outline" asChild>
-              <Link to="/">Inicio</Link>
-            </Button>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-gradient-subtle">
+      <section className="py-16 md:py-24 bg-gradient-subtle mt-20">
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground">

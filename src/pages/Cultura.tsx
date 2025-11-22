@@ -1,8 +1,8 @@
+import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Palette, Music, Theater, BookOpen, Globe, Users, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
-import logo from "@/assets/logo-escuela-filosofia.png";
 import cultureImage from "@/assets/culture-activities.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
@@ -58,29 +58,7 @@ const Cultura = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="border-b border-border bg-background sticky top-0 z-50">
-        <div className="container px-4 md:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" asChild className="hover:bg-muted">
-              <Link to="/" aria-label="Volver al inicio">
-                <ArrowRight className="h-5 w-5 rotate-180" />
-              </Link>
-            </Button>
-            <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img src={logo} alt="Nueva Acrópolis - Escuela de Filosofía" className="h-12 md:h-14" />
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link to="/filosofia" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Filosofía</Link>
-            <Link to="/cultura" className="text-sm font-medium text-primary">Cultura</Link>
-            <Link to="/voluntariado" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Voluntariado</Link>
-            <Button size="sm" asChild>
-              <Link to="/inscripcion">Inscríbete</Link>
-            </Button>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="relative py-24 md:py-36 overflow-hidden">
