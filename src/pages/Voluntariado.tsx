@@ -108,9 +108,21 @@ const Voluntariado = () => {
       <section className="relative py-24 md:py-36 overflow-hidden">
         <ParallaxImage src={bannerVoluntariado} alt="Voluntariado" speed={0.5} isHero />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
+        
+        {/* Decorative orange elements */}
+        <div className="absolute inset-0 z-[2] pointer-events-none">
+          <div className="absolute top-1/4 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-accent/15 rounded-full blur-3xl"></div>
+          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-full opacity-20" viewBox="0 0 800 800" fill="none">
+            <circle cx="400" cy="400" r="300" stroke="hsl(var(--accent))" strokeWidth="2" opacity="0.3" />
+            <circle cx="400" cy="400" r="200" stroke="hsl(var(--accent))" strokeWidth="2" opacity="0.5" />
+            <circle cx="400" cy="400" r="100" fill="hsl(var(--accent))" opacity="0.2" />
+          </svg>
+        </div>
+
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-background/20 rounded-full text-sm font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4 border border-accent/30">
               <HandHeart className="h-4 w-4" />
               VOLUNTARIADO FILOSÓFICO
             </div>
