@@ -27,8 +27,8 @@ const QuienesSomos = () => {
         </div>
       </header>
 
-      {/* Main content with padding for fixed header */}
-      <main className="pt-24">
+      {/* Main content - no extra padding since banner is full height */}
+      <main className="pt-20">
         <WhoWeAre />
       </main>
 
