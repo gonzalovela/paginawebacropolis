@@ -2,35 +2,32 @@ import { BookOpen, Palette, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import philosophyImage from "@/assets/philosophy-study-group.jpg";
+import cultureImage from "@/assets/culture-activities.jpg";
+import volunteeringImage from "@/assets/volunteering-action.jpg";
 
 export const ThreePillars = () => {
   const pillars = [
     {
-      icon: BookOpen,
-      title: "Filosofía",
-      subtitle: "Conocimiento Interior",
+      image: philosophyImage,
+      title: "¡Filosofía para despertar!",
       description: "La filosofía como camino de autoconocimiento y transformación personal. Estudiamos el pensamiento de grandes maestros de Oriente y Occidente para aplicarlo a la vida cotidiana.",
       link: "/filosofia",
-      color: "text-primary",
-      bgColor: "bg-primary/10",
+      titleColor: "text-primary",
     },
     {
-      icon: Palette,
-      title: "Cultura",
-      subtitle: "Puentes de Unión",
+      image: cultureImage,
+      title: "¡Cultura para perfeccionar!",
       description: "La cultura como vía de encuentro entre personas, épocas y civilizaciones. Arte, música, teatro e historia para desarrollar sensibilidad y pensamiento crítico.",
       link: "/cultura",
-      color: "text-secondary",
-      bgColor: "bg-secondary/10",
+      titleColor: "text-secondary",
     },
     {
-      icon: Heart,
-      title: "Voluntariado",
-      subtitle: "Filosofía en Acción",
+      image: volunteeringImage,
+      title: "¡Voluntariado para unir!",
       description: "El voluntariado como expresión práctica de nuestros ideales. Acción ambiental, social y cultural para construir un mundo más justo y fraternal.",
       link: "/voluntariado",
-      color: "text-accent",
-      bgColor: "bg-accent/10",
+      titleColor: "text-[#e74c3c]",
     },
   ];
 
@@ -39,7 +36,7 @@ export const ThreePillars = () => {
       <div className="container px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Nuestros Tres Pilares
+            Áreas de Actuación
           </h2>
           <p className="text-lg md:text-xl text-foreground/70">
             Nueva Acrópolis se sostiene sobre tres líneas de acción que se complementan entre sí: 
@@ -48,42 +45,37 @@ export const ThreePillars = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {pillars.map((pillar, index) => {
-            const Icon = pillar.icon;
-            return (
-              <Card 
-                key={index} 
-                className="p-8 hover:shadow-elegant transition-all duration-300 flex flex-col"
-              >
-                <div className="text-center space-y-6 flex-1">
-                  <div className={`mx-auto w-16 h-16 rounded-2xl ${pillar.bgColor} ${pillar.color} flex items-center justify-center`}>
-                    <Icon className="h-8 w-8" strokeWidth={2} />
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm font-semibold text-foreground/60 uppercase tracking-wide">
-                      {pillar.subtitle}
-                    </p>
-                  </div>
+          {pillars.map((pillar, index) => (
+            <Card 
+              key={index} 
+              className="overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer"
+              onClick={() => window.location.href = pillar.link}
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={pillar.image} 
+                  alt={pillar.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              
+              <div className="p-6 space-y-4">
+                <h3 className={`text-2xl md:text-3xl font-bold ${pillar.titleColor}`}>
+                  {pillar.title}
+                </h3>
 
-                  <p className="text-foreground/70 leading-relaxed">
-                    {pillar.description}
-                  </p>
-                </div>
+                <p className="text-foreground/70 leading-relaxed">
+                  {pillar.description}
+                </p>
 
-                <div className="mt-8 pt-6 border-t border-border">
-                  <Button variant="outline" className="w-full" asChild>
-                    <Link to={pillar.link}>
-                      Conoce más
-                    </Link>
-                  </Button>
-                </div>
-              </Card>
-            );
-          })}
+                <Button variant="outline" className="w-full mt-4" asChild>
+                  <Link to={pillar.link}>
+                    Conoce más
+                  </Link>
+                </Button>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
