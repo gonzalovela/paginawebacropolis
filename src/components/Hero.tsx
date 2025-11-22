@@ -8,7 +8,7 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero background image with parallax */}
-      <ParallaxImage src={heroImage} alt="Contemplación filosófica" speed={0.5} />
+      <ParallaxImage src={heroImage} alt="Contemplación filosófica" speed={0.3} isHero={true} />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-[1]" />
 
       <div className="container relative z-10 px-4 md:px-6 text-center">
