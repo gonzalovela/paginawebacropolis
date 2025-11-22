@@ -114,33 +114,43 @@ const Filosofia = () => {
       {/* Hero Section */}
       <section className="relative py-24 md:py-36 overflow-hidden">
         <ParallaxImage src={bannerFilosofia} alt="Filosofía" speed={0.5} isHero />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-[1]" />
         
-        {/* Decorative orange elements */}
+        {/* Decorative orange graphic elements */}
         <div className="absolute inset-0 z-[2] pointer-events-none">
-          <div className="absolute top-10 right-10 w-80 h-80 bg-orange/30 rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-orange/25 rounded-full blur-3xl animate-pulse-glow"></div>
-          <svg className="absolute top-0 right-0 w-1/2 h-full opacity-40 animate-float-slower" viewBox="0 0 400 800" fill="none">
-            <path d="M0 0 Q200 200 400 400 Q200 600 0 800 Z" fill="url(#orangeGradient)" />
-            <defs>
-              <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="hsl(35, 90%, 55%)" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="hsl(35, 90%, 55%)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
+          {/* Large orange circles */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/40 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange/35 rounded-full blur-3xl animate-pulse-glow"></div>
+          
+          {/* Geometric shapes */}
+          <div className="absolute top-20 right-20 w-64 h-64 border-4 border-secondary/60 rounded-full animate-float-slower"></div>
+          <div className="absolute bottom-32 left-32 w-48 h-48 bg-secondary/50 rotate-45 animate-float-slow"></div>
+          
+          {/* SVG patterns */}
+          <svg className="absolute top-1/4 right-0 w-80 h-80 opacity-60" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="4" />
+            <circle cx="100" cy="100" r="60" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.7" />
+            <circle cx="100" cy="100" r="40" fill="hsl(35, 90%, 55%)" opacity="0.4" />
           </svg>
-          <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-secondary/40 rounded-full blur-2xl"></div>
+          
+          <svg className="absolute bottom-20 right-1/4 w-40 h-40 opacity-70 animate-rotate-slow" viewBox="0 0 100 100">
+            <path d="M50 0 L100 50 L50 100 L0 50 Z" fill="hsl(35, 90%, 55%)" opacity="0.5" />
+          </svg>
+          
+          {/* Additional accent dots */}
+          <div className="absolute top-40 right-1/3 w-16 h-16 bg-secondary rounded-full opacity-70"></div>
+          <div className="absolute bottom-40 left-1/4 w-12 h-12 bg-orange rounded-full opacity-60 animate-pulse-glow"></div>
         </div>
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-block px-4 py-2 bg-secondary/25 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4 border border-secondary/40">
+            <div className="inline-block px-6 py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-sm font-bold mb-4 shadow-lg">
               ESCUELA DE FILOSOFÍA
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
+            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
               Filosofía para la Vida
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/95 leading-relaxed drop-shadow-md">
               Una propuesta diferente de filosofía: práctica, viva y aplicable a los desafíos del mundo moderno.
             </p>
           </div>
