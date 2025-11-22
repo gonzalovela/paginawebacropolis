@@ -7,38 +7,74 @@ import logo from "@/assets/logo-escuela-filosofia.png";
 const Filosofia = () => {
   const courseModules = [
     {
-      title: "El Ser Humano",
-      description: "Quién soy, de dónde vengo, hacia dónde voy. Las grandes preguntas de la existencia.",
+      title: "El ser humano y el universo",
+      description: "Constitución humana y de la naturaleza. Filosofía activa: una forma de vida.",
     },
     {
-      title: "El Conocimiento",
-      description: "Cómo conocemos el mundo y a nosotros mismos. Filosofía del conocimiento.",
+      title: "La guerra interior",
+      description: "Simbolismo del Bhagavad Gîta. El conflicto interior y la recta acción.",
     },
     {
-      title: "Ética y Moral",
-      description: "Los valores que guían nuestra vida. El bien, la virtud y la felicidad.",
+      title: "El dominio de la mente",
+      description: "Pensamiento tibetano y niveles de concentración. La Voz del Silencio.",
     },
     {
-      title: "Filosofía Oriental",
-      description: "Sabiduría de Oriente: budismo, taoísmo, hinduismo y sus enseñanzas prácticas.",
+      title: "Cómo desarrollar la fortaleza interior",
+      description: "Las crisis. La vida del Buda y las cuatro nobles verdades.",
     },
     {
-      title: "Filosofía Occidental",
-      description: "De los presocráticos al existencialismo. El pensamiento que forjó Occidente.",
+      title: "La búsqueda de la felicidad",
+      description: "Aristóteles y la autarquía. La ética aristotélica y los grados del saber.",
     },
     {
-      title: "Vivir Filosóficamente",
-      description: "Integración y práctica. Cómo aplicar la filosofía en la vida cotidiana.",
+      title: "Importancia del eclecticismo",
+      description: "La Escuela de Alejandría. La unidad del universo y el amor.",
+    },
+    {
+      title: "El reto de vivir en sociedad",
+      description: "La necesidad de la política. Los problemas del hombre actual.",
+    },
+    {
+      title: "Visión filosófica del ser humano",
+      description: "El Mito de la caverna. El ideal platónico del ser humano y el mundo.",
+    },
+    {
+      title: "Educación para la convivencia",
+      description: "El ciudadano y su protagonismo. El valor de la educación.",
+    },
+    {
+      title: "La justicia",
+      description: "La regla de Maat. La justicia como impulso colectivo.",
+    },
+    {
+      title: "Claves para construir el futuro",
+      description: "¿Qué es la historia? Filosofía de la historia.",
+    },
+    {
+      title: "Mitos y símbolos",
+      description: "Sentido de la Historia y la Mitología. Realidad psicológica de los mitos.",
+    },
+    {
+      title: "Ideal y Filosofía",
+      description: "Qué es un Ideal. La Escuela de filosofía y la vivencia de los Ideales.",
+    },
+    {
+      title: "Ciclos de la historia",
+      description: "La rueda de la historia. Teoría del eterno retorno.",
+    },
+    {
+      title: "Libertad y destino",
+      description: "Teoría histórica de Cicerón. Cómo transformarse en agente consciente de la historia.",
     },
   ];
 
   const benefits = [
-    "Desarrollar pensamiento crítico y reflexivo",
-    "Comprender las grandes corrientes filosóficas",
-    "Aplicar principios filosóficos a tu vida diaria",
-    "Conocer la filosofía comparada de Oriente y Occidente",
-    "Cultivar virtudes y fortaleza interior",
-    "Conectar con una comunidad de buscadores",
+    "Conocerte más para desarrollar tus fortalezas y ser mejor persona",
+    "Encontrar respuestas a tus interrogantes sobre la vida",
+    "Descubrir el sentido profundo de la existencia",
+    "Definir tus valores, para dejar una huella en el mundo",
+    "Comprender a los demás y el porqué de las circunstancias que vives",
+    "Tomar mejores decisiones, con la sabiduría de grandes filósofos y civilizaciones",
   ];
 
   return (
@@ -127,12 +163,12 @@ const Filosofia = () => {
               Curso "Conócete a Ti Mismo"
             </h2>
             <p className="text-lg md:text-xl text-foreground/70">
-              Nuestro curso fundamental de 12 semanas. Un viaje de descubrimiento interior basado en la máxima socrática inscrita en el templo de Delfos.
+              Descubre los secretos de tu mundo interior. A través de un apasionante viaje de autoconocimiento, exploraremos las enseñanzas de grandes pensadores para encontrarle un sentido más profundo a la vida. Aprenderemos filosofía de manera práctica y vivencial para convertirnos en mejores personas y tomar decisiones acertadas.
             </p>
           </div>
 
           {/* Course modules */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
             {courseModules.map((module, index) => (
               <Card key={index} className="p-6 hover:shadow-medium transition-all">
                 <div className="flex items-start gap-4">
@@ -165,7 +201,7 @@ const Filosofia = () => {
             <div className="mt-8 pt-8 border-t border-border text-center space-y-4">
               <div className="grid sm:grid-cols-3 gap-4 mb-6">
                 <div className="p-4 rounded-lg bg-muted">
-                  <p className="font-bold text-foreground">12 semanas</p>
+                  <p className="font-bold text-foreground">24 horas pedagógicas</p>
                   <p className="text-sm text-foreground/60">Duración</p>
                 </div>
                 <div className="p-4 rounded-lg bg-muted">
@@ -173,8 +209,8 @@ const Filosofia = () => {
                   <p className="text-sm text-foreground/60">Modalidad</p>
                 </div>
                 <div className="p-4 rounded-lg bg-muted">
-                  <p className="font-bold text-foreground">Certificado</p>
-                  <p className="text-sm text-foreground/60">Incluido</p>
+                  <p className="font-bold text-foreground">1 vez por semana</p>
+                  <p className="text-sm text-foreground/60">Frecuencia</p>
                 </div>
               </div>
               <Button size="lg" asChild>

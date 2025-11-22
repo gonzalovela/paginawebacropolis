@@ -4,11 +4,12 @@ import { CheckCircle2, Clock, Users, ArrowRight } from "lucide-react";
 
 export const CourseSection = () => {
   const benefits = [
-    "Descubre quién eres realmente y tu propósito de vida",
-    "Desarrolla autoconocimiento y fortaleza interior",
-    "Aprende a tomar mejores decisiones",
-    "Conecta con una comunidad de buscadores",
-    "Aplica filosofía antigua a problemas modernos",
+    "Conocerte más para desarrollar tus fortalezas y ser mejor persona",
+    "Encontrar respuestas a tus interrogantes sobre la vida",
+    "Descubrir el sentido profundo de la existencia",
+    "Definir tus valores, para dejar una huella en el mundo",
+    "Comprender a los demás y el porqué de las circunstancias que vives",
+    "Tomar mejores decisiones, con la sabiduría de grandes filósofos y civilizaciones",
   ];
 
   const testimonials = [
@@ -38,7 +39,7 @@ export const CourseSection = () => {
                 Conócete a Ti Mismo
               </h2>
               <p className="text-xl text-foreground/70 leading-relaxed">
-                Nuestro curso fundamental de filosofía práctica. Un viaje de descubrimiento interior basado en la máxima socrática que ha transformado miles de vidas.
+                Descubre los secretos de tu mundo interior. A través de un apasionante viaje de autoconocimiento, exploraremos las enseñanzas de grandes pensadores para encontrarle un sentido más profundo a la vida.
               </p>
             </div>
 
@@ -69,7 +70,7 @@ export const CourseSection = () => {
                 <Clock className="h-5 w-5 text-primary flex-shrink-0" />
                 <div>
                   <p className="text-sm font-semibold text-foreground">Duración</p>
-                  <p className="text-xs text-foreground/60">12 semanas</p>
+                  <p className="text-xs text-foreground/60">24 horas pedagógicas</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
@@ -82,8 +83,8 @@ export const CourseSection = () => {
               <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
                 <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Certificado</p>
-                  <p className="text-xs text-foreground/60">Incluido</p>
+                  <p className="text-sm font-semibold text-foreground">Frecuencia</p>
+                  <p className="text-xs text-foreground/60">1 vez por semana</p>
                 </div>
               </div>
             </div>
