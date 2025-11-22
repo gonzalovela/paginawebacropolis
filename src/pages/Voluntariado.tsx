@@ -83,8 +83,8 @@ const Voluntariado = () => {
       {/* Header */}
       <header className="border-b border-border bg-background sticky top-0 z-50">
         <div className="container px-4 md:px-6 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
-            <img src={logo} alt="Nueva Acrópolis" className="h-12" />
+          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src={logo} alt="Nueva Acrópolis - Escuela de Filosofía" className="h-12 md:h-14" />
           </a>
           <nav className="hidden md:flex items-center gap-6">
             <a href="/filosofia" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">Filosofía</a>
@@ -98,8 +98,8 @@ const Voluntariado = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <ParallaxImage src={bannerVoluntariado} alt="Voluntariado" speed={0.4} />
+      <section className="relative py-24 md:py-36 overflow-hidden">
+        <ParallaxImage src={bannerVoluntariado} alt="Voluntariado" speed={0.5} isHero />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-[1]" />
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
