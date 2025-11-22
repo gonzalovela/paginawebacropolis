@@ -1,5 +1,5 @@
 import { Hero } from "@/components/Hero";
-import { WhatIsNA } from "@/components/WhatIsNA";
+import { WhoWeAre } from "@/components/WhoWeAre";
 import { ThreePrinciples } from "@/components/ThreePrinciples";
 import { ThreePillars } from "@/components/ThreePillars";
 import { CourseSection } from "@/components/CourseSection";
@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
-  const { elementRef: whatIsRef, isVisible: whatIsVisible } = useScrollAnimation();
+  const { elementRef: whoWeAreRef, isVisible: whoWeAreVisible } = useScrollAnimation();
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
   const { elementRef: pillarsRef, isVisible: pillarsVisible } = useScrollAnimation();
   const { elementRef: courseRef, isVisible: courseVisible } = useScrollAnimation();
@@ -18,12 +18,12 @@ const Index = () => {
     <div className="min-h-screen">
       <Hero />
       <div 
-        ref={whatIsRef}
+        ref={whoWeAreRef}
         className={`transition-all duration-1000 ${
-          whatIsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          whoWeAreVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        <WhatIsNA />
+        <WhoWeAre />
       </div>
       <div 
         ref={principlesRef}
