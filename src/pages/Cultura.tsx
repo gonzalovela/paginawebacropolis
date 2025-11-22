@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Palette, Music, Theater, BookOpen, Globe, Users, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo-escuela-filosofia.png";
+import cultureImage from "@/assets/culture-activities.jpg";
 
 const Cultura = () => {
   const activities = [
@@ -88,8 +89,17 @@ const Cultura = () => {
       {/* Introduction */}
       <section className="py-20 md:py-32 bg-background">
         <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <div className="text-center space-y-6">
+          <div className="max-w-5xl mx-auto space-y-12">
+            {/* Hero Image */}
+            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-elegant">
+              <img 
+                src={cultureImage} 
+                alt="Actividades culturales" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            <div className="text-center space-y-6 max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                 ¿Qué es la Cultura Filosófica?
               </h2>

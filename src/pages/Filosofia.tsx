@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { BookOpen, Heart, Compass, Star, CheckCircle2, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo-escuela-filosofia.png";
+import philosophyImage from "@/assets/philosophy-study-group.jpg";
 
 const Filosofia = () => {
   const courseModules = [
@@ -117,7 +118,14 @@ const Filosofia = () => {
       <section className="py-20 md:py-32 bg-background">
         <div className="container px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+            <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-elegant order-2 lg:order-1">
+              <img 
+                src={philosophyImage} 
+                alt="Grupo de estudio filosófico" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="space-y-6 order-1 lg:order-2">
               <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                 ¿Qué es la Filosofía?
               </h2>
@@ -132,24 +140,6 @@ const Filosofia = () => {
                   Pero más importante aún: <strong>llevamos la filosofía a la práctica</strong>. No se trata solo de pensar diferente, sino de vivir diferente.
                 </p>
               </div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {[
-                { icon: BookOpen, title: "Estudiar", desc: "Las grandes ideas de la humanidad" },
-                { icon: Heart, title: "Sentir", desc: "Conectar con valores profundos" },
-                { icon: Compass, title: "Actuar", desc: "Aplicar principios a la vida" },
-                { icon: Star, title: "Transformar", desc: "Desarrollar todo tu potencial" },
-              ].map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <Card key={index} className="p-6 text-center hover:shadow-medium transition-all">
-                    <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-sm text-foreground/60">{item.desc}</p>
-                  </Card>
-                );
-              })}
             </div>
           </div>
         </div>
