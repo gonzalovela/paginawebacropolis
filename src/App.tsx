@@ -8,6 +8,7 @@ import Filosofia from "./pages/Filosofia";
 import Cultura from "./pages/Cultura";
 import Voluntariado from "./pages/Voluntariado";
 import Inscripcion from "./pages/Inscripcion";
+import QuienesSomos from "./pages/QuienesSomos";
 import DesignSystem from "./pages/DesignSystem";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/cultura" element={<Cultura />} />
           <Route path="/voluntariado" element={<Voluntariado />} />
           <Route path="/inscripcion" element={<Inscripcion />} />
+          <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/design-system" element={<DesignSystem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

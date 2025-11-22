@@ -32,6 +32,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/quienes-somos" className="hover:text-accent transition-colors">
+                  Quiénes Somos
+                </Link>
+              </li>
+              <li>
                 <Link to="/filosofia" className="hover:text-accent transition-colors">
                   Curso Conócete a Ti Mismo
                 </Link>

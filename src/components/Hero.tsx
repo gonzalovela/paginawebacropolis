@@ -36,9 +36,9 @@ export const Hero = () => {
             className="text-lg px-8 py-6 shadow-medium hover:scale-105 transition-transform"
             asChild
           >
-            <Link to="/filosofia">
+            <Link to="/quienes-somos">
               <BookOpen className="mr-2 h-5 w-5" />
-              Conoce nuestra Escuela
+              Quiénes Somos
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
