@@ -1,3 +1,4 @@
+import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ThreePrinciples } from "@/components/ThreePrinciples";
 import { ThreePillars } from "@/components/ThreePillars";
@@ -14,6 +15,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Navigation />
       <Hero />
       <div 
         ref={principlesRef}
