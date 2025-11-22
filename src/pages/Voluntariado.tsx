@@ -111,9 +111,9 @@ const Voluntariado = () => {
         
         {/* Decorative orange elements */}
         <div className="absolute inset-0 z-[2] pointer-events-none">
-          <div className="absolute top-1/4 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-accent/15 rounded-full blur-3xl"></div>
-          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-full opacity-20" viewBox="0 0 800 800" fill="none">
+          <div className="absolute top-1/4 right-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-accent/15 rounded-full blur-3xl animate-float-slower"></div>
+          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-full opacity-20 animate-rotate-slow" viewBox="0 0 800 800" fill="none">
             <circle cx="400" cy="400" r="300" stroke="hsl(var(--accent))" strokeWidth="2" opacity="0.3" />
             <circle cx="400" cy="400" r="200" stroke="hsl(var(--accent))" strokeWidth="2" opacity="0.5" />
             <circle cx="400" cy="400" r="100" fill="hsl(var(--accent))" opacity="0.2" />

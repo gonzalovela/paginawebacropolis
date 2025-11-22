@@ -88,9 +88,9 @@ const Cultura = () => {
         
         {/* Decorative orange elements */}
         <div className="absolute inset-0 z-[2] pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-20 w-80 h-80 bg-accent/15 rounded-full blur-3xl"></div>
-          <svg className="absolute bottom-0 left-0 w-1/3 h-full opacity-30" viewBox="0 0 400 800" fill="none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse-glow"></div>
+          <div className="absolute bottom-10 right-20 w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-float-slow"></div>
+          <svg className="absolute bottom-0 left-0 w-1/3 h-full opacity-30 animate-float-slower" viewBox="0 0 400 800" fill="none">
             <path d="M400 0 Q200 200 0 400 Q200 600 400 800 Z" fill="url(#orangeGradientCultura)" />
             <defs>
               <linearGradient id="orangeGradientCultura" x1="0%" y1="0%" x2="100%" y2="100%">
