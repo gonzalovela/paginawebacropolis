@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { Pencil, Trash2, Plus } from "lucide-react";
+import { Pencil, Trash2, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface Sede {
   id: string;
@@ -47,10 +49,18 @@ export const SedesAdminPanel = () => {
   const [formData, setFormData] = useState<SedeFormData>(emptyForm);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadSedes();
   }, []);
+
+  const handleSignOut = async () => {
+    await signOut();
+    toast.success("Sesión cerrada");
+    navigate("/");
+  };
 
   const loadSedes = async () => {
     try {
@@ -151,7 +161,20 @@ export const SedesAdminPanel = () => {
 
   return (
     <section className="container px-4 py-16">
-      <h1 className="text-4xl font-bold mb-8">Administrar Sedes</h1>
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-4xl font-bold">Administrar Sedes</h1>
+          {user && (
+            <p className="text-muted-foreground mt-2">
+              {user.email}
+            </p>
+          )}
+        </div>
+        <Button variant="outline" onClick={handleSignOut}>
+          <LogOut className="mr-2 h-4 w-4" />
+          Cerrar Sesión
+        </Button>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Form */}

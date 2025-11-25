@@ -56,6 +56,16 @@ export const Hero = () => {
             </Link>
           </Button>
         </div>
+        
+        {/* Discrete admin link */}
+        <div className="mt-12 opacity-30 hover:opacity-100 transition-opacity">
+          <Link 
+            to="/auth" 
+            className="text-xs text-primary-foreground/50 hover:text-primary-foreground"
+          >
+            Admin
+          </Link>
+        </div>
       </div>
 
       {/* Wave decoration at bottom */}
