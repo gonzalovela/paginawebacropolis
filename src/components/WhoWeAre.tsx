@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart } from "lucide-react";
+import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart, Trophy } from "lucide-react";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
 import jorgeLivragaPortrait from "@/assets/jorge-livraga-real.jpg";
@@ -368,26 +368,26 @@ export const WhoWeAre = () => {
                         Beatriz Diez Canseco
                       </h3>
                       <p className="text-lg font-medium text-accent">
-                        Presidenta desde 2020
+                        Directora Nacional - Perú
                       </p>
                       <p className="text-sm text-foreground/60 italic">
-                        Directora Nacional - Perú
+                        Más de 30 años de trayectoria
                       </p>
                     </div>
 
                     <div className="w-full space-y-3 pt-4">
                       <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
-                        <Building2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+                        <BookOpen className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="text-xs font-semibold text-foreground/80 mb-1">Presencia Nacional</p>
-                          <p className="text-sm text-foreground/70">Nueva Acrópolis en Perú desde 1969</p>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Formación</p>
+                          <p className="text-sm text-foreground/70">Maestra en Filosofía Oriental y Occidental (OINA)</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
-                        <Heart className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                        <Users className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="text-xs font-semibold text-foreground/80 mb-1">Voluntariado</p>
-                          <p className="text-sm text-foreground/70">Activo en naturaleza, cultura y acción social</p>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Comunidad</p>
+                          <p className="text-sm text-foreground/70">Más de 5,000 miembros activos y 65+ sedes</p>
                         </div>
                       </div>
                     </div>
@@ -398,11 +398,11 @@ export const WhoWeAre = () => {
                     <div className="space-y-4">
                       <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/5 rounded-lg border border-accent/10">
                         <Sparkles className="h-4 w-4 text-accent" />
-                        <span className="text-sm font-semibold text-accent">Liderazgo Nacional</span>
+                        <span className="text-sm font-semibold text-accent">Más de 30 Años de Liderazgo</span>
                       </div>
                       
                       <p className="text-foreground/90 leading-relaxed text-lg">
-                        Lidera <strong className="text-accent">Nueva Acrópolis Perú</strong>, promoviendo la filosofía práctica como herramienta de transformación personal y social. Su gestión fortalece las tres líneas de acción fundamentales: <strong>Filosofía, Cultura y Voluntariado</strong>.
+                        Con <strong className="text-accent">más de 30 años como Directora Nacional</strong> de Nueva Acrópolis Perú y más de tres décadas enseñando filosofía, Beatriz Diez Canseco ha liderado el crecimiento y expansión de la institución a nivel nacional.
                       </p>
                     </div>
 
@@ -410,25 +410,25 @@ export const WhoWeAre = () => {
 
                     <div className="space-y-4">
                       <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
-                        <Heart className="h-5 w-5 text-secondary" />
-                        Enfoque de su Gestión
+                        <Trophy className="h-5 w-5 text-secondary" />
+                        Principales Logros
                       </h4>
                       <div className="grid sm:grid-cols-2 gap-3">
                         <div className="p-4 bg-accent/5 rounded-xl border border-accent/10 hover:border-accent/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Filosofía Aplicada</p>
-                          <p className="text-xs text-foreground/70">Educación filosófica práctica para la vida cotidiana</p>
+                          <p className="text-sm font-semibold text-foreground mb-1">Crecimiento Nacional</p>
+                          <p className="text-xs text-foreground/70">Expansión a más de 65 sedes en todo el Perú</p>
                         </div>
                         <div className="p-4 bg-secondary/5 rounded-xl border border-secondary/10 hover:border-secondary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Cultura Viva</p>
-                          <p className="text-xs text-foreground/70">Encuentros culturales y estudio de civilizaciones</p>
+                          <p className="text-sm font-semibold text-foreground mb-1">Comunidad Activa</p>
+                          <p className="text-xs text-foreground/70">Más de 5,000 miembros en la Escuela de Filosofía</p>
                         </div>
                         <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Voluntariado Activo</p>
-                          <p className="text-xs text-foreground/70">Acción comprometida con naturaleza y sociedad</p>
+                          <p className="text-sm font-semibold text-foreground mb-1">Promoción Cultural</p>
+                          <p className="text-xs text-foreground/70">Fundadora del Concurso Nacional de Música (1984)</p>
                         </div>
                         <div className="p-4 bg-muted rounded-xl border border-border hover:border-accent/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Desarrollo Humano</p>
-                          <p className="text-xs text-foreground/70">Promoviendo el potencial de cada persona</p>
+                          <p className="text-sm font-semibold text-foreground mb-1">Obra Literaria</p>
+                          <p className="text-xs text-foreground/70">Autora de múltiples libros sobre filosofía</p>
                         </div>
                       </div>
                     </div>
@@ -438,27 +438,27 @@ export const WhoWeAre = () => {
                     <div className="space-y-4">
                       <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
                         <Sparkles className="h-5 w-5 text-primary" />
-                        Nueva Acrópolis Perú
+                        Trayectoria y Legado
                       </h4>
                       <div className="space-y-3">
                         <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent">
-                          <span className="text-accent font-bold text-sm">1969</span>
-                          <p className="text-sm text-foreground/70">Nueva Acrópolis llega al Perú, iniciando más de 50 años de trayectoria</p>
+                          <span className="text-accent font-bold text-sm">1984</span>
+                          <p className="text-sm text-foreground/70">Funda el Concurso Nacional de Música, que continuó por más de 20 años hasta la pandemia</p>
                         </div>
                         <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary">
-                          <span className="text-secondary font-bold text-sm">2020</span>
-                          <p className="text-sm text-foreground/70">Asume la Presidencia Nacional de Nueva Acrópolis Perú</p>
+                          <span className="text-secondary font-bold text-sm">30+ Años</span>
+                          <p className="text-sm text-foreground/70">Directora Nacional de Nueva Acrópolis Perú, liderando su expansión y consolidación</p>
                         </div>
                         <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-2 border-primary">
                           <span className="text-primary font-bold text-sm">Hoy</span>
-                          <p className="text-sm text-foreground/70">Consolida la Escuela de Filosofía a nivel nacional</p>
+                          <p className="text-sm text-foreground/70">Maestra en Filosofía Oriental y Occidental (OINA), con más de 30 años enseñando filosofía</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="p-6 bg-gradient-to-br from-accent/10 via-secondary/5 to-transparent rounded-xl border border-accent/20">
                       <p className="text-foreground/80 leading-relaxed italic">
-                        "Bajo su dirección, Nueva Acrópolis Perú mantiene vivo el ideal de una filosofía práctica y transformadora, promoviendo el desarrollo humano integral a través de la educación filosófica, el encuentro cultural y la acción voluntaria."
+                        "Bajo su liderazgo, Nueva Acrópolis Perú ha crecido hasta convertirse en una comunidad de más de 5,000 miembros activos distribuidos en más de 65 sedes a nivel nacional, manteniendo vivo el ideal de una filosofía práctica y transformadora."
                       </p>
                     </div>
                   </div>
