@@ -70,6 +70,113 @@ export const WhoWeAre = () => {
               </p>
             </div>
 
+            {/* Fundador */}
+            <div className="max-w-5xl mx-auto">
+              <Card className="p-8 md:p-12 bg-gradient-subtle">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm mb-2">
+                      Fundador
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+                      Jorge Ángel Livraga Rizzi
+                    </h3>
+                    <p className="text-lg text-foreground/80 font-medium">
+                      1930 - 1991
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Fundador y Primer Presidente de la Organización Internacional Nueva Acrópolis. Su propuesta innovadora fue revivir la idea de <strong>Escuela de Filosofía en la Tradición Clásica</strong>, reintroduciendo el método socrático como búsqueda de la sabiduría y conocimiento del ser humano.
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Nacido en Buenos Aires en 1930, estudió Medicina y obtuvo su licenciatura en Historia del Arte y Filosofía. En 1957 fundó la Escuela de Filosofía "a la manera clásica" que más tarde se incorporó bajo el nombre de Organización Internacional Nueva Acrópolis.
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Dedicó su vida a promover esta "aventura espiritual", estableciendo centros primero en Europa y América, y más tarde, desde 1977, en Europa del Este, Asia, África y Oceanía. Falleció en Madrid en 1991.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <div className="bg-primary/5 p-6 rounded-xl">
+                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                        <BookOpen className="h-5 w-5 text-primary" />
+                        Su Legado
+                      </h4>
+                      <ul className="space-y-2 text-foreground/70 text-sm">
+                        <li>• Filosofía como forma de vida práctica</li>
+                        <li>• Método socrático aplicado a la cultura</li>
+                        <li>• Nuevo humanismo ecléctico</li>
+                        <li>• Promoción de la fraternidad entre naciones</li>
+                      </ul>
+                    </div>
+                    <div className="bg-secondary/5 p-6 rounded-xl">
+                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                        <Sparkles className="h-5 w-5 text-secondary" />
+                        Reconocimientos
+                      </h4>
+                      <ul className="space-y-2 text-foreground/70 text-sm">
+                        <li>• Cruz de París en Artes, Ciencias y Literatura (1976)</li>
+                        <li>• Miembro de la Academia Burckhardt</li>
+                        <li>• Primer Premio Nacional de Poesía en Argentina (1951)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Presidente Actual */}
+            <div className="max-w-5xl mx-auto">
+              <Card className="p-8 md:p-12 bg-gradient-subtle">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="order-2 md:order-1 flex flex-col gap-4">
+                    <div className="bg-primary/5 p-6 rounded-xl">
+                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                        <Globe className="h-5 w-5 text-primary" />
+                        Trayectoria
+                      </h4>
+                      <ul className="space-y-2 text-foreground/70 text-sm">
+                        <li>• 35 años enseñando en la Escuela de Filosofía</li>
+                        <li>• Director de Nueva Acrópolis Castellón (23 años)</li>
+                        <li>• Vicepresidente Internacional (2017-2020)</li>
+                        <li>• Especialista y Maestro en Filosofía Oriental y Occidental</li>
+                      </ul>
+                    </div>
+                    <div className="bg-secondary/5 p-6 rounded-xl">
+                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                        <Heart className="h-5 w-5 text-secondary" />
+                        Iniciativas Destacadas
+                      </h4>
+                      <ul className="space-y-2 text-foreground/70 text-sm">
+                        <li>• Días Internacionales compartidos en 60+ países</li>
+                        <li>• Plataforma "Universitas - Estudios Generales"</li>
+                        <li>• Autor de "Las Esferas de la Consciencia"</li>
+                        <li>• Promoción del voluntariado filosófico</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="space-y-4 order-1 md:order-2">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm mb-2">
+                      Presidente Actual
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+                      Carlos Adelantado Puchal
+                    </h3>
+                    <p className="text-lg text-foreground/80 font-medium">
+                      Presidente desde 2020
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Nacido en Onda, Castellón (España) el 1 de enero de 1964. A los 19 años, mientras estudiaba filosofía en la universidad, comenzó a asistir a clases en la Escuela de Filosofía Nueva Acrópolis.
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Continuó el trabajo de su maestra y predecesora, Delia Steinberg Guzmán, así como del fundador Jorge Ángel Livraga Rizzi. Ha aportado nuevas perspectivas para lograr una identidad filosófica más clara en un mundo complejo.
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Ha participado en congresos y conferencias, enfatizando la necesidad de poner la filosofía en práctica y hacerla relevante para los problemas del mundo actual. En 2013 asumió la dirección de la sede de Nueva Acrópolis en España.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
             {/* Foundation & Organization */}
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="p-8 hover:shadow-medium transition-all">
