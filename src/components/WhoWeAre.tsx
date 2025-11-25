@@ -7,6 +7,7 @@ import bannerImage from "@/assets/banner-quienes-somos.jpg";
 import jorgeLivragaPortrait from "@/assets/jorge-livraga-real.jpg";
 import carlosAdelantadoPortrait from "@/assets/carlos-adelantado-real.jpg";
 import beatrizDiezCansecoPortrait from "@/assets/beatriz-diez-canseco-portrait.jpg";
+import philosophyImage from "@/assets/philosophy-study-group.jpg";
 
 export const WhoWeAre = () => {
   const principles = [
@@ -616,20 +617,35 @@ export const WhoWeAre = () => {
             </div>
 
             {/* Philosophy as way of life */}
-            <div className="max-w-4xl mx-auto text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/10 rounded-full text-secondary font-semibold mb-4">
-                <BookOpen className="h-5 w-5" />
-                Filosofía como Forma de Vida
+            <div className="relative -mx-4 md:-mx-6 lg:-mx-12 xl:-mx-24 overflow-hidden">
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img 
+                  src={philosophyImage} 
+                  alt="Filosofía como forma de vida" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80" />
               </div>
-              <p className="text-xl text-foreground/90 leading-relaxed font-medium">
-                Trabajamos para mejorar el mundo y al ser humano por medio de la Filosofía en la tradición clásica: 
-                una búsqueda filosófica que ofrece respuestas a los problemas contemporáneos.
-              </p>
-              <p className="text-lg text-foreground/70 leading-relaxed">
-                No solo a través de la lectura y el conocimiento teórico, sino estableciéndonos la meta 
-                de aprender a vivir bien, con fuerza y eficiencia, en cada momento de nuestras vidas. 
-                Aprovechando las oportunidades que surgen y aprendiendo algo positivo incluso de la adversidad.
-              </p>
+              
+              {/* Content */}
+              <div className="relative py-24 md:py-32 px-4 md:px-6">
+                <div className="max-w-4xl mx-auto text-center space-y-6">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/90 backdrop-blur-sm rounded-full text-white font-semibold mb-4 shadow-lg">
+                    <BookOpen className="h-5 w-5" />
+                    Filosofía como Forma de Vida
+                  </div>
+                  <p className="text-xl md:text-2xl text-white leading-relaxed font-medium drop-shadow-lg">
+                    Trabajamos para mejorar el mundo y al ser humano por medio de la Filosofía en la tradición clásica: 
+                    una búsqueda filosófica que ofrece respuestas a los problemas contemporáneos.
+                  </p>
+                  <p className="text-lg text-white/90 leading-relaxed drop-shadow-md">
+                    No solo a través de la lectura y el conocimiento teórico, sino estableciéndonos la meta 
+                    de aprender a vivir bien, con fuerza y eficiencia, en cada momento de nuestras vidas. 
+                    Aprovechando las oportunidades que surgen y aprendiendo algo positivo incluso de la adversidad.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
