@@ -156,20 +156,46 @@ export const SedesAdminPanel = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('¿Estás seguro de eliminar esta sede?')) return;
+    if (!confirm('¿Estás seguro de que deseas eliminar esta sede? Esta acción no se puede deshacer.')) return;
 
     try {
+      // Verify user is authenticated
+      if (!user) {
+        toast.error('Debes iniciar sesión para eliminar sedes');
+        return;
+      }
+
       const { error } = await supabase
         .from('sedes')
         .delete()
         .eq('id', id);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error deleting sede:', error);
+        
+        // More specific error messages
+        if (error.code === 'PGRST301') {
+          toast.error('No tienes permisos para eliminar sedes');
+        } else if (error.message.includes('violates foreign key constraint')) {
+          toast.error('No se puede eliminar esta sede porque está siendo referenciada');
+        } else {
+          toast.error(`Error al eliminar: ${error.message}`);
+        }
+        return;
+      }
+
       toast.success('Sede eliminada exitosamente');
+      
+      // If we were editing this sede, clear the form
+      if (editingId === id) {
+        setEditingId(null);
+        setFormData(emptyForm);
+      }
+      
       loadSedes();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error deleting sede:', error);
-      toast.error('Error al eliminar la sede');
+      toast.error(error?.message || 'Error inesperado al eliminar la sede');
     }
   };
 
