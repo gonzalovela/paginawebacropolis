@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart, Trophy } from "lucide-react";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { ThreePillars } from "@/components/ThreePillars";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
 import jorgeLivragaPortrait from "@/assets/jorge-livraga-real.jpg";
 import carlosAdelantadoPortrait from "@/assets/carlos-adelantado-real.jpg";
@@ -100,6 +101,17 @@ export const WhoWeAre = () => {
                 </p>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Three Pillars / Areas de Actuación */}
+      <ThreePillars />
+
+      {/* Main Content Continued */}
+      <section className="py-20 md:py-32 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto space-y-20">
 
             {/* Leadership Tabs */}
             <div className="max-w-6xl mx-auto">
