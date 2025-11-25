@@ -41,7 +41,7 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
   }, [speed, isHero]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden z-0">
       <div 
         ref={imageRef}
         className="absolute w-full"
