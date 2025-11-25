@@ -479,8 +479,8 @@ export const WhoWeAre = () => {
                         <div className="p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent/40 hover:border-accent transition-colors">
                           <p className="text-sm font-medium text-foreground">La Aventura de Vivir y Ser Feliz</p>
                         </div>
-                        <div className="p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary/40 hover:border-secondary transition-colors">
-                          <p className="text-sm font-medium text-foreground">Consejos para iniciar bien el año</p>
+                        <div className="p-3 bg-muted/30 rounded-lg border-l-2 border-muted">
+                          <p className="text-sm text-foreground/60 italic">Entre otros...</p>
                         </div>
                       </div>
                     </div>
