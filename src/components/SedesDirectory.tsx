@@ -60,8 +60,12 @@ export const SedesDirectory = () => {
     }
   };
 
-  // Group sedes by city
-  const sedesByCity = filteredSedes.reduce((acc, sede) => {
+  // Separate main sede from others
+  const sedePrincipal = filteredSedes.find(sede => sede.es_principal);
+  const otherSedes = filteredSedes.filter(sede => !sede.es_principal);
+
+  // Group other sedes by city
+  const sedesByCity = otherSedes.reduce((acc, sede) => {
     if (!acc[sede.ciudad]) {
       acc[sede.ciudad] = [];
     }
@@ -122,6 +126,107 @@ export const SedesDirectory = () => {
           </div>
         ) : (
           <div className="space-y-12">
+            {/* Sede Principal - Always first */}
+            {sedePrincipal && (
+              <div className="space-y-4">
+                <h2 className="text-3xl font-bold text-primary sticky top-20 bg-background/95 backdrop-blur py-4 z-10">
+                  Sede Principal
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <Card className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-primary">
+                    <div className="mb-4">
+                      <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                        Sede Principal
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-2">{sedePrincipal.nombre}</h3>
+                    
+                    <div className="space-y-3 text-muted-foreground mb-4">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-primary" />
+                        <div>
+                          <p className="font-medium text-foreground">{sedePrincipal.ciudad}</p>
+                          <p className="text-sm">{sedePrincipal.direccion}</p>
+                        </div>
+                      </div>
+
+                      {sedePrincipal.whatsapp && (
+                        <div className="flex items-center gap-2">
+                          <Phone className="h-5 w-5 flex-shrink-0 text-primary" />
+                          <a 
+                            href={formatWhatsApp(sedePrincipal.whatsapp)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm hover:text-primary transition-colors font-medium"
+                          >
+                            {sedePrincipal.whatsapp}
+                          </a>
+                        </div>
+                      )}
+                    </div>
+
+                    {(sedePrincipal.facebook || sedePrincipal.instagram || sedePrincipal.tiktok) && (
+                      <div className="flex gap-2 pt-4 border-t">
+                        {sedePrincipal.facebook && (
+                          <Button 
+                            variant="outline" 
+                            size="icon"
+                            className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+                            asChild
+                          >
+                            <a 
+                              href={sedePrincipal.facebook}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Facebook"
+                            >
+                              <Facebook className="h-4 w-4" />
+                            </a>
+                          </Button>
+                        )}
+                        {sedePrincipal.instagram && (
+                          <Button 
+                            variant="outline" 
+                            size="icon"
+                            className="hover:bg-secondary hover:text-secondary-foreground hover:border-secondary transition-colors"
+                            asChild
+                          >
+                            <a 
+                              href={sedePrincipal.instagram}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Instagram"
+                            >
+                              <Instagram className="h-4 w-4" />
+                            </a>
+                          </Button>
+                        )}
+                        {sedePrincipal.tiktok && (
+                          <Button 
+                            variant="outline" 
+                            size="icon"
+                            className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+                            asChild
+                          >
+                            <a 
+                              href={sedePrincipal.tiktok}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="TikTok"
+                            >
+                              <Music2 className="h-4 w-4" />
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </Card>
+                </div>
+              </div>
+            )}
+
+            {/* Other sedes grouped by city */}
             {cities.map((city) => (
               <div key={city} className="space-y-4">
                 <h2 className="text-3xl font-bold text-primary sticky top-20 bg-background/95 backdrop-blur py-4 z-10">
@@ -130,14 +235,6 @@ export const SedesDirectory = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {sedesByCity[city].map((sede) => (
                     <Card key={sede.id} className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-primary">
-                      {sede.es_principal && (
-                        <div className="mb-4">
-                          <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                            Sede Principal
-                          </span>
-                        </div>
-                      )}
-                      
                       <h3 className="text-xl font-bold mb-2">{sede.nombre}</h3>
                       
                       <div className="space-y-3 text-muted-foreground mb-4">
