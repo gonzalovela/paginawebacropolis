@@ -36,7 +36,7 @@ export const ThreePillars = () => {
       <div className="container px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Áreas de Actuación
+            Áreas de Acción
           </h2>
           <p className="text-lg md:text-xl text-foreground/70">
             Nueva Acrópolis se sostiene sobre tres líneas de acción que se complementan entre sí: 
