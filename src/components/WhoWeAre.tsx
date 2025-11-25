@@ -2,6 +2,9 @@ import { Card } from "@/components/ui/card";
 import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart } from "lucide-react";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
+import jorgeLivragaPortrait from "@/assets/jorge-livraga-portrait.jpg";
+import carlosAdelantadoPortrait from "@/assets/carlos-adelantado-portrait.jpg";
+import beatrizDiezCansecoPortrait from "@/assets/beatriz-diez-canseco-portrait.jpg";
 
 export const WhoWeAre = () => {
   const principles = [
@@ -74,6 +77,15 @@ export const WhoWeAre = () => {
             <div className="max-w-5xl mx-auto">
               <Card className="p-8 md:p-12 bg-gradient-subtle">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <div className="w-48 h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-elegant">
+                      <img 
+                        src={jorgeLivragaPortrait} 
+                        alt="Jorge Ángel Livraga Rizzi - Fundador de Nueva Acrópolis"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
                   <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm mb-2">
                       Fundador
@@ -127,7 +139,14 @@ export const WhoWeAre = () => {
             <div className="max-w-5xl mx-auto">
               <Card className="p-8 md:p-12 bg-gradient-subtle">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className="order-2 md:order-1 flex flex-col gap-4">
+                  <div className="order-2 md:order-1 space-y-6">
+                    <div className="w-48 h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-elegant md:hidden">
+                      <img 
+                        src={carlosAdelantadoPortrait} 
+                        alt="Carlos Adelantado Puchal - Presidente Internacional"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <div className="bg-primary/5 p-6 rounded-xl">
                       <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
                         <Globe className="h-5 w-5 text-primary" />
@@ -154,6 +173,13 @@ export const WhoWeAre = () => {
                     </div>
                   </div>
                   <div className="space-y-4 order-1 md:order-2">
+                    <div className="w-48 h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-elegant hidden md:block mb-6">
+                      <img 
+                        src={carlosAdelantadoPortrait} 
+                        alt="Carlos Adelantado Puchal - Presidente Internacional"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm mb-2">
                       Presidente Actual
                     </div>
@@ -172,6 +198,47 @@ export const WhoWeAre = () => {
                     <p className="text-foreground/70 leading-relaxed">
                       Ha participado en congresos y conferencias, enfatizando la necesidad de poner la filosofía en práctica y hacerla relevante para los problemas del mundo actual. En 2013 asumió la dirección de la sede de Nueva Acrópolis en España.
                     </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Presidenta Nueva Acrópolis Perú */}
+            <div className="max-w-5xl mx-auto">
+              <Card className="p-8 md:p-12 bg-gradient-subtle border-2 border-secondary/20">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <div className="w-48 h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-elegant">
+                      <img 
+                        src={beatrizDiezCansecoPortrait} 
+                        alt="Beatriz Diez Canseco - Presidenta Nueva Acrópolis Perú"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full text-secondary font-semibold text-sm mb-2">
+                      Presidenta Nueva Acrópolis Perú
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+                      Beatriz Diez Canseco
+                    </h3>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Líder comprometida con la promoción de la filosofía práctica y el desarrollo cultural en el Perú. Su gestión ha fortalecido la presencia de Nueva Acrópolis en el país, expandiendo sus actividades educativas y de voluntariado.
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      Bajo su dirección, Nueva Acrópolis Perú continúa desarrollando programas filosóficos, culturales y de servicio a la comunidad, manteniendo vivo el espíritu de la filosofía como forma de vida y herramienta de transformación personal y social.
+                    </p>
+                    <div className="bg-secondary/5 p-6 rounded-xl mt-6">
+                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                        <Heart className="h-5 w-5 text-secondary" />
+                        Visión
+                      </h4>
+                      <p className="text-foreground/70 text-sm leading-relaxed">
+                        Promover el desarrollo integral del ser humano a través de la educación filosófica, 
+                        el encuentro cultural y la acción voluntaria, contribuyendo al bienestar de la sociedad peruana.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Card>
