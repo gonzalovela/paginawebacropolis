@@ -12,20 +12,20 @@ export const WhoWeAre = () => {
     {
       icon: Heart,
       title: "Fraternidad",
-      description: "Promover un ideal de fraternidad basado en el respeto a la dignidad humana, más allá de cualquier diferencia de género, cultura, religión o clase social.",
-      detail: "La fuerza de este ideal de fraternidad reside más en lo que nos une que en lo que nos separa. Se basa firmemente en el reconocimiento de valores universales que, respetando la diversidad, trascienden las prácticas y costumbres locales."
+      description: "Promover un ideal de fraternidad basado en el respeto a la dignidad humana, más allá de cualquier diferencia de género, cultura, religión, clase social, etc.",
+      detail: "La fuerza de este ideal reside más en lo que nos une que en lo que nos separa, basándose en valores universales que trascienden prácticas locales y promueven el respeto por los derechos humanos y principios éticos comunes."
     },
     {
       icon: BookOpen,
       title: "Conocimiento",
-      description: "Fomentar el amor a la sabiduría a través del estudio comparado de filosofías, religiones, ciencias y artes.",
-      detail: "La filosofía puede reunir las fuentes del pasado y del presente en esa visión global, amplia e integradora, para que se convierta en una fuerza real de progreso que busca no solo explorar los caminos de la vida, sino profundizar en sus fines últimos."
+      description: "Fomentar el amor a la sabiduría a través del estudio comparado de filosofías, religiones, ciencias y artes, para lograr un conocimiento del ser humano, la naturaleza y el universo.",
+      detail: "La filosofía puede reunir las fuentes del pasado y del presente en una visión global e integradora, convirtiéndose en una fuerza real de progreso que explora los caminos de la vida y profundiza en sus fines últimos."
     },
     {
       icon: Sparkles,
       title: "Desarrollo",
-      description: "Desarrollar lo mejor del ser humano promoviendo la realización de cada persona como individuo y como miembro activo de la sociedad.",
-      detail: "El ser humano todavía tiene un enorme potencial latente. Conocerlo y desarrollarlo es uno de los pilares fundamentales de la vida misma y proporciona una fuente de satisfacción duradera."
+      description: "Desarrollar lo mejor del ser humano promoviendo la realización de cada persona como individuo y como miembro activo de la sociedad. Actuar en armonía con la Naturaleza para mejorar el mundo.",
+      detail: "El logro de la armonía entre pensamiento, sentimiento y acción es un objetivo para cada ser humano. El desarrollo equilibrado de nuestras mejores cualidades es la garantía de avanzar hacia un mundo mejor."
     },
   ];
 
