@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart, Trophy } from "lucide-react";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
@@ -73,14 +74,40 @@ export const WhoWeAre = () => {
               </p>
             </div>
 
-            {/* Fundador - Jorge Ángel Livraga Rizzi */}
+            {/* Leadership Tabs */}
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm mb-4">
-                  <Users className="h-4 w-4" />
-                  Nuestro Fundador
-                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+                  Nuestro Liderazgo
+                </h2>
+                <p className="text-foreground/70 text-lg">
+                  Conoce a quienes guían Nueva Acrópolis
+                </p>
               </div>
+
+              <Tabs defaultValue="fundador" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-8 h-auto">
+                  <TabsTrigger value="fundador" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
+                    <span className="text-xs md:text-sm font-semibold">Fundador</span>
+                    <span className="text-xs text-muted-foreground hidden md:block">Jorge Á. Livraga</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="internacional" className="flex flex-col gap-1 py-3 data-[state=active]:bg-secondary/10 data-[state=active]:text-secondary">
+                    <span className="text-xs md:text-sm font-semibold">Presidente Internacional</span>
+                    <span className="text-xs text-muted-foreground hidden md:block">Carlos Adelantado</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="peru" className="flex flex-col gap-1 py-3 data-[state=active]:bg-accent/10 data-[state=active]:text-accent">
+                    <span className="text-xs md:text-sm font-semibold">Directora Nacional</span>
+                    <span className="text-xs text-muted-foreground hidden md:block">Beatriz Diez Canseco</span>
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="fundador" className="mt-0">
+                  <div className="text-center mb-6">
+                    <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm">
+                      <Users className="h-4 w-4" />
+                      Nuestro Fundador
+                    </div>
+                  </div>
               
               <Card className="overflow-hidden border-2 border-primary/10 bg-gradient-to-br from-background via-background to-primary/5">
                 <div className="grid lg:grid-cols-[400px,1fr] gap-0">
@@ -198,16 +225,15 @@ export const WhoWeAre = () => {
                   </div>
                 </div>
               </Card>
-            </div>
+                </TabsContent>
 
-            {/* Presidente Actual - Carlos Adelantado Puchal */}
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 px-5 py-2 bg-secondary/10 rounded-full text-secondary font-bold text-sm mb-4">
-                  <Users className="h-4 w-4" />
-                  Presidente Internacional
-                </div>
-              </div>
+                <TabsContent value="internacional" className="mt-0">
+                  <div className="text-center mb-6">
+                    <div className="inline-flex items-center gap-2 px-5 py-2 bg-secondary/10 rounded-full text-secondary font-bold text-sm">
+                      <Users className="h-4 w-4" />
+                      Presidente Internacional
+                    </div>
+                  </div>
               
               <Card className="overflow-hidden border-2 border-secondary/10 bg-gradient-to-br from-background via-background to-secondary/5">
                 <div className="grid lg:grid-cols-[1fr,400px] gap-0">
@@ -337,16 +363,15 @@ export const WhoWeAre = () => {
                   </div>
                 </div>
               </Card>
-            </div>
+                </TabsContent>
 
-            {/* Presidenta Nueva Acrópolis Perú */}
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/10 rounded-full text-accent font-bold text-sm mb-4">
-                  <Users className="h-4 w-4" />
-                  Presidenta Nacional - Perú
-                </div>
-              </div>
+                <TabsContent value="peru" className="mt-0">
+                  <div className="text-center mb-6">
+                    <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/10 rounded-full text-accent font-bold text-sm">
+                      <Users className="h-4 w-4" />
+                      Directora Nacional - Perú
+                    </div>
+                  </div>
               
               <Card className="overflow-hidden border-2 border-accent/10 bg-gradient-to-br from-background via-background to-accent/5">
                 <div className="grid lg:grid-cols-[400px,1fr] gap-0">
@@ -493,6 +518,8 @@ export const WhoWeAre = () => {
                   </div>
                 </div>
               </Card>
+                </TabsContent>
+              </Tabs>
             </div>
 
             {/* Foundation & Organization */}
