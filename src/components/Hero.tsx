@@ -45,12 +45,24 @@ export const Hero = () => {
 
           <Button 
             size="lg" 
+            variant="default"
+            className="text-lg px-8 py-6 shadow-medium hover:scale-105 transition-transform"
+            asChild
+          >
+            <Link to="/sedes">
+              <MapPin className="mr-2 h-5 w-5" />
+              Encuentra tu Sede
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+
+          <Button 
+            size="lg" 
             variant="outline"
             className="text-lg px-8 py-6 bg-background/10 hover:bg-background/20 text-primary-foreground border-primary-foreground/30 hover:border-primary-foreground/50"
             asChild
           >
             <Link to="/inscripcion">
-              <MapPin className="mr-2 h-5 w-5" />
               Inscríbete ahora
             </Link>
           </Button>

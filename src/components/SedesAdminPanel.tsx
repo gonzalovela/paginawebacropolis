@@ -1,0 +1,305 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import { Pencil, Trash2, Plus } from "lucide-react";
+
+interface Sede {
+  id: string;
+  nombre: string;
+  ciudad: string;
+  direccion: string;
+  whatsapp?: string;
+  facebook?: string;
+  instagram?: string;
+  tiktok?: string;
+  es_principal: boolean;
+}
+
+interface SedeFormData {
+  nombre: string;
+  ciudad: string;
+  direccion: string;
+  whatsapp: string;
+  facebook: string;
+  instagram: string;
+  tiktok: string;
+  es_principal: boolean;
+}
+
+const emptyForm: SedeFormData = {
+  nombre: "",
+  ciudad: "",
+  direccion: "",
+  whatsapp: "",
+  facebook: "",
+  instagram: "",
+  tiktok: "",
+  es_principal: false,
+};
+
+export const SedesAdminPanel = () => {
+  const [sedes, setSedes] = useState<Sede[]>([]);
+  const [formData, setFormData] = useState<SedeFormData>(emptyForm);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadSedes();
+  }, []);
+
+  const loadSedes = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('sedes')
+        .select('*')
+        .order('es_principal', { ascending: false })
+        .order('ciudad', { ascending: true });
+
+      if (error) throw error;
+      setSedes(data || []);
+    } catch (error) {
+      console.error('Error loading sedes:', error);
+      toast.error('Error al cargar las sedes');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const sedeData = {
+        nombre: formData.nombre,
+        ciudad: formData.ciudad,
+        direccion: formData.direccion,
+        whatsapp: formData.whatsapp || null,
+        facebook: formData.facebook || null,
+        instagram: formData.instagram || null,
+        tiktok: formData.tiktok || null,
+        es_principal: formData.es_principal,
+      };
+
+      if (editingId) {
+        const { error } = await supabase
+          .from('sedes')
+          .update(sedeData)
+          .eq('id', editingId);
+
+        if (error) throw error;
+        toast.success('Sede actualizada exitosamente');
+      } else {
+        const { error } = await supabase
+          .from('sedes')
+          .insert([sedeData]);
+
+        if (error) throw error;
+        toast.success('Sede creada exitosamente');
+      }
+
+      setFormData(emptyForm);
+      setEditingId(null);
+      loadSedes();
+    } catch (error) {
+      console.error('Error saving sede:', error);
+      toast.error('Error al guardar la sede');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleEdit = (sede: Sede) => {
+    setFormData({
+      nombre: sede.nombre,
+      ciudad: sede.ciudad,
+      direccion: sede.direccion,
+      whatsapp: sede.whatsapp || "",
+      facebook: sede.facebook || "",
+      instagram: sede.instagram || "",
+      tiktok: sede.tiktok || "",
+      es_principal: sede.es_principal,
+    });
+    setEditingId(sede.id);
+  };
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('¿Estás seguro de eliminar esta sede?')) return;
+
+    try {
+      const { error } = await supabase
+        .from('sedes')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+      toast.success('Sede eliminada exitosamente');
+      loadSedes();
+    } catch (error) {
+      console.error('Error deleting sede:', error);
+      toast.error('Error al eliminar la sede');
+    }
+  };
+
+  const handleCancel = () => {
+    setFormData(emptyForm);
+    setEditingId(null);
+  };
+
+  return (
+    <section className="container px-4 py-16">
+      <h1 className="text-4xl font-bold mb-8">Administrar Sedes</h1>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Form */}
+        <Card className="p-6">
+          <h2 className="text-2xl font-bold mb-6">
+            {editingId ? 'Editar Sede' : 'Nueva Sede'}
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <Label htmlFor="nombre">Nombre de la Sede *</Label>
+              <Input
+                id="nombre"
+                value={formData.nombre}
+                onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
+                required
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="ciudad">Ciudad *</Label>
+              <Input
+                id="ciudad"
+                value={formData.ciudad}
+                onChange={(e) => setFormData({ ...formData, ciudad: e.target.value })}
+                required
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="direccion">Dirección *</Label>
+              <Input
+                id="direccion"
+                value={formData.direccion}
+                onChange={(e) => setFormData({ ...formData, direccion: e.target.value })}
+                required
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="whatsapp">WhatsApp</Label>
+              <Input
+                id="whatsapp"
+                value={formData.whatsapp}
+                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                placeholder="+51999999999"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="facebook">Facebook</Label>
+              <Input
+                id="facebook"
+                value={formData.facebook}
+                onChange={(e) => setFormData({ ...formData, facebook: e.target.value })}
+                placeholder="https://facebook.com/..."
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="instagram">Instagram</Label>
+              <Input
+                id="instagram"
+                value={formData.instagram}
+                onChange={(e) => setFormData({ ...formData, instagram: e.target.value })}
+                placeholder="https://instagram.com/..."
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="tiktok">TikTok</Label>
+              <Input
+                id="tiktok"
+                value={formData.tiktok}
+                onChange={(e) => setFormData({ ...formData, tiktok: e.target.value })}
+                placeholder="https://tiktok.com/@..."
+              />
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="es_principal"
+                checked={formData.es_principal}
+                onCheckedChange={(checked) => 
+                  setFormData({ ...formData, es_principal: checked as boolean })
+                }
+              />
+              <Label htmlFor="es_principal" className="cursor-pointer">
+                Sede Principal
+              </Label>
+            </div>
+
+            <div className="flex gap-2 pt-4">
+              <Button type="submit" disabled={loading}>
+                {editingId ? 'Actualizar' : 'Crear'} Sede
+              </Button>
+              {editingId && (
+                <Button type="button" variant="outline" onClick={handleCancel}>
+                  Cancelar
+                </Button>
+              )}
+            </div>
+          </form>
+        </Card>
+
+        {/* List */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold">Sedes Registradas</h2>
+          {sedes.length === 0 ? (
+            <p className="text-muted-foreground">No hay sedes registradas</p>
+          ) : (
+            sedes.map((sede) => (
+              <Card key={sede.id} className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 className="font-bold">{sede.nombre}</h3>
+                    {sede.es_principal && (
+                      <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded">
+                        Sede Principal
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      onClick={() => handleEdit(sede)}
+                    >
+                      <Pencil className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      size="icon"
+                      variant="destructive"
+                      onClick={() => handleDelete(sede.id)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground">{sede.ciudad}</p>
+                <p className="text-sm">{sede.direccion}</p>
+                {sede.whatsapp && (
+                  <p className="text-sm text-muted-foreground">WhatsApp: {sede.whatsapp}</p>
+                )}
+              </Card>
+            ))
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
