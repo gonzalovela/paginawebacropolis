@@ -282,7 +282,7 @@ export const WhoWeAre = () => {
                     <div className="space-y-4">
                       <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
                         <Globe className="h-5 w-5 text-primary" />
-                        Logros Principales (2020-2025)
+                        Principales Contribuciones (2020-2025)
                       </h4>
                       <div className="space-y-3">
                         <div className="p-4 bg-gradient-to-r from-primary/5 to-transparent rounded-xl border-l-2 border-primary hover:border-primary/60 transition-colors">
@@ -463,7 +463,7 @@ export const WhoWeAre = () => {
                     <div className="space-y-4">
                       <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
                         <Trophy className="h-5 w-5 text-secondary" />
-                        Principales Logros
+                        Principales Contribuciones
                       </h4>
                       <div className="grid sm:grid-cols-2 gap-3">
                         <div className="p-4 bg-accent/5 rounded-xl border border-accent/10 hover:border-accent/20 transition-colors">
