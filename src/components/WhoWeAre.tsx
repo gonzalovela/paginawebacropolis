@@ -108,7 +108,7 @@ export const WhoWeAre = () => {
                   Nuestro Liderazgo
                 </h2>
                 <p className="text-foreground/70 text-lg">
-                  Conoce a quienes guían Nueva Acrópolis
+                  Fundador y quienes guían Nueva Acrópolis hoy
                 </p>
               </div>
 
