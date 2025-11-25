@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart } from "lucide-react";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
-import jorgeLivragaPortrait from "@/assets/jorge-livraga-portrait.jpg";
+import jorgeLivragaPortrait from "@/assets/jorge-livraga-real.jpg";
 import carlosAdelantadoPortrait from "@/assets/carlos-adelantado-portrait.jpg";
 import beatrizDiezCansecoPortrait from "@/assets/beatriz-diez-canseco-portrait.jpg";
 
@@ -73,62 +73,127 @@ export const WhoWeAre = () => {
               </p>
             </div>
 
-            {/* Fundador */}
-            <div className="max-w-5xl mx-auto">
-              <Card className="p-8 md:p-12 bg-gradient-subtle">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className="space-y-6">
-                    <div className="w-48 h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-elegant">
-                      <img 
-                        src={jorgeLivragaPortrait} 
-                        alt="Jorge Ángel Livraga Rizzi - Fundador de Nueva Acrópolis"
-                        className="w-full h-full object-cover"
-                      />
+            {/* Fundador - Jorge Ángel Livraga Rizzi */}
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm mb-4">
+                  <Users className="h-4 w-4" />
+                  Nuestro Fundador
+                </div>
+              </div>
+              
+              <Card className="overflow-hidden border-2 border-primary/10 bg-gradient-to-br from-background via-background to-primary/5">
+                <div className="grid lg:grid-cols-[400px,1fr] gap-0">
+                  {/* Columna Izquierda - Imagen y Datos Principales */}
+                  <div className="bg-gradient-to-b from-primary/10 to-primary/5 p-8 md:p-10 flex flex-col items-center justify-center space-y-6">
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                      <div className="relative w-64 h-64 rounded-3xl overflow-hidden shadow-elegant ring-4 ring-background">
+                        <img 
+                          src={jorgeLivragaPortrait} 
+                          alt="Jorge Ángel Livraga Rizzi - Fundador de Nueva Acrópolis"
+                          className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="text-center space-y-2">
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                        Jorge Ángel Livraga Rizzi
+                      </h3>
+                      <p className="text-lg font-medium text-primary">
+                        1930 - 1991
+                      </p>
+                      <p className="text-sm text-foreground/60 italic">
+                        Fundador y Primer Presidente
+                      </p>
+                    </div>
+
+                    <div className="w-full space-y-3 pt-4">
+                      <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
+                        <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Lugar de Nacimiento</p>
+                          <p className="text-sm text-foreground/70">Buenos Aires, Argentina</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
+                        <BookOpen className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Formación</p>
+                          <p className="text-sm text-foreground/70">Medicina, Historia del Arte y Filosofía</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm mb-2">
-                      Fundador
+
+                  {/* Columna Derecha - Contenido Biográfico */}
+                  <div className="p-8 md:p-10 space-y-6">
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-lg border border-primary/10">
+                        <Sparkles className="h-4 w-4 text-primary" />
+                        <span className="text-sm font-semibold text-primary">Visión Filosófica</span>
+                      </div>
+                      
+                      <p className="text-foreground/90 leading-relaxed text-lg">
+                        Su propuesta innovadora fue revivir la idea de <strong className="text-primary">Escuela de Filosofía en la Tradición Clásica</strong>, reintroduciendo el método socrático como búsqueda de la sabiduría y conocimiento del ser humano.
+                      </p>
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-                      Jorge Ángel Livraga Rizzi
-                    </h3>
-                    <p className="text-lg text-foreground/80 font-medium">
-                      1930 - 1991
-                    </p>
-                    <p className="text-foreground/70 leading-relaxed">
-                      Fundador y Primer Presidente de la Organización Internacional Nueva Acrópolis. Su propuesta innovadora fue revivir la idea de <strong>Escuela de Filosofía en la Tradición Clásica</strong>, reintroduciendo el método socrático como búsqueda de la sabiduría y conocimiento del ser humano.
-                    </p>
-                    <p className="text-foreground/70 leading-relaxed">
-                      Nacido en Buenos Aires en 1930, estudió Medicina y obtuvo su licenciatura en Historia del Arte y Filosofía. En 1957 fundó la Escuela de Filosofía "a la manera clásica" que más tarde se incorporó bajo el nombre de Organización Internacional Nueva Acrópolis.
-                    </p>
-                    <p className="text-foreground/70 leading-relaxed">
-                      Dedicó su vida a promover esta "aventura espiritual", estableciendo centros primero en Europa y América, y más tarde, desde 1977, en Europa del Este, Asia, África y Oceanía. Falleció en Madrid en 1991.
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <div className="bg-primary/5 p-6 rounded-xl">
-                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
-                        <BookOpen className="h-5 w-5 text-primary" />
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
+                        <Heart className="h-5 w-5 text-secondary" />
                         Su Legado
                       </h4>
-                      <ul className="space-y-2 text-foreground/70 text-sm">
-                        <li>• Filosofía como forma de vida práctica</li>
-                        <li>• Método socrático aplicado a la cultura</li>
-                        <li>• Nuevo humanismo ecléctico</li>
-                        <li>• Promoción de la fraternidad entre naciones</li>
-                      </ul>
+                      <div className="grid sm:grid-cols-2 gap-3">
+                        <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Filosofía Práctica</p>
+                          <p className="text-xs text-foreground/70">Como forma de vida aplicada al día a día</p>
+                        </div>
+                        <div className="p-4 bg-secondary/5 rounded-xl border border-secondary/10 hover:border-secondary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Método Socrático</p>
+                          <p className="text-xs text-foreground/70">Aplicado a la cultura contemporánea</p>
+                        </div>
+                        <div className="p-4 bg-accent/5 rounded-xl border border-accent/10 hover:border-accent/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Humanismo Ecléctico</p>
+                          <p className="text-xs text-foreground/70">Integración de Oriente y Occidente</p>
+                        </div>
+                        <div className="p-4 bg-muted rounded-xl border border-border hover:border-primary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Fraternidad Universal</p>
+                          <p className="text-xs text-foreground/70">Entre individuos y naciones</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="bg-secondary/5 p-6 rounded-xl">
-                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
-                        <Sparkles className="h-5 w-5 text-secondary" />
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
+                        <Sparkles className="h-5 w-5 text-primary" />
                         Reconocimientos
                       </h4>
-                      <ul className="space-y-2 text-foreground/70 text-sm">
-                        <li>• Cruz de París en Artes, Ciencias y Literatura (1976)</li>
-                        <li>• Miembro de la Academia Burckhardt</li>
-                        <li>• Primer Premio Nacional de Poesía en Argentina (1951)</li>
-                      </ul>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-2 border-primary">
+                          <span className="text-primary font-bold text-sm">1951</span>
+                          <p className="text-sm text-foreground/70">Primer Premio Nacional de Poesía en Argentina</p>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary">
+                          <span className="text-secondary font-bold text-sm">1976</span>
+                          <p className="text-sm text-foreground/70">Cruz de París en Artes, Ciencias y Literatura</p>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent">
+                          <span className="text-accent font-bold text-sm">—</span>
+                          <p className="text-sm text-foreground/70">Miembro de la Academia Burckhardt</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent rounded-xl border border-primary/20">
+                      <p className="text-foreground/80 leading-relaxed italic">
+                        "Dedicó su vida a promover esta aventura espiritual, estableciendo centros en más de 50 países de los cinco continentes. Su visión de una filosofía práctica y transformadora continúa inspirando a miles de personas alrededor del mundo."
+                      </p>
                     </div>
                   </div>
                 </div>
