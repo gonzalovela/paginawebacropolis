@@ -49,12 +49,31 @@ export const SedesAdminPanel = () => {
   const [formData, setFormData] = useState<SedeFormData>(emptyForm);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
+    checkAdminStatus();
     loadSedes();
   }, []);
+
+  const checkAdminStatus = async () => {
+    if (!user) return;
+    
+    const { data, error } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', user.id)
+      .eq('role', 'admin')
+      .maybeSingle();
+
+    if (error) {
+      console.error('Error checking admin status:', error);
+    }
+
+    setIsAdmin(!!data);
+  };
 
   const handleSignOut = async () => {
     await signOut();
@@ -170,10 +189,17 @@ export const SedesAdminPanel = () => {
             </p>
           )}
         </div>
-        <Button variant="outline" onClick={handleSignOut}>
-          <LogOut className="mr-2 h-4 w-4" />
-          Cerrar Sesión
-        </Button>
+        <div className="flex gap-2">
+          {isAdmin && (
+            <Button variant="outline" onClick={() => navigate('/admin/users')}>
+              Gestionar Usuarios
+            </Button>
+          )}
+          <Button variant="outline" onClick={handleSignOut}>
+            <LogOut className="mr-2 h-4 w-4" />
+            Cerrar Sesión
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
