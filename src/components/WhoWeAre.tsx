@@ -423,12 +423,12 @@ export const WhoWeAre = () => {
                           <p className="text-xs text-foreground/70">Más de 5,000 miembros en la Escuela de Filosofía</p>
                         </div>
                         <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Promoción Cultural</p>
-                          <p className="text-xs text-foreground/70">Fundadora del Concurso Nacional de Música (1984)</p>
+                          <p className="text-sm font-semibold text-foreground mb-1">Concurso Nacional de Música</p>
+                          <p className="text-xs text-foreground/70">Fundadora (1986-2020) con más de 20,000 escolares participantes</p>
                         </div>
                         <div className="p-4 bg-muted rounded-xl border border-border hover:border-accent/20 transition-colors">
                           <p className="text-sm font-semibold text-foreground mb-1">Obra Literaria</p>
-                          <p className="text-xs text-foreground/70">Autora de múltiples libros sobre filosofía</p>
+                          <p className="text-xs text-foreground/70">Autora de múltiples libros sobre filosofía práctica</p>
                         </div>
                       </div>
                     </div>
@@ -442,8 +442,8 @@ export const WhoWeAre = () => {
                       </h4>
                       <div className="space-y-3">
                         <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent">
-                          <span className="text-accent font-bold text-sm">1984</span>
-                          <p className="text-sm text-foreground/70">Funda el Concurso Nacional de Música, que continuó por más de 20 años hasta la pandemia</p>
+                          <span className="text-accent font-bold text-sm">1986-2020</span>
+                          <p className="text-sm text-foreground/70">Funda el Concurso Nacional de Música con la participación de más de 20,000 escolares, promoviendo la educación musical en los colegios y manteniéndola en la currícula escolar</p>
                         </div>
                         <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary">
                           <span className="text-secondary font-bold text-sm">30+ Años</span>
@@ -452,6 +452,35 @@ export const WhoWeAre = () => {
                         <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-2 border-primary">
                           <span className="text-primary font-bold text-sm">Hoy</span>
                           <p className="text-sm text-foreground/70">Maestra en Filosofía Oriental y Occidental (OINA), con más de 30 años enseñando filosofía</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
+                        <BookOpen className="h-5 w-5 text-accent" />
+                        Publicaciones
+                      </h4>
+                      <p className="text-sm text-foreground/70 mb-3">
+                        Autora de diversos libros sobre filosofía práctica aplicada a la vida cotidiana:
+                      </p>
+                      <div className="grid gap-2">
+                        <div className="p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent/40 hover:border-accent transition-colors">
+                          <p className="text-sm font-medium text-foreground">Sabiduría para vivir mejor</p>
+                        </div>
+                        <div className="p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary/40 hover:border-secondary transition-colors">
+                          <p className="text-sm font-medium text-foreground">Descubriendo tu mundo interior</p>
+                        </div>
+                        <div className="p-3 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-2 border-primary/40 hover:border-primary transition-colors">
+                          <p className="text-sm font-medium text-foreground">Más Filosofía, menos Estrés</p>
+                        </div>
+                        <div className="p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent/40 hover:border-accent transition-colors">
+                          <p className="text-sm font-medium text-foreground">La Aventura de Vivir y Ser Feliz</p>
+                        </div>
+                        <div className="p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary/40 hover:border-secondary transition-colors">
+                          <p className="text-sm font-medium text-foreground">Consejos para iniciar bien el año</p>
                         </div>
                       </div>
                     </div>
