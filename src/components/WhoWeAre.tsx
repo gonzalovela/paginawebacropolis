@@ -340,39 +340,107 @@ export const WhoWeAre = () => {
             </div>
 
             {/* Presidenta Nueva Acrópolis Perú */}
-            <div className="max-w-5xl mx-auto">
-              <Card className="p-8 md:p-12 bg-gradient-subtle border-2 border-secondary/20">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className="space-y-6">
-                    <div className="w-48 h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-elegant">
-                      <img 
-                        src={beatrizDiezCansecoPortrait} 
-                        alt="Beatriz Diez Canseco - Presidenta Nueva Acrópolis Perú"
-                        className="w-full h-full object-cover"
-                      />
+            <div className="max-w-6xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/10 rounded-full text-secondary font-semibold mb-8">
+                <Users className="h-5 w-5" />
+                Presidenta Nueva Acrópolis Perú
+              </div>
+              
+              <Card className="overflow-hidden border-2 border-secondary/20 hover:shadow-elegant transition-all duration-300">
+                <div className="grid lg:grid-cols-[400px_1fr] gap-0">
+                  {/* Image Section */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-secondary/10 to-accent/5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent opacity-50"></div>
+                    <img 
+                      src={beatrizDiezCansecoPortrait} 
+                      alt="Beatriz Diez Canseco - Presidenta Nueva Acrópolis Perú"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-6">
+                      <h3 className="text-3xl font-bold text-foreground mb-2">
+                        Beatriz Diez Canseco
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-secondary/90 text-secondary-foreground rounded-full text-sm font-semibold">
+                          Directora Nacional
+                        </span>
+                        <span className="px-3 py-1 bg-primary/90 text-primary-foreground rounded-full text-sm font-semibold">
+                          Desde 2020
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full text-secondary font-semibold text-sm mb-2">
-                      Presidenta Nueva Acrópolis Perú
+
+                  {/* Content Section */}
+                  <div className="p-8 md:p-10 space-y-6">
+                    <div className="space-y-4">
+                      <p className="text-foreground/80 leading-relaxed text-lg">
+                        Líder comprometida con la promoción de la filosofía práctica y el desarrollo cultural en el Perú. 
+                        Su gestión ha fortalecido significativamente la presencia de Nueva Acrópolis en el país, 
+                        expandiendo sus actividades educativas y de voluntariado a nivel nacional.
+                      </p>
+                      <p className="text-foreground/70 leading-relaxed">
+                        Bajo su dirección, Nueva Acrópolis Perú continúa desarrollando programas filosóficos, 
+                        culturales y de servicio a la comunidad, manteniendo vivo el espíritu de la filosofía 
+                        como forma de vida y herramienta de transformación personal y social.
+                      </p>
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-                      Beatriz Diez Canseco
-                    </h3>
-                    <p className="text-foreground/70 leading-relaxed">
-                      Líder comprometida con la promoción de la filosofía práctica y el desarrollo cultural en el Perú. Su gestión ha fortalecido la presencia de Nueva Acrópolis en el país, expandiendo sus actividades educativas y de voluntariado.
-                    </p>
-                    <p className="text-foreground/70 leading-relaxed">
-                      Bajo su dirección, Nueva Acrópolis Perú continúa desarrollando programas filosóficos, culturales y de servicio a la comunidad, manteniendo vivo el espíritu de la filosofía como forma de vida y herramienta de transformación personal y social.
-                    </p>
-                    <div className="bg-secondary/5 p-6 rounded-xl mt-6">
-                      <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
                         <Heart className="h-5 w-5 text-secondary" />
-                        Visión
+                        Logros de su Gestión
                       </h4>
-                      <p className="text-foreground/70 text-sm leading-relaxed">
-                        Promover el desarrollo integral del ser humano a través de la educación filosófica, 
-                        el encuentro cultural y la acción voluntaria, contribuyendo al bienestar de la sociedad peruana.
+                      <div className="grid sm:grid-cols-2 gap-3">
+                        <div className="p-4 bg-secondary/5 rounded-xl border border-secondary/10 hover:border-secondary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Expansión Nacional</p>
+                          <p className="text-xs text-foreground/70">Más de 60 sedes en todo el Perú</p>
+                        </div>
+                        <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Comunidad Activa</p>
+                          <p className="text-xs text-foreground/70">Más de 4,000 miembros voluntarios</p>
+                        </div>
+                        <div className="p-4 bg-accent/5 rounded-xl border border-accent/10 hover:border-accent/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Impacto Social</p>
+                          <p className="text-xs text-foreground/70">50,000+ horas de voluntariado anual</p>
+                        </div>
+                        <div className="p-4 bg-muted rounded-xl border border-border hover:border-primary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Alcance Cultural</p>
+                          <p className="text-xs text-foreground/70">45,000+ asistentes a actividades</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                        Trayectoria en Nueva Acrópolis Perú
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary">
+                          <span className="text-secondary font-bold text-sm">1969</span>
+                          <p className="text-sm text-foreground/70">Nueva Acrópolis llega al Perú, iniciando una trayectoria de más de 50 años</p>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-2 border-primary">
+                          <span className="text-primary font-bold text-sm">2020</span>
+                          <p className="text-sm text-foreground/70">Asume la Presidencia Nacional, liderando la renovación institucional</p>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent">
+                          <span className="text-accent font-bold text-sm">2024</span>
+                          <p className="text-sm text-foreground/70">Más de 200 actividades anuales de voluntariado social realizadas</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-gradient-to-br from-secondary/10 via-primary/5 to-transparent rounded-xl border border-secondary/20">
+                      <p className="text-foreground/80 leading-relaxed italic">
+                        "Su visión integral ha consolidado a Nueva Acrópolis Perú como un referente nacional 
+                        en filosofía aplicada, promoviendo el desarrollo humano a través de la educación filosófica, 
+                        el encuentro cultural y la acción voluntaria comprometida con el bienestar de la sociedad."
                       </p>
                     </div>
                   </div>
