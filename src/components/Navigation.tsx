@@ -15,6 +15,7 @@ export const Navigation = () => {
     { to: "/filosofia", label: "Filosofía" },
     { to: "/cultura", label: "Cultura" },
     { to: "/voluntariado", label: "Voluntariado" },
+    { to: "/sedes", label: "Sedes" },
     { to: "/inscripcion", label: "Inscripción" },
   ];
 
