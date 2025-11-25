@@ -32,7 +32,7 @@ export const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
           <Button 
             size="lg" 
-            variant="secondary"
+            variant="default"
             className="text-lg px-8 py-6 shadow-medium hover:scale-105 transition-transform"
             asChild
           >
