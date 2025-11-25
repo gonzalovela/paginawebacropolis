@@ -84,7 +84,7 @@ export const SedesDirectory = () => {
       {/* Banner with parallax */}
       <div className="relative h-[400px] overflow-hidden">
         <ParallaxImage src={sedesImage} alt="Nuestras Sedes" speed={0.3} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/0 to-background/80 z-[1]" />
         
         <div className="absolute inset-0 z-10 flex items-center justify-center">
           <div className="container px-4 text-center">
