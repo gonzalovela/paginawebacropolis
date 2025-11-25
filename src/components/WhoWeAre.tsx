@@ -133,7 +133,7 @@ export const WhoWeAre = () => {
                     <span className="text-xs text-muted-foreground hidden md:block">Carlos Adelantado</span>
                   </TabsTrigger>
                   <TabsTrigger value="peru" className="flex flex-col gap-1 py-3 data-[state=active]:bg-accent/10 data-[state=active]:text-accent">
-                    <span className="text-xs md:text-sm font-semibold">Directora Nacional</span>
+                    <span className="text-xs md:text-sm font-semibold">Directora Nacional Perú</span>
                     <span className="text-xs text-muted-foreground hidden md:block">Beatriz Diez Canseco</span>
                   </TabsTrigger>
                 </TabsList>
@@ -430,7 +430,7 @@ export const WhoWeAre = () => {
                         Beatriz Diez Canseco
                       </h3>
                       <p className="text-lg font-medium text-accent">
-                        Directora Nacional - Perú
+                        Directora Nacional Perú
                       </p>
                       <p className="text-sm text-foreground/60 italic">
                         Más de 30 años de trayectoria
@@ -464,7 +464,7 @@ export const WhoWeAre = () => {
                       </div>
                       
                       <p className="text-foreground/90 leading-relaxed text-lg">
-                        Con <strong className="text-accent">más de 30 años como Directora Nacional</strong> de Nueva Acrópolis Perú y más de tres décadas enseñando filosofía, Beatriz Diez Canseco ha liderado el crecimiento y expansión de la institución a nivel nacional.
+                        Con <strong className="text-accent">más de 30 años como Directora Nacional</strong> de Nueva Acrópolis Perú desde 1986 y más de tres décadas enseñando filosofía, Beatriz Diez Canseco ha liderado el crecimiento y expansión de la institución a nivel nacional.
                       </p>
                     </div>
 
@@ -486,7 +486,7 @@ export const WhoWeAre = () => {
                         </div>
                         <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
                           <p className="text-sm font-semibold text-foreground mb-1">Concurso Nacional de Música</p>
-                          <p className="text-xs text-foreground/70">Fundadora (1986-2020) con más de 20,000 escolares participantes</p>
+                          <p className="text-xs text-foreground/70">Fundadora (1983-2020) con más de 20,000 escolares participantes</p>
                         </div>
                         <div className="p-4 bg-muted rounded-xl border border-border hover:border-accent/20 transition-colors">
                           <p className="text-sm font-semibold text-foreground mb-1">Obra Literaria</p>
