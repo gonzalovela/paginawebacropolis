@@ -406,7 +406,7 @@ export const WhoWeAre = () => {
                   <div className="text-center mb-6">
                     <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/10 rounded-full text-accent font-bold text-sm">
                       <Users className="h-4 w-4" />
-                      Directora Nacional - Perú
+                      Directora Nacional Perú
                     </div>
                   </div>
               
@@ -460,11 +460,11 @@ export const WhoWeAre = () => {
                     <div className="space-y-4">
                       <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/5 rounded-lg border border-accent/10">
                         <Sparkles className="h-4 w-4 text-accent" />
-                        <span className="text-sm font-semibold text-accent">Más de 30 Años de Liderazgo</span>
+                        <span className="text-sm font-semibold text-accent">Directora Nacional desde 1986</span>
                       </div>
                       
                       <p className="text-foreground/90 leading-relaxed text-lg">
-                        Con <strong className="text-accent">más de 30 años como Directora Nacional</strong> de Nueva Acrópolis Perú desde 1986 y más de tres décadas enseñando filosofía, Beatriz Diez Canseco ha liderado el crecimiento y expansión de la institución a nivel nacional.
+                        Maestra en Filosofía Oriental y Occidental (OINA), con más de 30 años enseñando filosofía. Bajo su dirección desde 1986, Nueva Acrópolis Perú ha crecido hasta alcanzar más de 5,000 miembros activos distribuidos en más de 65 sedes a nivel nacional.
                       </p>
                     </div>
 
@@ -472,53 +472,26 @@ export const WhoWeAre = () => {
 
                     <div className="space-y-4">
                       <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
-                        <Trophy className="h-5 w-5 text-secondary" />
-                        Principales Contribuciones
+                        <Sparkles className="h-5 w-5 text-accent" />
+                        Trayectoria y Legado
                       </h4>
-                      <div className="grid sm:grid-cols-2 gap-3">
-                        <div className="p-4 bg-accent/5 rounded-xl border border-accent/10 hover:border-accent/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Crecimiento Nacional</p>
-                          <p className="text-xs text-foreground/70">Expansión a más de 65 sedes en todo el Perú</p>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-4 border-primary">
+                          <span className="text-primary font-bold text-base min-w-[80px]">1983-2020</span>
+                          <p className="text-sm text-foreground/80 leading-relaxed">Funda el Concurso Nacional de Música con la participación de más de 20,000 escolares, promoviendo la educación musical en los colegios y manteniéndola en la currícula escolar</p>
                         </div>
-                        <div className="p-4 bg-secondary/5 rounded-xl border border-secondary/10 hover:border-secondary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Comunidad Activa</p>
-                          <p className="text-xs text-foreground/70">Más de 5,000 miembros en la Escuela de Filosofía</p>
+                        <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-4 border-secondary">
+                          <span className="text-secondary font-bold text-base min-w-[80px]">Desde 1986</span>
+                          <p className="text-sm text-foreground/80 leading-relaxed">Directora Nacional de Nueva Acrópolis Perú, liderando su expansión y consolidación a nivel nacional</p>
                         </div>
-                        <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Concurso Nacional de Música</p>
-                          <p className="text-xs text-foreground/70">Fundadora (1983-2020) con más de 20,000 escolares participantes</p>
-                        </div>
-                        <div className="p-4 bg-muted rounded-xl border border-border hover:border-accent/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Obra Literaria</p>
-                          <p className="text-xs text-foreground/70">Autora de múltiples libros sobre filosofía práctica</p>
+                        <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-4 border-accent">
+                          <span className="text-accent font-bold text-base min-w-[80px]">Hoy</span>
+                          <p className="text-sm text-foreground/80 leading-relaxed">Maestra en Filosofía Oriental y Occidental (OINA), con más de 30 años enseñando filosofía y compartiendo la sabiduría práctica con miles de estudiantes</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
-
-                    <div className="space-y-4">
-                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
-                        <Sparkles className="h-5 w-5 text-primary" />
-                        Trayectoria y Legado
-                      </h4>
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent">
-                          <span className="text-accent font-bold text-sm">1986-2020</span>
-                          <p className="text-sm text-foreground/70">Funda el Concurso Nacional de Música con la participación de más de 20,000 escolares, promoviendo la educación musical en los colegios y manteniéndola en la currícula escolar</p>
-                        </div>
-                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary">
-                          <span className="text-secondary font-bold text-sm">30+ Años</span>
-                          <p className="text-sm text-foreground/70">Directora Nacional de Nueva Acrópolis Perú, liderando su expansión y consolidación</p>
-                        </div>
-                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-2 border-primary">
-                          <span className="text-primary font-bold text-sm">Hoy</span>
-                          <p className="text-sm text-foreground/70">Maestra en Filosofía Oriental y Occidental (OINA), con más de 30 años enseñando filosofía</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
 
                     <div className="space-y-4">
                       <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
