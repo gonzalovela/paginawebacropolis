@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { MapPin, Phone, Facebook, Instagram, Music2, Search } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ParallaxImage } from "@/components/ParallaxImage";
-import sedesImage from "@/assets/hero-sunset-vibrant.jpg";
+import sedesImage from "@/assets/sedes-community-banner.jpg";
 
 interface Sede {
   id: string;
