@@ -74,6 +74,33 @@ export const WhoWeAre = () => {
               </p>
             </div>
 
+            {/* Foundation & Organization */}
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="p-8 hover:shadow-medium transition-all">
+                <Globe className="h-12 w-12 text-primary mb-6" />
+                <h3 className="text-xl font-bold text-foreground mb-4">Fundación</h3>
+                <p className="text-foreground/70 leading-relaxed">
+                  Nueva Acrópolis fue fundada en 1957 en Buenos Aires, Argentina, por el profesor Jorge Ángel Livraga Rizzi. Hoy está presente en más de 50 países de los cinco continentes.
+                </p>
+              </Card>
+
+              <Card className="p-8 hover:shadow-medium transition-all">
+                <Building2 className="h-12 w-12 text-primary mb-6" />
+                <h3 className="text-xl font-bold text-foreground mb-4">Organización</h3>
+                <p className="text-foreground/70 leading-relaxed">
+                  Registrada en el Registro Internacional de Asociaciones del Reino de Bélgica como asociación internacional sin fines de lucro, con sede en Bruselas.
+                </p>
+              </Card>
+
+              <Card className="p-8 hover:shadow-medium transition-all">
+                <HandHeart className="h-12 w-12 text-primary mb-6" />
+                <h3 className="text-xl font-bold text-foreground mb-4">Estructura</h3>
+                <p className="text-foreground/70 leading-relaxed">
+                  Su estructura garantiza el respeto por la diversidad, autonomía e iniciativa de cada asociación miembro, con total independencia de intereses políticos, religiosos o financieros.
+                </p>
+              </Card>
+            </div>
+
             {/* Leadership Tabs */}
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-8">
@@ -520,33 +547,6 @@ export const WhoWeAre = () => {
               </Card>
                 </TabsContent>
               </Tabs>
-            </div>
-
-            {/* Foundation & Organization */}
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="p-8 hover:shadow-medium transition-all">
-                <Globe className="h-12 w-12 text-primary mb-6" />
-                <h3 className="text-xl font-bold text-foreground mb-4">Fundación</h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  Nueva Acrópolis fue fundada en 1957 en Buenos Aires, Argentina, por el profesor Jorge Ángel Livraga Rizzi. Hoy está presente en más de 50 países de los cinco continentes.
-                </p>
-              </Card>
-
-              <Card className="p-8 hover:shadow-medium transition-all">
-                <Building2 className="h-12 w-12 text-primary mb-6" />
-                <h3 className="text-xl font-bold text-foreground mb-4">Organización</h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  Registrada en el Registro Internacional de Asociaciones del Reino de Bélgica como asociación internacional sin fines de lucro, con sede en Bruselas.
-                </p>
-              </Card>
-
-              <Card className="p-8 hover:shadow-medium transition-all">
-                <HandHeart className="h-12 w-12 text-primary mb-6" />
-                <h3 className="text-xl font-bold text-foreground mb-4">Estructura</h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  Su estructura garantiza el respeto por la diversidad, autonomía e iniciativa de cada asociación miembro, con total independencia de intereses políticos, religiosos o financieros.
-                </p>
-              </Card>
             </div>
 
             {/* Symbolism */}
