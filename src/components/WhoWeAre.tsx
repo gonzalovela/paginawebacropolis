@@ -105,9 +105,6 @@ export const WhoWeAre = () => {
         </div>
       </section>
 
-      {/* Three Pillars / Areas de Actuación */}
-      <ThreePillars />
-
       {/* Main Content Continued */}
       <section className="py-20 md:py-32 bg-background">
         <div className="container px-4 md:px-6">
@@ -637,6 +634,9 @@ export const WhoWeAre = () => {
           </div>
         </div>
       </section>
+
+      {/* Three Pillars / Areas de Acción */}
+      <ThreePillars />
     </>
   );
 };
