@@ -9,6 +9,7 @@ import deliaSteinbergPortrait from "@/assets/delia-steinberg-guzman-portrait.jpg
 import carlosAdelantadoPortrait from "@/assets/carlos-adelantado-real.jpg";
 import beatrizDiezCansecoPortrait from "@/assets/beatriz-diez-canseco-portrait.jpg";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
+import acropolisImage from "@/assets/acropolis-athens-elevated.jpg";
 
 export const WhoWeAre = () => {
   const principles = [
@@ -78,31 +79,45 @@ export const WhoWeAre = () => {
             </div>
 
             {/* Symbolism */}
-            <Card className="p-8 md:p-12 bg-gradient-subtle">
-              <div className="max-w-3xl mx-auto text-center space-y-6">
-                <Users className="h-12 w-12 mx-auto text-primary mb-4" />
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  El Simbolismo de Nueva Acrópolis
-                </h3>
-                <div className="space-y-4 text-foreground/70 leading-relaxed text-lg">
-                  <p>
-                    En la antigua Grecia, la <strong className="text-foreground">Acrópolis</strong> designaba la parte más alta de la ciudad, 
-                    donde se establecía el contacto entre lo visible y lo invisible.
-                  </p>
-                  <p>
-                    <span className="text-secondary font-semibold">"Acro"</span> significa buscar lo mejor en uno mismo, 
-                    <span className="text-secondary font-semibold"> "polis"</span> implica compromiso con la sociedad, 
-                    y <span className="text-secondary font-semibold"> "nueva"</span> significa dar forma contemporánea 
-                    a estos valores filosóficos atemporales.
-                  </p>
-                  <p className="text-xl font-semibold text-foreground pt-4">
-                    Nuestro mundo necesita nuevas acrópolis, no hechas de piedra sino de seres humanos, 
-                    elevadas en el corazón de nuestras ciudades para crecer internamente y restablecer 
-                    los lazos profundos que pueden unirnos.
-                  </p>
+            <div className="space-y-8">
+              <h3 className="text-3xl md:text-4xl font-bold text-center text-foreground">
+                El Simbolismo de Nueva Acrópolis
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="order-2 md:order-1">
+                  <Card className="p-8 bg-gradient-subtle h-full">
+                    <div className="space-y-4 text-foreground/70 leading-relaxed text-lg">
+                      <p>
+                        En la antigua Grecia, la <strong className="text-foreground">Acrópolis</strong> designaba la parte más alta de la ciudad, 
+                        donde se establecía el contacto entre lo visible y lo invisible.
+                      </p>
+                      <p>
+                        <span className="text-secondary font-semibold">"Acro"</span> significa buscar lo mejor en uno mismo, 
+                        <span className="text-secondary font-semibold"> "polis"</span> implica compromiso con la sociedad, 
+                        y <span className="text-secondary font-semibold"> "nueva"</span> significa dar forma contemporánea 
+                        a estos valores filosóficos atemporales.
+                      </p>
+                      <p className="text-xl font-semibold text-foreground pt-4">
+                        Nuestro mundo necesita nuevas acrópolis, no hechas de piedra sino de seres humanos, 
+                        elevadas en el corazón de nuestras ciudades para crecer internamente y restablecer
+                        los lazos profundos que pueden unirnos.
+                      </p>
+                    </div>
+                  </Card>
+                </div>
+                
+                <div className="order-1 md:order-2">
+                  <div className="rounded-2xl overflow-hidden shadow-elegant">
+                    <img 
+                      src={acropolisImage} 
+                      alt="La Acrópolis de Atenas - Ciudad Alta" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
-            </Card>
+            </div>
 
             {/* Principles */}
             <div>
