@@ -130,7 +130,7 @@ export const WhoWeAre = () => {
                     <span className="text-xs text-muted-foreground hidden md:block">Jorge Á. Livraga</span>
                   </TabsTrigger>
                   <TabsTrigger value="delia" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
-                    <span className="text-xs md:text-sm font-semibold">Presidenta 1991-2023</span>
+                    <span className="text-xs md:text-sm font-semibold">Presidenta Honoraria</span>
                     <span className="text-xs text-muted-foreground hidden md:block">Delia Steinberg</span>
                   </TabsTrigger>
                   <TabsTrigger value="internacional" className="flex flex-col gap-1 py-3 data-[state=active]:bg-secondary/10 data-[state=active]:text-secondary">
@@ -273,7 +273,7 @@ export const WhoWeAre = () => {
                   <div className="text-center mb-6">
                     <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm">
                       <Users className="h-4 w-4" />
-                      Presidenta Internacional 1991-2023
+                      Presidenta Honoraria Internacional
                     </div>
                   </div>
               
@@ -300,7 +300,7 @@ export const WhoWeAre = () => {
                         1943 - 2023
                       </p>
                       <p className="text-sm text-foreground/60 italic">
-                        Presidenta Internacional
+                        Presidenta Honoraria Internacional
                       </p>
                     </div>
 
@@ -323,7 +323,14 @@ export const WhoWeAre = () => {
                         <Trophy className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                         <div>
                           <p className="text-xs font-semibold text-foreground/80 mb-1">Presidencia</p>
-                          <p className="text-sm text-foreground/70">1991 - 2023</p>
+                          <p className="text-sm text-foreground/70">1991 - 2020</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
+                        <Heart className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Presidenta Honoraria</p>
+                          <p className="text-sm text-foreground/70">2020 - 2023</p>
                         </div>
                       </div>
                     </div>
@@ -338,7 +345,7 @@ export const WhoWeAre = () => {
                       </div>
                       
                       <p className="text-foreground/90 leading-relaxed text-lg">
-                        Nombrada Presidenta Internacional de Nueva Acrópolis tras el fallecimiento del fundador, el Profesor Jorge Ángel Livraga en 1991. Estuvo a cargo de la gestión y coordinación del trabajo educativo y cultural de Nueva Acrópolis en todos los países donde la Asociación está presente.
+                        Nombrada Presidenta Internacional de Nueva Acrópolis tras el fallecimiento del fundador, el Profesor Jorge Ángel Livraga en 1991. Estuvo a cargo de la gestión y coordinación del trabajo educativo y cultural de Nueva Acrópolis en todos los países donde la Asociación está presente hasta 2020, cuando asumió Carlos Adelantado Puchal y ella continuó como Presidenta Honoraria Internacional hasta su fallecimiento en 2023.
                       </p>
                     </div>
 
@@ -347,24 +354,24 @@ export const WhoWeAre = () => {
                     <div className="space-y-4">
                       <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
                         <Heart className="h-5 w-5 text-secondary" />
-                        Contribuciones Destacadas
+                        Trayectoria Destacada
                       </h4>
-                      <div className="grid sm:grid-cols-2 gap-3">
+                      <div className="space-y-3">
                         <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Educación Filosófica</p>
-                          <p className="text-xs text-foreground/70">Profesora de Filosofía, Historia de Religiones y Psicología</p>
+                          <p className="text-sm font-semibold text-foreground mb-2">Educación Filosófica</p>
+                          <p className="text-xs text-foreground/70 leading-relaxed">Profesora de Historia de Filosofía, Filosofía Moral, Historia de las Religiones, Filosofía Oriental, Psicología, Estética Metafísica y Oratoria. Desarrolló manuales de formación para profesores en todas estas materias.</p>
                         </div>
                         <div className="p-4 bg-secondary/5 rounded-xl border border-secondary/10 hover:border-secondary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Música y Cultura</p>
-                          <p className="text-xs text-foreground/70">Pianista concertista y fundadora del Instituto de Música Tristán</p>
+                          <p className="text-sm font-semibold text-foreground mb-2">Música y Cultura</p>
+                          <p className="text-xs text-foreground/70 leading-relaxed">Pianista concertista que se presentó desde los 10 años. En 1988 fundó el Instituto de Música Tristán, actualmente presente en España, Brasil, Francia, Israel y Alemania.</p>
                         </div>
                         <div className="p-4 bg-accent/5 rounded-xl border border-accent/10 hover:border-accent/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Publicaciones</p>
-                          <p className="text-xs text-foreground/70">Más de 30 libros sobre Filosofía Práctica traducidos a múltiples idiomas</p>
+                          <p className="text-sm font-semibold text-foreground mb-2">Cuadernos de Cultura</p>
+                          <p className="text-xs text-foreground/70 leading-relaxed">En 1972 fundó y dirigió en España la revista «Cuadernos de Cultura» donde publicó numerosos artículos y series temáticas como «Entre nosotros», «Al final del día», «Algo para contar» y «Preguntémonos», dedicados a promover la aplicación práctica de la filosofía en la vida cotidiana.</p>
                         </div>
                         <div className="p-4 bg-muted rounded-xl border border-border hover:border-primary/20 transition-colors">
-                          <p className="text-sm font-semibold text-foreground mb-1">Expansión Global</p>
-                          <p className="text-xs text-foreground/70">Coordinó actividades en más de 50 países en cinco continentes</p>
+                          <p className="text-sm font-semibold text-foreground mb-2">Publicaciones y Expansión</p>
+                          <p className="text-xs text-foreground/70 leading-relaxed">Escribió más de 30 libros sobre Filosofía Práctica traducidos a múltiples idiomas. Coordinó actividades en más de 50 países en cinco continentes durante más de 40 años.</p>
                         </div>
                       </div>
                     </div>
