@@ -5,6 +5,10 @@ import { Palette, Music, Theater, BookOpen, Globe, Users, ArrowRight } from "luc
 import { Footer } from "@/components/Footer";
 import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
+import philosophyStudyImage from "@/assets/philosophy-study-group.jpg";
+import cultureActivitiesImage from "@/assets/culture-activities.jpg";
+import cultureMountainImage from "@/assets/culture-mountain-group.jpg";
+import volunteeringImage from "@/assets/volunteering-action.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
@@ -20,24 +24,28 @@ const Cultura = () => {
       title: "Charlas y Conferencias",
       description: "Exploramos temas de historia, filosofía, arte y ciencias desde una perspectiva humanista. Cada charla busca conectar el pasado con el presente para comprender mejor el mundo actual.",
       topics: ["Filosofía antigua", "Civilizaciones perdidas", "Arte y simbolismo", "Ciencia y ética"],
+      image: philosophyStudyImage,
     },
     {
       icon: Theater,
       title: "Teatro y Expresión",
       description: "El teatro como herramienta de autoconocimiento. Montamos obras con contenido filosófico y desarrollamos talleres de expresión corporal y vocal.",
       topics: ["Teatro filosófico", "Expresión corporal", "Voz y retórica", "Improvisación"],
+      image: cultureActivitiesImage,
     },
     {
       icon: Music,
       title: "Música y Artes",
       description: "La música como lenguaje universal. Conciertos, talleres de instrumentos, canto coral y exploración de tradiciones musicales del mundo.",
       topics: ["Canto coral", "Instrumentos tradicionales", "Historia de la música", "Musicoterapia"],
+      image: volunteeringImage,
     },
     {
       icon: Globe,
       title: "Encuentros Culturales",
-      description: "Celebraciones de culturas del mundo, exposiciones de arte, proyecciones de cine con debate y tertulias filosóficas en un ambiente cercano y fraternal.",
-      topics: ["Festivales culturales", "Cine-debates", "Tertulias", "Exposiciones"],
+      description: "Celebraciones de culturas del mundo, exposiciones de arte, proyecciones de cine con debate, viajes culturales y tertulias filosóficas en un ambiente cercano y fraternal.",
+      topics: ["Festivales culturales", "Cine-debates", "Viajes culturales", "Tertulias", "Exposiciones"],
+      image: cultureMountainImage,
     },
   ];
 
@@ -182,28 +190,40 @@ const Cultura = () => {
             {activities.map((activity, index) => {
               const Icon = activity.icon;
               return (
-                <Card key={index} className="p-8 hover:shadow-medium transition-all">
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
-                      <Icon className="h-7 w-7" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-foreground mb-3">
+                <Card key={index} className="overflow-hidden hover:shadow-medium transition-all group">
+                  {/* Image Section */}
+                  <div className="relative h-56 overflow-hidden">
+                    <img 
+                      src={activity.image} 
+                      alt={activity.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      style={{ filter: 'brightness(1.05) saturate(1.1)' }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-xl bg-secondary/90 backdrop-blur-sm text-white flex items-center justify-center shadow-lg">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white drop-shadow-lg">
                         {activity.title}
                       </h3>
-                      <p className="text-foreground/70 leading-relaxed mb-4">
-                        {activity.description}
-                      </p>
                     </div>
                   </div>
-                  <div className="pl-20">
-                    <p className="text-sm font-semibold text-foreground/60 mb-2">Temas que exploramos:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {activity.topics.map((topic, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-muted text-foreground/70 rounded-full text-xs">
-                          {topic}
-                        </span>
-                      ))}
+                  
+                  {/* Content Section */}
+                  <div className="p-6 space-y-4">
+                    <p className="text-foreground/70 leading-relaxed">
+                      {activity.description}
+                    </p>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/60 mb-2">Temas que exploramos:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {activity.topics.map((topic, idx) => (
+                          <span key={idx} className="px-3 py-1 bg-muted text-foreground/70 rounded-full text-xs">
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </Card>
