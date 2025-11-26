@@ -14,6 +14,7 @@ import QuienesSomos from "./pages/QuienesSomos";
 import Sedes from "./pages/Sedes";
 import SedesAdmin from "./pages/SedesAdmin";
 import UsersAdmin from "./pages/UsersAdmin";
+import VoluntariadoFotosAdmin from "./pages/VoluntariadoFotosAdmin";
 import Auth from "./pages/Auth";
 import DesignSystem from "./pages/DesignSystem";
 import NotFound from "./pages/NotFound";
@@ -49,6 +50,14 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <UsersAdmin />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/voluntariado/admin/fotos" 
+              element={
+                <ProtectedRoute>
+                  <VoluntariadoFotosAdmin />
                 </ProtectedRoute>
               } 
             />
