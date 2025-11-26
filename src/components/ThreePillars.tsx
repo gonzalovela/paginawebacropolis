@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
-import cultureImage from "@/assets/culture-activities.jpg";
+import cultureImage from "@/assets/culture-mountain-group.jpg";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 
 export const ThreePillars = () => {
@@ -56,6 +56,7 @@ export const ThreePillars = () => {
                   src={pillar.image} 
                   alt={pillar.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  style={index === 1 ? { filter: 'brightness(1.05) saturate(1.1) sepia(0.08)' } : undefined}
                 />
               </div>
               
