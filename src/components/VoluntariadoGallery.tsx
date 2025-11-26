@@ -46,14 +46,10 @@ export const VoluntariadoGallery = () => {
 
   if (isLoading) {
     return (
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[1, 2, 3, 4, 5, 6].map((i) => (
-          <Card key={i} className="overflow-hidden">
-            <Skeleton className="w-full h-64" />
-            <div className="p-4 space-y-2">
-              <Skeleton className="h-4 w-3/4" />
-              <Skeleton className="h-3 w-full" />
-            </div>
+          <Card key={i} className="overflow-hidden border-0">
+            <Skeleton className="w-full aspect-square" />
           </Card>
         ))}
       </div>
@@ -72,9 +68,13 @@ export const VoluntariadoGallery = () => {
 
   return (
     <Tabs defaultValue="todos" className="w-full">
-      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 mb-8 h-auto gap-2">
+      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 mb-8 h-auto gap-2 bg-muted/30">
         {categorias.map((cat) => (
-          <TabsTrigger key={cat.value} value={cat.value} className="text-xs sm:text-sm py-2">
+          <TabsTrigger 
+            key={cat.value} 
+            value={cat.value} 
+            className="text-xs sm:text-sm py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+          >
             {cat.label}
           </TabsTrigger>
         ))}
@@ -82,29 +82,31 @@ export const VoluntariadoGallery = () => {
 
       {categorias.map((cat) => (
         <TabsContent key={cat.value} value={cat.value} className="mt-0">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filteredPhotos(cat.value).map((photo) => (
               <Card
                 key={photo.id}
-                className="overflow-hidden hover:shadow-medium transition-all group"
+                className="overflow-hidden border-0 hover:shadow-elevated transition-all duration-300 group cursor-pointer"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative aspect-square overflow-hidden">
                   <img
                     src={photo.imagen_url}
                     alt={photo.titulo}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-4 space-y-2">
-                  <h3 className="font-bold text-foreground line-clamp-1">
-                    {photo.titulo}
-                  </h3>
-                  {photo.descripcion && (
-                    <p className="text-sm text-foreground/60 line-clamp-2">
-                      {photo.descripcion}
-                    </p>
-                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="font-bold text-xl mb-2 line-clamp-2">
+                      {photo.titulo}
+                    </h3>
+                    {photo.descripcion && (
+                      <p className="text-sm text-white/90 line-clamp-3">
+                        {photo.descripcion}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </Card>
             ))}
