@@ -42,6 +42,7 @@ export type Database = {
           direccion: string
           es_principal: boolean
           facebook: string | null
+          google_maps_url: string | null
           id: string
           instagram: string | null
           nombre: string
@@ -55,6 +56,7 @@ export type Database = {
           direccion: string
           es_principal?: boolean
           facebook?: string | null
+          google_maps_url?: string | null
           id?: string
           instagram?: string | null
           nombre: string
@@ -68,6 +70,7 @@ export type Database = {
           direccion?: string
           es_principal?: boolean
           facebook?: string | null
+          google_maps_url?: string | null
           id?: string
           instagram?: string | null
           nombre?: string
