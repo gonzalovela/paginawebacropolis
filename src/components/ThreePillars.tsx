@@ -17,7 +17,7 @@ export const ThreePillars = () => {
     },
     {
       image: cultureImage,
-      title: "¡Cultura para perfeccionar!",
+      title: "¡Cultura para encontrarnos!",
       description: "La cultura como vía de encuentro entre personas, épocas y civilizaciones. Arte, música, teatro e historia para desarrollar sensibilidad y pensamiento crítico.",
       link: "/cultura",
       titleColor: "text-secondary",
