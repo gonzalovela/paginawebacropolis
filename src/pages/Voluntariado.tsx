@@ -276,46 +276,46 @@ const Voluntariado = () => {
           </div>
 
           <div className="space-y-8 max-w-6xl mx-auto">
-            {areas.map((area, index) => {
+          {areas.map((area, index) => {
               const Icon = area.icon;
               return (
-                <Card key={index} className="overflow-hidden hover:shadow-medium transition-all group">
-                  <div className="grid md:grid-cols-[400px,1fr] gap-0">
-                    {/* Image Column */}
-                    <div className="relative h-80 md:h-auto overflow-hidden">
-                      <img
-                        src={area.image}
-                        alt={area.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
-                    </div>
-
-                    {/* Content Column */}
-                    <div className="p-8 md:p-10 space-y-4">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-                          <Icon className="h-7 w-7" />
+                <Card key={index} className="overflow-hidden hover:shadow-elevated transition-all duration-500 group border-0">
+                  <div className="relative h-[500px] overflow-hidden">
+                    {/* Background Image with Overlay */}
+                    <img
+                      src={area.image}
+                      alt={area.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 group-hover:from-black/90 group-hover:via-black/85 transition-all duration-500" />
+                    
+                    {/* Content Overlay */}
+                    <div className="relative h-full flex flex-col justify-end p-8 md:p-10 text-white">
+                      {/* Icon and Title */}
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-2xl bg-accent/90 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
+                          <Icon className="h-7 w-7 text-white" />
                         </div>
-                        <div className="flex-1">
-                          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                            {area.title}
-                          </h3>
-                        </div>
+                        <h3 className="text-3xl md:text-4xl font-bold">
+                          {area.title}
+                        </h3>
                       </div>
-                      <p className="text-lg text-foreground/70 leading-relaxed">
+                      
+                      {/* Description */}
+                      <p className="text-lg text-white/90 leading-relaxed mb-4 line-clamp-3 group-hover:line-clamp-none transition-all">
                         {area.description}
                       </p>
-                      <div className="pt-4">
-                        <p className="text-sm font-semibold text-foreground/60 mb-3">Actividades:</p>
-                        <div className="grid sm:grid-cols-2 gap-3">
+                      
+                      {/* Activities List - Hidden by default, shown on hover */}
+                      <div className="max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500">
+                        <ul className="space-y-2 pt-2 border-t border-white/20">
                           {area.activities.map((activity, idx) => (
-                            <div key={idx} className="flex items-center gap-2">
-                              <TreePine className="h-4 w-4 text-primary flex-shrink-0" />
-                              <span className="text-sm text-foreground/70">{activity}</span>
-                            </div>
+                            <li key={idx} className="flex items-start gap-2 text-white/80">
+                              <span className="text-accent mt-1">•</span>
+                              <span>{activity}</span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     </div>
                   </div>
