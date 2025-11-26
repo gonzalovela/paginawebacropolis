@@ -5,6 +5,12 @@ import { Heart, Sprout, Users, Lightbulb, HandHeart, TreePine, ArrowRight, BookO
 import { Footer } from "@/components/Footer";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
+import yoAmoLecturaImage from "@/assets/voluntariado-yo-amo-lectura.jpg";
+import adultoMayorImage from "@/assets/voluntariado-adulto-mayor.jpg";
+import humanitarioSocialImage from "@/assets/voluntariado-humanitario-social.jpg";
+import medioAmbienteImage from "@/assets/voluntariado-medio-ambiente.jpg";
+import formacionImage from "@/assets/voluntariado-formacion.jpg";
+import talleresArtisticosImage from "@/assets/voluntariado-talleres-artisticos.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
@@ -36,6 +42,7 @@ const Voluntariado = () => {
         "Talleres de valores",
         "Donación de libros",
       ],
+      image: yoAmoLecturaImage,
     },
     {
       icon: Heart,
@@ -47,6 +54,7 @@ const Voluntariado = () => {
         "Talleres de memoria",
         "Apoyo emocional",
       ],
+      image: adultoMayorImage,
     },
     {
       icon: HandHeart,
@@ -58,6 +66,7 @@ const Voluntariado = () => {
         "Talleres de tejido",
         "Donaciones a comunidades altoandinas",
       ],
+      image: humanitarioSocialImage,
     },
     {
       icon: Sprout,
@@ -69,6 +78,7 @@ const Voluntariado = () => {
         "Limpieza de centros arqueológicos",
         "Eventos de concientización ambiental",
       ],
+      image: medioAmbienteImage,
     },
     {
       icon: Users,
@@ -80,6 +90,7 @@ const Voluntariado = () => {
         "Desarrollo de habilidades",
         "Talleres de liderazgo",
       ],
+      image: formacionImage,
     },
     {
       icon: Lightbulb,
@@ -91,6 +102,7 @@ const Voluntariado = () => {
         "Manualidades",
         "Presentaciones artísticas",
       ],
+      image: talleresArtisticosImage,
     },
   ];
 
@@ -267,17 +279,30 @@ const Voluntariado = () => {
             {areas.map((area, index) => {
               const Icon = area.icon;
               return (
-                <Card key={index} className="p-8 md:p-10 hover:shadow-medium transition-all">
-                  <div className="grid md:grid-cols-[auto,1fr] gap-8">
-                    <div className="flex md:flex-col items-center md:items-start gap-4">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-                        <Icon className="h-8 w-8" />
-                      </div>
+                <Card key={index} className="overflow-hidden hover:shadow-medium transition-all group">
+                  <div className="grid md:grid-cols-[400px,1fr] gap-0">
+                    {/* Image Column */}
+                    <div className="relative h-80 md:h-auto overflow-hidden">
+                      <img
+                        src={area.image}
+                        alt={area.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
                     </div>
-                    <div className="space-y-4">
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-                        {area.title}
-                      </h3>
+
+                    {/* Content Column */}
+                    <div className="p-8 md:p-10 space-y-4">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                          <Icon className="h-7 w-7" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                            {area.title}
+                          </h3>
+                        </div>
+                      </div>
                       <p className="text-lg text-foreground/70 leading-relaxed">
                         {area.description}
                       </p>
