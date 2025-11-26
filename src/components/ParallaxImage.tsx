@@ -11,33 +11,48 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
   const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let rafId: number;
+    
     const handleScroll = () => {
-      if (!imageRef.current) return;
-      
-      const rect = imageRef.current.parentElement?.getBoundingClientRect();
-      if (!rect) return;
-      
-      const scrolled = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      
-      // Calculate if element is in viewport
-      if (rect.top < viewportHeight && rect.bottom > 0) {
-        // For hero, use a different calculation to ensure coverage
-        if (isHero) {
-          const yPos = scrolled * speed;
-          imageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
-        } else {
-          const elementTop = rect.top + scrolled - viewportHeight;
-          const yPos = (scrolled - elementTop) * speed;
-          imageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
-        }
+      if (rafId) {
+        cancelAnimationFrame(rafId);
       }
+      
+      rafId = requestAnimationFrame(() => {
+        if (!imageRef.current) return;
+        
+        const rect = imageRef.current.parentElement?.getBoundingClientRect();
+        if (!rect) return;
+        
+        const scrolled = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate if element is in viewport
+        if (rect.top < viewportHeight && rect.bottom > 0) {
+          // For hero, use a different calculation to ensure coverage
+          if (isHero) {
+            const yPos = scrolled * speed;
+            imageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
+          } else {
+            // More natural parallax calculation for banners
+            const elementTop = rect.top + scrolled;
+            const relativeScroll = scrolled - elementTop + viewportHeight;
+            const yPos = relativeScroll * speed;
+            imageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
+          }
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial call
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [speed, isHero]);
 
   return (
@@ -47,9 +62,9 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
         className="absolute w-full"
         style={{ 
           willChange: "transform",
-          top: isHero ? "-20%" : "-10%",
-          bottom: isHero ? "-20%" : "-10%",
-          height: isHero ? "140%" : "120%"
+          top: isHero ? "-20%" : "-15%",
+          bottom: isHero ? "-20%" : "-15%",
+          height: isHero ? "140%" : "130%"
         }}
       >
         <img 
