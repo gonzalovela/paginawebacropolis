@@ -24,7 +24,6 @@ export const Footer = () => {
 
           {/* Quick links */}
           <div>
-            <h3 className="font-bold mb-4">Navegación</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="hover:text-accent transition-colors">
