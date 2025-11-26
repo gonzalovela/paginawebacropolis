@@ -121,7 +121,7 @@ export const VoluntariadoGallery = () => {
                   </div>
 
                   {photo.sedes && (
-                    <div className="absolute left-3 bottom-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                    <div className="absolute left-3 top-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-md">
                       📍 {photo.sedes.nombre}, {photo.sedes.ciudad}
                     </div>
                   )}
