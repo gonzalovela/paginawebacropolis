@@ -116,10 +116,10 @@ export const WhoWeAre = () => {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                  Guías Filosóficos
+                  Fundador y Dirección
                 </h2>
                 <p className="text-foreground/70 text-lg">
-                  Quienes han inspirado y guiado el camino de Nueva Acrópolis
+                  Historia y dirección de la Escuela de Filosofía
                 </p>
               </div>
 
