@@ -23,12 +23,46 @@ const Voluntariado = () => {
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   const principles = [
-    "Creemos en un mundo mejor",
-    "No hay imposibles",
-    "Cabeza en el cielo, pies en la tierra",
-    "Somos lo que hacemos",
-    "Vivir es construir",
-    "Somos parte activa de la Naturaleza",
+    {
+      icon: Heart,
+      message: "Creemos en un mundo mejor",
+      description: "La utopía no es imposible, es el motor de la transformación"
+    },
+    {
+      icon: Lightbulb,
+      message: "No hay imposibles",
+      description: "Los límites están en nuestra mente, no en la realidad"
+    },
+    {
+      icon: TreePine,
+      message: "Cabeza en el cielo, pies en la tierra",
+      description: "Ideales elevados con acción práctica y concreta"
+    },
+    {
+      icon: HandHeart,
+      message: "Somos lo que hacemos",
+      description: "Nuestras acciones definen quiénes somos realmente"
+    },
+    {
+      icon: Users,
+      message: "Vivir es construir",
+      description: "Cada día es una oportunidad para crear y transformar"
+    },
+    {
+      icon: Sprout,
+      message: "Somos parte activa de la Naturaleza",
+      description: "No somos dueños, somos parte del todo viviente"
+    },
+    {
+      icon: Heart,
+      message: "La fraternidad nos une",
+      description: "Más allá de diferencias, somos una familia humana"
+    },
+    {
+      icon: BookOpen,
+      message: "Aprender haciendo",
+      description: "El voluntariado es escuela de vida y sabiduría práctica"
+    },
   ];
 
   const areas = [
@@ -181,28 +215,44 @@ const Voluntariado = () => {
       {/* Key Messages */}
       <section 
         ref={principlesRef}
-        className={`py-20 bg-background transition-all duration-1000 ${
+        className={`py-20 md:py-32 bg-gradient-to-br from-background via-secondary/5 to-background transition-all duration-1000 ${
           principlesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
               Nuestros Principios
             </h2>
-            <p className="text-lg text-foreground/70">
-              Mensajes que guían nuestra acción voluntaria
+            <p className="text-lg md:text-xl text-foreground/70">
+              Mensajes que guían nuestra acción voluntaria y transforman ideas en realidad
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {principles.map((principle, index) => (
-              <div
-                key={index}
-                className="px-6 py-3 bg-gradient-subtle border border-border rounded-full text-foreground font-medium hover:shadow-soft transition-all"
-              >
-                {principle}
-              </div>
-            ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {principles.map((principle, index) => {
+              const Icon = principle.icon;
+              return (
+                <Card
+                  key={index}
+                  className="group p-6 hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 border-0 bg-card/50 backdrop-blur-sm"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-bold text-lg text-foreground leading-tight">
+                        {principle.message}
+                      </h3>
+                      <p className="text-sm text-foreground/60 leading-relaxed">
+                        {principle.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
