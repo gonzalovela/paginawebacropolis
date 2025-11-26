@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Heart, Sprout, Users, Lightbulb, HandHeart, TreePine, ArrowRight } from "lucide-react";
+import { Heart, Sprout, Users, Lightbulb, HandHeart, TreePine, ArrowRight, BookOpen } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
@@ -27,36 +27,69 @@ const Voluntariado = () => {
 
   const areas = [
     {
-      icon: Sprout,
-      title: "Acción Ambiental",
-      description: "Trabajamos por la Madre Tierra a través de reforestaciones, limpiezas de espacios naturales, huertos urbanos y educación ambiental.",
+      icon: BookOpen,
+      title: "Programa 'Yo Amo la Lectura'",
+      description: "Dirigido a beneficiar a escolares de nivel primaria en situación de vulnerabilidad social o económica. Realizamos jornadas periódicas para que los niños cultiven el amor por la lectura y los valores que estas promueven. En algunas ciudades hemos implementado bibliotecas para colegios de escasos recursos económicos.",
       activities: [
-        "Jornadas de reforestación",
-        "Limpieza de playas y parques",
-        "Huertos urbanos comunitarios",
-        "Talleres de educación ambiental",
+        "Jornadas de lectura en colegios",
+        "Bibliotecas comunitarias",
+        "Talleres de valores",
+        "Donación de libros",
       ],
     },
     {
       icon: Heart,
-      title: "Acción Social",
-      description: "Apoyamos a comunidades vulnerables con programas educativos, bancos de alimentos, visitas a asilos y actividades con niños.",
+      title: "Programa de Acompañamiento al Adulto Mayor",
+      description: "Brindamos compañía, escucha activa y actividades recreativas para adultos mayores. Promovemos su bienestar emocional y social mediante visitas regulares y programas de integración.",
       activities: [
-        "Apoyo a comedores comunitarios",
-        "Talleres educativos para niños",
-        "Visitas a asilos y hospitales",
-        "Recolección de alimentos y ropa",
+        "Visitas a asilos",
+        "Actividades recreativas",
+        "Talleres de memoria",
+        "Apoyo emocional",
+      ],
+    },
+    {
+      icon: HandHeart,
+      title: "Acciones de Voluntariado Humanitario y Social",
+      description: "Brindamos apoyo oportuno a damnificados por friaje, huaycos y desastres naturales. Organizamos colectas y donaciones de víveres, ropa de abrigo, productos de aseo y mantenimiento. En nuestras Escuelas, equipos de voluntarios participan de talleres de tejido y confección de ropa de abrigo para donarla a comunidades altoandinas afectadas por el friaje.",
+      activities: [
+        "Colectas de víveres y ropa",
+        "Apoyo en desastres naturales",
+        "Talleres de tejido",
+        "Donaciones a comunidades altoandinas",
+      ],
+    },
+    {
+      icon: Sprout,
+      title: "Programa de Protección del Medio Ambiente",
+      description: "Eventos de concientización para el cuidado del medioambiente. Acciones ecológicas en más de 50 comunidades por el Día Internacional de la Madre Tierra. Limpieza de centros arqueológicos, playas, ríos y áreas verdes. Sembrado de árboles.",
+      activities: [
+        "Jornadas de reforestación",
+        "Limpieza de playas y ríos",
+        "Limpieza de centros arqueológicos",
+        "Eventos de concientización ambiental",
+      ],
+    },
+    {
+      icon: Users,
+      title: "Programa de Formación de Voluntarios",
+      description: "Nuestros voluntarios participan de capacitaciones técnicas, formación filosófica y desarrollo de habilidades blandas. De esta manera, les damos herramientas para conocerse, desarrollar sus valores y cultivar las fortalezas que les permiten dar lo mejor de sí en el servicio a los demás.",
+      activities: [
+        "Capacitaciones técnicas",
+        "Formación filosófica",
+        "Desarrollo de habilidades",
+        "Talleres de liderazgo",
       ],
     },
     {
       icon: Lightbulb,
-      title: "Acción Cultural",
-      description: "Llevamos cultura y filosofía a espacios públicos, escuelas y comunidades. Creemos que el acceso a la cultura es un derecho.",
+      title: "Talleres Artísticos",
+      description: "Desarrollamos talleres para llevar alegría y compañía. En nuestras Escuelas, el Área de Voluntariado desarrolla algunos talleres artísticos, como teatro, baile o manualidades, en el que nuestros voluntarios preparan lo que habrán de ofrecer en nuestras obras de voluntariado.",
       activities: [
-        "Bibliotecas comunitarias",
-        "Charlas en escuelas públicas",
-        "Teatro callejero",
-        "Exposiciones itinerantes",
+        "Teatro",
+        "Baile",
+        "Manualidades",
+        "Presentaciones artísticas",
       ],
     },
   ];
@@ -222,15 +255,15 @@ const Voluntariado = () => {
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Áreas de Acción
+              Nuestros Programas de Voluntariado
             </h2>
             <p className="text-lg md:text-xl text-foreground/70">
-              Trabajamos en tres grandes áreas: ambiente, sociedad y cultura. 
-              Cada una aporta a la construcción de un mundo más justo y armonioso.
+              Programas concretos de acción solidaria que realizamos en Nueva Acrópolis Perú. 
+              Cada uno responde a necesidades específicas de nuestra comunidad.
             </p>
           </div>
 
-          <div className="space-y-8 max-w-5xl mx-auto">
+          <div className="space-y-8 max-w-6xl mx-auto">
             {areas.map((area, index) => {
               const Icon = area.icon;
               return (
@@ -273,10 +306,10 @@ const Voluntariado = () => {
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Nuestras Actividades en Acción
+              Galería de Programas en Acción
             </h2>
             <p className="text-lg md:text-xl text-foreground/70">
-              Galería fotográfica de los programas y actividades de voluntariado que realizamos en Perú
+              Fotos de nuestros programas de voluntariado y las actividades que realizamos en todo el Perú
             </p>
           </div>
           <VoluntariadoGallery />

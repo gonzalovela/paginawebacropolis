@@ -29,10 +29,13 @@ export const VoluntariadoGallery = () => {
   });
 
   const categorias = [
-    { value: "todos", label: "Todas las Actividades" },
-    { value: "ambiental", label: "Acción Ambiental" },
-    { value: "social", label: "Acción Social" },
-    { value: "cultural", label: "Acción Cultural" },
+    { value: "todos", label: "Todos los Programas" },
+    { value: "yo_amo_lectura", label: "Yo Amo la Lectura" },
+    { value: "adulto_mayor", label: "Acompañamiento al Adulto Mayor" },
+    { value: "humanitario_social", label: "Acción Humanitaria y Social" },
+    { value: "medio_ambiente", label: "Protección del Medio Ambiente" },
+    { value: "formacion_voluntarios", label: "Formación de Voluntarios" },
+    { value: "talleres_artisticos", label: "Talleres Artísticos" },
   ];
 
   const filteredPhotos = (categoria: string) => {
@@ -69,9 +72,9 @@ export const VoluntariadoGallery = () => {
 
   return (
     <Tabs defaultValue="todos" className="w-full">
-      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
+      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 mb-8 h-auto gap-2">
         {categorias.map((cat) => (
-          <TabsTrigger key={cat.value} value={cat.value}>
+          <TabsTrigger key={cat.value} value={cat.value} className="text-xs sm:text-sm py-2">
             {cat.label}
           </TabsTrigger>
         ))}

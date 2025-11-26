@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import { Pencil, Trash2, LogOut } from "lucide-react";
+import { Pencil, Trash2, LogOut, MapPin, Camera } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { VoluntariadoFotosAdmin } from "@/components/VoluntariadoFotosAdmin";
 
 interface Sede {
   id: string;
@@ -208,7 +210,7 @@ export const SedesAdminPanel = () => {
     <section className="container px-4 py-16">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-4xl font-bold">Administrar Sedes</h1>
+          <h1 className="text-4xl font-bold">Panel de Administración</h1>
           {user && (
             <p className="text-muted-foreground mt-2">
               {user.email}
@@ -228,7 +230,20 @@ export const SedesAdminPanel = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <Tabs defaultValue="sedes" className="w-full">
+        <TabsList className="grid w-full grid-cols-2 mb-8">
+          <TabsTrigger value="sedes" className="flex items-center gap-2">
+            <MapPin className="h-4 w-4" />
+            Gestionar Sedes
+          </TabsTrigger>
+          <TabsTrigger value="fotos" className="flex items-center gap-2">
+            <Camera className="h-4 w-4" />
+            Fotos de Voluntariado
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="sedes" className="mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Form */}
         <Card className="p-6">
           <h2 className="text-2xl font-bold mb-6">
@@ -375,6 +390,12 @@ export const SedesAdminPanel = () => {
           )}
         </div>
       </div>
+        </TabsContent>
+
+        <TabsContent value="fotos" className="mt-0">
+          <VoluntariadoFotosAdmin />
+        </TabsContent>
+      </Tabs>
     </section>
   );
 };

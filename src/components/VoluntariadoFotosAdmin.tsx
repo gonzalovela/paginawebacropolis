@@ -45,7 +45,7 @@ export const VoluntariadoFotosAdmin = () => {
   const [formData, setFormData] = useState({
     titulo: "",
     descripcion: "",
-    categoria: "ambiental",
+    categoria: "yo_amo_lectura",
     file: null as File | null,
   });
 
@@ -103,7 +103,7 @@ export const VoluntariadoFotosAdmin = () => {
       toast.success("Foto agregada exitosamente");
       queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos-admin"] });
       queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos"] });
-      setFormData({ titulo: "", descripcion: "", categoria: "ambiental", file: null });
+      setFormData({ titulo: "", descripcion: "", categoria: "yo_amo_lectura", file: null });
       setIsAdding(false);
       setUploading(false);
     },
@@ -211,9 +211,12 @@ export const VoluntariadoFotosAdmin = () => {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="ambiental">Acción Ambiental</SelectItem>
-                  <SelectItem value="social">Acción Social</SelectItem>
-                  <SelectItem value="cultural">Acción Cultural</SelectItem>
+                  <SelectItem value="yo_amo_lectura">Yo Amo la Lectura</SelectItem>
+                  <SelectItem value="adulto_mayor">Acompañamiento al Adulto Mayor</SelectItem>
+                  <SelectItem value="humanitario_social">Acción Humanitaria y Social</SelectItem>
+                  <SelectItem value="medio_ambiente">Protección del Medio Ambiente</SelectItem>
+                  <SelectItem value="formacion_voluntarios">Formación de Voluntarios</SelectItem>
+                  <SelectItem value="talleres_artisticos">Talleres Artísticos</SelectItem>
                 </SelectContent>
               </Select>
             </div>
