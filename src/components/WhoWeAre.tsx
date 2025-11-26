@@ -124,22 +124,22 @@ export const WhoWeAre = () => {
               </div>
 
               <Tabs defaultValue="fundador" className="w-full">
-                <TabsList className="grid w-full grid-cols-4 mb-8 h-auto">
-                  <TabsTrigger value="fundador" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
-                    <span className="text-xs md:text-sm font-semibold">Fundador</span>
-                    <span className="text-xs text-muted-foreground hidden md:block">Jorge Á. Livraga</span>
+                <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 h-auto gap-2">
+                  <TabsTrigger value="fundador" className="flex flex-col gap-1 py-3 px-2 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold">Fundador</span>
+                    <span className="text-[9px] sm:text-xs text-muted-foreground">Jorge Á. Livraga</span>
                   </TabsTrigger>
-                  <TabsTrigger value="delia" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
-                    <span className="text-xs md:text-sm font-semibold">Presidenta Honoraria</span>
-                    <span className="text-xs text-muted-foreground hidden md:block">Delia Steinberg</span>
+                  <TabsTrigger value="delia" className="flex flex-col gap-1 py-3 px-2 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold">Pres. Honoraria</span>
+                    <span className="text-[9px] sm:text-xs text-muted-foreground">Delia Steinberg</span>
                   </TabsTrigger>
-                  <TabsTrigger value="internacional" className="flex flex-col gap-1 py-3 data-[state=active]:bg-secondary/10 data-[state=active]:text-secondary">
-                    <span className="text-xs md:text-sm font-semibold">Presidente Internacional</span>
-                    <span className="text-xs text-muted-foreground hidden md:block">Carlos Adelantado</span>
+                  <TabsTrigger value="internacional" className="flex flex-col gap-1 py-3 px-2 data-[state=active]:bg-secondary/10 data-[state=active]:text-secondary">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold">Pres. Internacional</span>
+                    <span className="text-[9px] sm:text-xs text-muted-foreground">Carlos Adelantado</span>
                   </TabsTrigger>
-                  <TabsTrigger value="peru" className="flex flex-col gap-1 py-3 data-[state=active]:bg-accent/10 data-[state=active]:text-accent">
-                    <span className="text-xs md:text-sm font-semibold">Directora Nacional Perú</span>
-                    <span className="text-xs text-muted-foreground hidden md:block">Beatriz Diez Canseco</span>
+                  <TabsTrigger value="peru" className="flex flex-col gap-1 py-3 px-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold">Dir. Nacional Perú</span>
+                    <span className="text-[9px] sm:text-xs text-muted-foreground">Beatriz Diez Canseco</span>
                   </TabsTrigger>
                 </TabsList>
 
