@@ -95,6 +95,42 @@ export type Database = {
         }
         Relationships: []
       }
+      voluntariado_fotos: {
+        Row: {
+          activo: boolean | null
+          categoria: string
+          created_at: string
+          descripcion: string | null
+          id: string
+          imagen_url: string
+          orden: number | null
+          titulo: string
+          updated_at: string
+        }
+        Insert: {
+          activo?: boolean | null
+          categoria: string
+          created_at?: string
+          descripcion?: string | null
+          id?: string
+          imagen_url: string
+          orden?: number | null
+          titulo: string
+          updated_at?: string
+        }
+        Update: {
+          activo?: boolean | null
+          categoria?: string
+          created_at?: string
+          descripcion?: string | null
+          id?: string
+          imagen_url?: string
+          orden?: number | null
+          titulo?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

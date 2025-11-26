@@ -8,6 +8,7 @@ import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
+import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
 
 const Voluntariado = () => {
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
@@ -267,8 +268,23 @@ const Voluntariado = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="py-20 md:py-32 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+              Nuestras Actividades en Acción
+            </h2>
+            <p className="text-lg md:text-xl text-foreground/70">
+              Galería fotográfica de los programas y actividades de voluntariado que realizamos en Perú
+            </p>
+          </div>
+          <VoluntariadoGallery />
+        </div>
+      </section>
+
       {/* Call to Action */}
-      <section 
+      <section
         ref={ctaRef}
         className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
           ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
