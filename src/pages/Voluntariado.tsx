@@ -287,7 +287,7 @@ const Voluntariado = () => {
                       alt={area.title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 group-hover:from-black/90 group-hover:via-black/85 transition-all duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 group-hover:via-black/40 transition-all duration-500" />
                     
                     {/* Content Overlay */}
                     <div className="relative h-full flex flex-col justify-end p-8 md:p-10 text-white">
