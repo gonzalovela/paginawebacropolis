@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Palette, Music, Theater, BookOpen, Globe, Users, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
-import cultureImage from "@/assets/culture-activities.jpg";
+import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -121,8 +121,9 @@ const Cultura = () => {
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-elegant">
               <img 
                 src={cultureImage} 
-                alt="Actividades culturales" 
-                className="w-full h-full object-cover"
+                alt="Grupo en sitio arqueológico Chavín" 
+                className="w-full h-full object-cover object-[center_35%]"
+                style={{ filter: 'brightness(1.08) saturate(1.15) contrast(1.05) sepia(0.06)' }}
               />
             </div>
             
