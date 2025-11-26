@@ -104,6 +104,7 @@ export type Database = {
           id: string
           imagen_url: string
           orden: number | null
+          sede_id: string | null
           titulo: string
           updated_at: string
         }
@@ -115,6 +116,7 @@ export type Database = {
           id?: string
           imagen_url: string
           orden?: number | null
+          sede_id?: string | null
           titulo: string
           updated_at?: string
         }
@@ -126,10 +128,19 @@ export type Database = {
           id?: string
           imagen_url?: string
           orden?: number | null
+          sede_id?: string | null
           titulo?: string
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "voluntariado_fotos_sede_id_fkey"
+            columns: ["sede_id"]
+            isOneToOne: false
+            referencedRelation: "sedes"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {

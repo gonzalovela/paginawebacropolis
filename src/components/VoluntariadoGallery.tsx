@@ -11,6 +11,10 @@ type VolunteerPhoto = {
   categoria: string;
   imagen_url: string;
   orden: number;
+  sedes?: {
+    nombre: string;
+    ciudad: string;
+  } | null;
 };
 
 export const VoluntariadoGallery = () => {
@@ -19,12 +23,18 @@ export const VoluntariadoGallery = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("voluntariado_fotos")
-        .select("*")
+        .select(`
+          *,
+          sedes (
+            nombre,
+            ciudad
+          )
+        `)
         .eq("activo", true)
         .order("orden", { ascending: true });
 
       if (error) throw error;
-      return data as VolunteerPhoto[];
+      return data as any[];
     },
   });
 
@@ -106,6 +116,11 @@ export const VoluntariadoGallery = () => {
                     {photo.descripcion && (
                       <p className="text-sm text-white/90 line-clamp-3">
                         {photo.descripcion}
+                      </p>
+                    )}
+                    {photo.sedes && (
+                      <p className="text-xs text-white/80 mt-2 font-medium">
+                        📍 {photo.sedes.nombre}, {photo.sedes.ciudad}
                       </p>
                     )}
                   </div>
