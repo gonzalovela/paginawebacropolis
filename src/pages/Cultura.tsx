@@ -37,14 +37,14 @@ const Cultura = () => {
       icon: Music,
       title: "Música y Artes",
       description: "La música como lenguaje universal. Conciertos, talleres de instrumentos, canto coral y exploración de tradiciones musicales del mundo.",
-      topics: ["Canto coral", "Instrumentos tradicionales", "Historia de la música", "Musicoterapia"],
+      topics: ["Canto coral", "Instrumentos tradicionales", "Historia de la música", "Talleres de música clásica"],
       image: volunteeringImage,
     },
     {
       icon: Globe,
       title: "Encuentros Culturales",
       description: "Celebraciones de culturas del mundo, exposiciones de arte, proyecciones de cine con debate, viajes culturales y tertulias filosóficas en un ambiente cercano y fraternal.",
-      topics: ["Festivales culturales", "Cine-debates", "Viajes culturales", "Tertulias", "Exposiciones"],
+      topics: ["Festivales culturales", "Cine forums", "Viajes culturales", "Tertulias", "Exposiciones", "Conversatorios", "Ferias del libro"],
       image: cultureMountainImage,
     },
   ];
