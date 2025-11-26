@@ -19,7 +19,7 @@ const Index = () => {
       <Hero />
       <div 
         ref={principlesRef}
-        className={`transition-all duration-1000 ${
+        className={`-mt-8 transition-all duration-1000 ${
           principlesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
