@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MapPin, Phone, Facebook, Instagram, Music2, Search } from "lucide-react";
+import { MapPin, Phone, Facebook, Instagram, Music2, Search, Map } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { MapDialog } from "@/components/MapDialog";
 import sedesImage from "@/assets/sedes-community-banner.jpg";
 
 interface Sede {
@@ -17,6 +18,7 @@ interface Sede {
   instagram?: string;
   tiktok?: string;
   es_principal: boolean;
+  google_maps_url?: string;
 }
 
 export const SedesDirectory = () => {
@@ -24,6 +26,8 @@ export const SedesDirectory = () => {
   const [filteredSedes, setFilteredSedes] = useState<Sede[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const [mapDialogOpen, setMapDialogOpen] = useState(false);
+  const [selectedSede, setSelectedSede] = useState<Sede | null>(null);
 
   useEffect(() => {
     loadSedes();
@@ -79,6 +83,117 @@ export const SedesDirectory = () => {
     return `https://wa.me/${number.replace(/\D/g, '')}`;
   };
 
+  const openMapDialog = (sede: Sede) => {
+    setSelectedSede(sede);
+    setMapDialogOpen(true);
+  };
+
+  const renderSedeCard = (sede: Sede, isPrincipal: boolean = false) => (
+    <Card key={sede.id} className={`p-6 hover:shadow-lg transition-shadow ${isPrincipal ? 'border-l-4 border-l-primary' : 'border-l-4 border-l-primary'}`}>
+      {isPrincipal && (
+        <div className="mb-4">
+          <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+            Sede Principal
+          </span>
+        </div>
+      )}
+      
+      <h3 className="text-xl font-bold mb-2">{sede.nombre}</h3>
+      
+      <div className="space-y-3 text-muted-foreground mb-4">
+        <div className="flex items-start gap-2">
+          <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-primary" />
+          <div>
+            {isPrincipal && <p className="font-medium text-foreground">{sede.ciudad}</p>}
+            <p className="text-sm">{sede.direccion}</p>
+          </div>
+        </div>
+
+        {sede.whatsapp && (
+          <div className="flex items-center gap-2">
+            <Phone className="h-5 w-5 flex-shrink-0 text-primary" />
+            <a 
+              href={formatWhatsApp(sede.whatsapp)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm hover:text-primary transition-colors font-medium"
+            >
+              {sede.whatsapp}
+            </a>
+          </div>
+        )}
+      </div>
+
+      {sede.google_maps_url && (
+        <Button
+          variant="outline"
+          size="sm"
+          className="w-full mb-4 hover:bg-primary hover:text-primary-foreground transition-colors"
+          onClick={() => openMapDialog(sede)}
+        >
+          <Map className="h-4 w-4 mr-2" />
+          Ver en el mapa
+        </Button>
+      )}
+
+      {(sede.facebook || sede.instagram || sede.tiktok) && (
+        <div className="flex gap-2 pt-4 border-t">
+          {sede.facebook && (
+            <Button 
+              variant="outline" 
+              size="icon"
+              className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+              asChild
+            >
+              <a 
+                href={sede.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            </Button>
+          )}
+          {sede.instagram && (
+            <Button 
+              variant="outline" 
+              size="icon"
+              className="hover:bg-secondary hover:text-secondary-foreground hover:border-secondary transition-colors"
+              asChild
+            >
+              <a 
+                href={sede.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+            </Button>
+          )}
+          {sede.tiktok && (
+            <Button 
+              variant="outline" 
+              size="icon"
+              className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+              asChild
+            >
+              <a 
+                href={sede.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
+                <Music2 className="h-4 w-4" />
+              </a>
+            </Button>
+          )}
+        </div>
+      )}
+    </Card>
+  );
+
   return (
     <section className="relative min-h-screen">
       {/* Banner with parallax */}
@@ -133,95 +248,7 @@ export const SedesDirectory = () => {
                   Sede Principal
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <Card className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-primary">
-                    <div className="mb-4">
-                      <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                        Sede Principal
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-2">{sedePrincipal.nombre}</h3>
-                    
-                    <div className="space-y-3 text-muted-foreground mb-4">
-                      <div className="flex items-start gap-2">
-                        <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-primary" />
-                        <div>
-                          <p className="font-medium text-foreground">{sedePrincipal.ciudad}</p>
-                          <p className="text-sm">{sedePrincipal.direccion}</p>
-                        </div>
-                      </div>
-
-                      {sedePrincipal.whatsapp && (
-                        <div className="flex items-center gap-2">
-                          <Phone className="h-5 w-5 flex-shrink-0 text-primary" />
-                          <a 
-                            href={formatWhatsApp(sedePrincipal.whatsapp)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm hover:text-primary transition-colors font-medium"
-                          >
-                            {sedePrincipal.whatsapp}
-                          </a>
-                        </div>
-                      )}
-                    </div>
-
-                    {(sedePrincipal.facebook || sedePrincipal.instagram || sedePrincipal.tiktok) && (
-                      <div className="flex gap-2 pt-4 border-t">
-                        {sedePrincipal.facebook && (
-                          <Button 
-                            variant="outline" 
-                            size="icon"
-                            className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
-                            asChild
-                          >
-                            <a 
-                              href={sedePrincipal.facebook}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label="Facebook"
-                            >
-                              <Facebook className="h-4 w-4" />
-                            </a>
-                          </Button>
-                        )}
-                        {sedePrincipal.instagram && (
-                          <Button 
-                            variant="outline" 
-                            size="icon"
-                            className="hover:bg-secondary hover:text-secondary-foreground hover:border-secondary transition-colors"
-                            asChild
-                          >
-                            <a 
-                              href={sedePrincipal.instagram}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label="Instagram"
-                            >
-                              <Instagram className="h-4 w-4" />
-                            </a>
-                          </Button>
-                        )}
-                        {sedePrincipal.tiktok && (
-                          <Button 
-                            variant="outline" 
-                            size="icon"
-                            className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
-                            asChild
-                          >
-                            <a 
-                              href={sedePrincipal.tiktok}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label="TikTok"
-                            >
-                              <Music2 className="h-4 w-4" />
-                            </a>
-                          </Button>
-                        )}
-                      </div>
-                    )}
-                  </Card>
+                  {renderSedeCard(sedePrincipal, true)}
                 </div>
               </div>
             )}
@@ -233,94 +260,21 @@ export const SedesDirectory = () => {
                   {city}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {sedesByCity[city].map((sede) => (
-                    <Card key={sede.id} className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-primary">
-                      <h3 className="text-xl font-bold mb-2">{sede.nombre}</h3>
-                      
-                      <div className="space-y-3 text-muted-foreground mb-4">
-                        <div className="flex items-start gap-2">
-                          <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-primary" />
-                          <div>
-                            <p className="text-sm">{sede.direccion}</p>
-                          </div>
-                        </div>
-
-                        {sede.whatsapp && (
-                          <div className="flex items-center gap-2">
-                            <Phone className="h-5 w-5 flex-shrink-0 text-primary" />
-                            <a 
-                              href={formatWhatsApp(sede.whatsapp)}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm hover:text-primary transition-colors font-medium"
-                            >
-                              {sede.whatsapp}
-                            </a>
-                          </div>
-                        )}
-                      </div>
-
-                      {(sede.facebook || sede.instagram || sede.tiktok) && (
-                        <div className="flex gap-2 pt-4 border-t">
-                          {sede.facebook && (
-                            <Button 
-                              variant="outline" 
-                              size="icon"
-                              className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
-                              asChild
-                            >
-                              <a 
-                                href={sede.facebook}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Facebook"
-                              >
-                                <Facebook className="h-4 w-4" />
-                              </a>
-                            </Button>
-                          )}
-                          {sede.instagram && (
-                            <Button 
-                              variant="outline" 
-                              size="icon"
-                              className="hover:bg-secondary hover:text-secondary-foreground hover:border-secondary transition-colors"
-                              asChild
-                            >
-                              <a 
-                                href={sede.instagram}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram"
-                              >
-                                <Instagram className="h-4 w-4" />
-                              </a>
-                            </Button>
-                          )}
-                          {sede.tiktok && (
-                            <Button 
-                              variant="outline" 
-                              size="icon"
-                              className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
-                              asChild
-                            >
-                              <a 
-                                href={sede.tiktok}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="TikTok"
-                              >
-                                <Music2 className="h-4 w-4" />
-                              </a>
-                            </Button>
-                          )}
-                        </div>
-                      )}
-                    </Card>
-                  ))}
+                  {sedesByCity[city].map((sede) => renderSedeCard(sede, false))}
                 </div>
               </div>
             ))}
           </div>
+        )}
+        
+        {/* Map Dialog */}
+        {selectedSede && selectedSede.google_maps_url && (
+          <MapDialog
+            isOpen={mapDialogOpen}
+            onClose={() => setMapDialogOpen(false)}
+            mapsUrl={selectedSede.google_maps_url}
+            sedeName={selectedSede.nombre}
+          />
         )}
       </div>
     </section>

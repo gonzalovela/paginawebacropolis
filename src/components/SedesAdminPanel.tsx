@@ -22,6 +22,7 @@ interface Sede {
   instagram?: string;
   tiktok?: string;
   es_principal: boolean;
+  google_maps_url?: string;
 }
 
 interface SedeFormData {
@@ -33,6 +34,7 @@ interface SedeFormData {
   instagram: string;
   tiktok: string;
   es_principal: boolean;
+  google_maps_url: string;
 }
 
 const emptyForm: SedeFormData = {
@@ -44,6 +46,7 @@ const emptyForm: SedeFormData = {
   instagram: "",
   tiktok: "",
   es_principal: false,
+  google_maps_url: "",
 };
 
 export const SedesAdminPanel = () => {
@@ -113,6 +116,7 @@ export const SedesAdminPanel = () => {
         instagram: formData.instagram || null,
         tiktok: formData.tiktok || null,
         es_principal: formData.es_principal,
+        google_maps_url: formData.google_maps_url || null,
       };
 
       if (editingId) {
@@ -153,6 +157,7 @@ export const SedesAdminPanel = () => {
       instagram: sede.instagram || "",
       tiktok: sede.tiktok || "",
       es_principal: sede.es_principal,
+      google_maps_url: sede.google_maps_url || "",
     });
     setEditingId(sede.id);
   };
@@ -318,6 +323,19 @@ export const SedesAdminPanel = () => {
                 onChange={(e) => setFormData({ ...formData, tiktok: e.target.value })}
                 placeholder="https://tiktok.com/@..."
               />
+            </div>
+
+            <div>
+              <Label htmlFor="google_maps_url">URL de Google Maps</Label>
+              <Input
+                id="google_maps_url"
+                value={formData.google_maps_url}
+                onChange={(e) => setFormData({ ...formData, google_maps_url: e.target.value })}
+                placeholder="https://maps.app.goo.gl/... o https://www.google.com/maps/..."
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                Copia el enlace completo desde Google Maps (botón "Compartir")
+              </p>
             </div>
 
             <div className="flex items-center space-x-2">
