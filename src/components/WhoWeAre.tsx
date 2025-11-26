@@ -5,6 +5,7 @@ import { ParallaxImage } from "@/components/ParallaxImage";
 import { ThreePillars } from "@/components/ThreePillars";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
 import jorgeLivragaPortrait from "@/assets/jorge-livraga-real.jpg";
+import deliaSteinbergPortrait from "@/assets/delia-steinberg-guzman-portrait.jpg";
 import carlosAdelantadoPortrait from "@/assets/carlos-adelantado-real.jpg";
 import beatrizDiezCansecoPortrait from "@/assets/beatriz-diez-canseco-portrait.jpg";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
@@ -115,18 +116,22 @@ export const WhoWeAre = () => {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                  Nuestro Liderazgo
+                  Guías Filosóficos
                 </h2>
                 <p className="text-foreground/70 text-lg">
-                  Fundador y quienes guían Nueva Acrópolis hoy
+                  Quienes han inspirado y guiado el camino de Nueva Acrópolis
                 </p>
               </div>
 
               <Tabs defaultValue="fundador" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 mb-8 h-auto">
+                <TabsList className="grid w-full grid-cols-4 mb-8 h-auto">
                   <TabsTrigger value="fundador" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
                     <span className="text-xs md:text-sm font-semibold">Fundador</span>
                     <span className="text-xs text-muted-foreground hidden md:block">Jorge Á. Livraga</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="delia" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
+                    <span className="text-xs md:text-sm font-semibold">Presidenta 1991-2023</span>
+                    <span className="text-xs text-muted-foreground hidden md:block">Delia Steinberg</span>
                   </TabsTrigger>
                   <TabsTrigger value="internacional" className="flex flex-col gap-1 py-3 data-[state=active]:bg-secondary/10 data-[state=active]:text-secondary">
                     <span className="text-xs md:text-sm font-semibold">Presidente Internacional</span>
@@ -257,6 +262,139 @@ export const WhoWeAre = () => {
                     <div className="p-6 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent rounded-xl border border-primary/20">
                       <p className="text-foreground/80 leading-relaxed italic">
                         "Dedicó su vida a promover esta aventura espiritual, estableciendo centros en más de 50 países de los cinco continentes. Su visión de una filosofía práctica y transformadora continúa inspirando a miles de personas alrededor del mundo."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+                </TabsContent>
+
+                <TabsContent value="delia" className="mt-0">
+                  <div className="text-center mb-6">
+                    <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm">
+                      <Users className="h-4 w-4" />
+                      Presidenta Internacional 1991-2023
+                    </div>
+                  </div>
+              
+              <Card className="overflow-hidden border-2 border-primary/10 bg-gradient-to-br from-background via-background to-primary/5">
+                <div className="grid lg:grid-cols-[400px,1fr] gap-0">
+                  {/* Columna Izquierda - Imagen y Datos Principales */}
+                  <div className="bg-gradient-to-b from-primary/10 to-primary/5 p-8 md:p-10 flex flex-col items-center justify-center space-y-6">
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                      <div className="relative w-64 h-64 rounded-3xl overflow-hidden shadow-elegant ring-4 ring-background">
+                        <img 
+                          src={deliaSteinbergPortrait} 
+                          alt="Delia Steinberg Guzmán - Presidenta Internacional 1991-2023"
+                          className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="text-center space-y-2">
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                        Delia Steinberg Guzmán
+                      </h3>
+                      <p className="text-lg font-medium text-primary">
+                        1943 - 2023
+                      </p>
+                      <p className="text-sm text-foreground/60 italic">
+                        Presidenta Internacional
+                      </p>
+                    </div>
+
+                    <div className="w-full space-y-3 pt-4">
+                      <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
+                        <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Lugar de Nacimiento</p>
+                          <p className="text-sm text-foreground/70">Buenos Aires, Argentina</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
+                        <BookOpen className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Formación</p>
+                          <p className="text-sm text-foreground/70">Filosofía, Piano y Composición</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-3 bg-background/50 rounded-xl">
+                        <Trophy className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-semibold text-foreground/80 mb-1">Presidencia</p>
+                          <p className="text-sm text-foreground/70">1991 - 2023</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Columna Derecha - Contenido Biográfico */}
+                  <div className="p-8 md:p-10 space-y-6">
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-lg border border-primary/10">
+                        <Sparkles className="h-4 w-4 text-primary" />
+                        <span className="text-sm font-semibold text-primary">Continuidad y Renovación</span>
+                      </div>
+                      
+                      <p className="text-foreground/90 leading-relaxed text-lg">
+                        Nombrada Presidenta Internacional de Nueva Acrópolis tras el fallecimiento del fundador, el Profesor Jorge Ángel Livraga en 1991. Estuvo a cargo de la gestión y coordinación del trabajo educativo y cultural de Nueva Acrópolis en todos los países donde la Asociación está presente.
+                      </p>
+                    </div>
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
+                        <Heart className="h-5 w-5 text-secondary" />
+                        Contribuciones Destacadas
+                      </h4>
+                      <div className="grid sm:grid-cols-2 gap-3">
+                        <div className="p-4 bg-primary/5 rounded-xl border border-primary/10 hover:border-primary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Educación Filosófica</p>
+                          <p className="text-xs text-foreground/70">Profesora de Filosofía, Historia de Religiones y Psicología</p>
+                        </div>
+                        <div className="p-4 bg-secondary/5 rounded-xl border border-secondary/10 hover:border-secondary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Música y Cultura</p>
+                          <p className="text-xs text-foreground/70">Pianista concertista y fundadora del Instituto de Música Tristán</p>
+                        </div>
+                        <div className="p-4 bg-accent/5 rounded-xl border border-accent/10 hover:border-accent/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Publicaciones</p>
+                          <p className="text-xs text-foreground/70">Más de 30 libros sobre Filosofía Práctica traducidos a múltiples idiomas</p>
+                        </div>
+                        <div className="p-4 bg-muted rounded-xl border border-border hover:border-primary/20 transition-colors">
+                          <p className="text-sm font-semibold text-foreground mb-1">Expansión Global</p>
+                          <p className="text-xs text-foreground/70">Coordinó actividades en más de 50 países en cinco continentes</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-foreground flex items-center gap-2">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                        Reconocimientos
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-primary/5 to-transparent rounded-lg border-l-2 border-primary">
+                          <span className="text-primary font-bold text-sm">1980</span>
+                          <p className="text-sm text-foreground/70">Medalla de Plata en Artes, Ciencia y Literatura de la Académie Française</p>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-secondary/5 to-transparent rounded-lg border-l-2 border-secondary">
+                          <span className="text-secondary font-bold text-sm">1982</span>
+                          <p className="text-sm text-foreground/70">Fundó el Concurso Internacional de Piano que lleva su nombre</p>
+                        </div>
+                        <div className="flex items-start gap-3 p-3 bg-gradient-to-r from-accent/5 to-transparent rounded-lg border-l-2 border-accent">
+                          <span className="text-accent font-bold text-sm">2000</span>
+                          <p className="text-sm text-foreground/70">Directora de la revista cultural Esfinge</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent rounded-xl border border-primary/20">
+                      <p className="text-foreground/80 leading-relaxed italic">
+                        "Dedicó más de 40 años a promover la filosofía como forma de vida, la cultura como medio de desarrollo personal, y el voluntariado como expresión del compromiso social. Su legado continúa inspirando a miles de estudiantes y voluntarios en todo el mundo."
                       </p>
                     </div>
                   </div>
