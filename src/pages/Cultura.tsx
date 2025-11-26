@@ -118,11 +118,11 @@ const Cultura = () => {
         <div className="container px-4 md:px-6">
           <div className="max-w-5xl mx-auto space-y-12">
             {/* Hero Image */}
-            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-elegant">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-elegant">
               <img 
                 src={cultureImage} 
                 alt="Grupo en sitio arqueológico Chavín" 
-                className="w-full h-full object-cover object-[center_35%]"
+                className="w-full h-full object-cover object-[center_55%]"
                 style={{ filter: 'brightness(1.08) saturate(1.15) contrast(1.05) sepia(0.06)' }}
               />
             </div>
