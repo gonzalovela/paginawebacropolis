@@ -70,12 +70,12 @@ export const VoluntariadoGallery = () => {
 
   return (
     <Tabs defaultValue="todos" className="w-full">
-      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 mb-8 h-auto gap-2 bg-muted/30">
+      <TabsList className="flex flex-wrap w-full justify-center mb-8 h-auto gap-2 bg-muted/30 p-2">
         {categorias.map((cat) => (
           <TabsTrigger 
             key={cat.value} 
             value={cat.value} 
-            className="text-xs sm:text-sm py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="text-xs sm:text-sm px-4 py-3 whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
             {cat.label}
           </TabsTrigger>
