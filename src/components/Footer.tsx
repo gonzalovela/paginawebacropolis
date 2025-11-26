@@ -117,6 +117,9 @@ export const Footer = () => {
               <a href="#" className="hover:text-accent transition-colors">
                 Privacidad
               </a>
+              <Link to="/auth" className="hover:text-accent transition-colors opacity-30 hover:opacity-60 text-xs">
+                ·
+              </Link>
             </div>
           </div>
         </div>
