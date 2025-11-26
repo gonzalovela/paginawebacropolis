@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, { message: "El nombre debe tener al menos 2 caracteres" }).max(100, { message: "El nombre es muy largo" }),
@@ -14,9 +15,17 @@ const contactSchema = z.object({
   phone: z.string().trim().min(6, { message: "Teléfono inválido" }).max(20, { message: "Teléfono muy largo" }),
   interest: z.enum(["curso", "filosofia", "cultura", "voluntariado", "otro"], { message: "Selecciona una opción" }),
   message: z.string().trim().min(10, { message: "El mensaje es muy corto" }).max(1000, { message: "El mensaje es muy largo" }),
+  sedeId: z.string().min(1, { message: "Selecciona una sede" }),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
+
+interface Sede {
+  id: string;
+  nombre: string;
+  ciudad: string;
+  es_principal: boolean;
+}
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -25,9 +34,35 @@ export const ContactForm = () => {
     phone: "",
     interest: "curso",
     message: "",
+    sedeId: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sedes, setSedes] = useState<Sede[]>([]);
+  const [loadingSedes, setLoadingSedes] = useState(true);
+
+  // Load sedes
+  useEffect(() => {
+    const fetchSedes = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("sedes")
+          .select("id, nombre, ciudad, es_principal")
+          .order("es_principal", { ascending: false })
+          .order("ciudad");
+        
+        if (error) throw error;
+        setSedes(data || []);
+      } catch (error) {
+        console.error("Error loading sedes:", error);
+        toast.error("Error al cargar las sedes");
+      } finally {
+        setLoadingSedes(false);
+      }
+    };
+
+    fetchSedes();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,21 +86,38 @@ export const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Encode data for WhatsApp
-      const whatsappMessage = encodeURIComponent(
-        `*Nueva Inscripción - Nueva Acrópolis*\n\n` +
-        `*Nombre:* ${result.data.name}\n` +
-        `*Email:* ${result.data.email}\n` +
-        `*Teléfono:* ${result.data.phone}\n` +
-        `*Interés:* ${result.data.interest}\n` +
-        `*Mensaje:*\n${result.data.message}`
-      );
-      
-      // Open WhatsApp (you can replace with actual WhatsApp number)
-      const whatsappNumber = "51999999999"; // Replace with actual number
-      window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
-      
-      toast.success("¡Mensaje enviado! Te contactaremos pronto.");
+      // Save to database
+      const { error: insertError } = await supabase
+        .from("inscripciones")
+        .insert({
+          nombre: result.data.name,
+          email: result.data.email,
+          telefono: result.data.phone,
+          interes: result.data.interest,
+          mensaje: result.data.message,
+          sede_id: result.data.sedeId,
+        });
+
+      if (insertError) throw insertError;
+
+      // Send email to sede
+      const { error: emailError } = await supabase.functions.invoke("send-inscription-email", {
+        body: {
+          nombre: result.data.name,
+          email: result.data.email,
+          telefono: result.data.phone,
+          interes: result.data.interest,
+          mensaje: result.data.message,
+          sedeId: result.data.sedeId,
+        },
+      });
+
+      if (emailError) {
+        console.error("Error sending email:", emailError);
+        // Don't throw - data is saved, email is secondary
+      }
+
+      toast.success("¡Inscripción enviada! Te contactaremos pronto.");
       
       // Reset form
       setFormData({
@@ -74,9 +126,11 @@ export const ContactForm = () => {
         phone: "",
         interest: "curso",
         message: "",
+        sedeId: "",
       });
     } catch (error) {
-      toast.error("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
+      console.error("Error submitting form:", error);
+      toast.error("Hubo un error al enviar la inscripción. Por favor intenta de nuevo.");
     } finally {
       setIsSubmitting(false);
     }
@@ -124,6 +178,28 @@ export const ContactForm = () => {
             className={errors.phone ? "border-destructive" : ""}
           />
           {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="sede">Sede de tu interés *</Label>
+          <Select
+            value={formData.sedeId}
+            onValueChange={(value) => setFormData({ ...formData, sedeId: value })}
+            disabled={loadingSedes}
+          >
+            <SelectTrigger className={errors.sedeId ? "border-destructive" : ""}>
+              <SelectValue placeholder={loadingSedes ? "Cargando sedes..." : "Selecciona una sede"} />
+            </SelectTrigger>
+            <SelectContent>
+              {sedes.map((sede) => (
+                <SelectItem key={sede.id} value={sede.id}>
+                  {sede.nombre} - {sede.ciudad}
+                  {sede.es_principal && " (Principal)"}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {errors.sedeId && <p className="text-sm text-destructive">{errors.sedeId}</p>}
         </div>
 
         <div className="space-y-2">
