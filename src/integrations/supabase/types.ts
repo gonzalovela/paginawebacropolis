@@ -14,6 +14,47 @@ export type Database = {
   }
   public: {
     Tables: {
+      inscripciones: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          interes: string
+          mensaje: string
+          nombre: string
+          sede_id: string | null
+          telefono: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          interes: string
+          mensaje: string
+          nombre: string
+          sede_id?: string | null
+          telefono: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          interes?: string
+          mensaje?: string
+          nombre?: string
+          sede_id?: string | null
+          telefono?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inscripciones_sede_id_fkey"
+            columns: ["sede_id"]
+            isOneToOne: false
+            referencedRelation: "sedes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
