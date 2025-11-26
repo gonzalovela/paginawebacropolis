@@ -222,10 +222,10 @@ const Voluntariado = () => {
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Nuestros Principios
+              Mensajes que nos Inspiran
             </h2>
             <p className="text-lg md:text-xl text-foreground/70">
-              Mensajes que guían nuestra acción voluntaria y transforman ideas en realidad
+              Ideas que guían nuestra acción voluntaria y transforman la filosofía en realidad
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
