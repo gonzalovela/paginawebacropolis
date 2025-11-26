@@ -118,12 +118,13 @@ export const VoluntariadoGallery = () => {
                         {photo.descripcion}
                       </p>
                     )}
-                    {photo.sedes && (
-                      <p className="text-xs text-white/80 mt-2 font-medium">
-                        📍 {photo.sedes.nombre}, {photo.sedes.ciudad}
-                      </p>
-                    )}
                   </div>
+
+                  {photo.sedes && (
+                    <div className="absolute left-3 bottom-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                      📍 {photo.sedes.nombre}, {photo.sedes.ciudad}
+                    </div>
+                  )}
                 </div>
               </Card>
             ))}
