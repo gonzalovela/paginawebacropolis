@@ -14,7 +14,7 @@ type VolunteerPhoto = {
 };
 
 export const VoluntariadoGallery = () => {
-  const { data: photos, isLoading } = useQuery({
+  const { data: photos, isLoading, error } = useQuery({
     queryKey: ["voluntariado-fotos"],
     queryFn: async () => {
       const { data, error } = await supabase
@@ -27,6 +27,8 @@ export const VoluntariadoGallery = () => {
       return data as VolunteerPhoto[];
     },
   });
+
+  console.log("VoluntariadoGallery photos", { photos, isLoading, error });
 
   const categorias = [
     { value: "todos", label: "Todos los Programas" },
