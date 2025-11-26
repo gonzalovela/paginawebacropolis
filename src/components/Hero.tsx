@@ -13,16 +13,16 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-[1]" />
 
       <div className="container relative z-10 px-4 md:px-6 text-center">
-        <div className="animate-fade-in-up mb-8">
+        <div className="animate-fade-in-up mb-6 -mt-8">
           <img 
             src={logo} 
             alt="Nueva Acrópolis - Escuela de Filosofía" 
-            className="h-24 md:h-32 mx-auto mb-8 brightness-0 invert"
+            className="h-28 md:h-36 mx-auto brightness-0 invert"
           />
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Somos una Escuela de Filosofía para la vida
+          Somos una Escuela de Filosofía <br className="hidden sm:block" />para la vida
         </h1>
 
         <p className="text-lg md:text-xl lg:text-2xl text-primary-foreground/90 max-w-3xl mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
