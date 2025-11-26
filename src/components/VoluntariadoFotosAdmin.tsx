@@ -34,6 +34,13 @@ type VolunteerPhoto = {
   imagen_url: string;
   orden: number;
   activo: boolean;
+  sede_id: string | null;
+};
+
+type Sede = {
+  id: string;
+  nombre: string;
+  ciudad: string;
 };
 
 export const VoluntariadoFotosAdmin = () => {
@@ -46,7 +53,21 @@ export const VoluntariadoFotosAdmin = () => {
     titulo: "",
     descripcion: "",
     categoria: "yo_amo_lectura",
+    sede_id: "",
     file: null as File | null,
+  });
+
+  const { data: sedes } = useQuery({
+    queryKey: ["sedes-list"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("sedes")
+        .select("id, nombre, ciudad")
+        .order("nombre", { ascending: true });
+
+      if (error) throw error;
+      return data as Sede[];
+    },
   });
 
   const { data: photos, isLoading } = useQuery({
@@ -54,11 +75,17 @@ export const VoluntariadoFotosAdmin = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("voluntariado_fotos")
-        .select("*")
+        .select(`
+          *,
+          sedes (
+            nombre,
+            ciudad
+          )
+        `)
         .order("orden", { ascending: true });
 
       if (error) throw error;
-      return data as VolunteerPhoto[];
+      return data as any[];
     },
   });
 
@@ -93,6 +120,7 @@ export const VoluntariadoFotosAdmin = () => {
           titulo: formData.titulo,
           descripcion: formData.descripcion || null,
           categoria: formData.categoria,
+          sede_id: formData.sede_id || null,
           imagen_url: urlData.publicUrl,
           orden: (photos?.length || 0) + 1,
         });
@@ -103,7 +131,7 @@ export const VoluntariadoFotosAdmin = () => {
       toast.success("Foto agregada exitosamente");
       queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos-admin"] });
       queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos"] });
-      setFormData({ titulo: "", descripcion: "", categoria: "yo_amo_lectura", file: null });
+      setFormData({ titulo: "", descripcion: "", categoria: "yo_amo_lectura", sede_id: "", file: null });
       setIsAdding(false);
       setUploading(false);
     },
@@ -222,6 +250,25 @@ export const VoluntariadoFotosAdmin = () => {
             </div>
 
             <div>
+              <Label htmlFor="sede">Sede</Label>
+              <Select
+                value={formData.sede_id}
+                onValueChange={(value) => setFormData({ ...formData, sede_id: value })}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecciona una sede (opcional)" />
+                </SelectTrigger>
+                <SelectContent>
+                  {sedes?.map((sede) => (
+                    <SelectItem key={sede.id} value={sede.id}>
+                      {sede.nombre} - {sede.ciudad}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
               <Label htmlFor="foto">Foto *</Label>
               <Input
                 id="foto"
@@ -269,6 +316,11 @@ export const VoluntariadoFotosAdmin = () => {
                 <p className="text-sm text-foreground/60 line-clamp-2">
                   {photo.descripcion || "Sin descripción"}
                 </p>
+                {photo.sedes && (
+                  <p className="text-xs text-primary font-medium">
+                    📍 {photo.sedes.nombre}
+                  </p>
+                )}
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
