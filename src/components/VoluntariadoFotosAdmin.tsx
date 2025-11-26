@@ -23,7 +23,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Trash2, Upload, Eye, EyeOff } from "lucide-react";
+import { Trash2, Upload, Eye, EyeOff, Pencil } from "lucide-react";
 import { toast } from "sonner";
 
 type VolunteerPhoto = {
@@ -45,6 +45,7 @@ type Sede = {
 
 export const VoluntariadoFotosAdmin = () => {
   const [isAdding, setIsAdding] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const queryClient = useQueryClient();
@@ -160,6 +161,36 @@ export const VoluntariadoFotosAdmin = () => {
     },
   });
 
+  const updateMutation = useMutation({
+    mutationFn: async () => {
+      if (!editingId || !formData.titulo) {
+        throw new Error("Datos incompletos");
+      }
+
+      const { error } = await supabase
+        .from("voluntariado_fotos")
+        .update({
+          titulo: formData.titulo.trim(),
+          descripcion: formData.descripcion.trim() || null,
+          categoria: formData.categoria,
+          sede_id: formData.sede_id || null,
+        })
+        .eq("id", editingId);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      toast.success("Foto actualizada exitosamente");
+      queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos-admin"] });
+      queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos"] });
+      setFormData({ titulo: "", descripcion: "", categoria: "yo_amo_lectura", sede_id: "", file: null });
+      setEditingId(null);
+    },
+    onError: (error: Error) => {
+      toast.error(`Error: ${error.message}`);
+    },
+  });
+
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
       const photo = photos?.find((p) => p.id === id);
@@ -196,17 +227,44 @@ export const VoluntariadoFotosAdmin = () => {
     }
   };
 
+  const handleEdit = (photo: any) => {
+    setEditingId(photo.id);
+    setFormData({
+      titulo: photo.titulo,
+      descripcion: photo.descripcion || "",
+      categoria: photo.categoria,
+      sede_id: photo.sede_id || "",
+      file: null,
+    });
+    setIsAdding(false);
+  };
+
+  const handleCancel = () => {
+    setIsAdding(false);
+    setEditingId(null);
+    setFormData({ titulo: "", descripcion: "", categoria: "yo_amo_lectura", sede_id: "", file: null });
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Galería de Fotos de Voluntariado</h2>
-        <Button onClick={() => setIsAdding(!isAdding)}>
-          {isAdding ? "Cancelar" : "Agregar Foto"}
+        <Button onClick={() => {
+          if (isAdding || editingId) {
+            handleCancel();
+          } else {
+            setIsAdding(true);
+          }
+        }}>
+          {(isAdding || editingId) ? "Cancelar" : "Agregar Foto"}
         </Button>
       </div>
 
-      {isAdding && (
+      {(isAdding || editingId) && (
         <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-4">
+            {editingId ? "Editar Foto" : "Agregar Nueva Foto"}
+          </h3>
           <div className="space-y-4">
             <div>
               <Label htmlFor="titulo">Título *</Label>
@@ -268,22 +326,31 @@ export const VoluntariadoFotosAdmin = () => {
               </Select>
             </div>
 
-            <div>
-              <Label htmlFor="foto">Foto *</Label>
-              <Input
-                id="foto"
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-              />
-            </div>
+            {!editingId && (
+              <div>
+                <Label htmlFor="foto">Foto *</Label>
+                <Input
+                  id="foto"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                />
+              </div>
+            )}
 
             <Button
-              onClick={() => uploadMutation.mutate()}
-              disabled={uploading || !formData.titulo || !formData.file}
+              onClick={() => editingId ? updateMutation.mutate() : uploadMutation.mutate()}
+              disabled={
+                editingId 
+                  ? !formData.titulo 
+                  : (uploading || !formData.titulo || !formData.file)
+              }
               className="w-full"
             >
-              {uploading ? "Subiendo..." : "Agregar Foto"}
+              {editingId 
+                ? "Actualizar Foto" 
+                : (uploading ? "Subiendo..." : "Agregar Foto")
+              }
             </Button>
           </div>
         </Card>
@@ -326,14 +393,23 @@ export const VoluntariadoFotosAdmin = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => toggleActiveMutation.mutate({ id: photo.id, activo: photo.activo })}
-                    className="flex-1"
+                    title={photo.activo ? "Ocultar" : "Mostrar"}
                   >
                     {photo.activo ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleEdit(photo)}
+                    title="Editar"
+                  >
+                    <Pencil className="h-4 w-4" />
                   </Button>
                   <Button
                     variant="destructive"
                     size="sm"
                     onClick={() => setDeleteId(photo.id)}
+                    title="Eliminar"
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
