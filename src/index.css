@@ -151,6 +151,42 @@ All colors MUST be HSL.
     overflow-x: hidden;
   }
 
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Reduce animations on mobile for better performance */
+  @media (max-width: 768px) {
+    /* Disable floating animations on mobile */
+    .animate-float-slow,
+    .animate-float-slower,
+    .animate-pulse-glow,
+    .animate-rotate-slow {
+      animation: none !important;
+    }
+    
+    /* Reduce blur effects on mobile (performance heavy) */
+    .blur-xl, .blur-2xl, .blur-3xl {
+      filter: blur(8px) !important;
+    }
+    
+    /* Simplify transitions on mobile */
+    * {
+      transition-duration: 0.15s !important;
+    }
+    
+    /* Disable parallax transform on mobile via CSS */
+    [data-parallax="true"] {
+      transform: none !important;
+    }
+  }
+
   @keyframes float {
     0%, 100% {
       transform: translateY(0px);
@@ -184,7 +220,17 @@ All colors MUST be HSL.
     box-shadow: 0 10px 40px -10px hsl(222 15% 25% / 0.2);
   }
   
-  /* Subtle animations for decorative elements */
+  /* Mobile-optimized shadow (lighter) */
+  @media (max-width: 768px) {
+    .shadow-elegant {
+      box-shadow: 0 4px 20px -5px hsl(222 15% 25% / 0.15);
+    }
+    .shadow-medium {
+      box-shadow: 0 4px 15px -3px hsl(222 15% 25% / 0.1);
+    }
+  }
+  
+  /* Subtle animations for decorative elements - desktop only */
   @keyframes float-slow {
     0%, 100% {
       transform: translateY(0) scale(1);
@@ -223,19 +269,50 @@ All colors MUST be HSL.
     }
   }
   
-  .animate-float-slow {
-    animation: float-slow 8s ease-in-out infinite;
+  /* Only apply on devices that can handle it */
+  @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+    .animate-float-slow {
+      animation: float-slow 8s ease-in-out infinite;
+    }
+    
+    .animate-float-slower {
+      animation: float-slower 10s ease-in-out infinite;
+    }
+    
+    .animate-pulse-glow {
+      animation: pulse-glow 6s ease-in-out infinite;
+    }
+    
+    .animate-rotate-slow {
+      animation: rotate-slow 30s linear infinite;
+    }
   }
   
-  .animate-float-slower {
-    animation: float-slower 10s ease-in-out infinite;
+  /* Simplified mobile animations */
+  @media (max-width: 768px) {
+    .animate-fade-in-up {
+      animation-duration: 0.4s !important;
+    }
+    
+    .animate-fade-in {
+      animation-duration: 0.3s !important;
+    }
+    
+    .animate-scale-in {
+      animation-duration: 0.25s !important;
+    }
+    
+    /* Remove hover scale effects on touch devices */
+    .hover\:scale-105:hover,
+    .group-hover\:scale-105:hover {
+      transform: none;
+    }
   }
   
-  .animate-pulse-glow {
-    animation: pulse-glow 6s ease-in-out infinite;
-  }
-  
-  .animate-rotate-slow {
-    animation: rotate-slow 30s linear infinite;
+  /* GPU acceleration hints for smoother animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 }

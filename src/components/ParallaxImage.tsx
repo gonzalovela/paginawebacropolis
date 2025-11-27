@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ParallaxImageProps {
   src: string;
@@ -11,6 +12,12 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
   const imageRef = useRef<HTMLDivElement>(null);
   const imgElementRef = useRef<HTMLImageElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile = useIsMobile();
+  
+  // Check for reduced motion preference
+  const prefersReducedMotion = typeof window !== 'undefined' 
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
+    : false;
 
   useEffect(() => {
     // Check if image is already cached
@@ -20,6 +27,9 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
   }, []);
 
   useEffect(() => {
+    // Disable parallax on mobile or if user prefers reduced motion
+    if (isMobile || prefersReducedMotion) return;
+    
     let rafId: number;
     
     const handleScroll = () => {
@@ -62,7 +72,17 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
         cancelAnimationFrame(rafId);
       }
     };
-  }, [speed, isHero]);
+  }, [speed, isHero, isMobile, prefersReducedMotion]);
+
+  // Simplified styles for mobile (no extra height for parallax)
+  const containerStyle = isMobile || prefersReducedMotion
+    ? { top: 0, bottom: 0, height: "100%" }
+    : { 
+        willChange: "transform",
+        top: isHero ? "-20%" : "-15%",
+        bottom: isHero ? "-20%" : "-15%",
+        height: isHero ? "140%" : "130%"
+      };
 
   return (
     <div className="absolute inset-0 overflow-hidden z-0">
@@ -74,12 +94,8 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
       <div 
         ref={imageRef}
         className="absolute w-full"
-        style={{ 
-          willChange: "transform",
-          top: isHero ? "-20%" : "-15%",
-          bottom: isHero ? "-20%" : "-15%",
-          height: isHero ? "140%" : "130%"
-        }}
+        data-parallax={!isMobile && !prefersReducedMotion ? "true" : "false"}
+        style={containerStyle}
       >
         <img 
           ref={imgElementRef}
