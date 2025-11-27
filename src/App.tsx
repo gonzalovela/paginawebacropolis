@@ -16,6 +16,7 @@ import SedesAdmin from "./pages/SedesAdmin";
 import UsersAdmin from "./pages/UsersAdmin";
 import Auth from "./pages/Auth";
 import DesignSystem from "./pages/DesignSystem";
+import Instalar from "./pages/Instalar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/inscripcion" element={<Inscripcion />} />
               <Route path="/quienes-somos" element={<QuienesSomos />} />
               <Route path="/sedes" element={<Sedes />} />
+              <Route path="/instalar" element={<Instalar />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/sedes/admin" element={<SedesAdmin />} />
               <Route path="/admin/users" element={<UsersAdmin />} />
