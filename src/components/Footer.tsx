@@ -92,6 +92,7 @@ export const Footer = () => {
                 <span className="text-primary-foreground/80">
                   {sedePrincipal ? (
                     <>
+                      {sedePrincipal.direccion.replace(/\s*\([^)]*\)/g, '')}
                       {sedePrincipal.direccion}
                       <br />
                       {sedePrincipal.ciudad}
