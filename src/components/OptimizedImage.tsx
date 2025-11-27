@@ -7,6 +7,9 @@ interface OptimizedImageProps {
   className?: string;
   containerClassName?: string;
   priority?: boolean;
+  width?: number;
+  height?: number;
+  loading?: "lazy" | "eager";
 }
 
 export const OptimizedImage = ({ 
@@ -14,7 +17,10 @@ export const OptimizedImage = ({
   alt, 
   className, 
   containerClassName,
-  priority = false 
+  priority = false,
+  width,
+  height,
+  loading,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -63,8 +69,11 @@ export const OptimizedImage = ({
           ref={imageElementRef}
           src={src}
           alt={alt}
-          loading={priority ? "eager" : "lazy"}
+          width={width}
+          height={height}
+          loading={loading || (priority ? "eager" : "lazy")}
           decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
           onLoad={() => setIsLoaded(true)}
           className={cn(
             "transition-opacity duration-300",

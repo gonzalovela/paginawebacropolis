@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Heart, Sprout, Users, Lightbulb, HandHeart, TreePine, ArrowRight, BookOpen } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { SEO, seoConfig } from "@/components/SEO";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
 import yoAmoLecturaImage from "@/assets/voluntariado-yo-amo-lectura-warm.jpg";
@@ -161,8 +162,13 @@ const Voluntariado = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <>
+      <SEO 
+        {...seoConfig.voluntariado}
+        url="https://acropolisperu.org/voluntariado"
+      />
+      <div className="min-h-screen">
+        <Navigation />
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
@@ -443,7 +449,8 @@ const Voluntariado = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
