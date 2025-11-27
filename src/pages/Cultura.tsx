@@ -70,46 +70,46 @@ const Cultura = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-24 md:py-36 overflow-hidden">
+      <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
         <ParallaxImage src={bannerCultura} alt="Cultura" speed={0.5} isHero />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/50 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/50 z-[1]" />
         
-        {/* Decorative orange graphic elements */}
-        <div className="absolute inset-0 z-[2] pointer-events-none">
+        {/* Decorative orange graphic elements - hidden on mobile for performance */}
+        <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
           {/* Large orange circles */}
-          <div className="absolute top-0 left-0 w-[450px] h-[450px] bg-secondary/40 rounded-full blur-3xl animate-pulse-glow"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange/35 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute top-0 left-0 w-72 lg:w-[450px] h-72 lg:h-[450px] bg-secondary/40 rounded-full blur-3xl animate-pulse-glow"></div>
+          <div className="absolute bottom-0 right-0 w-64 lg:w-96 h-64 lg:h-96 bg-orange/35 rounded-full blur-3xl animate-float-slow"></div>
           
           {/* Geometric shapes */}
-          <div className="absolute top-1/4 left-20 w-56 h-56 border-4 border-orange/70 rounded-3xl rotate-12 animate-float-slower"></div>
-          <div className="absolute bottom-1/4 right-32 w-40 h-40 bg-secondary/60 clip-path-triangle animate-float-slow"></div>
+          <div className="absolute top-1/4 left-20 w-32 lg:w-56 h-32 lg:h-56 border-4 border-orange/70 rounded-3xl rotate-12 animate-float-slower"></div>
+          <div className="absolute bottom-1/4 right-32 w-24 lg:w-40 h-24 lg:h-40 bg-secondary/60 clip-path-triangle animate-float-slow"></div>
           
           {/* SVG patterns */}
-          <svg className="absolute top-1/3 left-10 w-72 h-72 opacity-60 animate-float-slower" viewBox="0 0 200 200">
+          <svg className="absolute top-1/3 left-10 w-40 lg:w-72 h-40 lg:h-72 opacity-60 animate-float-slower" viewBox="0 0 200 200">
             <rect x="40" y="40" width="120" height="120" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="4" rx="20" />
             <rect x="60" y="60" width="80" height="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.7" rx="10" />
             <circle cx="100" cy="100" r="30" fill="hsl(35, 90%, 55%)" opacity="0.4" />
           </svg>
           
-          <svg className="absolute bottom-1/4 left-1/3 w-48 h-48 opacity-70" viewBox="0 0 100 100">
+          <svg className="absolute bottom-1/4 left-1/3 w-32 lg:w-48 h-32 lg:h-48 opacity-70" viewBox="0 0 100 100">
             <polygon points="50,10 90,90 10,90" fill="hsl(35, 90%, 55%)" opacity="0.5" />
           </svg>
           
           {/* Accent elements */}
-          <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-secondary rounded-full opacity-75 animate-pulse-glow"></div>
-          <div className="absolute bottom-1/3 left-1/2 w-14 h-14 bg-orange rotate-45 opacity-65"></div>
+          <div className="absolute top-1/3 right-1/4 w-12 lg:w-20 h-12 lg:h-20 bg-secondary rounded-full opacity-75 animate-pulse-glow"></div>
+          <div className="absolute bottom-1/3 left-1/2 w-10 lg:w-14 h-10 lg:h-14 bg-orange rotate-45 opacity-65"></div>
         </div>
 
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-sm font-bold mb-4 shadow-lg">
-              <Palette className="h-4 w-4" />
+          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
+              <Palette className="h-3.5 w-3.5 md:h-4 md:w-4" />
               CULTURA FILOSÓFICA
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
               Cultura con Sentido
             </h1>
-            <p className="text-xl md:text-2xl text-white/95 leading-relaxed drop-shadow-md">
+            <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
               La cultura es una vía de acceso a la comprensión entre personas, épocas y civilizaciones. 
               Construimos puentes, no trincheras.
             </p>
@@ -120,14 +120,14 @@ const Cultura = () => {
       {/* Introduction */}
       <section 
         ref={introRef}
-        className={`py-12 md:py-20 bg-background transition-all duration-1000 ${
+        className={`py-10 md:py-20 bg-background transition-all duration-1000 ${
           introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="container px-4 md:px-6">
-          <div className="max-w-5xl mx-auto space-y-12">
+          <div className="max-w-5xl mx-auto space-y-8 md:space-y-12">
             {/* Hero Image */}
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-elegant">
+            <div className="relative h-[250px] sm:h-[350px] md:h-[500px] rounded-xl overflow-hidden shadow-elegant">
               <OptimizedImage 
                 src={cultureImage} 
                 alt="Grupo en sitio arqueológico Chavín" 
@@ -137,11 +137,11 @@ const Cultura = () => {
               />
             </div>
             
-            <div className="text-center space-y-6 max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground">
                 ¿Qué es la Cultura Filosófica?
               </h2>
-              <div className="space-y-4 text-lg text-foreground/70 leading-relaxed">
+              <div className="space-y-3 md:space-y-4 text-base md:text-lg text-foreground/70 leading-relaxed">
                 <p>
                   Para nosotros, la cultura no es solo entretenimiento o erudición. 
                   Es un <strong>camino de transformación personal y social</strong>.
@@ -151,18 +151,18 @@ const Cultura = () => {
                   buscamos desarrollar lo mejor del ser humano: la sensibilidad, la creatividad, 
                   el pensamiento crítico y la capacidad de conectar con otros.
                 </p>
-                <p className="text-xl font-semibold text-foreground">
+                <p className="text-lg md:text-xl font-semibold text-foreground">
                   "Trabajar por la cultura es trabajar por la vida"
                 </p>
               </div>
             </div>
 
             {/* Values */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {values.map((value, index) => (
-                <Card key={index} className="p-6 text-center hover:shadow-medium transition-all">
-                  <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
-                  <p className="text-foreground/60 leading-relaxed">{value.description}</p>
+                <Card key={index} className="p-4 md:p-6 text-center hover:shadow-medium transition-all">
+                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">{value.title}</h3>
+                  <p className="text-sm md:text-base text-foreground/60 leading-relaxed">{value.description}</p>
                 </Card>
               ))}
             </div>
@@ -173,28 +173,28 @@ const Cultura = () => {
       {/* Activities */}
       <section 
         ref={activitiesRef}
-        className={`py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
+        className={`py-10 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
           activitiesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Nuestras Actividades Culturales
             </h2>
-            <p className="text-lg md:text-xl text-foreground/70">
+            <p className="text-base md:text-lg lg:text-xl text-foreground/70">
               Todas nuestras actividades culturales son gratuitas y abiertas al público. 
               Te invitamos a participar, aprender y compartir.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
             {activities.map((activity, index) => {
               const Icon = activity.icon;
               return (
                 <Card key={index} className="overflow-hidden hover:shadow-medium transition-all group">
                   {/* Image Section */}
-                  <div className="relative h-56 overflow-hidden">
+                  <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
                     <OptimizedImage 
                       src={activity.image} 
                       alt={activity.title}
@@ -202,26 +202,26 @@ const Cultura = () => {
                       containerClassName="w-full h-full"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                    <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-secondary/90 backdrop-blur-sm text-white flex items-center justify-center shadow-lg">
-                        <Icon className="h-6 w-6" />
+                    <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 flex items-center gap-2 md:gap-3">
+                      <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-secondary/90 backdrop-blur-sm text-white flex items-center justify-center shadow-lg">
+                        <Icon className="h-4 w-4 md:h-6 md:w-6" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white drop-shadow-lg">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white drop-shadow-lg">
                         {activity.title}
                       </h3>
                     </div>
                   </div>
                   
                   {/* Content Section */}
-                  <div className="p-6 space-y-4">
-                    <p className="text-foreground/70 leading-relaxed">
+                  <div className="p-4 md:p-6 space-y-3 md:space-y-4">
+                    <p className="text-sm md:text-base text-foreground/70 leading-relaxed">
                       {activity.description}
                     </p>
                     <div>
-                      <p className="text-sm font-semibold text-foreground/60 mb-2">Temas que exploramos:</p>
-                      <div className="flex flex-wrap gap-2">
+                      <p className="text-xs md:text-sm font-semibold text-foreground/60 mb-2">Temas que exploramos:</p>
+                      <div className="flex flex-wrap gap-1.5 md:gap-2">
                         {activity.topics.map((topic, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-muted text-foreground/70 rounded-full text-xs">
+                          <span key={idx} className="px-2 md:px-3 py-0.5 md:py-1 bg-muted text-foreground/70 rounded-full text-[10px] md:text-xs">
                             {topic}
                           </span>
                         ))}
@@ -238,28 +238,28 @@ const Cultura = () => {
       {/* Participation */}
       <section 
         ref={participationRef}
-        className={`py-12 md:py-20 bg-background transition-all duration-1000 ${
+        className={`py-10 md:py-20 bg-background transition-all duration-1000 ${
           participationVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 bg-gradient-hero text-primary-foreground">
-              <div className="text-center space-y-6">
-                <Users className="h-16 w-16 mx-auto opacity-90" />
-                <h3 className="text-3xl md:text-4xl font-bold">
+            <Card className="p-6 md:p-8 lg:p-12 bg-gradient-hero text-primary-foreground">
+              <div className="text-center space-y-4 md:space-y-6">
+                <Users className="h-12 w-12 md:h-16 md:w-16 mx-auto opacity-90" />
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
                   Únete a Nuestras Actividades
                 </h3>
-                <p className="text-lg opacity-90 max-w-2xl mx-auto">
+                <p className="text-sm md:text-lg opacity-90 max-w-2xl mx-auto">
                   No importa si eres artista, estudiante, profesional o simplemente alguien curioso. 
                   En Nueva Acrópolis todos son bienvenidos. La cultura nos enriquece a todos.
                 </p>
-                <div className="space-y-4 pt-6">
-                  <p className="text-sm opacity-75">
+                <div className="space-y-3 md:space-y-4 pt-4 md:pt-6">
+                  <p className="text-xs md:text-sm opacity-75">
                     Todas las actividades son gratuitas y no requieren inscripción previa.
                     Si quieres participar activamente en la organización o como artista, contáctanos.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                     <Button size="lg" variant="secondary" asChild>
                       <Link to="/inscripcion">
                         Quiero participar
