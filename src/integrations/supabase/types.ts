@@ -81,6 +81,7 @@ export type Database = {
           ciudad: string
           created_at: string
           direccion: string
+          email: string | null
           es_principal: boolean
           facebook: string | null
           google_maps_url: string | null
@@ -95,6 +96,7 @@ export type Database = {
           ciudad: string
           created_at?: string
           direccion: string
+          email?: string | null
           es_principal?: boolean
           facebook?: string | null
           google_maps_url?: string | null
@@ -109,6 +111,7 @@ export type Database = {
           ciudad?: string
           created_at?: string
           direccion?: string
+          email?: string | null
           es_principal?: boolean
           facebook?: string | null
           google_maps_url?: string | null

@@ -37,7 +37,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Get sede information
     const { data: sede, error: sedeError } = await supabase
       .from("sedes")
-      .select("nombre, ciudad, whatsapp")
+      .select("nombre, ciudad, whatsapp, email")
       .eq("id", sedeId)
       .single();
 
@@ -48,9 +48,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Sede found:", sede.nombre);
 
-    // For now, we'll use a default email since sedes don't have email field yet
-    // You can update the database schema to add email field to sedes table
-    const sedeEmail = "info@acropolisperu.org"; // Default email
+    // Use sede email if available, otherwise fallback to default
+    const sedeEmail = sede.email || "info@acropolisperu.org";
 
     // Interest labels mapping
     const interestLabels: Record<string, string> = {
