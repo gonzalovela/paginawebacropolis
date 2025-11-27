@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { BookOpen, Heart, Compass, Star, CheckCircle2, ArrowRight, Clock, Users, CalendarDays, Sparkles, Quote } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { SEO, seoConfig } from "@/components/SEO";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
@@ -97,8 +98,13 @@ const Filosofia = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <>
+      <SEO 
+        {...seoConfig.filosofia}
+        url="https://acropolisperu.org/filosofia"
+      />
+      <div className="min-h-screen">
+        <Navigation />
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
@@ -337,7 +343,8 @@ const Filosofia = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

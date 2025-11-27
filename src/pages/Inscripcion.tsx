@@ -4,11 +4,17 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEO, seoConfig } from "@/components/SEO";
 
 const Inscripcion = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <>
+      <SEO 
+        {...seoConfig.inscripcion}
+        url="https://acropolisperu.org/inscripcion"
+      />
+      <div className="min-h-screen">
+        <Navigation />
 
       {/* Hero */}
       <section className="py-16 md:py-24 bg-gradient-subtle mt-20">
@@ -102,7 +108,8 @@ const Inscripcion = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

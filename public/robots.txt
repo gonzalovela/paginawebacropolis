@@ -12,3 +12,11 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://acropolisperu.org/sitemap.xml
+
+# Disallow admin pages
+Disallow: /sedes/admin
+Disallow: /admin/
+Disallow: /auth

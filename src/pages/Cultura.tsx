@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Palette, Music, Theater, BookOpen, Globe, Users, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { SEO, seoConfig } from "@/components/SEO";
 import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import philosophyStudyImage from "@/assets/philosophy-study-group.jpg";
@@ -66,8 +67,13 @@ const Cultura = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <>
+      <SEO 
+        {...seoConfig.cultura}
+        url="https://acropolisperu.org/cultura"
+      />
+      <div className="min-h-screen">
+        <Navigation />
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
@@ -283,7 +289,8 @@ const Cultura = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

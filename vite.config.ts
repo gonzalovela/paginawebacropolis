@@ -15,9 +15,11 @@ export default defineConfig(({ mode }) => ({
     imagetools({
       defaultDirectives: (url) => {
         const params = new URLSearchParams();
-        // Apply default quality compression for all images
+        // Apply default quality compression and WebP format for all images
         if (!url.searchParams.has('format') && !url.searchParams.has('w')) {
           params.set('quality', '80');
+          // Enable WebP for supported browsers
+          params.set('format', 'webp');
         }
         return params;
       },
@@ -28,5 +30,20 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    // Optimize chunk splitting for better caching
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-tabs', '@radix-ui/react-tooltip'],
+        },
+      },
+    },
+    // Generate source maps for debugging
+    sourcemap: false,
+    // Minify for production
+    minify: 'esbuild',
   },
 }));
