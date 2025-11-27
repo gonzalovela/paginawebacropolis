@@ -11,6 +11,9 @@ import { toast } from "sonner";
 import { Pencil, Trash2, LogOut, MapPin, Camera } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { VoluntariadoFotosAdmin } from "@/components/VoluntariadoFotosAdmin";
+import { z } from "zod";
+
+const emailSchema = z.string().email({ message: "Formato de email inválido" }).or(z.literal(""));
 
 interface Sede {
   id: string;
@@ -58,6 +61,7 @@ export const SedesAdminPanel = () => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -107,6 +111,17 @@ export const SedesAdminPanel = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate email format
+    if (formData.email) {
+      const emailValidation = emailSchema.safeParse(formData.email);
+      if (!emailValidation.success) {
+        setEmailError(emailValidation.error.issues[0].message);
+        toast.error("Por favor corrige el formato del email");
+        return;
+      }
+    }
+    setEmailError(null);
     setLoading(true);
 
     try {
@@ -349,9 +364,14 @@ export const SedesAdminPanel = () => {
                 id="email"
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                  if (emailError) setEmailError(null);
+                }}
                 placeholder="sede@acropolisperu.org"
+                className={emailError ? "border-destructive" : ""}
               />
+              {emailError && <p className="text-sm text-destructive mt-1">{emailError}</p>}
               <p className="text-xs text-muted-foreground mt-1">
                 Los formularios de inscripción se enviarán a este correo
               </p>
