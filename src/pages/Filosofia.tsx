@@ -190,7 +190,6 @@ const Filosofia = () => {
       >
         {/* Colorful background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent" />
         
         {/* Floating decorative elements */}
         <div className="absolute top-20 right-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl animate-float-slow" />
