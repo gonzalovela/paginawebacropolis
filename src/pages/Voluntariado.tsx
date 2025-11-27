@@ -7,7 +7,7 @@ import volunteeringImage from "@/assets/volunteering-action.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
 import yoAmoLecturaImage from "@/assets/voluntariado-yo-amo-lectura-warm.jpg";
 import adultoMayorImage from "@/assets/voluntariado-adulto-mayor.jpg";
-import humanitarioSocialImage from "@/assets/voluntariado-humanitario-social.jpg";
+import humanitarioSocialImage from "@/assets/voluntariado-humanitario-social-warm.jpg";
 import medioAmbienteImage from "@/assets/voluntariado-medio-ambiente.jpg";
 import formacionImage from "@/assets/voluntariado-formacion.jpg";
 import talleresArtisticosImage from "@/assets/voluntariado-talleres-artisticos.jpg";
