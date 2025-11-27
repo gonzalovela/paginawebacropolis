@@ -37,8 +37,8 @@ export const MapDialog = ({ isOpen, onClose, mapsUrl, sedeName }: MapDialogProps
         const [, lat, lng] = coordMatch;
         return `https://www.google.com/maps/embed/v1/view?key=&center=${lat},${lng}&zoom=15`;
       }
-    } catch (e) {
-      console.error('Error parsing maps URL:', e);
+    } catch {
+      // Error handled silently - URL parsing failed
     }
     
     // Fallback: just use the URL directly in iframe

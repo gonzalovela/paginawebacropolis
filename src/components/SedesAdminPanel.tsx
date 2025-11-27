@@ -81,7 +81,7 @@ export const SedesAdminPanel = () => {
       .maybeSingle();
 
     if (error) {
-      console.error('Error checking admin status:', error);
+      // Error handled silently - role check will fail safely
     }
 
     setIsAdmin(!!data);
@@ -103,8 +103,7 @@ export const SedesAdminPanel = () => {
 
       if (error) throw error;
       setSedes(data || []);
-    } catch (error) {
-      console.error('Error loading sedes:', error);
+    } catch {
       toast.error('Error al cargar las sedes');
     }
   };
@@ -158,8 +157,7 @@ export const SedesAdminPanel = () => {
       setFormData(emptyForm);
       setEditingId(null);
       loadSedes();
-    } catch (error) {
-      console.error('Error saving sede:', error);
+    } catch {
       toast.error('Error al guardar la sede');
     } finally {
       setLoading(false);
@@ -198,15 +196,13 @@ export const SedesAdminPanel = () => {
         .eq('id', id);
 
       if (error) {
-        console.error('Error deleting sede:', error);
-        
-        // More specific error messages
+        // More specific error messages without exposing technical details
         if (error.code === 'PGRST301') {
           toast.error('No tienes permisos para eliminar sedes');
-        } else if (error.message.includes('violates foreign key constraint')) {
+        } else if (error.message?.includes('violates foreign key constraint')) {
           toast.error('No se puede eliminar esta sede porque está siendo referenciada');
         } else {
-          toast.error(`Error al eliminar: ${error.message}`);
+          toast.error('Error al eliminar la sede');
         }
         return;
       }
@@ -220,9 +216,8 @@ export const SedesAdminPanel = () => {
       }
       
       loadSedes();
-    } catch (error: any) {
-      console.error('Error deleting sede:', error);
-      toast.error(error?.message || 'Error inesperado al eliminar la sede');
+    } catch {
+      toast.error('Error inesperado al eliminar la sede');
     }
   };
 

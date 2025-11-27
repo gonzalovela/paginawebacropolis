@@ -45,8 +45,6 @@ export const VoluntariadoGallery = () => {
     },
   });
 
-  console.log("VoluntariadoGallery photos", { photos, isLoading, error });
-
   const categorias = [
     { value: "todos", label: "Todos los Programas" },
     { value: "yo_amo_lectura", label: "Yo Amo la Lectura" },

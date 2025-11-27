@@ -1,11 +1,11 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { UsersAdminPanel } from "@/components/UsersAdminPanel";
-import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { ProtectedAdminRoute } from "@/components/ProtectedAdminRoute";
 
 const UsersAdmin = () => {
   return (
-    <ProtectedRoute>
+    <ProtectedAdminRoute requiredRole="admin">
       <div className="min-h-screen">
         <Navigation />
         <main className="pt-20">
@@ -13,7 +13,7 @@ const UsersAdmin = () => {
         </main>
         <Footer />
       </div>
-    </ProtectedRoute>
+    </ProtectedAdminRoute>
   );
 };
 
