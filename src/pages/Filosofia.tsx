@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 
@@ -150,10 +151,11 @@ const Filosofia = () => {
         <div className="container px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-elegant order-2 lg:order-1 group">
-              <img 
+              <OptimizedImage 
                 src={philosophyImage} 
                 alt="Grupo de estudio filosófico" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                containerClassName="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>

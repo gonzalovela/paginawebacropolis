@@ -1,7 +1,7 @@
-import { BookOpen, Palette, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
 import cultureImage from "@/assets/culture-mountain-group.jpg";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
@@ -21,6 +21,7 @@ export const ThreePillars = () => {
       description: "La cultura como vía de encuentro entre personas, épocas y civilizaciones. Arte, música, teatro e historia para desarrollar sensibilidad y pensamiento crítico.",
       link: "/cultura",
       titleColor: "text-secondary",
+      imageFilter: 'brightness(1.05) saturate(1.1) sepia(0.08)',
     },
     {
       image: volunteeringImage,
@@ -52,11 +53,14 @@ export const ThreePillars = () => {
               onClick={() => window.location.href = pillar.link}
             >
               <div className="relative h-64 overflow-hidden">
-                <img 
+                <OptimizedImage 
                   src={pillar.image} 
                   alt={pillar.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  style={index === 1 ? { filter: 'brightness(1.05) saturate(1.1) sepia(0.08)' } : undefined}
+                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+                    pillar.imageFilter ? '' : ''
+                  }`}
+                  containerClassName="w-full h-full"
+                  priority={index === 0}
                 />
               </div>
               
