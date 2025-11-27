@@ -5,7 +5,7 @@ import { Heart, Sprout, Users, Lightbulb, HandHeart, TreePine, ArrowRight, BookO
 import { Footer } from "@/components/Footer";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
-import yoAmoLecturaImage from "@/assets/voluntariado-yo-amo-lectura.jpg";
+import yoAmoLecturaImage from "@/assets/voluntariado-yo-amo-lectura-warm.jpg";
 import adultoMayorImage from "@/assets/voluntariado-adulto-mayor.jpg";
 import humanitarioSocialImage from "@/assets/voluntariado-humanitario-social.jpg";
 import medioAmbienteImage from "@/assets/voluntariado-medio-ambiente.jpg";
