@@ -143,7 +143,7 @@ const Filosofia = () => {
       {/* Introduction */}
       <section 
         ref={introRef}
-        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-background transition-all duration-1000 ${
           introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -184,7 +184,7 @@ const Filosofia = () => {
       {/* Course Section - Redesigned */}
       <section 
         ref={courseRef}
-        className={`py-20 md:py-32 relative overflow-hidden transition-all duration-1000 ${
+        className={`py-12 md:py-20 relative overflow-hidden transition-all duration-1000 ${
           courseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -299,7 +299,7 @@ const Filosofia = () => {
       {/* Testimonials Section */}
       <section 
         ref={testimonialsRef}
-        className={`py-20 md:py-32 bg-muted/30 transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-muted/30 transition-all duration-1000 ${
           testimonialsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
