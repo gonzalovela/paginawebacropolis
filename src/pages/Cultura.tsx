@@ -71,13 +71,15 @@ const Cultura = () => {
       <SEO 
         {...seoConfig.cultura}
         url="https://acropolisperu.org/cultura"
+        breadcrumbs={[{ name: "Cultura y Arte", url: "https://acropolisperu.org/cultura" }]}
+        faq={seoConfig.cultura.faq}
       />
       <div className="min-h-screen">
         <Navigation />
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
-        <ParallaxImage src={bannerCultura} alt="Cultura" speed={0.5} isHero />
+        <ParallaxImage src={bannerCultura} alt="Actividad cultural al aire libre con grupo de personas - Encuentros culturales de Nueva Acrópolis en Perú" speed={0.5} isHero />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/50 z-[1]" />
         
         {/* Decorative orange graphic elements - hidden on mobile for performance */}
@@ -136,7 +138,7 @@ const Cultura = () => {
             <div className="relative h-[250px] sm:h-[350px] md:h-[500px] rounded-xl overflow-hidden shadow-elegant">
               <OptimizedImage 
                 src={cultureImage} 
-                alt="Grupo en sitio arqueológico Chavín" 
+                alt="Grupo cultural visitando el sitio arqueológico de Chavín de Huántar - Viajes culturales Nueva Acrópolis Perú" 
                 className="w-full h-full object-cover object-[center_55%]"
                 containerClassName="w-full h-full"
                 priority

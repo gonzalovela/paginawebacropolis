@@ -14,6 +14,7 @@ export const ThreePillars = () => {
       description: "La filosofía como camino de autoconocimiento y transformación personal. Estudiamos el pensamiento de grandes maestros de Oriente y Occidente para aplicarlo a la vida cotidiana.",
       link: "/filosofia",
       titleColor: "text-primary",
+      alt: "Grupo de estudiantes en clase de filosofía práctica - Curso Conócete a Ti Mismo en Nueva Acrópolis",
     },
     {
       image: cultureImage,
@@ -22,6 +23,7 @@ export const ThreePillars = () => {
       link: "/cultura",
       titleColor: "text-secondary",
       imageFilter: 'brightness(1.05) saturate(1.1) sepia(0.08)',
+      alt: "Grupo cultural visitando sitio arqueológico en los Andes peruanos - Actividades culturales Nueva Acrópolis",
     },
     {
       image: volunteeringImage,
@@ -29,6 +31,7 @@ export const ThreePillars = () => {
       description: "El voluntariado como expresión práctica de nuestros ideales. Acción ambiental, social y cultural para construir un mundo más justo y fraternal.",
       link: "/voluntariado",
       titleColor: "text-[#e74c3c]",
+      alt: "Voluntarios de Nueva Acrópolis en actividad de ayuda comunitaria - Programas de voluntariado en Perú",
     },
   ];
 
@@ -52,17 +55,17 @@ export const ThreePillars = () => {
               className="overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer"
               onClick={() => window.location.href = pillar.link}
             >
-              <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+              <figure className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
                 <OptimizedImage 
                   src={pillar.image} 
-                  alt={pillar.title}
+                  alt={pillar.alt}
                   className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
                     pillar.imageFilter ? '' : ''
                   }`}
                   containerClassName="w-full h-full"
                   priority={index === 0}
                 />
-              </div>
+              </figure>
               
               <div className="p-4 sm:p-5 lg:p-6 space-y-3 sm:space-y-4">
                 <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${pillar.titleColor}`}>

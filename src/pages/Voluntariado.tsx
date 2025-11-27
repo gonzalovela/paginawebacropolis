@@ -166,13 +166,15 @@ const Voluntariado = () => {
       <SEO 
         {...seoConfig.voluntariado}
         url="https://acropolisperu.org/voluntariado"
+        breadcrumbs={[{ name: "Voluntariado Filosófico", url: "https://acropolisperu.org/voluntariado" }]}
+        faq={seoConfig.voluntariado.faq}
       />
       <div className="min-h-screen">
         <Navigation />
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
-        <ParallaxImage src={bannerVoluntariado} alt="Voluntariado" speed={0.5} isHero />
+        <ParallaxImage src={bannerVoluntariado} alt="Voluntarios de Nueva Acrópolis en acción solidaria - Programas de voluntariado filosófico en Perú" speed={0.5} isHero />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60 z-[1]" />
         
         {/* Decorative orange graphic elements - hidden on mobile for performance */}
@@ -275,12 +277,12 @@ const Voluntariado = () => {
           <div className="max-w-5xl mx-auto space-y-6 md:space-y-8">
             {/* Hero Image */}
             <div className="relative h-[250px] sm:h-[350px] md:h-[400px] rounded-xl overflow-hidden shadow-elegant">
-              <OptimizedImage 
-                src={volunteeringImage} 
-                alt="Voluntariado en acción" 
-                className="w-full h-full object-cover"
-                containerClassName="w-full h-full"
-              />
+            <OptimizedImage 
+              src={volunteeringImage} 
+              alt="Equipo de voluntarios de Nueva Acrópolis realizando labor social en comunidad peruana" 
+              className="w-full h-full object-cover"
+              containerClassName="w-full h-full"
+            />
             </div>
             
             <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">

@@ -39,7 +39,7 @@ export const WhoWeAre = () => {
       {/* Hero Banner */}
       {/* Hero Banner */}
       <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
-        <ParallaxImage src={bannerImage} alt="Nueva Acrópolis - Filosofía en comunidad" speed={0.3} isHero={true} />
+        <ParallaxImage src={bannerImage} alt="Grupo de estudiantes y profesores de filosofía de Nueva Acrópolis Perú en actividad comunitaria - Escuela de Filosofía" speed={0.3} isHero={true} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-[1]" />
         
         <div className="container relative z-10 px-4 md:px-6 text-center">
@@ -91,7 +91,7 @@ export const WhoWeAre = () => {
                 <div className="w-full aspect-[16/9] sm:aspect-[21/9] overflow-hidden">
                   <OptimizedImage 
                     src={acropolisImage} 
-                    alt="La Acrópolis de Atenas - Ciudad Alta" 
+                    alt="Vista panorámica de la Acrópolis de Atenas desde la ciudad baja - Simbolismo de Nueva Acrópolis como ciudad alta del pensamiento filosófico" 
                     className="w-full h-full object-cover"
                     containerClassName="w-full h-full"
                   />
@@ -198,7 +198,7 @@ export const WhoWeAre = () => {
                       <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant ring-2 sm:ring-4 ring-background">
                         <OptimizedImage 
                           src={jorgeLivragaPortrait} 
-                          alt="Jorge Ángel Livraga Rizzi - Fundador de Nueva Acrópolis"
+                          alt="Retrato de Jorge Ángel Livraga Rizzi (1930-1991), fundador de Nueva Acrópolis y primer presidente de la organización filosófica internacional"
                           className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
                           containerClassName="w-full h-full"
                           priority
@@ -326,7 +326,7 @@ export const WhoWeAre = () => {
                       <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant ring-2 sm:ring-4 ring-background">
                         <OptimizedImage 
                           src={deliaSteinbergPortrait} 
-                          alt="Delia Steinberg Guzmán - Presidenta Internacional 1991-2023"
+                          alt="Retrato de Delia Steinberg Guzmán (1943-2023), Presidenta Internacional de Nueva Acrópolis 1991-2020 y Presidenta Honoraria hasta 2023"
                           className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
                           containerClassName="w-full h-full"
                         />
