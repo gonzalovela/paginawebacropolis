@@ -8,16 +8,23 @@ import { Link } from "react-router-dom";
 export const Hero = () => {
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Hero background image with parallax */}
-      <ParallaxImage src={heroImage} alt="Contemplación filosófica" speed={0.3} isHero={true} />
+      {/* Hero background image with parallax - SEO optimized alt */}
+      <ParallaxImage 
+        src={heroImage} 
+        alt="Persona contemplando el atardecer desde un mirador - Filosofía práctica y reflexión en Nueva Acrópolis Perú" 
+        speed={0.3} 
+        isHero={true} 
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-[1]" />
 
       <div className="container relative z-10 px-4 sm:px-6 text-center py-8">
         <div className="animate-fade-in-up mb-4 sm:mb-6 -mt-4 sm:-mt-8">
           <img 
             src={logo} 
-            alt="Nueva Acrópolis - Escuela de Filosofía" 
+            alt="Logo de Nueva Acrópolis Perú - Escuela de Filosofía práctica con más de 65 sedes en el país" 
             className="h-20 sm:h-28 md:h-36 mx-auto brightness-0 invert"
+            width={288}
+            height={144}
           />
         </div>
 

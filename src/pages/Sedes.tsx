@@ -9,6 +9,8 @@ const Sedes = () => {
       <SEO 
         {...seoConfig.sedes}
         url="https://acropolisperu.org/sedes"
+        breadcrumbs={[{ name: "Sedes en Perú", url: "https://acropolisperu.org/sedes" }]}
+        faq={seoConfig.sedes.faq}
       />
       <div className="min-h-screen">
         <Navigation />

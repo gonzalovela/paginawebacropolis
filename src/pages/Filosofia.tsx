@@ -102,13 +102,15 @@ const Filosofia = () => {
       <SEO 
         {...seoConfig.filosofia}
         url="https://acropolisperu.org/filosofia"
+        breadcrumbs={[{ name: "Filosofía Práctica", url: "https://acropolisperu.org/filosofia" }]}
+        faq={seoConfig.filosofia.faq}
       />
       <div className="min-h-screen">
         <Navigation />
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
-        <ParallaxImage src={bannerFilosofia} alt="Filosofía" speed={0.5} isHero />
+        <ParallaxImage src={bannerFilosofia} alt="Persona en postura contemplativa frente a paisaje peruano al amanecer - Filosofía práctica y meditación en Nueva Acrópolis" speed={0.5} isHero />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
         
         {/* Decorative orange graphic elements - hidden on mobile for performance */}
@@ -159,7 +161,7 @@ const Filosofia = () => {
             <div className="relative h-[280px] sm:h-[350px] lg:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-elegant order-2 lg:order-1 group">
               <OptimizedImage 
                 src={philosophyImage} 
-                alt="Grupo de estudio filosófico" 
+                alt="Grupo de estudiantes en sesión de filosofía práctica - Curso Conócete a Ti Mismo en Nueva Acrópolis Perú" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 containerClassName="w-full h-full"
               />

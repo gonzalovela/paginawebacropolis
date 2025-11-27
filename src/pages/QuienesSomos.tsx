@@ -9,6 +9,8 @@ const QuienesSomos = () => {
       <SEO 
         {...seoConfig.quienesSomos}
         url="https://acropolisperu.org/quienes-somos"
+        breadcrumbs={[{ name: "¿Qué es Nueva Acrópolis?", url: "https://acropolisperu.org/quienes-somos" }]}
+        faq={seoConfig.quienesSomos.faq}
       />
       <div className="min-h-screen">
         <Navigation />

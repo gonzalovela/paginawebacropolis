@@ -39,6 +39,7 @@ const Index = () => {
         {...seoConfig.home}
         url="https://acropolisperu.org/"
         structuredData={courseStructuredData}
+        faq={seoConfig.home.faq}
       />
       <div className="min-h-screen">
         <Navigation />
