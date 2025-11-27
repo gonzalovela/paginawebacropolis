@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 type VolunteerPhoto = {
   id: string;
@@ -17,7 +20,11 @@ type VolunteerPhoto = {
   } | null;
 };
 
+const PHOTOS_PER_PAGE = 6;
+
 export const VoluntariadoGallery = () => {
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
+
   const { data: photos, isLoading, error } = useQuery({
     queryKey: ["voluntariado-fotos"],
     queryFn: async () => {
@@ -56,6 +63,24 @@ export const VoluntariadoGallery = () => {
     return photos.filter((photo) => photo.categoria === categoria);
   };
 
+  const toggleExpanded = (categoria: string) => {
+    setExpandedCategories(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(categoria)) {
+        newSet.delete(categoria);
+      } else {
+        newSet.add(categoria);
+      }
+      return newSet;
+    });
+  };
+
+  const getVisiblePhotos = (categoria: string) => {
+    const allPhotos = filteredPhotos(categoria);
+    const isExpanded = expandedCategories.has(categoria);
+    return isExpanded ? allPhotos : allPhotos.slice(0, PHOTOS_PER_PAGE);
+  };
+
   if (isLoading) {
     return (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -92,45 +117,75 @@ export const VoluntariadoGallery = () => {
         ))}
       </TabsList>
 
-      {categorias.map((cat) => (
-        <TabsContent key={cat.value} value={cat.value} className="mt-0">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredPhotos(cat.value).map((photo) => (
-              <Card
-                key={photo.id}
-                className="overflow-hidden border-0 hover:shadow-elevated transition-all duration-300 group cursor-pointer"
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <img
-                    src={photo.imagen_url}
-                    alt={photo.titulo}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Content Overlay */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="font-bold text-xl mb-2 line-clamp-2">
-                      {photo.titulo}
-                    </h3>
-                    {photo.descripcion && (
-                      <p className="text-sm text-white/90 line-clamp-3">
-                        {photo.descripcion}
-                      </p>
+      {categorias.map((cat) => {
+        const allPhotos = filteredPhotos(cat.value);
+        const visiblePhotos = getVisiblePhotos(cat.value);
+        const hasMore = allPhotos.length > PHOTOS_PER_PAGE;
+        const isExpanded = expandedCategories.has(cat.value);
+        const remainingCount = allPhotos.length - PHOTOS_PER_PAGE;
+
+        return (
+          <TabsContent key={cat.value} value={cat.value} className="mt-0">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {visiblePhotos.map((photo) => (
+                <Card
+                  key={photo.id}
+                  className="overflow-hidden border-0 hover:shadow-elevated transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="relative aspect-square overflow-hidden">
+                    <img
+                      src={photo.imagen_url}
+                      alt={photo.titulo}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Content Overlay */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="font-bold text-xl mb-2 line-clamp-2">
+                        {photo.titulo}
+                      </h3>
+                      {photo.descripcion && (
+                        <p className="text-sm text-white/90 line-clamp-3">
+                          {photo.descripcion}
+                        </p>
+                      )}
+                    </div>
+
+                    {photo.sedes && (
+                      <div className="absolute left-3 top-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                        📍 {photo.sedes.nombre}, {photo.sedes.ciudad}
+                      </div>
                     )}
                   </div>
+                </Card>
+              ))}
+            </div>
 
-                  {photo.sedes && (
-                    <div className="absolute left-3 top-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-md">
-                      📍 {photo.sedes.nombre}, {photo.sedes.ciudad}
-                    </div>
+            {hasMore && (
+              <div className="flex justify-center mt-8">
+                <Button
+                  variant="outline"
+                  onClick={() => toggleExpanded(cat.value)}
+                  className="gap-2"
+                >
+                  {isExpanded ? (
+                    <>
+                      <ChevronUp className="h-4 w-4" />
+                      Ver menos
+                    </>
+                  ) : (
+                    <>
+                      <ChevronDown className="h-4 w-4" />
+                      Ver más ({remainingCount} fotos más)
+                    </>
                   )}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
-      ))}
+                </Button>
+              </div>
+            )}
+          </TabsContent>
+        );
+      })}
     </Tabs>
   );
 };
