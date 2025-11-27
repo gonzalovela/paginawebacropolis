@@ -3,7 +3,6 @@ import { Hero } from "@/components/Hero";
 import { ThreePrinciples } from "@/components/ThreePrinciples";
 import { ThreePillars } from "@/components/ThreePillars";
 import { CourseSection } from "@/components/CourseSection";
-import { SimplifiedLocations } from "@/components/SimplifiedLocations";
 import { Footer } from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -11,7 +10,6 @@ const Index = () => {
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
   const { elementRef: pillarsRef, isVisible: pillarsVisible } = useScrollAnimation();
   const { elementRef: courseRef, isVisible: courseVisible } = useScrollAnimation();
-  const { elementRef: locationsRef, isVisible: locationsVisible } = useScrollAnimation();
 
   return (
     <div className="min-h-screen">
@@ -40,14 +38,6 @@ const Index = () => {
         }`}
       >
         <CourseSection />
-      </div>
-      <div 
-        ref={locationsRef}
-        className={`transition-all duration-1000 ${
-          locationsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-      >
-        <SimplifiedLocations />
       </div>
       <Footer />
     </div>
