@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { BookOpen, Heart, Compass, Star, CheckCircle2, ArrowRight, Clock, Users, CalendarDays, Sparkles, Quote } from "lucide-react";
 import { Footer } from "@/components/Footer";
-import philosophyImage from "@/assets/philosophy-study-group.jpg";
+import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
