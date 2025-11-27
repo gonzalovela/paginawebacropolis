@@ -1,113 +1,185 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, Clock, Users, ArrowRight } from "lucide-react";
+import { CheckCircle2, Clock, Users, CalendarDays, ArrowRight, Sparkles, BookOpen, Heart, Target, Compass, Users2 } from "lucide-react";
 
 export const CourseSection = () => {
   const benefits = [
-    "Conocerte más para desarrollar tus fortalezas y ser mejor persona",
-    "Encontrar respuestas a tus interrogantes sobre la vida",
-    "Descubrir el sentido profundo de la existencia",
-    "Definir tus valores, para dejar una huella en el mundo",
-    "Comprender a los demás y el porqué de las circunstancias que vives",
-    "Tomar mejores decisiones, con la sabiduría de grandes filósofos y civilizaciones",
+    {
+      icon: Heart,
+      text: "Conocerte más para desarrollar tus fortalezas y ser mejor persona",
+    },
+    {
+      icon: Compass,
+      text: "Encontrar respuestas a tus interrogantes sobre la vida",
+    },
+    {
+      icon: Target,
+      text: "Descubrir el sentido profundo de la existencia",
+    },
+    {
+      icon: Sparkles,
+      text: "Definir tus valores, para dejar una huella en el mundo",
+    },
+    {
+      icon: Users2,
+      text: "Comprender a los demás y el porqué de las circunstancias que vives",
+    },
+    {
+      icon: BookOpen,
+      text: "Tomar mejores decisiones, con la sabiduría de grandes filósofos",
+    },
   ];
 
-  const testimonials = [
-    {
-      text: "El curso transformó mi forma de ver la vida. Ahora tengo herramientas prácticas para enfrentar cualquier desafío.",
-      author: "María González",
-      role: "Estudiante",
-    },
-    {
-      text: "Encontré respuestas a preguntas que tenía hace años. La filosofía se volvió algo vivo y aplicable.",
-      author: "Carlos Ruiz",
-      role: "Estudiante",
-    },
+  const courseModules = [
+    "El ser humano y el universo",
+    "La guerra interior",
+    "El dominio de la mente",
+    "Cómo desarrollar la fortaleza interior",
+    "La búsqueda de la felicidad",
+    "La justicia en el ser humano y la sociedad",
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-subtle">
+    <section className="py-24 md:py-32 bg-gradient-to-b from-background to-muted/30">
       <div className="container px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="inline-block px-4 py-2 bg-secondary/10 text-secondary font-semibold rounded-full text-sm">
-                CURSO FUNDAMENTAL
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                Conócete a Ti Mismo
-              </h2>
-              <p className="text-xl text-foreground/70 leading-relaxed">
-                Descubre los secretos de tu mundo interior. A través de un apasionante viaje de autoconocimiento, exploraremos las enseñanzas de grandes pensadores para encontrarle un sentido más profundo a la vida.
-              </p>
-            </div>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-block px-4 py-2 bg-secondary/10 text-secondary font-semibold rounded-full text-sm mb-6">
+            CURSO FUNDAMENTAL
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            Conócete a Ti Mismo
+          </h2>
+          <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed">
+            ¿Quién eres en realidad? Acompáñanos en un apasionante viaje hacia la autoconciencia y descubre los secretos de tu mundo interior.
+          </p>
+        </div>
 
-            <div className="space-y-3">
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
+          {/* Benefits */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-foreground mb-8">
+              En este curso aprenderás a:
+            </h3>
+            <div className="grid gap-4">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground/70">{benefit}</span>
+                <div 
+                  key={index} 
+                  className="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <benefit.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <span className="text-foreground/80 leading-relaxed pt-2">{benefit.text}</span>
                 </div>
               ))}
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="text-lg bg-primary hover:bg-primary/90" asChild>
-                <a href="/inscripcion">
-                  Inscríbete ahora
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg" asChild>
-                <a href="/filosofia">Ver programa completo</a>
-              </Button>
-            </div>
-
-            {/* Info boxes */}
-            <div className="grid sm:grid-cols-3 gap-4 pt-4">
-              <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-                <Clock className="h-5 w-5 text-primary flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Duración</p>
-                  <p className="text-xs text-foreground/60">24 horas pedagógicas</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-                <Users className="h-5 w-5 text-primary flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Modalidad</p>
-                  <p className="text-xs text-foreground/60">Presencial</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Frecuencia</p>
-                  <p className="text-xs text-foreground/60">1 vez por semana</p>
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* Testimonials */}
+          {/* Course Info Card */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
-              Lo que dicen nuestros estudiantes
-            </h3>
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 hover:shadow-medium transition-all duration-300">
-                <div className="space-y-4">
-                  <p className="text-foreground/70 italic leading-relaxed">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold text-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-foreground/50">{testimonial.role}</p>
+            <Card className="p-8 bg-card border-border shadow-lg">
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Información del curso
+              </h3>
+              
+              <p className="text-foreground/70 leading-relaxed mb-8">
+                A través de las enseñanzas de grandes pensadores y civilizaciones, exploraremos la filosofía de manera práctica y vivencial para convertirnos en mejores personas y tomar decisiones acertadas.
+              </p>
+
+              {/* Course Details */}
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50">
+                  <Clock className="h-6 w-6 text-primary flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-foreground">Duración</p>
+                    <p className="text-sm text-foreground/60">24 horas pedagógicas</p>
                   </div>
                 </div>
-              </Card>
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50">
+                  <Users className="h-6 w-6 text-primary flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-foreground">Modalidad</p>
+                    <p className="text-sm text-foreground/60">Presencial en tu sede más cercana</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50">
+                  <CalendarDays className="h-6 w-6 text-primary flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-foreground">Frecuencia</p>
+                    <p className="text-sm text-foreground/60">1 vez por semana</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Includes */}
+              <div className="border-t border-border pt-6 mb-8">
+                <p className="font-semibold text-foreground mb-3">Incluye:</p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-foreground/70">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    Material de estudio
+                  </li>
+                  <li className="flex items-center gap-2 text-foreground/70">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    Acceso gratuito a Acrópolis Channel
+                  </li>
+                  <li className="flex items-center gap-2 text-foreground/70">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    Certificado de participación
+                  </li>
+                </ul>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col gap-3">
+                <Button size="lg" className="w-full text-lg bg-primary hover:bg-primary/90" asChild>
+                  <a href="/inscripcion">
+                    Inscríbete ahora
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="w-full text-lg" asChild>
+                  <a href="/filosofia">Ver programa completo</a>
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        {/* Course Modules Preview */}
+        <div className="bg-card/50 rounded-2xl border border-border/50 p-8 md:p-12">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Temas que explorarás
+            </h3>
+            <p className="text-foreground/60 max-w-2xl mx-auto">
+              Un viaje por las grandes tradiciones filosóficas de Oriente y Occidente
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {courseModules.map((module, index) => (
+              <div 
+                key={index}
+                className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border hover:border-primary/30 transition-colors"
+              >
+                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary font-semibold flex items-center justify-center text-sm">
+                  {index + 1}
+                </span>
+                <span className="text-foreground/80 font-medium">{module}</span>
+              </div>
             ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Button variant="link" className="text-primary" asChild>
+              <a href="/filosofia">
+                Ver temario completo
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </Button>
           </div>
         </div>
       </div>
