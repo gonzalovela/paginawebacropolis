@@ -335,7 +335,7 @@ const Voluntariado = () => {
                     <img
                       src={area.image}
                       alt={area.title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 saturate-[1.1] brightness-[1.05] sepia-[0.15] contrast-[1.05]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 group-hover:via-black/40 transition-all duration-500" />
                     
