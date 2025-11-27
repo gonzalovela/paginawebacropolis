@@ -17,78 +17,63 @@ const Filosofia = () => {
   const courseModules = [
     {
       title: "El ser humano y el universo",
-      description: "Constitución humana y de la naturaleza. Filosofía activa: una forma de vida.",
-      color: "bg-primary/10 text-primary border-primary/20",
+      description: "Constitución humana y de la naturaleza. Filosofía activa: una forma de vida. ¿Cómo reconocer y desarrollar los valores humanos?",
     },
     {
       title: "La guerra interior",
-      description: "Simbolismo del Bhagavad Gîta. El conflicto interior y la recta acción.",
-      color: "bg-secondary/10 text-secondary border-secondary/20",
+      description: "Simbolismo del Bhagavad Gîta. Planteamiento del conflicto interior. Las 3 Gunas. La recta acción.",
     },
     {
       title: "El dominio de la mente",
-      description: "Pensamiento tibetano y niveles de concentración. La Voz del Silencio.",
-      color: "bg-accent/10 text-accent border-accent/20",
+      description: "Características del pensamiento tibetano. Niveles de concentración. Lectura comentada de La Voz del Silencio.",
     },
     {
       title: "Cómo desarrollar la fortaleza interior",
-      description: "Las crisis. La vida del Buda y las cuatro nobles verdades.",
-      color: "bg-primary/10 text-primary border-primary/20",
+      description: "Las crisis. La vida del Buda Sidharta Gautama. Las enseñanzas del Buda. Las cuatro nobles verdades.",
     },
     {
       title: "La búsqueda de la felicidad",
-      description: "Aristóteles y la autarquía. La ética aristotélica y los grados del saber.",
-      color: "bg-secondary/10 text-secondary border-secondary/20",
+      description: "Aristóteles y la autarquía. La ética aristotélica. Los grados del saber.",
     },
     {
-      title: "Importancia del eclecticismo",
-      description: "La Escuela de Alejandría. La unidad del universo y el amor.",
-      color: "bg-accent/10 text-accent border-accent/20",
+      title: "Importancia del eclecticismo para lograr la convivencia",
+      description: "La Escuela Ecléctica de Alejandría. La comprensión de la unidad del universo. Eros o el Amor.",
     },
     {
       title: "El reto de vivir en sociedad",
-      description: "La necesidad de la política. Los problemas del hombre actual.",
-      color: "bg-primary/10 text-primary border-primary/20",
+      description: "La necesidad de la política para la convivencia. Los problemas del hombre y del mundo actual.",
     },
     {
-      title: "Visión filosófica del ser humano",
-      description: "El Mito de la caverna. El ideal platónico del ser humano y el mundo.",
-      color: "bg-secondary/10 text-secondary border-secondary/20",
+      title: "Visión filosófica del ser humano y la sociedad",
+      description: "El Mito de la caverna. El Ideal platónico del ser humano y el mundo.",
     },
     {
       title: "Educación para la convivencia",
-      description: "El ciudadano y su protagonismo. El valor de la educación.",
-      color: "bg-accent/10 text-accent border-accent/20",
+      description: "El ciudadano y su protagonismo. El valor de la educación. El alma y sus fuerzas (virtudes platónicas).",
     },
     {
-      title: "La justicia",
+      title: "La justicia en el ser humano y la sociedad",
       description: "La regla de Maat. La justicia como impulso colectivo.",
-      color: "bg-primary/10 text-primary border-primary/20",
     },
     {
       title: "Claves para construir el futuro",
       description: "¿Qué es la historia? Filosofía de la historia.",
-      color: "bg-secondary/10 text-secondary border-secondary/20",
     },
     {
-      title: "Mitos y símbolos",
+      title: "Mitos y símbolos para entender la vida",
       description: "Sentido de la Historia y la Mitología. Realidad psicológica de los mitos.",
-      color: "bg-accent/10 text-accent border-accent/20",
     },
     {
       title: "Ideal y Filosofía",
       description: "Qué es un Ideal. La Escuela de filosofía y la vivencia de los Ideales.",
-      color: "bg-primary/10 text-primary border-primary/20",
     },
     {
       title: "Ciclos de la historia",
-      description: "La rueda de la historia. Teoría del eterno retorno.",
-      color: "bg-secondary/10 text-secondary border-secondary/20",
+      description: "La rueda de la historia. Teoría del eterno retorno y los ciclos históricos.",
     },
     {
       title: "Libertad y destino",
-      description: "Teoría histórica de Cicerón. Cómo transformarse en agente consciente de la historia.",
-      color: "bg-accent/10 text-accent border-accent/20",
+      description: "Teoría histórica de Cicerón. Teoría del logos platónico y la historia futura. Cómo transformarse en agente consciente de la historia.",
     },
   ];
 
@@ -214,7 +199,7 @@ const Filosofia = () => {
 
         <div className="container px-4 md:px-6 relative z-10">
           {/* Header with colorful accent */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-bold mb-6">
               <BookOpen className="w-4 h-4" />
               CURSO FUNDAMENTAL
@@ -222,70 +207,60 @@ const Filosofia = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
               Curso <span className="text-primary">"Conócete a Ti Mismo"</span>
             </h2>
-            <p className="text-lg md:text-xl text-foreground/70">
-              Un apasionante viaje por las grandes tradiciones filosóficas de Oriente y Occidente
+            <p className="text-lg text-foreground/70">
+              Descubre los secretos de tu mundo interior. A través de un apasionante viaje de autoconocimiento, exploraremos las enseñanzas de grandes pensadores para encontrarle un sentido más profundo a la vida.
             </p>
           </div>
 
-          {/* Course Info Cards - Horizontal */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto">
-            <Card className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20 hover:shadow-lg hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Clock className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-foreground">24 horas</p>
-                  <p className="text-sm text-foreground/60">Duración pedagógica</p>
-                </div>
-              </div>
-            </Card>
-            <Card className="p-6 bg-gradient-to-br from-secondary/10 to-secondary/5 border-secondary/20 hover:shadow-lg hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
-                  <Users className="h-7 w-7 text-secondary" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-foreground">Presencial</p>
-                  <p className="text-sm text-foreground/60">En tu sede más cercana</p>
-                </div>
-              </div>
-            </Card>
-            <Card className="p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20 hover:shadow-lg hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center">
-                  <CalendarDays className="h-7 w-7 text-accent" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-foreground">Semanal</p>
-                  <p className="text-sm text-foreground/60">1 vez por semana</p>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Course modules with colors */}
+          {/* Course modules */}
           <div className="mb-12">
             <h3 className="text-2xl font-bold text-foreground text-center mb-8">
               Temario del Curso
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-              {courseModules.map((module, index) => (
-                <Card 
-                  key={index} 
-                  className={`p-5 border-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${module.color}`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-current/10 flex items-center justify-center font-bold text-sm">
-                      {index + 1}
+              {courseModules.map((module, index) => {
+                const colors = [
+                  "bg-primary/5 border-primary/20 hover:bg-primary/10",
+                  "bg-secondary/5 border-secondary/20 hover:bg-secondary/10",
+                  "bg-accent/5 border-accent/20 hover:bg-accent/10",
+                ];
+                const colorClass = colors[index % 3];
+                const numberColors = ["bg-primary/20 text-primary", "bg-secondary/20 text-secondary", "bg-accent/20 text-accent"];
+                const numberColor = numberColors[index % 3];
+                
+                return (
+                  <Card 
+                    key={index} 
+                    className={`p-5 border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${colorClass}`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${numberColor}`}>
+                        {index + 1}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-foreground mb-1">{module.title}</h4>
+                        <p className="text-sm text-foreground/60">{module.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-foreground mb-1">{module.title}</h4>
-                      <p className="text-sm text-foreground/60">{module.description}</p>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Course Info - Subtle, at bottom */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm text-foreground/60">
+            <div className="flex items-center gap-2">
+              <Clock className="h-4 w-4 text-primary" />
+              <span>24 horas pedagógicas</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-primary" />
+              <span>Presencial</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CalendarDays className="h-4 w-4 text-primary" />
+              <span>1 vez por semana</span>
             </div>
           </div>
 

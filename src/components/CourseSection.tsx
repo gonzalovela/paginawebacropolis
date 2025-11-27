@@ -6,27 +6,27 @@ export const CourseSection = () => {
   const benefits = [
     {
       icon: Heart,
-      text: "Conocerte más para desarrollar tus fortalezas y ser mejor persona",
+      text: "Conocerte más para desarrollar tus fortalezas y ser mejor persona.",
     },
     {
       icon: Compass,
-      text: "Encontrar respuestas a tus interrogantes sobre la vida",
+      text: "Encontrar respuestas a tus interrogantes sobre la vida.",
     },
     {
       icon: Target,
-      text: "Descubrir el sentido profundo de la existencia",
+      text: "Descubrir el sentido profundo de la existencia.",
     },
     {
       icon: Sparkles,
-      text: "Definir tus valores, para dejar una huella en el mundo",
+      text: "Definir tus valores, para dejar una huella en el mundo.",
     },
     {
       icon: Users2,
-      text: "Comprender a los demás y el porqué de las circunstancias que vives",
+      text: "Comprender a los demás y el porqué de las circunstancias que vives.",
     },
     {
       icon: BookOpen,
-      text: "Tomar mejores decisiones, con la sabiduría de grandes filósofos",
+      text: "Tomar mejores decisiones, con la sabiduría de grandes filósofos y civilizaciones.",
     },
   ];
 
@@ -36,7 +36,7 @@ export const CourseSection = () => {
     "El dominio de la mente",
     "Cómo desarrollar la fortaleza interior",
     "La búsqueda de la felicidad",
-    "La justicia en el ser humano y la sociedad",
+    "Importancia del eclecticismo para lograr la convivencia",
   ];
 
   return (
