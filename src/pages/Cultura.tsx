@@ -10,6 +10,7 @@ import cultureActivitiesImage from "@/assets/culture-activities.jpg";
 import cultureMountainImage from "@/assets/culture-mountain-group.jpg";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 
@@ -127,11 +128,12 @@ const Cultura = () => {
           <div className="max-w-5xl mx-auto space-y-12">
             {/* Hero Image */}
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-elegant">
-              <img 
+              <OptimizedImage 
                 src={cultureImage} 
                 alt="Grupo en sitio arqueológico Chavín" 
                 className="w-full h-full object-cover object-[center_55%]"
-                style={{ filter: 'brightness(1.08) saturate(1.15) contrast(1.05) sepia(0.06)' }}
+                containerClassName="w-full h-full"
+                priority
               />
             </div>
             
@@ -193,11 +195,11 @@ const Cultura = () => {
                 <Card key={index} className="overflow-hidden hover:shadow-medium transition-all group">
                   {/* Image Section */}
                   <div className="relative h-56 overflow-hidden">
-                    <img 
+                    <OptimizedImage 
                       src={activity.image} 
                       alt={activity.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      style={{ filter: 'brightness(1.05) saturate(1.1)' }}
+                      containerClassName="w-full h-full"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     <div className="absolute bottom-4 left-4 flex items-center gap-3">

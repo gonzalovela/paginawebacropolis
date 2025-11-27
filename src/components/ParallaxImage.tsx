@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface ParallaxImageProps {
   src: string;
@@ -9,6 +9,15 @@ interface ParallaxImageProps {
 
 export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: ParallaxImageProps) => {
   const imageRef = useRef<HTMLDivElement>(null);
+  const imgElementRef = useRef<HTMLImageElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Check if image is already cached
+    if (imgElementRef.current?.complete && imgElementRef.current?.naturalHeight !== 0) {
+      setIsLoaded(true);
+    }
+  }, []);
 
   useEffect(() => {
     let rafId: number;
@@ -57,6 +66,11 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
 
   return (
     <div className="absolute inset-0 overflow-hidden z-0">
+      {/* Skeleton placeholder */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-muted animate-pulse" />
+      )}
+      
       <div 
         ref={imageRef}
         className="absolute w-full"
@@ -68,9 +82,15 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false }: Paralla
         }}
       >
         <img 
+          ref={imgElementRef}
           src={src} 
           alt={alt}
-          className="w-full h-full object-cover"
+          loading={isHero ? "eager" : "lazy"}
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
         />
       </div>
     </div>

@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 type VolunteerPhoto = {
   id: string;
@@ -125,16 +126,18 @@ export const VoluntariadoGallery = () => {
         return (
           <TabsContent key={cat.value} value={cat.value} className="mt-0">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {visiblePhotos.map((photo) => (
+              {visiblePhotos.map((photo, index) => (
                 <Card
                   key={photo.id}
                   className="overflow-hidden border-0 hover:shadow-elevated transition-all duration-300 group cursor-pointer"
                 >
                   <div className="relative aspect-square overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={photo.imagen_url}
                       alt={photo.titulo}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      containerClassName="w-full h-full"
+                      priority={index < 4}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     

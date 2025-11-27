@@ -88,10 +88,11 @@ export const WhoWeAre = () => {
                 
                 {/* Wide horizontal image */}
                 <div className="w-full aspect-[21/9] overflow-hidden">
-                  <img 
+                  <OptimizedImage 
                     src={acropolisImage} 
                     alt="La Acrópolis de Atenas - Ciudad Alta" 
                     className="w-full h-full object-cover"
+                    containerClassName="w-full h-full"
                   />
                 </div>
                 
@@ -722,10 +723,11 @@ export const WhoWeAre = () => {
             <div className="relative -mx-4 md:-mx-6 lg:-mx-12 xl:-mx-24 overflow-hidden">
               {/* Background Image */}
               <div className="absolute inset-0">
-                <img 
+                <OptimizedImage 
                   src={philosophyImage} 
                   alt="Filosofía como forma de vida" 
                   className="w-full h-full object-cover"
+                  containerClassName="w-full h-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80" />
               </div>

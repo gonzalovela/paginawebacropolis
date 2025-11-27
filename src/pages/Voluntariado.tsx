@@ -12,6 +12,7 @@ import medioAmbienteImage from "@/assets/voluntariado-medio-ambiente.jpg";
 import formacionImage from "@/assets/voluntariado-formacion.jpg";
 import talleresArtisticosImage from "@/assets/voluntariado-talleres-artisticos.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
@@ -268,10 +269,11 @@ const Voluntariado = () => {
           <div className="max-w-5xl mx-auto space-y-8">
             {/* Hero Image */}
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-elegant">
-              <img 
+              <OptimizedImage 
                 src={volunteeringImage} 
                 alt="Voluntariado en acción" 
                 className="w-full h-full object-cover"
+                containerClassName="w-full h-full"
               />
             </div>
             
@@ -332,10 +334,11 @@ const Voluntariado = () => {
                 <Card key={index} className="overflow-hidden hover:shadow-elevated transition-all duration-500 group border-0">
                   <div className="relative h-[500px] overflow-hidden">
                     {/* Background Image with Overlay */}
-                    <img
+                    <OptimizedImage
                       src={area.image}
                       alt={area.title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 saturate-[1.1] brightness-[1.05] sepia-[0.15] contrast-[1.05]"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      containerClassName="absolute inset-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 group-hover:via-black/40 transition-all duration-500" />
                     
