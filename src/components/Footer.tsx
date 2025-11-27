@@ -118,10 +118,10 @@ export const Footer = () => {
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 flex-shrink-0" />
                 <a 
-                  href={`mailto:${sedePrincipal?.email || 'info@acropolisperu.org'}`} 
+                  href="mailto:informes@acropolisperu.org" 
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
                 >
-                  {sedePrincipal?.email || 'info@acropolisperu.org'}
+                  informes@acropolisperu.org
                 </a>
               </li>
             </ul>
