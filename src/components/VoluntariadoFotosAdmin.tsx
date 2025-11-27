@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
@@ -23,7 +24,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Trash2, Upload, Eye, EyeOff, Pencil } from "lucide-react";
+import { Trash2, Upload, Eye, EyeOff, Pencil, AlertTriangle } from "lucide-react";
 import { toast } from "sonner";
 
 type VolunteerPhoto = {
@@ -42,6 +43,17 @@ type Sede = {
   nombre: string;
   ciudad: string;
 };
+
+const MAX_PHOTOS_PER_CATEGORY = 6;
+
+const CATEGORIAS = [
+  { value: "yo_amo_lectura", label: "Yo Amo la Lectura" },
+  { value: "adulto_mayor", label: "Acompañamiento al Adulto Mayor" },
+  { value: "humanitario_social", label: "Acción Humanitaria y Social" },
+  { value: "medio_ambiente", label: "Protección del Medio Ambiente" },
+  { value: "formacion_voluntarios", label: "Formación de Voluntarios" },
+  { value: "talleres_artisticos", label: "Talleres Artísticos" },
+];
 
 export const VoluntariadoFotosAdmin = () => {
   const [isAdding, setIsAdding] = useState(false);
@@ -90,10 +102,32 @@ export const VoluntariadoFotosAdmin = () => {
     },
   });
 
+  // Count photos per category
+  const photosPerCategory = useMemo(() => {
+    if (!photos) return {};
+    return photos.reduce((acc: Record<string, number>, photo) => {
+      acc[photo.categoria] = (acc[photo.categoria] || 0) + 1;
+      return acc;
+    }, {});
+  }, [photos]);
+
+  const getCategoryCount = (categoria: string) => {
+    return photosPerCategory[categoria] || 0;
+  };
+
+  const isCategoryFull = (categoria: string) => {
+    return getCategoryCount(categoria) >= MAX_PHOTOS_PER_CATEGORY;
+  };
+
   const uploadMutation = useMutation({
     mutationFn: async () => {
       if (!formData.file || !formData.titulo) {
         throw new Error("Título y foto son requeridos");
+      }
+
+      // Check category limit
+      if (isCategoryFull(formData.categoria)) {
+        throw new Error(`Esta categoría ya tiene el máximo de ${MAX_PHOTOS_PER_CATEGORY} fotos. Elimina una foto antes de agregar otra.`);
       }
 
       setUploading(true);
@@ -165,6 +199,14 @@ export const VoluntariadoFotosAdmin = () => {
     mutationFn: async () => {
       if (!editingId || !formData.titulo) {
         throw new Error("Datos incompletos");
+      }
+
+      // If changing category, check if new category is full (excluding current photo)
+      const currentPhoto = photos?.find(p => p.id === editingId);
+      if (currentPhoto && currentPhoto.categoria !== formData.categoria) {
+        if (isCategoryFull(formData.categoria)) {
+          throw new Error(`La categoría destino ya tiene el máximo de ${MAX_PHOTOS_PER_CATEGORY} fotos.`);
+        }
       }
 
       const { error } = await supabase
@@ -245,6 +287,10 @@ export const VoluntariadoFotosAdmin = () => {
     setFormData({ titulo: "", descripcion: "", categoria: "yo_amo_lectura", sede_id: "", file: null });
   };
 
+  const getCategoryLabel = (value: string) => {
+    return CATEGORIAS.find(c => c.value === value)?.label || value;
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
@@ -259,6 +305,27 @@ export const VoluntariadoFotosAdmin = () => {
           {(isAdding || editingId) ? "Cancelar" : "Agregar Foto"}
         </Button>
       </div>
+
+      {/* Category counts summary */}
+      <Card className="p-4">
+        <h3 className="text-sm font-semibold mb-3 text-foreground/70">Fotos por categoría (máximo {MAX_PHOTOS_PER_CATEGORY} por categoría)</h3>
+        <div className="flex flex-wrap gap-2">
+          {CATEGORIAS.map((cat) => {
+            const count = getCategoryCount(cat.value);
+            const isFull = count >= MAX_PHOTOS_PER_CATEGORY;
+            return (
+              <Badge 
+                key={cat.value} 
+                variant={isFull ? "destructive" : "secondary"}
+                className="text-xs"
+              >
+                {cat.label}: {count}/{MAX_PHOTOS_PER_CATEGORY}
+                {isFull && <AlertTriangle className="h-3 w-3 ml-1" />}
+              </Badge>
+            );
+          })}
+        </div>
+      </Card>
 
       {(isAdding || editingId) && (
         <Card className="p-6">
@@ -297,14 +364,33 @@ export const VoluntariadoFotosAdmin = () => {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="yo_amo_lectura">Yo Amo la Lectura</SelectItem>
-                  <SelectItem value="adulto_mayor">Acompañamiento al Adulto Mayor</SelectItem>
-                  <SelectItem value="humanitario_social">Acción Humanitaria y Social</SelectItem>
-                  <SelectItem value="medio_ambiente">Protección del Medio Ambiente</SelectItem>
-                  <SelectItem value="formacion_voluntarios">Formación de Voluntarios</SelectItem>
-                  <SelectItem value="talleres_artisticos">Talleres Artísticos</SelectItem>
+                  {CATEGORIAS.map((cat) => {
+                    const count = getCategoryCount(cat.value);
+                    const isFull = count >= MAX_PHOTOS_PER_CATEGORY;
+                    // When editing, allow selecting current category even if full
+                    const currentPhoto = editingId ? photos?.find(p => p.id === editingId) : null;
+                    const isCurrentCategory = currentPhoto?.categoria === cat.value;
+                    const disabled = isFull && !isCurrentCategory && !editingId;
+                    
+                    return (
+                      <SelectItem 
+                        key={cat.value} 
+                        value={cat.value}
+                        disabled={disabled && isAdding}
+                      >
+                        {cat.label} ({count}/{MAX_PHOTOS_PER_CATEGORY})
+                        {isFull && !isCurrentCategory && " - LLENO"}
+                      </SelectItem>
+                    );
+                  })}
                 </SelectContent>
               </Select>
+              {isAdding && isCategoryFull(formData.categoria) && (
+                <p className="text-sm text-destructive mt-1 flex items-center gap-1">
+                  <AlertTriangle className="h-3 w-3" />
+                  Esta categoría está llena. Selecciona otra o elimina una foto existente.
+                </p>
+              )}
             </div>
 
             <div>
@@ -343,7 +429,7 @@ export const VoluntariadoFotosAdmin = () => {
               disabled={
                 editingId 
                   ? !formData.titulo 
-                  : (uploading || !formData.titulo || !formData.file)
+                  : (uploading || !formData.titulo || !formData.file || (isAdding && isCategoryFull(formData.categoria)))
               }
               className="w-full"
             >
@@ -377,6 +463,9 @@ export const VoluntariadoFotosAdmin = () => {
                     <span className="text-white font-bold">OCULTA</span>
                   </div>
                 )}
+                <Badge className="absolute top-2 right-2 text-xs">
+                  {getCategoryLabel(photo.categoria)}
+                </Badge>
               </div>
               <div className="p-4 space-y-3">
                 <h3 className="font-bold line-clamp-1">{photo.titulo}</h3>
