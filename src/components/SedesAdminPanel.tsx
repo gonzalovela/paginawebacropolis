@@ -23,6 +23,7 @@ interface Sede {
   tiktok?: string;
   es_principal: boolean;
   google_maps_url?: string;
+  email?: string;
 }
 
 interface SedeFormData {
@@ -35,6 +36,7 @@ interface SedeFormData {
   tiktok: string;
   es_principal: boolean;
   google_maps_url: string;
+  email: string;
 }
 
 const emptyForm: SedeFormData = {
@@ -47,6 +49,7 @@ const emptyForm: SedeFormData = {
   tiktok: "",
   es_principal: false,
   google_maps_url: "",
+  email: "",
 };
 
 export const SedesAdminPanel = () => {
@@ -117,6 +120,7 @@ export const SedesAdminPanel = () => {
         tiktok: formData.tiktok || null,
         es_principal: formData.es_principal,
         google_maps_url: formData.google_maps_url || null,
+        email: formData.email || null,
       };
 
       if (editingId) {
@@ -158,6 +162,7 @@ export const SedesAdminPanel = () => {
       tiktok: sede.tiktok || "",
       es_principal: sede.es_principal,
       google_maps_url: sede.google_maps_url || "",
+      email: sede.email || "",
     });
     setEditingId(sede.id);
   };
@@ -335,6 +340,20 @@ export const SedesAdminPanel = () => {
               />
               <p className="text-xs text-muted-foreground mt-1">
                 Copia el enlace completo desde Google Maps (botón "Compartir")
+              </p>
+            </div>
+
+            <div>
+              <Label htmlFor="email">Email de contacto</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="sede@acropolisperu.org"
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                Los formularios de inscripción se enviarán a este correo
               </p>
             </div>
 
