@@ -215,7 +215,7 @@ const Voluntariado = () => {
       {/* Key Messages */}
       <section 
         ref={principlesRef}
-        className={`py-20 md:py-32 bg-gradient-to-br from-background via-secondary/5 to-background transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-gradient-to-br from-background via-secondary/5 to-background transition-all duration-1000 ${
           principlesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -260,7 +260,7 @@ const Voluntariado = () => {
       {/* Introduction */}
       <section 
         ref={introRef}
-        className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
           introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -310,7 +310,7 @@ const Voluntariado = () => {
       {/* Areas of Action */}
       <section 
         ref={areasRef}
-        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-background transition-all duration-1000 ${
           areasVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -377,7 +377,7 @@ const Voluntariado = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20 md:py-32 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
@@ -394,7 +394,7 @@ const Voluntariado = () => {
       {/* Call to Action */}
       <section
         ref={ctaRef}
-        className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
           ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
