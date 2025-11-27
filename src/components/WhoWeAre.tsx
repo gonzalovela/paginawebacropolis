@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart, Trophy } from "lucide-react";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { ThreePillars } from "@/components/ThreePillars";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
 import jorgeLivragaPortrait from "@/assets/jorge-livraga-real.jpg";
 import deliaSteinbergPortrait from "@/assets/delia-steinberg-guzman-portrait.jpg";
@@ -193,10 +194,12 @@ export const WhoWeAre = () => {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                       <div className="relative w-64 h-64 rounded-3xl overflow-hidden shadow-elegant ring-4 ring-background">
-                        <img 
+                        <OptimizedImage 
                           src={jorgeLivragaPortrait} 
                           alt="Jorge Ángel Livraga Rizzi - Fundador de Nueva Acrópolis"
                           className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-500"
+                          containerClassName="w-full h-full"
+                          priority
                         />
                       </div>
                     </div>
@@ -319,10 +322,11 @@ export const WhoWeAre = () => {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                       <div className="relative w-64 h-64 rounded-3xl overflow-hidden shadow-elegant ring-4 ring-background">
-                        <img 
+                        <OptimizedImage 
                           src={deliaSteinbergPortrait} 
                           alt="Delia Steinberg Guzmán - Presidenta Internacional 1991-2023"
                           className="w-full h-full object-cover hover:scale-105 transition-all duration-500"
+                          containerClassName="w-full h-full"
                         />
                       </div>
                     </div>
@@ -533,10 +537,11 @@ export const WhoWeAre = () => {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                       <div className="relative w-64 h-64 rounded-3xl overflow-hidden shadow-elegant ring-4 ring-background">
-                        <img 
+                        <OptimizedImage 
                           src={carlosAdelantadoPortrait} 
                           alt="Carlos Adelantado Puchal - Presidente Internacional"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          containerClassName="w-full h-full"
                         />
                       </div>
                     </div>
@@ -597,10 +602,11 @@ export const WhoWeAre = () => {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                       <div className="relative w-64 h-64 rounded-3xl overflow-hidden shadow-elegant ring-4 ring-background">
-                        <img 
+                        <OptimizedImage 
                           src={beatrizDiezCansecoPortrait} 
                           alt="Beatriz Diez Canseco - Presidenta Nacional Nueva Acrópolis Perú"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          containerClassName="w-full h-full"
                         />
                       </div>
                     </div>
