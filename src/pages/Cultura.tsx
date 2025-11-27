@@ -119,7 +119,7 @@ const Cultura = () => {
       {/* Introduction */}
       <section 
         ref={introRef}
-        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-background transition-all duration-1000 ${
           introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -171,7 +171,7 @@ const Cultura = () => {
       {/* Activities */}
       <section 
         ref={activitiesRef}
-        className={`py-20 md:py-32 bg-gradient-subtle transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
           activitiesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
@@ -236,7 +236,7 @@ const Cultura = () => {
       {/* Participation */}
       <section 
         ref={participationRef}
-        className={`py-20 md:py-32 bg-background transition-all duration-1000 ${
+        className={`py-12 md:py-20 bg-background transition-all duration-1000 ${
           participationVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
