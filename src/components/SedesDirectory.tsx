@@ -57,8 +57,8 @@ export const SedesDirectory = () => {
       if (error) throw error;
       setSedes(data || []);
       setFilteredSedes(data || []);
-    } catch (error) {
-      console.error('Error loading sedes:', error);
+    } catch {
+      // Error handled silently
     } finally {
       setLoading(false);
     }

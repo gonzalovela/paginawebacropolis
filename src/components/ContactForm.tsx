@@ -53,8 +53,7 @@ export const ContactForm = () => {
         
         if (error) throw error;
         setSedes(data || []);
-      } catch (error) {
-        console.error("Error loading sedes:", error);
+      } catch {
         toast.error("Error al cargar las sedes");
       } finally {
         setLoadingSedes(false);
@@ -112,10 +111,7 @@ export const ContactForm = () => {
         },
       });
 
-      if (emailError) {
-        console.error("Error sending email:", emailError);
-        // Don't throw - data is saved, email is secondary
-      }
+      // Email error is secondary - data already saved
 
       toast.success("¡Inscripción enviada! Te contactaremos pronto.");
       
@@ -128,8 +124,7 @@ export const ContactForm = () => {
         message: "",
         sedeId: "",
       });
-    } catch (error) {
-      console.error("Error submitting form:", error);
+    } catch {
       toast.error("Hubo un error al enviar la inscripción. Por favor intenta de nuevo.");
     } finally {
       setIsSubmitting(false);

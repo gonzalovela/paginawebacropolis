@@ -46,7 +46,6 @@ export const UsersAdminPanel = () => {
       .maybeSingle();
 
     if (error) {
-      console.error('Error checking admin status:', error);
       setIsAdmin(false);
       return;
     }
@@ -97,8 +96,7 @@ export const UsersAdminPanel = () => {
       );
 
       setUsers(usersWithDetails);
-    } catch (error) {
-      console.error('Error loading users:', error);
+    } catch {
       // Fallback: show basic profile info without emails
       try {
         const { data: profiles, error: profilesError } = await supabase
@@ -128,8 +126,7 @@ export const UsersAdminPanel = () => {
         });
 
         setUsers(basicUsers);
-      } catch (fallbackError) {
-        console.error('Fallback error:', fallbackError);
+      } catch {
         toast.error('Error al cargar usuarios');
       }
     } finally {
@@ -161,8 +158,7 @@ export const UsersAdminPanel = () => {
 
       toast.success('Rol actualizado exitosamente');
       loadUsers();
-    } catch (error) {
-      console.error('Error updating role:', error);
+    } catch {
       toast.error('Error al actualizar el rol');
     }
   };
