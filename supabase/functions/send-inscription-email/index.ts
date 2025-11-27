@@ -60,10 +60,19 @@ const handler = async (req: Request): Promise<Response> => {
       otro: "Otro",
     };
 
-    // Send email to sede
+    // Central email that always receives a copy
+    const centralEmail = "informes@acropolisperu.org";
+
+    // Build recipients list: sede email + central email
+    const recipients = [sedeEmail];
+    if (sedeEmail !== centralEmail) {
+      recipients.push(centralEmail);
+    }
+
+    // Send email to sede and central
     const emailResponse = await resend.emails.send({
       from: "Nueva Acrópolis <onboarding@resend.dev>",
-      to: [sedeEmail],
+      to: recipients,
       subject: `Nueva Inscripción - ${sede.nombre}`,
       html: `
         <h1>Nueva Inscripción Recibida</h1>
