@@ -6,6 +6,7 @@ import { ParallaxImage } from "@/components/ParallaxImage";
 import { Link } from "react-router-dom";
 import { Pointer } from "@/components/ui/pointer";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import { AuroraEffect } from "@/components/AuroraEffect";
 
 export const Hero = () => {
   return (
@@ -18,6 +19,9 @@ export const Hero = () => {
         isHero={true} 
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-[1]" />
+      
+      {/* Aurora and Stars effect */}
+      <AuroraEffect />
 
       <div className="container relative z-10 px-4 sm:px-6 text-center py-8">
         <div className="animate-fade-in-up mb-4 sm:mb-6 -mt-4 sm:-mt-8">
