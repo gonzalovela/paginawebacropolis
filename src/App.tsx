@@ -10,6 +10,7 @@ import Filosofia from "./pages/Filosofia";
 import Cultura from "./pages/Cultura";
 import Voluntariado from "./pages/Voluntariado";
 import Inscripcion from "./pages/Inscripcion";
+import Gracias from "./pages/Gracias";
 import QuienesSomos from "./pages/QuienesSomos";
 import Sedes from "./pages/Sedes";
 import SedesAdmin from "./pages/SedesAdmin";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/cultura" element={<Cultura />} />
               <Route path="/voluntariado" element={<Voluntariado />} />
               <Route path="/inscripcion" element={<Inscripcion />} />
+              <Route path="/gracias" element={<Gracias />} />
               <Route path="/quienes-somos" element={<QuienesSomos />} />
               <Route path="/sedes" element={<Sedes />} />
               <Route path="/instalar" element={<Instalar />} />

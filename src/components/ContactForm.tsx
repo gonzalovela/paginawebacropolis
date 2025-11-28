@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,6 +29,7 @@ interface Sede {
 }
 
 export const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -113,17 +115,8 @@ export const ContactForm = () => {
 
       // Email error is secondary - data already saved
 
-      toast.success("¡Inscripción enviada! Te contactaremos pronto.");
-      
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        interest: "curso",
-        message: "",
-        sedeId: "",
-      });
+      // Redirect to thank you page
+      navigate(`/gracias?registro=ok&nombre=${encodeURIComponent(result.data.name)}`);
     } catch {
       toast.error("Hubo un error al enviar la inscripción. Por favor intenta de nuevo.");
     } finally {
