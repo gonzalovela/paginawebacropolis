@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
-import philosophyStudyImage from "@/assets/philosophy-study-group.jpg";
+import charlasConferenciasImage from "@/assets/cultura-charlas-conferencias.jpg";
 import teatroExpresionImage from "@/assets/cultura-teatro-expresion-bright.jpg";
 import encuentrosCulturalesImage from "@/assets/cultura-encuentros-culturales-cropped.jpg";
 import musicaArtesImage from "@/assets/cultura-musica-artes-original.jpg";
@@ -27,7 +27,7 @@ const Cultura = () => {
       title: "Charlas y Conferencias",
       description: "Exploramos temas de historia, filosofía, arte y ciencias desde una perspectiva humanista. Cada charla busca conectar el pasado con el presente para comprender mejor el mundo actual.",
       topics: ["Filosofía antigua", "Civilizaciones perdidas", "Arte y simbolismo", "Ciencia y ética"],
-      image: philosophyStudyImage,
+      image: charlasConferenciasImage,
     },
     {
       icon: Theater,
