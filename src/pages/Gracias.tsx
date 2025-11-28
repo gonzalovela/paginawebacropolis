@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { CheckCircle, Mail, Phone, MapPin, ArrowLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,10 +6,19 @@ import { Card } from "@/components/ui/card";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { fireCelebration } from "@/components/ui/confetti";
 
 const Gracias = () => {
   const [searchParams] = useSearchParams();
   const nombre = searchParams.get("nombre") || "participante";
+
+  // Fire confetti celebration when page loads
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fireCelebration();
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
