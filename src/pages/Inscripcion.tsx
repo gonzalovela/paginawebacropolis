@@ -16,11 +16,12 @@ const Inscripcion = () => {
         <Navigation />
 
         {/* Hero Banner */}
-        <section className="relative h-[50vh] md:h-[60vh] mt-20 overflow-hidden">
+        <section className="relative py-20 sm:py-24 md:py-32 overflow-hidden mt-16 md:mt-20">
           <ParallaxImage
             src={bannerInscripcion}
             alt="Grupo de personas caminando juntas hacia una escuela de filosofía al atardecer - Nueva Acrópolis Perú"
             speed={0.5}
+            isHero
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
           
@@ -40,20 +41,18 @@ const Inscripcion = () => {
             <div className="absolute bottom-36 left-1/5 w-6 lg:w-10 h-6 lg:h-10 bg-orange rounded-full opacity-50 animate-pulse-glow"></div>
           </div>
 
-          <div className="absolute inset-0 flex items-end pb-12 md:pb-16 z-10">
-            <div className="container px-4 md:px-6">
-              <div className="max-w-3xl">
-                <div className="inline-block px-4 py-2 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-4 shadow-lg">
-                  INSCRIPCIÓN
-                </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white drop-shadow-lg mb-4">
-                  Contáctanos
-                </h1>
-                <p className="text-lg md:text-xl text-white/90 max-w-2xl drop-shadow-md">
-                  Completa el formulario y nos pondremos en contacto contigo. 
-                  Estamos aquí para acompañarte en tu camino filosófico.
-                </p>
+          <div className="container px-4 md:px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
+              <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
+                INSCRIPCIÓN
               </div>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
+                Contáctanos
+              </h1>
+              <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
+                Completa el formulario y nos pondremos en contacto contigo. 
+                Estamos aquí para acompañarte en tu camino filosófico.
+              </p>
             </div>
           </div>
         </section>
