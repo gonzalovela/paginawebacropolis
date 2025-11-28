@@ -12,6 +12,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
+import { SparklesText } from "@/components/ui/sparkles-text";
 
 const Filosofia = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -142,7 +143,7 @@ const Filosofia = () => {
               ESCUELA DE FILOSOFÍA
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
-              Filosofía para la Vida
+              <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Filosofía</SparklesText> para la Vida
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
               Una propuesta diferente de filosofía: práctica, viva y aplicable a los desafíos del mundo moderno.

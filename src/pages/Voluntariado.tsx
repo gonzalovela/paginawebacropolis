@@ -17,6 +17,7 @@ import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
+import { SparklesText } from "@/components/ui/sparkles-text";
 
 const Voluntariado = () => {
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
@@ -211,7 +212,7 @@ const Voluntariado = () => {
               VOLUNTARIADO FILOSÓFICO
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
-              Somos lo que Hacemos
+              Somos lo que <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Hacemos</SparklesText>
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
               El voluntariado es la filosofía en acción. No basta con pensar en un mundo mejor, 

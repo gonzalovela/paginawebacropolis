@@ -4,6 +4,7 @@ import { Heart, BookOpen, Users, Sparkles, Globe, Building2, HandHeart, Trophy }
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { ThreePillars } from "@/components/ThreePillars";
 import { OptimizedImage } from "@/components/OptimizedImage";
+import { SparklesText } from "@/components/ui/sparkles-text";
 import bannerImage from "@/assets/banner-quienes-somos.jpg";
 import jorgeLivragaPortrait from "@/assets/jorge-livraga-real.jpg";
 import deliaSteinbergPortrait from "@/assets/delia-steinberg-guzman-portrait.jpg";
@@ -62,7 +63,7 @@ export const WhoWeAre = () => {
               QUIÉNES SOMOS
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
-              ¿Qué es Nueva Acrópolis?
+              ¿Qué es <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Nueva Acrópolis</SparklesText>?
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
               Una Escuela de Filosofía que promueve la cultura y practica el voluntariado

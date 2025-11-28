@@ -14,6 +14,7 @@ import { ParallaxImage } from "@/components/ParallaxImage";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
+import { SparklesText } from "@/components/ui/sparkles-text";
 
 const Cultura = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -115,7 +116,7 @@ const Cultura = () => {
               CULTURA FILOSÓFICA
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
-              Cultura con Sentido
+              <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Cultura</SparklesText> con Sentido
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
               La cultura es una vía de acceso a la comprensión entre personas, épocas y civilizaciones. 
