@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Clock, Users, CalendarDays, ArrowRight, Sparkles, BookOpen, Heart, Target, Compass, Users2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export const CourseSection = () => {
   const benefits = [
@@ -135,12 +136,16 @@ export const CourseSection = () => {
 
               {/* CTAs */}
               <div className="flex flex-col gap-3">
-                <Button size="lg" className="w-full text-base sm:text-lg bg-primary hover:bg-primary/90" asChild>
-                  <Link to="/inscripcion">
-                    Inscríbete ahora
-                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  </Link>
-                </Button>
+                <div className="relative w-full overflow-hidden rounded-md">
+                  <Button size="lg" className="w-full text-base sm:text-lg bg-primary hover:bg-primary/90" asChild>
+                    <Link to="/inscripcion">
+                      Inscríbete ahora
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    </Link>
+                  </Button>
+                  <BorderBeam size={40} duration={4} colorFrom="hsl(var(--primary))" colorTo="hsl(var(--secondary))" />
+                  <BorderBeam size={40} duration={4} colorFrom="hsl(var(--secondary))" colorTo="hsl(var(--primary))" delay={2} />
+                </div>
                 <Button size="lg" variant="outline" className="w-full text-base sm:text-lg" asChild>
                   <Link to="/filosofia">Ver programa completo</Link>
                 </Button>
