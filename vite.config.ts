@@ -13,18 +13,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    imagetools({
-      defaultDirectives: (url) => {
-        const params = new URLSearchParams();
-        // Apply default quality compression and WebP format for all images
-        if (!url.searchParams.has('format') && !url.searchParams.has('w')) {
-          params.set('quality', '80');
-          // Enable WebP for supported browsers
-          params.set('format', 'webp');
-        }
-        return params;
-      },
-    }),
+    imagetools(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'logo-escuela-filosofia.png', 'og-image.jpg'],
