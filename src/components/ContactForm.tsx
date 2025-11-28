@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { toast } from "sonner";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -125,8 +126,24 @@ export const ContactForm = () => {
   };
 
   return (
-    <Card className="p-8 max-w-2xl mx-auto">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <Card className="relative p-8 max-w-2xl mx-auto overflow-hidden">
+      <BorderBeam 
+        colorFrom="hsl(var(--primary))" 
+        colorTo="hsl(var(--secondary))" 
+        size={80}
+        duration={8}
+        borderWidth={2}
+      />
+      <BorderBeam 
+        colorFrom="hsl(var(--secondary))" 
+        colorTo="hsl(var(--primary))" 
+        size={80}
+        duration={8}
+        delay={4}
+        reverse
+        borderWidth={2}
+      />
+      <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
         <div className="space-y-2">
           <Label htmlFor="name">Nombre completo *</Label>
           <Input
