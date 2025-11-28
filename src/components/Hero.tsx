@@ -21,12 +21,10 @@ export const Hero = () => {
 
       <div className="container relative z-10 px-4 sm:px-6 text-center py-8">
         <div className="animate-fade-in-up mb-4 sm:mb-6 -mt-4 sm:-mt-8">
-          <img 
+        <img 
             src={logo} 
             alt="Logo de Nueva Acrópolis Perú - Escuela de Filosofía práctica con más de 65 sedes en el país" 
-            className="h-20 sm:h-28 md:h-36 mx-auto brightness-0 invert"
-            width={288}
-            height={144}
+            className="h-20 sm:h-28 md:h-36 w-auto mx-auto brightness-0 invert"
           />
         </div>
 
