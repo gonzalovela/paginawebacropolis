@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Palette, Music, Theater, BookOpen, Globe, Users, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
-import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
+import culturaFilosoficaImage from "@/assets/cultura-filosofica-intro.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import charlasConferenciasImage from "@/assets/cultura-charlas-conferencias.jpg";
 import teatroExpresionImage from "@/assets/cultura-teatro-expresion-bright.jpg";
@@ -138,9 +138,9 @@ const Cultura = () => {
             {/* Hero Image */}
             <div className="relative h-[250px] sm:h-[350px] md:h-[500px] rounded-xl overflow-hidden shadow-elegant">
               <OptimizedImage 
-                src={cultureImage} 
-                alt="Grupo cultural visitando el sitio arqueológico de Chavín de Huántar - Viajes culturales Nueva Acrópolis Perú" 
-                className="w-full h-full object-cover object-[center_55%]"
+                src={culturaFilosoficaImage} 
+                alt="Grupo cultural visitando Sacsayhuamán - Viajes culturales Nueva Acrópolis Perú" 
+                className="w-full h-full object-cover object-[center_35%]"
                 containerClassName="w-full h-full"
                 priority
               />
