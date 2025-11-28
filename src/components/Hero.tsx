@@ -4,6 +4,7 @@ import logo from "@/assets/logo-escuela-filosofia.png";
 import heroImage from "@/assets/hero-sunset-vibrant.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { Link } from "react-router-dom";
+import { Pointer } from "@/components/ui/pointer";
 
 export const Hero = () => {
   return (
@@ -37,31 +38,45 @@ export const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-in-up px-4" style={{ animationDelay: "0.6s" }}>
-          <Button 
-            size="lg" 
-            variant="default"
-            className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-medium hover:scale-105 transition-transform"
-            asChild
-          >
-            <Link to="/quienes-somos">
-              <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              Quiénes Somos
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </Link>
-          </Button>
+          <div className="relative w-full sm:w-auto">
+            <Pointer>
+              <span className="text-xs font-medium bg-primary-foreground text-primary px-2 py-1 rounded-full ml-2 shadow-lg">
+                Descubrir
+              </span>
+            </Pointer>
+            <Button 
+              size="lg" 
+              variant="default"
+              className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-medium hover:scale-105 transition-transform"
+              asChild
+            >
+              <Link to="/quienes-somos">
+                <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                Quiénes Somos
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </Link>
+            </Button>
+          </div>
 
-          <Button 
-            size="lg" 
-            variant="secondary"
-            className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-medium hover:scale-105 transition-transform"
-            asChild
-          >
-            <Link to="/sedes">
-              <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              Encuentra tu Sede
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </Link>
-          </Button>
+          <div className="relative w-full sm:w-auto">
+            <Pointer>
+              <span className="text-xs font-medium bg-secondary text-secondary-foreground px-2 py-1 rounded-full ml-2 shadow-lg">
+                Ubicar
+              </span>
+            </Pointer>
+            <Button 
+              size="lg" 
+              variant="secondary"
+              className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-medium hover:scale-105 transition-transform"
+              asChild
+            >
+              <Link to="/sedes">
+                <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                Encuentra tu Sede
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
 
