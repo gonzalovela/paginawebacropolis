@@ -175,7 +175,7 @@ const Voluntariado = () => {
 
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
-        <ParallaxImage src={bannerVoluntariado} alt="Voluntarios de Nueva Acrópolis en acción solidaria - Programas de voluntariado filosófico en Perú" speed={0.5} isHero />
+        <ParallaxImage src={bannerVoluntariado} alt="Voluntarios de Nueva Acrópolis en acción solidaria - Programas de voluntariado filosófico en Perú" speed={0.5} isHero objectPosition="center 70%" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
         
         {/* Decorative orange graphic elements - hidden on mobile for performance */}
