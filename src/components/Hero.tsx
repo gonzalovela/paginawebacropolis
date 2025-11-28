@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, MapPin } from "lucide-react";
+import { ArrowRight, BookOpen, MapPin, Heart } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import heroImage from "@/assets/hero-sunset-vibrant.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
@@ -40,9 +40,7 @@ export const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-in-up px-4" style={{ animationDelay: "0.6s" }}>
           <div className="relative w-full sm:w-auto">
             <Pointer>
-              <span className="text-xs font-medium bg-primary-foreground text-primary px-2 py-1 rounded-full ml-2 shadow-lg">
-                Descubrir
-              </span>
+              <Heart className="w-6 h-6 text-secondary fill-secondary drop-shadow-lg ml-1" />
             </Pointer>
             <Button 
               size="lg" 
@@ -60,9 +58,7 @@ export const Hero = () => {
 
           <div className="relative w-full sm:w-auto">
             <Pointer>
-              <span className="text-xs font-medium bg-secondary text-secondary-foreground px-2 py-1 rounded-full ml-2 shadow-lg">
-                Ubicar
-              </span>
+              <Heart className="w-6 h-6 text-secondary fill-secondary drop-shadow-lg ml-1" />
             </Pointer>
             <Button 
               size="lg" 
