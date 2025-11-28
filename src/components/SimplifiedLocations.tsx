@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { BorderBeam } from "@/components/ui/border-beam";
+import { AnimatedButton } from "@/components/ui/animated-button";
 
 export const SimplifiedLocations = () => {
   return (
@@ -62,13 +62,9 @@ export const SimplifiedLocations = () => {
             <p className="text-lg opacity-90 mb-6">
               Únete a nuestra próxima promoción del curso "Conócete a Ti Mismo"
             </p>
-            <div className="relative inline-block overflow-hidden rounded-md">
-              <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90" asChild>
-                <a href="/inscripcion">Inscríbete ahora</a>
-              </Button>
-              <BorderBeam size={40} duration={4} colorFrom="hsl(var(--primary))" colorTo="hsl(var(--secondary))" />
-              <BorderBeam size={40} duration={4} colorFrom="hsl(var(--secondary))" colorTo="hsl(var(--primary))" delay={2} />
-            </div>
+            <AnimatedButton size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90" asChild>
+              <a href="/inscripcion">Inscríbete ahora</a>
+            </AnimatedButton>
           </Card>
         </div>
       </div>

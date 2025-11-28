@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
 import { SparklesText } from "@/components/ui/sparkles-text";
-import { BorderBeam } from "@/components/ui/border-beam";
+import { AnimatedButton } from "@/components/ui/animated-button";
 
 const Filosofia = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -293,18 +293,14 @@ const Filosofia = () => {
                   La filosofía te espera. No importa tu edad, formación o experiencia previa. 
                   Solo necesitas curiosidad y ganas de conocerte mejor.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-                  <div className="relative overflow-hidden rounded-md">
-                    <Button size="lg" variant="secondary" className="text-lg" asChild>
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                    <AnimatedButton size="lg" variant="secondary" className="text-lg" asChild>
                       <Link to="/inscripcion">
                         Inscríbete ahora
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
-                    </Button>
-                    <BorderBeam size={40} duration={4} colorFrom="hsl(var(--primary))" colorTo="hsl(var(--secondary))" />
-                    <BorderBeam size={40} duration={4} colorFrom="hsl(var(--secondary))" colorTo="hsl(var(--primary))" delay={2} />
-                  </div>
-                  <Button size="lg" variant="outline" className="text-lg bg-white/10 hover:bg-white/20 border-white/30 text-white" asChild>
+                    </AnimatedButton>
+                    <Button size="lg" variant="outline" className="text-lg bg-white/10 hover:bg-white/20 border-white/30 text-white" asChild>
                     <Link to="/sedes">Encuentra tu sede</Link>
                   </Button>
                 </div>
