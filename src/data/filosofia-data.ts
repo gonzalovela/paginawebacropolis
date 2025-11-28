@@ -1,0 +1,80 @@
+export const courseModules = [
+  {
+    title: "El ser humano y el universo",
+    description: "Constitución humana y de la naturaleza. Filosofía activa: una forma de vida. ¿Cómo reconocer y desarrollar los valores humanos?",
+  },
+  {
+    title: "La guerra interior",
+    description: "Simbolismo del Bhagavad Gîta. Planteamiento del conflicto interior. Las 3 Gunas. La recta acción.",
+  },
+  {
+    title: "El dominio de la mente",
+    description: "Características del pensamiento tibetano. Niveles de concentración. Lectura comentada de La Voz del Silencio.",
+  },
+  {
+    title: "Cómo desarrollar la fortaleza interior",
+    description: "Las crisis. La vida del Buda Sidharta Gautama. Las enseñanzas del Buda. Las cuatro nobles verdades.",
+  },
+  {
+    title: "La búsqueda de la felicidad",
+    description: "Aristóteles y la autarquía. La ética aristotélica. Los grados del saber.",
+  },
+  {
+    title: "Importancia del eclecticismo para lograr la convivencia",
+    description: "La Escuela Ecléctica de Alejandría. La comprensión de la unidad del universo. Eros o el Amor.",
+  },
+  {
+    title: "El reto de vivir en sociedad",
+    description: "La necesidad de la política para la convivencia. Los problemas del hombre y del mundo actual.",
+  },
+  {
+    title: "Visión filosófica del ser humano y la sociedad",
+    description: "El Mito de la caverna. El Ideal platónico del ser humano y el mundo.",
+  },
+  {
+    title: "Educación para la convivencia",
+    description: "El ciudadano y su protagonismo. El valor de la educación. El alma y sus fuerzas (virtudes platónicas).",
+  },
+  {
+    title: "La justicia en el ser humano y la sociedad",
+    description: "La regla de Maat. La justicia como impulso colectivo.",
+  },
+  {
+    title: "Claves para construir el futuro",
+    description: "¿Qué es la historia? Filosofía de la historia.",
+  },
+  {
+    title: "Mitos y símbolos para entender la vida",
+    description: "Sentido de la Historia y la Mitología. Realidad psicológica de los mitos.",
+  },
+  {
+    title: "Ideal y Filosofía",
+    description: "Qué es un Ideal. La Escuela de filosofía y la vivencia de los Ideales.",
+  },
+  {
+    title: "Ciclos de la historia",
+    description: "La rueda de la historia. Teoría del eterno retorno y los ciclos históricos.",
+  },
+  {
+    title: "Libertad y destino",
+    description: "Teoría histórica de Cicerón. Teoría del logos platónico y la historia futura. Cómo transformarse en agente consciente de la historia.",
+  },
+];
+
+export const testimonials = [
+  {
+    text: "El curso transformó mi forma de ver la vida. Ahora tengo herramientas prácticas para enfrentar cualquier desafío.",
+    author: "María González",
+    role: "Estudiante",
+  },
+  {
+    text: "Encontré respuestas a preguntas que tenía hace años. La filosofía se volvió algo vivo y aplicable.",
+    author: "Carlos Ruiz",
+    role: "Estudiante",
+  },
+  {
+    text: "La filosofía dejó de ser algo abstracto. Ahora la aplico en mi día a día y me ha ayudado a conocerme mejor.",
+    author: "Ana Martínez",
+    role: "Estudiante",
+  },
+];
