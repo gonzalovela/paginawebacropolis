@@ -93,13 +93,6 @@ export const WhoWeAre = () => {
               </div>
             </div>
 
-            {/* Introduction */}
-            <div className="text-center max-w-4xl mx-auto space-y-6 px-2">
-              <p className="text-xl sm:text-2xl font-semibold text-foreground">
-                Propone un ideal de valores permanentes para contribuir a la evolución individual y colectiva.
-              </p>
-            </div>
-
             {/* Symbolism */}
             <Card className="overflow-hidden bg-gradient-subtle">
               <div className="space-y-0">
