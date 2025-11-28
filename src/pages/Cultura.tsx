@@ -15,6 +15,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
+import { ProgramActivityCard } from "@/components/ProgramActivityCard";
 
 const Cultura = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -160,48 +161,18 @@ const Cultura = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
-            {activities.map((activity, index) => {
-              const Icon = activity.icon;
-              return (
-                <Card key={index} className="overflow-hidden hover:shadow-medium transition-all group">
-                  {/* Image Section */}
-                  <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
-                    <OptimizedImage 
-                      src={activity.image} 
-                      alt={activity.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      containerClassName="w-full h-full"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                    <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 flex items-center gap-2 md:gap-3">
-                      <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-secondary/90 backdrop-blur-sm text-white flex items-center justify-center shadow-lg">
-                        <Icon className="h-4 w-4 md:h-6 md:w-6" />
-                      </div>
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white drop-shadow-lg">
-                        {activity.title}
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Content Section */}
-                  <div className="p-4 md:p-6 space-y-3 md:space-y-4">
-                    <p className="text-sm md:text-base text-foreground/70 leading-relaxed">
-                      {activity.description}
-                    </p>
-                    <div>
-                      <p className="text-xs md:text-sm font-semibold text-foreground/60 mb-2">Temas que exploramos:</p>
-                      <div className="flex flex-wrap gap-1.5 md:gap-2">
-                        {activity.topics.map((topic, idx) => (
-                          <span key={idx} className="px-2 md:px-3 py-0.5 md:py-1 bg-muted text-foreground/70 rounded-full text-[10px] md:text-xs">
-                            {topic}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
+            {activities.map((activity, index) => (
+              <ProgramActivityCard
+                key={index}
+                icon={activity.icon}
+                title={activity.title}
+                description={activity.description}
+                image={activity.image}
+                items={activity.topics}
+                itemsLabel="Temas que exploramos:"
+                variant="compact"
+              />
+            ))}
           </div>
         </div>
       </section>

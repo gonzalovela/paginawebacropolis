@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
+import { ProgramActivityCard } from "@/components/ProgramActivityCard";
 
 const Voluntariado = () => {
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
@@ -299,53 +300,17 @@ const Voluntariado = () => {
           </div>
 
           <div className="space-y-4 md:space-y-8 max-w-6xl mx-auto">
-          {areas.map((area, index) => {
-              const Icon = area.icon;
-              return (
-                <Card key={index} className="overflow-hidden hover:shadow-elevated transition-all duration-500 group border-0">
-                  <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
-                    {/* Background Image with Overlay */}
-                    <OptimizedImage
-                      src={area.image}
-                      alt={area.title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      containerClassName="absolute inset-0"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:from-black/70 md:via-black/30 group-hover:from-black/80 group-hover:via-black/40 transition-all duration-500" />
-                    
-                    {/* Content Overlay */}
-                    <div className="relative h-full flex flex-col justify-end p-4 sm:p-6 md:p-8 lg:p-10 text-white">
-                      {/* Icon and Title */}
-                      <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-2 md:mb-4">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-accent/90 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
-                          <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white" />
-                        </div>
-                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-                          {area.title}
-                        </h3>
-                      </div>
-                      
-                      {/* Description */}
-                      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-2 md:mb-4 line-clamp-2 sm:line-clamp-3 group-hover:line-clamp-none transition-all">
-                        {area.description}
-                      </p>
-                      
-                      {/* Activities List - Hidden by default, shown on hover (desktop only) */}
-                      <div className="hidden md:block max-h-0 group-hover:max-h-96 overflow-hidden transition-all duration-500">
-                        <ul className="space-y-2 pt-2 border-t border-white/20">
-                          {area.activities.map((activity, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-white/80">
-                              <span className="text-accent mt-1">•</span>
-                              <span>{activity}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
+            {areas.map((area, index) => (
+              <ProgramActivityCard
+                key={index}
+                icon={area.icon}
+                title={area.title}
+                description={area.description}
+                image={area.image}
+                items={area.activities}
+                variant="full"
+              />
+            ))}
           </div>
         </div>
       </section>
