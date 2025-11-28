@@ -6,14 +6,13 @@ import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
-import { ParallaxImage } from "@/components/ParallaxImage";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
-import { SparklesText } from "@/components/ui/sparkles-text";
 import { AnimatedButton } from "@/components/ui/animated-button";
+import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 
 const Filosofia = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -112,46 +111,14 @@ const Filosofia = () => {
       <div className="min-h-screen">
         <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
-        <ParallaxImage src={bannerFilosofia} alt="Persona en postura contemplativa frente a paisaje peruano al amanecer - Filosofía práctica y meditación en Nueva Acrópolis" speed={0.5} isHero />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
-        
-        {/* Decorative orange graphic elements - hidden on mobile for performance */}
-        <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
-          <div className="absolute top-0 right-0 w-64 lg:w-96 h-64 lg:h-96 bg-secondary/40 rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-0 left-0 w-72 lg:w-[500px] h-72 lg:h-[500px] bg-orange/35 rounded-full blur-3xl animate-pulse-glow"></div>
-          <div className="absolute top-20 right-20 w-40 lg:w-64 h-40 lg:h-64 border-4 border-secondary/60 rounded-full animate-float-slower"></div>
-          <div className="absolute bottom-32 left-32 w-32 lg:w-48 h-32 lg:h-48 bg-secondary/50 rotate-45 animate-float-slow"></div>
-          
-          <svg className="absolute top-1/4 right-0 w-48 lg:w-80 h-48 lg:h-80 opacity-60" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="4" />
-            <circle cx="100" cy="100" r="60" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.7" />
-            <circle cx="100" cy="100" r="40" fill="hsl(35, 90%, 55%)" opacity="0.4" />
-          </svg>
-          
-          <svg className="absolute bottom-20 right-1/4 w-24 lg:w-40 h-24 lg:h-40 opacity-70 animate-rotate-slow" viewBox="0 0 100 100">
-            <path d="M50 0 L100 50 L50 100 L0 50 Z" fill="hsl(35, 90%, 55%)" opacity="0.5" />
-          </svg>
-          
-          <div className="absolute top-40 right-1/3 w-12 lg:w-16 h-12 lg:h-16 bg-secondary rounded-full opacity-70"></div>
-          <div className="absolute bottom-40 left-1/4 w-8 lg:w-12 h-8 lg:h-12 bg-orange rounded-full opacity-60 animate-pulse-glow"></div>
-        </div>
-
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
-            <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-primary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
-              ESCUELA DE FILOSOFÍA
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
-              <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Filosofía</SparklesText> para la Vida
-            </h1>
-            <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
-              Una propuesta diferente de filosofía: práctica, viva y aplicable a los desafíos del mundo moderno.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeroBanner
+        bannerImage={bannerFilosofia}
+        bannerAlt="Persona en postura contemplativa frente a paisaje peruano al amanecer - Filosofía práctica y meditación en Nueva Acrópolis"
+        badgeText="ESCUELA DE FILOSOFÍA"
+        title={<><SparkleWord>Filosofía</SparkleWord> para la Vida</>}
+        description="Una propuesta diferente de filosofía: práctica, viva y aplicable a los desafíos del mundo moderno."
+        decorativeVariant="default"
+      />
 
       {/* Introduction */}
       <section 

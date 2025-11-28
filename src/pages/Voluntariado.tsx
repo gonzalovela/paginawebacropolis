@@ -12,13 +12,12 @@ import humanitarioSocialImage from "@/assets/voluntariado-humanitario-social-war
 import medioAmbienteImage from "@/assets/voluntariado-medio-ambiente.jpg";
 import formacionImage from "@/assets/voluntariado-formacion.jpg";
 import talleresArtisticosImage from "@/assets/voluntariado-talleres-artisticos.jpg";
-import { ParallaxImage } from "@/components/ParallaxImage";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
-import { SparklesText } from "@/components/ui/sparkles-text";
 import { AnimatedButton } from "@/components/ui/animated-button";
+import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 
 const Voluntariado = () => {
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
@@ -174,54 +173,16 @@ const Voluntariado = () => {
       <div className="min-h-screen">
         <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
-        <ParallaxImage src={bannerVoluntariado} alt="Voluntarios de Nueva Acrópolis en acción solidaria - Programas de voluntariado filosófico en Perú" speed={0.5} isHero objectPosition="center 70%" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
-        
-        {/* Decorative orange graphic elements - hidden on mobile for performance */}
-        <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
-          {/* Large orange circles */}
-          <div className="absolute top-1/4 right-10 w-64 lg:w-[420px] h-64 lg:h-[420px] bg-secondary/40 rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-1/4 left-10 w-48 lg:w-80 h-48 lg:h-80 bg-orange/35 rounded-full blur-3xl animate-float-slower"></div>
-          
-          {/* Concentric circles animation */}
-          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] lg:w-[600px] h-[350px] lg:h-[600px] opacity-50 animate-rotate-slow" viewBox="0 0 800 800">
-            <circle cx="400" cy="400" r="300" stroke="hsl(35, 90%, 55%)" strokeWidth="4" fill="none" opacity="0.4" />
-            <circle cx="400" cy="400" r="220" stroke="hsl(35, 90%, 55%)" strokeWidth="4" fill="none" opacity="0.5" />
-            <circle cx="400" cy="400" r="140" stroke="hsl(35, 90%, 55%)" strokeWidth="4" fill="none" opacity="0.6" />
-            <circle cx="400" cy="400" r="80" fill="hsl(35, 90%, 55%)" opacity="0.3" />
-          </svg>
-          
-          {/* Geometric accents */}
-          <div className="absolute top-1/3 right-1/4 w-20 lg:w-32 h-20 lg:h-32 border-4 border-secondary/80 rounded-full animate-pulse-glow"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-16 lg:w-24 h-16 lg:h-24 bg-orange/70 rotate-45 animate-float-slow"></div>
-          
-          <svg className="absolute top-20 right-1/3 w-24 lg:w-40 h-24 lg:h-40 opacity-70" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" fill="hsl(35, 90%, 55%)" opacity="0.5" />
-          </svg>
-          
-          <svg className="absolute bottom-20 left-1/4 w-20 lg:w-36 h-20 lg:h-36 opacity-65 animate-float-slower" viewBox="0 0 100 100">
-            <rect x="20" y="20" width="60" height="60" fill="hsl(35, 90%, 55%)" opacity="0.5" rx="10" />
-          </svg>
-        </div>
-
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-primary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
-              <HandHeart className="h-3.5 w-3.5 md:h-4 md:w-4" />
-              VOLUNTARIADO FILOSÓFICO
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
-              Somos lo que <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Hacemos</SparklesText>
-            </h1>
-            <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
-              El voluntariado es la filosofía en acción. No basta con pensar en un mundo mejor, 
-              hay que construirlo con nuestras propias manos.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeroBanner
+        bannerImage={bannerVoluntariado}
+        bannerAlt="Voluntarios de Nueva Acrópolis en acción solidaria - Programas de voluntariado filosófico en Perú"
+        badgeText="VOLUNTARIADO FILOSÓFICO"
+        badgeIcon={HandHeart}
+        title={<>Somos lo que <SparkleWord>Hacemos</SparkleWord></>}
+        description="El voluntariado es la filosofía en acción. No basta con pensar en un mundo mejor, hay que construirlo con nuestras propias manos."
+        objectPosition="center 70%"
+        decorativeVariant="voluntariado"
+      />
 
       {/* Key Messages */}
       <section 
