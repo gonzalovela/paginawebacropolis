@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const Filosofia = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -293,12 +294,16 @@ const Filosofia = () => {
                   Solo necesitas curiosidad y ganas de conocerte mejor.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-                  <Button size="lg" variant="secondary" className="text-lg" asChild>
-                    <Link to="/inscripcion">
-                      Inscríbete ahora
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
+                  <div className="relative overflow-hidden rounded-md">
+                    <Button size="lg" variant="secondary" className="text-lg" asChild>
+                      <Link to="/inscripcion">
+                        Inscríbete ahora
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Link>
+                    </Button>
+                    <BorderBeam size={40} duration={4} colorFrom="hsl(var(--primary))" colorTo="hsl(var(--secondary))" />
+                    <BorderBeam size={40} duration={4} colorFrom="hsl(var(--secondary))" colorTo="hsl(var(--primary))" delay={2} />
+                  </div>
                   <Button size="lg" variant="outline" className="text-lg bg-white/10 hover:bg-white/20 border-white/30 text-white" asChild>
                     <Link to="/sedes">Encuentra tu sede</Link>
                   </Button>
