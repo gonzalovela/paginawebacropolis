@@ -5,6 +5,7 @@ import heroImage from "@/assets/hero-sunset-vibrant.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { Link } from "react-router-dom";
 import { Pointer } from "@/components/ui/pointer";
+import { SparklesText } from "@/components/ui/sparkles-text";
 
 export const Hero = () => {
   return (
@@ -30,7 +31,7 @@ export const Hero = () => {
         </div>
 
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 sm:mb-6 animate-fade-in-up leading-tight" style={{ animationDelay: "0.2s" }}>
-          Somos una Escuela de Filosofía <br className="hidden sm:block" />para la vida
+          Somos una <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Escuela de Filosofía</SparklesText> <br className="hidden sm:block" />para la vida
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary-foreground/90 max-w-3xl mx-auto mb-6 sm:mb-10 animate-fade-in-up px-2" style={{ animationDelay: "0.4s" }}>
