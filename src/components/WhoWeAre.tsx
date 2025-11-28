@@ -37,18 +37,37 @@ export const WhoWeAre = () => {
   return (
     <>
       {/* Hero Banner */}
-      {/* Hero Banner */}
-      <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
-        <ParallaxImage src={bannerImage} alt="Grupo de estudiantes y profesores de filosofía de Nueva Acrópolis Perú en actividad comunitaria - Escuela de Filosofía" speed={0.3} isHero={true} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-[1]" />
+      <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden">
+        <ParallaxImage src={bannerImage} alt="Grupo de estudiantes y profesores de filosofía de Nueva Acrópolis Perú en actividad comunitaria - Escuela de Filosofía" speed={0.5} isHero />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
         
-        <div className="container relative z-10 px-4 md:px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-4 md:mb-6 animate-fade-in-up">
-            ¿Qué es Nueva Acrópolis?
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto animate-fade-in-up px-2" style={{ animationDelay: "0.2s" }}>
-            Una Escuela de Filosofía que promueve la cultura y practica el voluntariado
-          </p>
+        {/* Decorative orange graphic elements - hidden on mobile for performance */}
+        <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
+          <div className="absolute top-0 right-0 w-64 lg:w-96 h-64 lg:h-96 bg-secondary/40 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-0 left-0 w-72 lg:w-[450px] h-72 lg:h-[450px] bg-orange/35 rounded-full blur-3xl animate-pulse-glow"></div>
+          <div className="absolute top-16 right-16 w-32 lg:w-48 h-32 lg:h-48 border-4 border-secondary/50 rounded-full animate-float-slower"></div>
+          
+          <svg className="absolute top-1/3 right-10 w-40 lg:w-64 h-40 lg:h-64 opacity-50" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" />
+            <circle cx="100" cy="100" r="50" fill="hsl(35, 90%, 55%)" opacity="0.3" />
+          </svg>
+          
+          <div className="absolute bottom-24 right-1/4 w-24 lg:w-32 h-24 lg:h-32 bg-secondary/40 rotate-45 animate-float-slow"></div>
+          <div className="absolute top-32 right-1/3 w-10 lg:w-14 h-10 lg:h-14 bg-secondary rounded-full opacity-60"></div>
+        </div>
+        
+        <div className="container relative z-10 px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
+            <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
+              QUIÉNES SOMOS
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
+              ¿Qué es Nueva Acrópolis?
+            </h1>
+            <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
+              Una Escuela de Filosofía que promueve la cultura y practica el voluntariado
+            </p>
+          </div>
         </div>
       </section>
 

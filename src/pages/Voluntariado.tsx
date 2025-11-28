@@ -175,7 +175,7 @@ const Voluntariado = () => {
       {/* Hero Section */}
       <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
         <ParallaxImage src={bannerVoluntariado} alt="Voluntarios de Nueva Acrópolis en acción solidaria - Programas de voluntariado filosófico en Perú" speed={0.5} isHero />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
         
         {/* Decorative orange graphic elements - hidden on mobile for performance */}
         <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
@@ -206,7 +206,7 @@ const Voluntariado = () => {
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-primary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
+            <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
               <HandHeart className="h-3.5 w-3.5 md:h-4 md:w-4" />
               VOLUNTARIADO FILOSÓFICO
             </div>
