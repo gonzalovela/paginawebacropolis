@@ -242,9 +242,13 @@ export const ContactForm = () => {
           <p className="text-xs text-muted-foreground">{formData.message.length}/1000 caracteres</p>
         </div>
 
-        <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? "Enviando..." : "Enviar mensaje"}
-        </Button>
+        <div className="relative w-full overflow-hidden rounded-md">
+          <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+          </Button>
+          <BorderBeam size={40} duration={4} colorFrom="hsl(var(--primary))" colorTo="hsl(var(--secondary))" />
+          <BorderBeam size={40} duration={4} colorFrom="hsl(var(--secondary))" colorTo="hsl(var(--primary))" delay={2} />
+        </div>
 
         <p className="text-xs text-center text-muted-foreground">
           Al enviar este formulario, aceptas que Nueva Acrópolis se ponga en contacto contigo.
