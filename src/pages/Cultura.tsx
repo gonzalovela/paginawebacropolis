@@ -8,7 +8,7 @@ import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import philosophyStudyImage from "@/assets/philosophy-study-group.jpg";
 import teatroExpresionImage from "@/assets/cultura-teatro-expresion-bright.jpg";
-import cultureMountainImage from "@/assets/culture-mountain-group.jpg";
+import encuentrosCulturalesImage from "@/assets/cultura-encuentros-culturales.jpg";
 import musicaArtesImage from "@/assets/cultura-musica-artes.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { OptimizedImage } from "@/components/OptimizedImage";
@@ -48,7 +48,7 @@ const Cultura = () => {
       title: "Encuentros Culturales",
       description: "Celebraciones de culturas del mundo, exposiciones de arte, proyecciones de cine con debate, viajes culturales y tertulias filosóficas en un ambiente cercano y fraternal.",
       topics: ["Festivales culturales", "Cine forums", "Viajes culturales", "Tertulias", "Exposiciones", "Conversatorios", "Ferias del libro"],
-      image: cultureMountainImage,
+      image: encuentrosCulturalesImage,
     },
   ];
 
