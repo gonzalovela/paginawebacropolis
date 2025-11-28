@@ -197,16 +197,34 @@ export const SedesDirectory = () => {
   return (
     <section className="relative min-h-screen">
       {/* Banner with parallax */}
-      <div className="relative h-[280px] sm:h-[350px] md:h-[400px] overflow-hidden">
-        <ParallaxImage src={sedesImage} alt="Nuestras Sedes" speed={0.15} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/80 z-[1]" />
+      <div className="relative py-16 sm:py-20 md:py-36 overflow-hidden">
+        <ParallaxImage src={sedesImage} alt="Comunidad de Nueva Acrópolis Perú - Encuentra tu sede más cercana" speed={0.5} isHero />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
         
-        <div className="absolute inset-0 z-10 flex items-center justify-center">
-          <div className="container px-4 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-2 md:mb-4">
+        {/* Decorative orange graphic elements - hidden on mobile for performance */}
+        <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
+          <div className="absolute top-0 left-0 w-72 lg:w-[400px] h-72 lg:h-[400px] bg-secondary/40 rounded-full blur-3xl animate-pulse-glow"></div>
+          <div className="absolute bottom-0 right-0 w-64 lg:w-96 h-64 lg:h-96 bg-orange/35 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute top-20 left-20 w-32 lg:w-48 h-32 lg:h-48 border-4 border-secondary/50 rounded-full animate-float-slower"></div>
+          
+          <svg className="absolute bottom-1/3 right-10 w-40 lg:w-64 h-40 lg:h-64 opacity-50" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" />
+            <circle cx="100" cy="100" r="50" fill="hsl(35, 90%, 55%)" opacity="0.3" />
+          </svg>
+          
+          <div className="absolute top-24 right-1/4 w-24 lg:w-32 h-24 lg:h-32 bg-secondary/40 rotate-45 animate-float-slow"></div>
+          <div className="absolute bottom-32 left-1/3 w-10 lg:w-14 h-10 lg:h-14 bg-secondary rounded-full opacity-60"></div>
+        </div>
+        
+        <div className="container relative z-10 px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
+            <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
+              SEDES
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
               Nuestras Sedes
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto px-2">
+            <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
               Encuentra la sede más cercana a ti y comienza tu viaje filosófico
             </p>
           </div>
