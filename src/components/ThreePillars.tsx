@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { Pointer } from "@/components/ui/pointer";
 import { Heart } from "lucide-react";
+import { BorderBeam } from "@/components/ui/border-beam";
 import philosophyImage from "@/assets/banner-filosofia.jpg";
 import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
 import volunteeringImage from "@/assets/banner-voluntariado.jpg";
@@ -81,11 +82,15 @@ export const ThreePillars = () => {
                   {pillar.description}
                 </p>
 
-                <Button variant="outline" className="w-full mt-2 sm:mt-4" asChild>
-                  <Link to={pillar.link}>
-                    Conoce más
-                  </Link>
-                </Button>
+                <div className="relative w-full mt-2 sm:mt-4 overflow-hidden rounded-md">
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link to={pillar.link}>
+                      Conoce más
+                    </Link>
+                  </Button>
+                  <BorderBeam size={30} duration={4} colorFrom="hsl(var(--primary))" colorTo="hsl(var(--secondary))" />
+                  <BorderBeam size={30} duration={4} colorFrom="hsl(var(--secondary))" colorTo="hsl(var(--primary))" delay={2} />
+                </div>
               </div>
             </Card>
           ))}

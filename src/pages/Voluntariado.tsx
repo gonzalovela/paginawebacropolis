@@ -18,6 +18,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const Voluntariado = () => {
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
@@ -429,12 +430,16 @@ const Voluntariado = () => {
                     Puedes participar ocasionalmente o ser parte permanente de nuestros equipos.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" variant="secondary" asChild>
-                      <Link to="/inscripcion">
-                        Quiero ser voluntario
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </Link>
-                    </Button>
+                    <div className="relative overflow-hidden rounded-md">
+                      <Button size="lg" variant="secondary" asChild>
+                        <Link to="/inscripcion">
+                          Quiero ser voluntario
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </Button>
+                      <BorderBeam size={40} duration={4} colorFrom="hsl(var(--primary))" colorTo="hsl(var(--secondary))" />
+                      <BorderBeam size={40} duration={4} colorFrom="hsl(var(--secondary))" colorTo="hsl(var(--primary))" delay={2} />
+                    </div>
                     <Button 
                       size="lg" 
                       variant="outline"
