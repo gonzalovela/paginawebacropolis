@@ -66,7 +66,7 @@ export const WhoWeAre = () => {
               ¿Qué es <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Nueva Acrópolis</SparklesText>?
             </h1>
             <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
-              Una Escuela de Filosofía que promueve la cultura y practica el voluntariado
+              Una Escuela de Filosofía que promueve la cultura y practica el voluntariado. Propone un ideal de valores permanentes para contribuir a la evolución individual y colectiva.
             </p>
           </div>
         </div>
