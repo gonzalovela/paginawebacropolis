@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { AnimatedMapBackground } from "@/components/AnimatedMapBackground";
 import bannerInscripcion from "@/assets/banner-inscripcion.jpg";
 
 const Inscripcion = () => {
@@ -57,9 +58,10 @@ const Inscripcion = () => {
           </div>
         </section>
 
-        {/* Form Section */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container px-4 md:px-6">
+        {/* Form Section with Animated Map Background */}
+        <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+          <AnimatedMapBackground />
+          <div className="container px-4 md:px-6 relative z-10">
             <ContactForm />
           </div>
         </section>
