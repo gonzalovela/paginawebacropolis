@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { OptimizedImage } from "@/components/OptimizedImage";
+import { Pointer } from "@/components/ui/pointer";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
 import cultureImage from "@/assets/culture-mountain-group.jpg";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
@@ -52,9 +53,14 @@ export const ThreePillars = () => {
           {pillars.map((pillar, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer"
+              className="overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer relative"
               onClick={() => window.location.href = pillar.link}
             >
+              <Pointer>
+                <span className="text-xs font-medium bg-primary text-primary-foreground px-2 py-1 rounded-full ml-2">
+                  Click
+                </span>
+              </Pointer>
               <figure className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
                 <OptimizedImage 
                   src={pillar.image} 
