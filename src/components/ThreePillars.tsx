@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { Pointer } from "@/components/ui/pointer";
 import { Heart } from "lucide-react";
-import philosophyImage from "@/assets/philosophy-study-group.jpg";
-import cultureImage from "@/assets/culture-mountain-group.jpg";
-import volunteeringImage from "@/assets/volunteering-action.jpg";
+import philosophyImage from "@/assets/banner-filosofia.jpg";
+import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
+import volunteeringImage from "@/assets/banner-voluntariado.jpg";
 
 export const ThreePillars = () => {
   const pillars = [
