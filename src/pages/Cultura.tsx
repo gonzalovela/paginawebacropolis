@@ -9,7 +9,7 @@ import bannerCultura from "@/assets/banner-cultura.jpg";
 import philosophyStudyImage from "@/assets/philosophy-study-group.jpg";
 import teatroExpresionImage from "@/assets/cultura-teatro-expresion-bright.jpg";
 import cultureMountainImage from "@/assets/culture-mountain-group.jpg";
-import volunteeringImage from "@/assets/volunteering-action.jpg";
+import musicaArtesImage from "@/assets/cultura-musica-artes.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -41,7 +41,7 @@ const Cultura = () => {
       title: "Música y Artes",
       description: "La música como lenguaje universal. Conciertos, talleres de instrumentos, canto coral y exploración de tradiciones musicales del mundo.",
       topics: ["Canto coral", "Instrumentos tradicionales", "Historia de la música", "Talleres de música clásica"],
-      image: volunteeringImage,
+      image: musicaArtesImage,
     },
     {
       icon: Globe,
