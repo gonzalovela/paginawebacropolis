@@ -10,12 +10,11 @@ import charlasConferenciasImage from "@/assets/cultura-charlas-conferencias.jpg"
 import teatroExpresionImage from "@/assets/cultura-teatro-expresion-bright.jpg";
 import encuentrosCulturalesImage from "@/assets/cultura-encuentros-culturales-tight.jpg";
 import musicaArtesImage from "@/assets/cultura-musica-artes-original.jpg";
-import { ParallaxImage } from "@/components/ParallaxImage";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
-import { SparklesText } from "@/components/ui/sparkles-text";
 import { AnimatedButton } from "@/components/ui/animated-button";
+import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 
 const Cultura = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -79,53 +78,15 @@ const Cultura = () => {
       <div className="min-h-screen">
         <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-36 overflow-hidden mt-16 md:mt-20">
-        <ParallaxImage src={bannerCultura} alt="Actividad cultural al aire libre con grupo de personas - Encuentros culturales de Nueva Acrópolis en Perú" speed={0.5} isHero />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/50 z-[1]" />
-        
-        {/* Decorative orange graphic elements - hidden on mobile for performance */}
-        <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
-          {/* Large orange circles */}
-          <div className="absolute top-0 left-0 w-72 lg:w-[450px] h-72 lg:h-[450px] bg-secondary/40 rounded-full blur-3xl animate-pulse-glow"></div>
-          <div className="absolute bottom-0 right-0 w-64 lg:w-96 h-64 lg:h-96 bg-orange/35 rounded-full blur-3xl animate-float-slow"></div>
-          
-          {/* Geometric shapes */}
-          <div className="absolute top-1/4 left-20 w-32 lg:w-56 h-32 lg:h-56 border-4 border-orange/70 rounded-3xl rotate-12 animate-float-slower"></div>
-          <div className="absolute bottom-1/4 right-32 w-24 lg:w-40 h-24 lg:h-40 bg-secondary/60 clip-path-triangle animate-float-slow"></div>
-          
-          {/* SVG patterns */}
-          <svg className="absolute top-1/3 left-10 w-40 lg:w-72 h-40 lg:h-72 opacity-60 animate-float-slower" viewBox="0 0 200 200">
-            <rect x="40" y="40" width="120" height="120" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="4" rx="20" />
-            <rect x="60" y="60" width="80" height="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" opacity="0.7" rx="10" />
-            <circle cx="100" cy="100" r="30" fill="hsl(35, 90%, 55%)" opacity="0.4" />
-          </svg>
-          
-          <svg className="absolute bottom-1/4 left-1/3 w-32 lg:w-48 h-32 lg:h-48 opacity-70" viewBox="0 0 100 100">
-            <polygon points="50,10 90,90 10,90" fill="hsl(35, 90%, 55%)" opacity="0.5" />
-          </svg>
-          
-          {/* Accent elements */}
-          <div className="absolute top-1/3 right-1/4 w-12 lg:w-20 h-12 lg:h-20 bg-secondary rounded-full opacity-75 animate-pulse-glow"></div>
-          <div className="absolute bottom-1/3 left-1/2 w-10 lg:w-14 h-10 lg:h-14 bg-orange rotate-45 opacity-65"></div>
-        </div>
-
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-primary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
-              <Palette className="h-3.5 w-3.5 md:h-4 md:w-4" />
-              CULTURA FILOSÓFICA
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
-              <SparklesText sparklesCount={12} colors={{ first: "#d4a855", second: "#e8934a" }}>Cultura</SparklesText> con Sentido
-            </h1>
-            <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
-              La cultura es una vía de acceso a la comprensión entre personas, épocas y civilizaciones. 
-              Construimos puentes, no trincheras.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeroBanner
+        bannerImage={bannerCultura}
+        bannerAlt="Actividad cultural al aire libre con grupo de personas - Encuentros culturales de Nueva Acrópolis en Perú"
+        badgeText="CULTURA FILOSÓFICA"
+        badgeIcon={Palette}
+        title={<><SparkleWord>Cultura</SparkleWord> con Sentido</>}
+        description="La cultura es una vía de acceso a la comprensión entre personas, épocas y civilizaciones. Construimos puentes, no trincheras."
+        decorativeVariant="cultura"
+      />
 
       {/* Introduction */}
       <section 
