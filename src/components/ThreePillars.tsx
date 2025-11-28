@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { Pointer } from "@/components/ui/pointer";
+import { Heart } from "lucide-react";
 import philosophyImage from "@/assets/philosophy-study-group.jpg";
 import cultureImage from "@/assets/culture-mountain-group.jpg";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
@@ -57,9 +58,7 @@ export const ThreePillars = () => {
               onClick={() => window.location.href = pillar.link}
             >
               <Pointer>
-                <span className="text-xs font-medium bg-primary text-primary-foreground px-2 py-1 rounded-full ml-2">
-                  Click
-                </span>
+                <Heart className="w-6 h-6 text-secondary fill-secondary drop-shadow-lg ml-1" />
               </Pointer>
               <figure className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
                 <OptimizedImage 
