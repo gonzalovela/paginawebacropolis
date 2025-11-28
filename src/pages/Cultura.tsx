@@ -7,7 +7,7 @@ import { SEO, seoConfig } from "@/components/SEO";
 import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import philosophyStudyImage from "@/assets/philosophy-study-group.jpg";
-import cultureActivitiesImage from "@/assets/culture-activities.jpg";
+import teatroExpresionImage from "@/assets/cultura-teatro-expresion-bright.jpg";
 import cultureMountainImage from "@/assets/culture-mountain-group.jpg";
 import volunteeringImage from "@/assets/volunteering-action.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
@@ -34,7 +34,7 @@ const Cultura = () => {
       title: "Teatro y Expresión",
       description: "El teatro como herramienta de autoconocimiento. Montamos obras con contenido filosófico y desarrollamos talleres de expresión corporal y vocal.",
       topics: ["Teatro filosófico", "Expresión corporal", "Voz y retórica", "Improvisación"],
-      image: cultureActivitiesImage,
+      image: teatroExpresionImage,
     },
     {
       icon: Music,
