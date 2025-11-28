@@ -8,7 +8,7 @@ import cultureImage from "@/assets/culture-chavin-archaeological.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import charlasConferenciasImage from "@/assets/cultura-charlas-conferencias.jpg";
 import teatroExpresionImage from "@/assets/cultura-teatro-expresion-bright.jpg";
-import encuentrosCulturalesImage from "@/assets/cultura-encuentros-culturales-cropped.jpg";
+import encuentrosCulturalesImage from "@/assets/cultura-encuentros-culturales-tight.jpg";
 import musicaArtesImage from "@/assets/cultura-musica-artes-original.jpg";
 import { ParallaxImage } from "@/components/ParallaxImage";
 import { OptimizedImage } from "@/components/OptimizedImage";
