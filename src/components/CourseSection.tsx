@@ -53,7 +53,7 @@ export const CourseSection = () => {
             Conócete a Ti Mismo
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/70 leading-relaxed px-2">
-            ¿Quién eres en realidad? Acompáñanos en un apasionante viaje hacia la autoconciencia y descubre los secretos de tu mundo interior.
+            ¿Quién eres en realidad? Acompáñanos en un apasionante viaje hacia la autoconciencia y descubre las fortalezas de tu mundo interior.
           </p>
         </div>
 
