@@ -1,31 +1,31 @@
-import { BookOpen, Palette, Heart } from "lucide-react";
+import { Users, Lightbulb, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export const ThreePrinciples = () => {
   const principles = [
     {
-      icon: BookOpen,
-      title: "Filosofía",
-      subtitle: "Ideas que se viven",
-      description: "Filosofía práctica para el desarrollo interior. Una filosofía comparada que integra lo mejor de Oriente y Occidente, aplicada a los desafíos de la vida moderna.",
+      icon: Users,
+      title: "Fraternidad",
+      subtitle: "Respeto a la dignidad humana",
+      description: "Promover un ideal de fraternidad basado en el respeto a la dignidad humana, más allá de las diferencias de sexo, culturales, religiosas, sociales, etc.",
+      detail: "Este ideal de fraternidad halla su fuerza en lo que nos une más que en lo que nos separa. Se afirma en el reconocimiento de valores universales que trascienden los propios usos y costumbres locales.",
       color: "bg-primary",
-      link: "/filosofia",
     },
     {
-      icon: Palette,
-      title: "Cultura",
-      subtitle: "Unir diferencias",
-      description: "Encuentros culturales para aprender de civilizaciones antiguas, comprender la diversidad y construir puentes entre culturas, épocas y mentalidades.",
+      icon: Lightbulb,
+      title: "Conocimiento",
+      subtitle: "Amor a la sabiduría",
+      description: "Fomentar el amor a la sabiduría a través del estudio comparado de filosofías, religiones, ciencias y artes, para promover el conocimiento del ser humano, de la Naturaleza y del Universo.",
+      detail: "Entendemos la filosofía como eje relacionador de las diferentes facetas del conocimiento humano, uniendo las fuentes del pasado y el presente en una visión global e integradora.",
       color: "bg-secondary",
-      link: "/cultura",
     },
     {
-      icon: Heart,
-      title: "Voluntariado",
-      subtitle: "Somos lo que hacemos",
-      description: "Acción con propósito en la naturaleza, cultura y acción social. Vivir en armonía con los demás y el ambiente, construyendo un mundo mejor.",
+      icon: Sparkles,
+      title: "Desarrollo",
+      subtitle: "Realizar lo mejor de uno mismo",
+      description: "Desarrollar lo mejor del ser humano, promoviendo su realización como individuo y como miembro activo de la sociedad. Actuar en armonía con la Naturaleza para mejorar el mundo.",
+      detail: "El logro de la armonía entre pensamiento, sentimiento y acción es una meta para todo ser humano. Un desarrollo equilibrado de uno mismo es la única garantía hacia un mundo mejor.",
       color: "bg-accent",
-      link: "/voluntariado",
     },
   ];
 
@@ -45,36 +45,34 @@ export const ThreePrinciples = () => {
           {principles.map((principle, index) => {
             const Icon = principle.icon;
             return (
-              <a
+              <Card
                 key={index}
-                href={principle.link}
-                className="block"
+                className="relative overflow-hidden group hover:shadow-medium transition-all duration-500 animate-fade-in-up h-full"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <Card
-                  className="relative overflow-hidden group hover:shadow-medium transition-all duration-500 animate-fade-in-up cursor-pointer h-full"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <div className={`absolute inset-0 ${principle.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
-                  
-                  <div className="relative p-8 space-y-6">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${principle.color} text-primary-foreground`}>
-                      <Icon className="h-8 w-8" />
-                    </div>
-
-                    <div>
-                      <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {principle.title}
-                      </h3>
-                      <p className="text-sm font-medium text-secondary uppercase tracking-wider mb-4">
-                        {principle.subtitle}
-                      </p>
-                      <p className="text-foreground/70 leading-relaxed">
-                        {principle.description}
-                      </p>
-                    </div>
+                <div className={`absolute inset-0 ${principle.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
+                
+                <div className="relative p-8 space-y-6">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${principle.color} text-primary-foreground`}>
+                    <Icon className="h-8 w-8" />
                   </div>
-                </Card>
-              </a>
+
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">
+                      {principle.title}
+                    </h3>
+                    <p className="text-sm font-medium text-secondary uppercase tracking-wider mb-4">
+                      {principle.subtitle}
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed mb-3">
+                      {principle.description}
+                    </p>
+                    <p className="text-foreground/60 text-sm leading-relaxed">
+                      {principle.detail}
+                    </p>
+                  </div>
+                </div>
+              </Card>
             );
           })}
         </div>
