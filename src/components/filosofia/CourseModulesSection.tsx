@@ -35,7 +35,7 @@ export const CourseModulesSection = ({ isVisible }: CourseModulesSectionProps) =
             Curso <span className="text-primary">"Conócete a Ti Mismo"</span>
           </h2>
           <p className="text-lg text-foreground/70">
-            Descubre los secretos de tu mundo interior. A través de un apasionante viaje de autoconocimiento, exploraremos las enseñanzas de grandes pensadores para encontrarle un sentido más profundo a la vida.
+            Descubre las fortalezas de tu mundo interior. A través de un apasionante viaje de autoconocimiento, exploraremos las enseñanzas de grandes pensadores para encontrarle un sentido más profundo a la vida.
           </p>
         </div>
 
