@@ -47,7 +47,7 @@ export const CourseSection = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-secondary/10 text-secondary font-semibold rounded-full text-xs sm:text-sm mb-4 sm:mb-6">
-            CURSO FUNDAMENTAL
+            CURSO INTRODUCTORIO
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-6 px-2">
             Conócete a Ti Mismo

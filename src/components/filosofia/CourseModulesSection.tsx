@@ -29,7 +29,7 @@ export const CourseModulesSection = ({ isVisible }: CourseModulesSectionProps) =
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-bold mb-6">
             <BookOpen className="w-4 h-4" />
-            CURSO FUNDAMENTAL
+            CURSO INTRODUCTORIO
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Curso <span className="text-primary">"Conócete a Ti Mismo"</span>
