@@ -121,11 +121,13 @@ export const CourseSection = () => {
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-foreground/70 text-sm sm:text-base">
                     <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                    Material de estudio
+                    Prácticas y dinámicas en clase
                   </li>
                   <li className="flex items-center gap-2 text-foreground/70 text-sm sm:text-base">
                     <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                    Acceso gratuito a Acrópolis Channel
+                    <a href="http://acropolischannel.pe/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      Acceso gratuito a Acrópolis Channel por 3 meses
+                    </a>
                   </li>
                   <li className="flex items-center gap-2 text-foreground/70 text-sm sm:text-base">
                     <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
