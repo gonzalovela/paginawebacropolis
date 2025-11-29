@@ -33,7 +33,7 @@ export const Hero = () => {
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary-foreground/90 max-w-3xl mx-auto mb-6 sm:mb-10 animate-fade-in-up px-2" style={{ animationDelay: "0.4s" }}>
-          Aprende filosofía aplicada, desarrolla tu carácter y vive una experiencia práctica de cultura y voluntariado.
+          Encuentra respuestas profundas sobre la vida y vive la experiencia práctica de la cultura y el voluntariado.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-in-up px-4" style={{ animationDelay: "0.6s" }}>

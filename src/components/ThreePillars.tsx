@@ -42,13 +42,9 @@ export const ThreePillars = () => {
     <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-gradient-subtle">
       <div className="container px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Áreas de Acción
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-foreground/70 px-2">
-            Nueva Acrópolis se sostiene sobre tres líneas de acción que se complementan entre sí: 
-            filosofía para conocernos, cultura para unirnos, y voluntariado para actuar.
-          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
