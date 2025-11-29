@@ -51,13 +51,13 @@ export const ThreePillars = () => {
           {pillars.map((pillar, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer relative"
+              className="overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer relative h-full flex flex-col"
               onClick={() => window.location.href = pillar.link}
             >
               <Pointer>
                 <Heart className="w-6 h-6 text-secondary fill-secondary drop-shadow-lg ml-1" />
               </Pointer>
-              <figure className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+              <figure className="relative h-48 sm:h-56 lg:h-64 overflow-hidden flex-shrink-0">
                 <OptimizedImage 
                   src={pillar.image} 
                   alt={pillar.alt}
@@ -69,16 +69,16 @@ export const ThreePillars = () => {
                 />
               </figure>
               
-              <div className="p-4 sm:p-5 lg:p-6 space-y-3 sm:space-y-4">
-                <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${pillar.titleColor}`}>
+              <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${pillar.titleColor} mb-3 sm:mb-4`}>
                   {pillar.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-foreground/70 leading-relaxed line-clamp-3 sm:line-clamp-none">
+                <p className="text-sm sm:text-base text-foreground/70 leading-relaxed flex-grow">
                   {pillar.description}
                 </p>
 
-                <div className="relative w-full mt-2 sm:mt-4 overflow-hidden rounded-md">
+                <div className="relative w-full mt-4 sm:mt-6 overflow-hidden rounded-md">
                   <Button variant="outline" className="w-full" asChild>
                     <Link to={pillar.link}>
                       Conoce más
