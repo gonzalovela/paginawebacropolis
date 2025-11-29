@@ -13,16 +13,16 @@ export const ThreePillars = () => {
   const pillars = [
     {
       image: philosophyImage,
-      title: "¡Filosofía para despertar!",
-      description: "La filosofía como camino de autoconocimiento y transformación personal. Estudiamos el pensamiento de grandes maestros de Oriente y Occidente para aplicarlo a la vida cotidiana.",
+      title: "Filosofía para conocerse",
+      description: "La Filosofía es un camino de autoconocimiento y transformación. Aprendemos de la sabiduría filosófica de Oriente y Occidente para enfrentar con éxito los desafíos de la vida.",
       link: "/filosofia",
       titleColor: "text-primary",
       alt: "Grupo de estudiantes en clase de filosofía práctica - Curso Conócete a Ti Mismo en Nueva Acrópolis",
     },
     {
       image: cultureImage,
-      title: "¡Cultura para encontrarnos!",
-      description: "La cultura como vía de encuentro entre personas, épocas y civilizaciones. Arte, música, teatro e historia para desarrollar sensibilidad y pensamiento crítico.",
+      title: "Cultura para encontrarnos",
+      description: "La cultura es una vía de encuentro entre personas, épocas, conocimientos y civilizaciones. Promovemos el arte, la música, la danza, el teatro y la historia para desarrollar sensibilidad y pensamiento crítico.",
       link: "/cultura",
       titleColor: "text-secondary",
       imageFilter: 'brightness(1.05) saturate(1.1) sepia(0.08)',
@@ -30,8 +30,8 @@ export const ThreePillars = () => {
     },
     {
       image: volunteeringImage,
-      title: "¡Voluntariado para unir!",
-      description: "El voluntariado como expresión práctica de nuestros ideales. Acción ambiental, social y cultural para construir un mundo más justo y fraternal.",
+      title: "Voluntariado para transformar",
+      description: "Nuestro voluntariado expresa los valores de nuestra Filosofía de vida. Beneficiamos la educación de niños y jóvenes, fomentamos el cuidado a la naturaleza y brindamos apoyo social a quienes más lo necesitan.",
       link: "/voluntariado",
       titleColor: "text-[#e74c3c]",
       alt: "Voluntarios de Nueva Acrópolis en actividad de ayuda comunitaria - Programas de voluntariado en Perú",
