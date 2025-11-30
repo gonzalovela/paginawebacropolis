@@ -1,10 +1,10 @@
 import { PageHeroBanner } from "@/components/PageHeroBanner";
-import sedesImage from "@/assets/banner-sedes.jpg";
+import fachadaImage from "@/assets/fachada-san-isidro.jpg";
 
 export const SedesHeroBanner = () => {
   return (
     <PageHeroBanner
-      bannerImage={sedesImage}
+      bannerImage={fachadaImage}
       bannerAlt="Comunidad de Nueva Acrópolis Perú - Encuentra tu sede más cercana"
       badgeText="SEDES"
       badgeVariant="secondary"
