@@ -107,7 +107,6 @@ export const CulturaActividadesAdmin = () => {
         .update({ 
           descripcion: actividad.descripcion, 
           imagen_position: actividad.imagen_position,
-          alt_text: actividad.alt_text,
           updated_at: new Date().toISOString() 
         })
         .eq('id', actividadId);
@@ -232,23 +231,6 @@ export const CulturaActividadesAdmin = () => {
                       />
                       <p className="text-xs text-muted-foreground">
                         Usa valores como: center, top, bottom, center 25%, etc.
-                      </p>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor={`alt-${actividad.id}`}>Texto alternativo (SEO)</Label>
-                      <Input
-                        id={`alt-${actividad.id}`}
-                        value={actividad.alt_text || ''}
-                        onChange={(e) => {
-                          setActividades(prev =>
-                            prev.map(a => a.id === actividad.id ? { ...a, alt_text: e.target.value } : a)
-                          );
-                        }}
-                        placeholder="Descripción de la imagen para SEO y accesibilidad"
-                      />
-                      <p className="text-xs text-muted-foreground">
-                        Describe la imagen para buscadores y lectores de pantalla.
                       </p>
                     </div>
 

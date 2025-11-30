@@ -107,7 +107,6 @@ export const VoluntariadoProgramasAdmin = () => {
         .from('voluntariado_programas')
         .update({ 
           descripcion: programa.descripcion,
-          alt_text: programa.alt_text,
           updated_at: new Date().toISOString() 
         })
         .eq('id', programaId);
@@ -225,23 +224,6 @@ export const VoluntariadoProgramasAdmin = () => {
                           </span>
                         ))}
                       </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor={`alt-vol-${programa.id}`}>Texto alternativo (SEO)</Label>
-                      <Input
-                        id={`alt-vol-${programa.id}`}
-                        value={programa.alt_text || ''}
-                        onChange={(e) => {
-                          setProgramas(prev =>
-                            prev.map(p => p.id === programa.id ? { ...p, alt_text: e.target.value } : p)
-                          );
-                        }}
-                        placeholder="Descripción de la imagen para SEO y accesibilidad"
-                      />
-                      <p className="text-xs text-muted-foreground">
-                        Describe la imagen para buscadores y lectores de pantalla.
-                      </p>
                     </div>
 
                     <Button
