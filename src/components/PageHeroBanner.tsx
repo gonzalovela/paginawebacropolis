@@ -147,6 +147,9 @@ export const PageHeroBanner = ({
           <div className="absolute inset-y-0 right-0 w-[35%] bg-gradient-to-l from-black/90 via-black/70 to-transparent z-[1]" />
           <div className="absolute inset-0 bg-black/30 z-[1]" />
         </>
+      ) : decorativeVariant === "inscripcion" ? (
+        /* Lighter gradient for inscripcion to show group photo better */
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-[1]" />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
       )}
