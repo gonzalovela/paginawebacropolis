@@ -18,6 +18,7 @@ interface CulturaActividad {
   imagen_url: string | null;
   icono: string;
   imagen_position: string | null;
+  alt_text: string | null;
   orden: number;
 }
 
@@ -97,47 +98,30 @@ export const CulturaActividadesAdmin = () => {
     }
   };
 
-  const handleDescriptionUpdate = async (actividadId: string, descripcion: string) => {
+  const handleSaveChanges = async (actividadId: string, actividad: CulturaActividad) => {
     setSaving(actividadId);
 
     try {
       const { error } = await supabase
         .from('cultura_actividades')
-        .update({ descripcion, updated_at: new Date().toISOString() })
+        .update({ 
+          descripcion: actividad.descripcion, 
+          imagen_position: actividad.imagen_position,
+          alt_text: actividad.alt_text,
+          updated_at: new Date().toISOString() 
+        })
         .eq('id', actividadId);
 
       if (error) throw error;
 
-      setActividades(prev =>
-        prev.map(a => a.id === actividadId ? { ...a, descripcion } : a)
-      );
-
-      toast.success("Descripción actualizada");
+      toast.success("Cambios guardados correctamente");
     } catch (error) {
-      toast.error("Error al actualizar la descripción");
+      toast.error("Error al guardar los cambios");
     } finally {
       setSaving(null);
     }
   };
 
-  const handlePositionUpdate = async (actividadId: string, imagen_position: string) => {
-    try {
-      const { error } = await supabase
-        .from('cultura_actividades')
-        .update({ imagen_position, updated_at: new Date().toISOString() })
-        .eq('id', actividadId);
-
-      if (error) throw error;
-
-      setActividades(prev =>
-        prev.map(a => a.id === actividadId ? { ...a, imagen_position } : a)
-      );
-
-      toast.success("Posición de imagen actualizada");
-    } catch (error) {
-      toast.error("Error al actualizar la posición");
-    }
-  };
 
   if (loading) {
     return (
@@ -251,13 +235,25 @@ export const CulturaActividadesAdmin = () => {
                       </p>
                     </div>
 
+                    <div className="space-y-2">
+                      <Label htmlFor={`alt-${actividad.id}`}>Texto alternativo (SEO)</Label>
+                      <Input
+                        id={`alt-${actividad.id}`}
+                        value={actividad.alt_text || ''}
+                        onChange={(e) => {
+                          setActividades(prev =>
+                            prev.map(a => a.id === actividad.id ? { ...a, alt_text: e.target.value } : a)
+                          );
+                        }}
+                        placeholder="Descripción de la imagen para SEO y accesibilidad"
+                      />
+                      <p className="text-xs text-muted-foreground">
+                        Describe la imagen para buscadores y lectores de pantalla.
+                      </p>
+                    </div>
+
                     <Button
-                      onClick={() => {
-                        handleDescriptionUpdate(actividad.id, actividad.descripcion);
-                        if (actividad.imagen_position) {
-                          handlePositionUpdate(actividad.id, actividad.imagen_position);
-                        }
-                      }}
+                      onClick={() => handleSaveChanges(actividad.id, actividad)}
                       disabled={saving === actividad.id}
                       className="w-full"
                     >

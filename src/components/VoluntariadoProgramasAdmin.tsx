@@ -17,6 +17,7 @@ interface VoluntariadoPrograma {
   imagen_url: string | null;
   icono: string;
   actividades: string[];
+  alt_text: string | null;
   orden: number;
 }
 
@@ -98,24 +99,24 @@ export const VoluntariadoProgramasAdmin = () => {
     }
   };
 
-  const handleDescriptionUpdate = async (programaId: string, descripcion: string) => {
+  const handleSaveChanges = async (programaId: string, programa: VoluntariadoPrograma) => {
     setSaving(programaId);
 
     try {
       const { error } = await supabase
         .from('voluntariado_programas')
-        .update({ descripcion, updated_at: new Date().toISOString() })
+        .update({ 
+          descripcion: programa.descripcion,
+          alt_text: programa.alt_text,
+          updated_at: new Date().toISOString() 
+        })
         .eq('id', programaId);
 
       if (error) throw error;
 
-      setProgramas(prev =>
-        prev.map(p => p.id === programaId ? { ...p, descripcion } : p)
-      );
-
-      toast.success("Descripción actualizada");
+      toast.success("Cambios guardados correctamente");
     } catch (error) {
-      toast.error("Error al actualizar la descripción");
+      toast.error("Error al guardar los cambios");
     } finally {
       setSaving(null);
     }
@@ -226,8 +227,25 @@ export const VoluntariadoProgramasAdmin = () => {
                       </div>
                     </div>
 
+                    <div className="space-y-2">
+                      <Label htmlFor={`alt-vol-${programa.id}`}>Texto alternativo (SEO)</Label>
+                      <Input
+                        id={`alt-vol-${programa.id}`}
+                        value={programa.alt_text || ''}
+                        onChange={(e) => {
+                          setProgramas(prev =>
+                            prev.map(p => p.id === programa.id ? { ...p, alt_text: e.target.value } : p)
+                          );
+                        }}
+                        placeholder="Descripción de la imagen para SEO y accesibilidad"
+                      />
+                      <p className="text-xs text-muted-foreground">
+                        Describe la imagen para buscadores y lectores de pantalla.
+                      </p>
+                    </div>
+
                     <Button
-                      onClick={() => handleDescriptionUpdate(programa.id, programa.descripcion)}
+                      onClick={() => handleSaveChanges(programa.id, programa)}
                       disabled={saving === programa.id}
                       className="w-full"
                     >
