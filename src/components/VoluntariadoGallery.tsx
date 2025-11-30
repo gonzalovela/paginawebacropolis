@@ -104,12 +104,12 @@ export const VoluntariadoGallery = () => {
 
   return (
     <Tabs defaultValue="todos" className="w-full">
-      <TabsList className="flex flex-wrap w-full justify-center mb-8 h-auto gap-2 bg-muted/30 p-2">
+      <TabsList className="flex flex-wrap w-full justify-center mb-6 sm:mb-8 h-auto gap-1.5 sm:gap-2 bg-muted/30 p-1.5 sm:p-2 rounded-lg">
         {categorias.map((cat) => (
           <TabsTrigger 
             key={cat.value} 
             value={cat.value} 
-            className="text-xs sm:text-sm px-4 py-3 whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="text-[10px] sm:text-xs md:text-sm px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-md"
           >
             {cat.label}
           </TabsTrigger>
@@ -125,7 +125,7 @@ export const VoluntariadoGallery = () => {
 
         return (
           <TabsContent key={cat.value} value={cat.value} className="mt-0">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
               {visiblePhotos.map((photo, index) => (
                 <Card
                   key={photo.id}
@@ -139,23 +139,23 @@ export const VoluntariadoGallery = () => {
                       containerClassName="w-full h-full"
                       priority={index < 4}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    {/* Content Overlay */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <h3 className="font-bold text-xl mb-2 line-clamp-2">
+                    {/* Content Overlay - Always visible on mobile */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-4 md:p-6 text-white opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="font-bold text-sm sm:text-base md:text-xl mb-1 sm:mb-2 line-clamp-2">
                         {photo.titulo}
                       </h3>
                       {photo.descripcion && (
-                        <p className="text-sm text-white/90 line-clamp-3">
+                        <p className="text-xs sm:text-sm text-white/90 line-clamp-2 sm:line-clamp-3 hidden sm:block">
                           {photo.descripcion}
                         </p>
                       )}
                     </div>
 
                     {photo.sedes && (
-                      <div className="absolute left-3 top-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-md">
-                        📍 {photo.sedes.nombre}, {photo.sedes.ciudad}
+                      <div className="absolute left-2 sm:left-3 top-2 sm:top-3 bg-black/70 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
+                        📍 {photo.sedes.nombre}
                       </div>
                     )}
                   </div>
@@ -164,11 +164,11 @@ export const VoluntariadoGallery = () => {
             </div>
 
             {hasMore && (
-              <div className="flex justify-center mt-8">
+              <div className="flex justify-center mt-6 sm:mt-8">
                 <Button
                   variant="outline"
                   onClick={() => toggleExpanded(cat.value)}
-                  className="gap-2"
+                  className="gap-2 text-sm sm:text-base"
                 >
                   {isExpanded ? (
                     <>
@@ -178,7 +178,7 @@ export const VoluntariadoGallery = () => {
                   ) : (
                     <>
                       <ChevronDown className="h-4 w-4" />
-                      Ver más ({remainingCount} fotos más)
+                      Ver más ({remainingCount})
                     </>
                   )}
                 </Button>

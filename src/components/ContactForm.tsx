@@ -140,8 +140,8 @@ export const ContactForm = () => {
   };
 
   return (
-    <Card className="relative p-8 max-w-2xl mx-auto overflow-hidden">
-      <BorderBeam 
+    <Card className="relative p-4 sm:p-6 md:p-8 max-w-2xl mx-auto overflow-hidden">
+      <BorderBeam
         colorFrom="hsl(var(--primary))" 
         colorTo="hsl(var(--secondary))" 
         size={80}

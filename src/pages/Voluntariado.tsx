@@ -237,13 +237,13 @@ const Voluntariado = () => {
         </section>
 
         {/* Gallery Section */}
-        <section className="py-12 md:py-20 bg-background">
-          <div className="container px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+        <section className="py-10 sm:py-12 md:py-20 bg-background">
+          <div className="container px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
                 Galería de Programas en Acción
               </h2>
-              <p className="text-lg md:text-xl text-foreground/70">
+              <p className="text-base sm:text-lg md:text-xl text-foreground/70 px-2">
                 Fotos de nuestros programas de voluntariado y las actividades que realizamos en todo el Perú
               </p>
             </div>
@@ -254,39 +254,39 @@ const Voluntariado = () => {
         {/* Call to Action */}
         <section
           ref={ctaRef}
-          className={`py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
+          className={`py-10 sm:py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
             ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 sm:px-6">
             <div className="max-w-4xl mx-auto">
-              <Card className="p-8 md:p-12 bg-gradient-hero text-primary-foreground">
-                <div className="text-center space-y-6">
-                  <Users className="h-16 w-16 mx-auto opacity-90" />
-                  <h3 className="text-3xl md:text-4xl font-bold">
+              <Card className="p-6 sm:p-8 md:p-12 bg-gradient-hero text-primary-foreground">
+                <div className="text-center space-y-4 sm:space-y-6">
+                  <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 mx-auto opacity-90" />
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
                     Únete a Nuestra Comunidad de Voluntarios
                   </h3>
-                  <p className="text-lg opacity-90 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg opacity-90 max-w-2xl mx-auto leading-relaxed px-2">
                     No necesitas experiencia previa, solo ganas de contribuir y aprender. 
                     El voluntariado filosófico transforma tanto al que da como al que recibe. 
                     Es un camino de crecimiento personal y servicio a la comunidad.
                   </p>
-                  <div className="space-y-4 pt-6">
-                    <p className="text-sm opacity-75">
+                  <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-6">
+                    <p className="text-xs sm:text-sm opacity-75 px-2">
                       Las actividades de voluntariado se realizan regularmente. 
                       Puedes participar ocasionalmente o ser parte permanente de nuestros equipos.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <AnimatedButton size="lg" variant="secondary" asChild>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                      <AnimatedButton size="lg" variant="secondary" className="w-full sm:w-auto" asChild>
                         <Link to="/inscripcion">
                           Quiero ser voluntario
-                          <ArrowRight className="ml-2 h-5 w-5" />
+                          <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                         </Link>
                       </AnimatedButton>
                       <Button
                         size="lg" 
                         variant="outline"
-                        className="bg-background/10 hover:bg-background/20 border-primary-foreground/30"
+                        className="w-full sm:w-auto bg-background/10 hover:bg-background/20 border-primary-foreground/30"
                         asChild
                       >
                         <Link to="/">Volver al inicio</Link>
