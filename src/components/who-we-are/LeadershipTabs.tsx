@@ -66,7 +66,7 @@ export const LeadershipTabs = () => {
               { title: "Filosofía Práctica", description: "Como forma de vida aplicada al día a día", colorClass: "bg-primary/5 border-primary/10" },
               { title: "Método Socrático", description: "Aplicado a la cultura contemporánea", colorClass: "bg-secondary/5 border-secondary/10" },
               { title: "Humanismo Ecléctico", description: "Integración de Oriente y Occidente", colorClass: "bg-accent/5 border-accent/10" },
-              { title: "Fraternidad Universal", description: "Entre individuos y naciones", colorClass: "bg-muted border-border" },
+              { title: "Libros", description: "Ankor el Discípulo, El Alquimista, El Teatro mistérico en Grecia: la Tragedia, Los Espíritus Elementales de la Naturaleza, Tebas, Magia, Religión y Ciencia para el Tercer Milenio (7 volúmenes)", colorClass: "bg-muted border-border" },
             ]}
             timelineTitle="Reconocimientos"
             timelineIcon={Sparkles}
