@@ -14,10 +14,10 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     imagetools({
-      defaultDirectives: new URLSearchParams({
-        format: 'webp',
-        quality: '80',
-      }),
+      defaultDirectives: (url) => {
+        // Only apply optimizations when explicitly requested via query params
+        return new URLSearchParams();
+      },
     }),
     VitePWA({
       registerType: 'autoUpdate',
