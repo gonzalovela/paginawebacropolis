@@ -51,6 +51,7 @@ export const LeadershipTabs = () => {
             role="Fundador y Primer Presidente"
             image={jorgeLivragaPortrait}
             imageAlt="Retrato de Jorge Ángel Livraga Rizzi (1930-1991), fundador de Nueva Acrópolis"
+            instagramUrl="https://www.instagram.com/newacropolisinternational/"
             infoItems={[
               { icon: Globe, label: "Lugar de Nacimiento", value: "Buenos Aires, Argentina" },
               { icon: BookOpen, label: "Formación", value: "Medicina, Historia del Arte y Filosofía" },
@@ -97,6 +98,7 @@ export const LeadershipTabs = () => {
             role="Presidenta Honoraria Internacional"
             image={deliaSteinbergPortrait}
             imageAlt="Retrato de Delia Steinberg Guzmán (1943-2023), Presidenta Honoraria Internacional"
+            instagramUrl="https://www.instagram.com/newacropolisinternational/"
             infoItems={[
               { icon: Globe, label: "Lugar de Nacimiento", value: "Buenos Aires, Argentina" },
               { icon: BookOpen, label: "Formación", value: "Filosofía, Piano y Composición" },
