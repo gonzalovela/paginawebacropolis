@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Users, HandHeart, ArrowRight, Heart, BookOpen, Sprout, Lightbulb, LucideIcon } from "lucide-react";
-import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import volunteeringImage from "@/assets/voluntariado-filosofico-intro-warm.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
@@ -16,6 +14,7 @@ import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
 import { voluntariadoPrinciples, voluntariadoAreas as defaultAreas, voluntariadoValues } from "@/data/voluntariado-data";
 import { supabase } from "@/integrations/supabase/client";
+import { PageLayout } from "@/components/layouts";
 
 // Icon mapping for database programs
 const iconMap: Record<string, LucideIcon> = {
@@ -90,9 +89,7 @@ const Voluntariado = () => {
         breadcrumbs={[{ name: "Voluntariado Filosófico", url: "https://acropolisperu.org/voluntariado" }]}
         faq={seoConfig.voluntariado.faq}
       />
-      <div className="min-h-screen">
-        <Navigation />
-
+      <PageLayout>
         <PageHeroBanner
           bannerImage={bannerVoluntariado}
           bannerAlt="Voluntarios de Nueva Acrópolis en acción solidaria - Programas de voluntariado filosófico en Perú"
@@ -298,9 +295,7 @@ const Voluntariado = () => {
             </div>
           </div>
         </section>
-
-        <Footer />
-      </div>
+      </PageLayout>
     </>
   );
 };

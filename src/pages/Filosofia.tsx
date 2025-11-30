@@ -1,6 +1,4 @@
-import { Navigation } from "@/components/Navigation";
 import { Sparkles } from "lucide-react";
-import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
@@ -10,6 +8,7 @@ import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { CourseModulesSection, TestimonialsSection, AdvancedCoursesSection } from "@/components/filosofia";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { PageLayout } from "@/components/layouts";
 
 const Filosofia = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
@@ -38,9 +37,7 @@ const Filosofia = () => {
         breadcrumbs={[{ name: "Filosofía Práctica", url: "https://acropolisperu.org/filosofia" }]}
         faq={seoConfig.filosofia.faq}
       />
-      <div className="min-h-screen">
-        <Navigation />
-
+      <PageLayout>
         <PageHeroBanner
           bannerImage={bannerFilosofia}
           bannerAlt="Persona en postura contemplativa frente a paisaje peruano al amanecer - Filosofía práctica y meditación en Nueva Acrópolis"
@@ -106,9 +103,7 @@ const Filosofia = () => {
         <div ref={testimonialsRef}>
           <TestimonialsSection isVisible={testimonialsVisible} />
         </div>
-
-        <Footer />
-      </div>
+      </PageLayout>
     </>
   );
 };

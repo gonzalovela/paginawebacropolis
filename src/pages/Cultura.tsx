@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Palette, Users, ArrowRight, BookOpen, Globe, Music, Lightbulb, LucideIcon } from "lucide-react";
-import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import culturaFilosoficaImage from "@/assets/cultura-filosofica-intro.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
@@ -15,6 +13,7 @@ import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
 import { culturaActivities as defaultActivities, culturaValues } from "@/data/cultura-data";
 import { supabase } from "@/integrations/supabase/client";
+import { PageLayout } from "@/components/layouts";
 
 // Icon mapping for database activities
 const iconMap: Record<string, LucideIcon> = {
@@ -83,9 +82,7 @@ const Cultura = () => {
         breadcrumbs={[{ name: "Cultura y Arte", url: "https://acropolisperu.org/cultura" }]}
         faq={seoConfig.cultura.faq}
       />
-      <div className="min-h-screen">
-        <Navigation />
-
+      <PageLayout>
         <PageHeroBanner
           bannerImage={bannerCultura}
           bannerAlt="Actividad cultural al aire libre con grupo de personas - Encuentros culturales de Nueva Acrópolis en Perú"
@@ -230,9 +227,7 @@ const Cultura = () => {
             </div>
           </div>
         </section>
-
-        <Footer />
-      </div>
+      </PageLayout>
     </>
   );
 };
