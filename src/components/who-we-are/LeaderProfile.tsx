@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { OptimizedImage } from "@/components/OptimizedImage";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, Instagram } from "lucide-react";
 
 interface InfoItem {
   icon: LucideIcon;
@@ -43,6 +43,7 @@ interface LeaderProfileProps {
   reversed?: boolean;
   priority?: boolean;
   grayscale?: boolean;
+  instagramUrl?: string;
 }
 
 export const LeaderProfile = ({
@@ -68,20 +69,44 @@ export const LeaderProfile = ({
   reversed = false,
   priority = false,
   grayscale = false,
+  instagramUrl,
 }: LeaderProfileProps) => {
+  const imageContent = (
+    <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant ring-2 sm:ring-4 ring-background">
+      <OptimizedImage 
+        src={image} 
+        alt={imageAlt}
+        className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${grayscale ? 'grayscale-[30%] group-hover:grayscale-0' : ''}`}
+        containerClassName="w-full h-full"
+        priority={priority}
+      />
+      {instagramUrl && (
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3">
+          <Instagram className="h-5 w-5 sm:h-6 sm:w-6 text-white drop-shadow-lg" />
+        </div>
+      )}
+    </div>
+  );
+
   const sidebarContent = (
     <div className={`${sidebarGradient} p-5 sm:p-8 md:p-10 flex flex-col items-center justify-center space-y-4 sm:space-y-6`}>
       <div className="relative group">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl sm:rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-        <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant ring-2 sm:ring-4 ring-background">
-          <OptimizedImage 
-            src={image} 
-            alt={imageAlt}
-            className={`w-full h-full object-cover hover:scale-105 transition-all duration-500 ${grayscale ? 'grayscale-[30%] hover:grayscale-0' : ''}`}
-            containerClassName="w-full h-full"
-            priority={priority}
-          />
-        </div>
+        {instagramUrl ? (
+          <a 
+            href={instagramUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative block cursor-pointer"
+            aria-label={`Ver perfil de Instagram`}
+          >
+            {imageContent}
+          </a>
+        ) : (
+          <div className="relative">
+            {imageContent}
+          </div>
+        )}
       </div>
       
       <div className="text-center space-y-1 sm:space-y-2">

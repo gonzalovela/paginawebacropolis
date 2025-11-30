@@ -143,6 +143,7 @@ export const LeadershipTabs = () => {
             role=""
             image={carlosAdelantadoPortrait}
             imageAlt="Carlos Adelantado Puchal - Presidente Internacional"
+            instagramUrl="https://www.instagram.com/carlosadelantado_acropolis/"
             infoItems={[
               { icon: Globe, label: "Lugar de Nacimiento", value: "Onda, Castellón, España" },
               { icon: BookOpen, label: "Formación", value: "Máster en Filosofía de Oriente y Occidente (OINA)" },
@@ -184,6 +185,7 @@ export const LeadershipTabs = () => {
             role="Más de 30 años de trayectoria"
             image={beatrizDiezCansecoPortrait}
             imageAlt="Beatriz Diez Canseco - Presidenta Nacional Nueva Acrópolis Perú"
+            instagramUrl="https://www.instagram.com/beatriz_diezcanseco/"
             infoItems={[
               { icon: BookOpen, label: "Formación", value: "Maestra en Filosofía Oriental y Occidental (OINA)" },
               { icon: Users, label: "Comunidad", value: "5,000+ miembros activos y 65+ sedes" },
