@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import { AnimatedMapBackground } from "@/components/AnimatedMapBackground";
-import bannerInscripcion from "@/assets/banner-inscripcion.jpg";
+import bannerInscripcion from "@/assets/sedes-community-banner.jpg";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 const Inscripcion = () => {
