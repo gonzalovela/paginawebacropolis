@@ -28,6 +28,7 @@ export const culturaActivities = [
     title: "Cursos de Desarrollo Personal",
     description: "Somos pioneros en el desarrollo de habilidades blandas mediante cursos y talleres que ayudan a comunicarse mejor, manejar el estrés, mejorar las relaciones personales y desarrollar el liderazgo.",
     image: desarrolloPersonalImage,
+    imagePosition: "center 25%",
   },
 ];
 

@@ -10,6 +10,7 @@ interface OptimizedImageProps {
   width?: number;
   height?: number;
   loading?: "lazy" | "eager";
+  style?: React.CSSProperties;
 }
 
 export const OptimizedImage = ({ 
@@ -21,6 +22,7 @@ export const OptimizedImage = ({
   width,
   height,
   loading,
+  style,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -75,6 +77,7 @@ export const OptimizedImage = ({
           decoding="async"
           onLoad={() => setIsLoaded(true)}
           onError={() => setIsLoaded(true)}
+          style={style}
           className={cn(
             "transition-opacity duration-300",
             isLoaded ? "opacity-100" : "opacity-0",
