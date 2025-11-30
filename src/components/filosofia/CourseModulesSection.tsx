@@ -12,7 +12,8 @@ interface CourseModulesSectionProps {
 export const CourseModulesSection = ({ isVisible }: CourseModulesSectionProps) => {
   return (
     <section 
-      className={`py-12 md:py-20 relative overflow-hidden transition-all duration-1000 ${
+      id="conocete-a-ti-mismo"
+      className={`py-12 md:py-20 relative overflow-hidden transition-all duration-1000 scroll-mt-20 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
