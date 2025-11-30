@@ -2,6 +2,7 @@ import { BookOpen, Music, Globe, Lightbulb } from "lucide-react";
 import charlasConferenciasImage from "@/assets/cultura-charlas-conferencias.jpg";
 import musicaArtesImage from "@/assets/cultura-musica-artes-original.jpg";
 import encuentrosCulturalesImage from "@/assets/cultura-encuentros-culturales-tight.jpg";
+import desarrolloPersonalImage from "@/assets/cultura-desarrollo-personal.jpg";
 
 export const culturaActivities = [
   {
@@ -26,7 +27,7 @@ export const culturaActivities = [
     icon: Lightbulb,
     title: "Cursos de Desarrollo Personal",
     description: "Somos pioneros en el desarrollo de habilidades blandas mediante cursos y talleres que ayudan a comunicarse mejor, manejar el estrés, mejorar las relaciones personales y desarrollar el liderazgo.",
-    image: charlasConferenciasImage,
+    image: desarrolloPersonalImage,
   },
 ];
 
