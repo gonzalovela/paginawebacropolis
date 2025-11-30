@@ -1,5 +1,5 @@
 import { PageHeroBanner } from "@/components/PageHeroBanner";
-import fachadaImage from "@/assets/fachada-san-isidro-clean.jpg";
+import fachadaImage from "@/assets/fachada-san-isidro-full.jpg";
 
 export const SedesHeroBanner = () => {
   return (
