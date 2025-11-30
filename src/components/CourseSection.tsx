@@ -147,6 +147,9 @@ export const CourseSection = () => {
                 <Button size="lg" variant="outline" className="w-full text-base sm:text-lg" asChild>
                   <Link to="/filosofia">Ver programa completo</Link>
                 </Button>
+                <Button size="lg" variant="ghost" className="w-full text-base sm:text-lg text-secondary hover:text-secondary hover:bg-secondary/10" asChild>
+                  <Link to="/filosofia#cursos-avanzados">Programa de Cursos Avanzados</Link>
+                </Button>
               </div>
             </Card>
           </div>

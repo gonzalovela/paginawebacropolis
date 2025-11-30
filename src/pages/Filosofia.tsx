@@ -7,12 +7,28 @@ import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
-import { CourseModulesSection, TestimonialsSection } from "@/components/filosofia";
+import { CourseModulesSection, TestimonialsSection, AdvancedCoursesSection } from "@/components/filosofia";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Filosofia = () => {
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
   const { elementRef: courseRef, isVisible: courseVisible } = useScrollAnimation();
+  const { elementRef: advancedRef, isVisible: advancedVisible } = useScrollAnimation();
   const { elementRef: testimonialsRef, isVisible: testimonialsVisible } = useScrollAnimation();
+  const location = useLocation();
+
+  // Scroll to section if hash is present
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   return (
     <>
@@ -79,6 +95,11 @@ const Filosofia = () => {
         {/* Course Section */}
         <div ref={courseRef}>
           <CourseModulesSection isVisible={courseVisible} />
+        </div>
+
+        {/* Advanced Courses Section */}
+        <div ref={advancedRef}>
+          <AdvancedCoursesSection isVisible={advancedVisible} />
         </div>
 
         {/* Testimonials Section */}
