@@ -187,6 +187,7 @@ export const LeadershipTabs = () => {
             imageAlt="Beatriz Diez Canseco - Presidenta Nacional Nueva Acrópolis Perú"
             instagramUrl="https://www.instagram.com/beatriz_diezcanseco/"
             infoItems={[
+              { icon: Globe, label: "Lugar de Nacimiento", value: "Lima, Perú" },
               { icon: BookOpen, label: "Formación", value: "Maestra en Filosofía Oriental y Occidental (OINA)" },
               { icon: Users, label: "Comunidad", value: "5,000+ miembros activos y 65+ sedes" },
             ]}
