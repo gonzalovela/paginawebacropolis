@@ -1,6 +1,6 @@
 import { BookOpen } from "lucide-react";
 import { OptimizedImage } from "@/components/OptimizedImage";
-import philosophyImage from "@/assets/filosofia-vida-banner.jpg";
+import philosophyImage from "@/assets/philosophy-study-group.jpg";
 
 export const PhilosophyAsLife = () => {
   return (
