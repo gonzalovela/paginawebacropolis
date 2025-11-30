@@ -13,8 +13,7 @@ import Inscripcion from "./pages/Inscripcion";
 import Gracias from "./pages/Gracias";
 import QuienesSomos from "./pages/QuienesSomos";
 import Sedes from "./pages/Sedes";
-import SedesAdmin from "./pages/SedesAdmin";
-import UsersAdmin from "./pages/UsersAdmin";
+import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import DesignSystem from "./pages/DesignSystem";
 import Instalar from "./pages/Instalar";
@@ -41,8 +40,7 @@ const App = () => (
               <Route path="/sedes" element={<Sedes />} />
               <Route path="/instalar" element={<Instalar />} />
               <Route path="/auth" element={<Auth />} />
-              <Route path="/sedes/admin" element={<SedesAdmin />} />
-              <Route path="/admin/users" element={<UsersAdmin />} />
+              <Route path="/admin" element={<Admin />} />
               <Route path="/design-system" element={<DesignSystem />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
