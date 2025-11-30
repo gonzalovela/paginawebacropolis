@@ -89,7 +89,7 @@ export const Navigation = () => {
       {/* Mobile Navigation Overlay */}
       <div 
         className={cn(
-          "fixed inset-0 top-16 sm:top-20 bg-background/98 backdrop-blur-md lg:hidden transition-all duration-300 z-40",
+          "fixed inset-0 top-16 sm:top-20 bg-background lg:hidden transition-all duration-300 z-40 overflow-y-auto",
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
       >
@@ -100,10 +100,10 @@ export const Navigation = () => {
                 key={link.to}
                 to={link.to}
                 className={cn(
-                  "px-4 py-4 rounded-xl font-medium transition-all text-lg",
+                  "px-4 py-4 rounded-xl font-medium transition-all text-lg border border-transparent",
                   isActive(link.to)
-                    ? "text-primary bg-primary/10"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted active:bg-muted"
+                    ? "text-primary bg-primary/10 border-primary/20"
+                    : "text-foreground hover:text-primary hover:bg-muted active:bg-muted"
                 )}
               >
                 {link.label}
