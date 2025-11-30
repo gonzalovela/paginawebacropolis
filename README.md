@@ -138,6 +138,8 @@ Este proyecto fue diseñado y desarrollado con dedicación por **Humantech AI Ag
 - ✅ **Sanitización de inputs** contra XSS
 - ✅ **Tokens seguros** para invitaciones
 - ✅ **Secrets encriptados** para API keys
+- ✅ **Cumplimiento Ley 29733** (Protección de Datos Personales)
+- ✅ **Checkbox de consentimiento** en formularios
 
 ### Políticas RLS
 
@@ -168,6 +170,8 @@ WITH CHECK (
 | `/sedes` | Sedes | Directorio de ubicaciones |
 | `/inscripcion` | Inscripcion | Formulario de contacto |
 | `/gracias` | Gracias | Confirmación post-registro |
+| `/aviso-legal` | AvisoLegal | Términos de uso y condiciones |
+| `/privacidad` | Privacidad | Política de privacidad (Ley 29733) |
 | `/instalar` | Instalar | Guía PWA |
 | `/auth` | Auth | Login administrativo |
 | `/admin` | Admin | Panel de administración |
