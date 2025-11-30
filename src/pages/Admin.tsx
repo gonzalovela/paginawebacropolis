@@ -79,9 +79,9 @@ const AdminDashboard = () => {
             <span className="hidden sm:inline">Inscripciones</span>
           </TabsTrigger>
           {isAdmin && (
-            <TabsTrigger value="usuarios" className="flex items-center gap-2 text-xs sm:text-sm">
+            <TabsTrigger value="roles" className="flex items-center gap-2 text-xs sm:text-sm">
               <Users className="h-4 w-4" />
-              <span className="hidden sm:inline">Usuarios</span>
+              <span className="hidden sm:inline">Roles y Accesos</span>
             </TabsTrigger>
           )}
         </TabsList>
@@ -99,7 +99,7 @@ const AdminDashboard = () => {
         </TabsContent>
 
         {isAdmin && (
-          <TabsContent value="usuarios" className="mt-0">
+          <TabsContent value="roles" className="mt-0">
             <UsersAdminContent />
           </TabsContent>
         )}
