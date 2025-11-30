@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 import { SEO, seoConfig } from "@/components/SEO";
-import philosophyImage from "@/assets/filosofia-comunidad-multitud.jpg";
+import philosophyImage from "@/assets/filosofia-comunidad-multitud-warm.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
