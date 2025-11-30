@@ -24,19 +24,14 @@ export const WhoWeAreSymbolism = () => {
         <div className="px-4 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10">
           <div className="max-w-4xl mx-auto space-y-4 text-foreground/70 leading-relaxed text-base sm:text-lg">
             <p>
-              En la antigua Grecia, la <strong className="text-foreground">Acrópolis</strong> designaba la parte más alta de la ciudad, 
-              donde se establecía el contacto entre lo visible y lo invisible.
+              En la antigua Grecia, la <strong className="text-foreground">Acrópolis</strong> designaba la parte más elevada de la ciudad. 
+              Allí se establecía el contacto entre <span className="text-secondary font-semibold">lo visible y lo invisible</span>.
             </p>
             <p>
-              <span className="text-secondary font-semibold">"Acro"</span> significa buscar lo mejor en uno mismo, 
-              <span className="text-secondary font-semibold"> "polis"</span> implica compromiso con la sociedad, 
-              y <span className="text-secondary font-semibold"> "nueva"</span> significa dar forma contemporánea 
-              a estos valores filosóficos atemporales.
+              Se trata de un lugar simbólico para nuestra imaginación, que sugiere <span className="text-secondary font-semibold">ascender hacia lo más elevado de uno mismo</span>.
             </p>
             <p className="text-lg sm:text-xl font-semibold text-foreground pt-4">
-              Nuestro mundo necesita nuevas acrópolis, no hechas de piedra sino de seres humanos, 
-              elevadas en el corazón de nuestras ciudades para crecer internamente y restablecer
-              los lazos profundos que pueden unirnos.
+              Consideramos que el mundo actual necesita <span className="text-secondary">nuevas acrópolis</span>, no hechas de piedra sino de <span className="text-secondary">seres humanos</span>, levantadas en el <span className="text-secondary">corazón</span> de nuestras ciudades, para <span className="text-secondary">crecer interiormente</span> y recuperar los <span className="text-secondary">lazos profundos</span> que nos unan con <span className="text-secondary">los demás y con la naturaleza</span>.
             </p>
           </div>
         </div>
