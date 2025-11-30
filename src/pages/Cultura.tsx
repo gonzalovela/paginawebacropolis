@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Palette, Users, ArrowRight } from "lucide-react";
+import { Palette, Users, ArrowRight, BookOpen, Globe, Music, Lightbulb } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import culturaFilosoficaImage from "@/assets/cultura-filosofica-intro.jpg";
@@ -12,12 +13,62 @@ import { Link } from "react-router-dom";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
-import { culturaActivities, culturaValues } from "@/data/cultura-data";
+import { culturaActivities as defaultActivities, culturaValues } from "@/data/cultura-data";
+import { supabase } from "@/integrations/supabase/client";
+
+// Icon mapping for database activities
+const iconMap: Record<string, React.ElementType> = {
+  BookOpen,
+  Globe,
+  Music,
+  Lightbulb,
+};
+
+interface CulturaActividad {
+  id: string;
+  slug: string;
+  titulo: string;
+  descripcion: string;
+  imagen_url: string | null;
+  icono: string;
+  imagen_position: string | null;
+  orden: number;
+}
 
 const Cultura = () => {
+  const [dbActivities, setDbActivities] = useState<CulturaActividad[]>([]);
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
   const { elementRef: activitiesRef, isVisible: activitiesVisible } = useScrollAnimation();
   const { elementRef: participationRef, isVisible: participationVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    const fetchActivities = async () => {
+      const { data } = await supabase
+        .from('cultura_actividades')
+        .select('*')
+        .eq('activo', true)
+        .order('orden', { ascending: true });
+      
+      if (data && data.length > 0) {
+        setDbActivities(data);
+      }
+    };
+    fetchActivities();
+  }, []);
+
+  // Merge DB activities with default activities (DB images take precedence)
+  const activities = dbActivities.length > 0
+    ? dbActivities.map((dbAct, index) => {
+        const defaultAct = defaultActivities[index];
+        return {
+          icon: iconMap[dbAct.icono] || defaultAct?.icon || BookOpen,
+          title: dbAct.titulo,
+          description: dbAct.descripcion,
+          image: dbAct.imagen_url || defaultAct?.image,
+          imagePosition: dbAct.imagen_position || (defaultAct as any)?.imagePosition,
+        };
+      })
+    : defaultActivities;
 
   return (
     <>
@@ -112,14 +163,14 @@ const Cultura = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-12">
-              {culturaActivities.map((activity, index) => (
+              {activities.map((activity, index) => (
                 <ProgramActivityCard
                   key={index}
                   icon={activity.icon}
                   title={activity.title}
                   description={activity.description}
                   image={activity.image}
-                  imagePosition={(activity as any).imagePosition}
+                  imagePosition={activity.imagePosition}
                   variant="compact"
                 />
               ))}
