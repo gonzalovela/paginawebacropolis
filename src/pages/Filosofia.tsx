@@ -51,10 +51,12 @@ const Filosofia = () => {
               <div className="relative h-[280px] sm:h-[350px] lg:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-elegant order-2 lg:order-1 group">
                 <OptimizedImage 
                   src={philosophyImage} 
-                  alt="Grupo de estudiantes en sesión de filosofía práctica - Curso Conócete a Ti Mismo en Nueva Acrópolis Perú" 
+                  alt="Grupo de voluntarios de Nueva Acrópolis uniendo sus manos en círculo - Filosofía práctica y comunidad" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   containerClassName="w-full h-full"
                 />
+                {/* Vignette effect - black blur on edges */}
+                <div className="absolute inset-0 shadow-[inset_0_0_80px_30px_rgba(0,0,0,0.5)] pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
