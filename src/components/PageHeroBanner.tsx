@@ -12,7 +12,7 @@ interface PageHeroBannerProps {
   title: ReactNode;
   description: string;
   objectPosition?: string;
-  decorativeVariant?: "default" | "cultura" | "voluntariado" | "inscripcion";
+  decorativeVariant?: "default" | "cultura" | "voluntariado" | "inscripcion" | "sedes";
 }
 
 // Helper component to wrap sparkle text
@@ -77,6 +77,20 @@ const DecorativeElements = ({ variant }: { variant: PageHeroBannerProps["decorat
           </svg>
           <div className="absolute top-32 right-1/3 w-10 lg:w-14 h-10 lg:h-14 bg-secondary rounded-full opacity-60"></div>
           <div className="absolute bottom-36 left-1/5 w-6 lg:w-10 h-6 lg:h-10 bg-orange rounded-full opacity-50 animate-pulse-glow"></div>
+        </>
+      );
+    case "sedes":
+      return (
+        <>
+          <div className="absolute top-0 left-0 w-72 lg:w-[400px] h-72 lg:h-[400px] bg-secondary/40 rounded-full blur-3xl animate-pulse-glow"></div>
+          <div className="absolute bottom-0 right-0 w-64 lg:w-96 h-64 lg:h-96 bg-orange/35 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute top-20 left-20 w-32 lg:w-48 h-32 lg:h-48 border-4 border-secondary/50 rounded-full animate-float-slower"></div>
+          <svg className="absolute bottom-1/3 right-10 w-40 lg:w-64 h-40 lg:h-64 opacity-50" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="hsl(35, 90%, 55%)" strokeWidth="3" />
+            <circle cx="100" cy="100" r="50" fill="hsl(35, 90%, 55%)" opacity="0.3" />
+          </svg>
+          <div className="absolute top-24 right-1/4 w-24 lg:w-32 h-24 lg:h-32 bg-secondary/40 rotate-45 animate-float-slow"></div>
+          <div className="absolute bottom-32 left-1/3 w-10 lg:w-14 h-10 lg:h-14 bg-secondary rounded-full opacity-60"></div>
         </>
       );
     default: // "default" - Filosofía style
