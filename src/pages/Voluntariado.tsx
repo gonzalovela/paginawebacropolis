@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Users, HandHeart, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
-import volunteeringImage from "@/assets/volunteering-action.jpg";
+import volunteeringImage from "@/assets/voluntariado-filosofico-intro-warm.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
