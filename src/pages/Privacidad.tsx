@@ -5,8 +5,11 @@ const Privacidad = () => {
   return (
     <PageLayout>
       <SEO
-        title="Política de Privacidad | Nueva Acrópolis Perú"
+        title="Política de Privacidad"
         description="Conoce cómo Nueva Acrópolis Perú protege tus datos personales conforme a la Ley N° 29733 de Protección de Datos Personales."
+        keywords="política de privacidad, protección de datos, ley 29733, datos personales, nueva acrópolis perú, ARCO"
+        url="https://acropolisperu.org/privacidad"
+        breadcrumbs={[{ name: "Política de Privacidad", url: "https://acropolisperu.org/privacidad" }]}
       />
       
       <div className="bg-background py-16 md:py-24">

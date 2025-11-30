@@ -5,8 +5,11 @@ const AvisoLegal = () => {
   return (
     <PageLayout>
       <SEO
-        title="Aviso Legal | Nueva Acrópolis Perú"
+        title="Aviso Legal"
         description="Información legal sobre el sitio web de Nueva Acrópolis Perú, incluyendo términos de uso, propiedad intelectual y condiciones de acceso."
+        keywords="aviso legal, términos de uso, propiedad intelectual, nueva acrópolis perú, condiciones legales"
+        url="https://acropolisperu.org/aviso-legal"
+        breadcrumbs={[{ name: "Aviso Legal", url: "https://acropolisperu.org/aviso-legal" }]}
       />
       
       <div className="bg-background py-16 md:py-24">
