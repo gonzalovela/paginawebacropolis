@@ -57,27 +57,32 @@ const Auth = () => {
 
   const loadInvitation = async (token: string) => {
     try {
+      // Use secure RPC function instead of direct table access
       const { data, error } = await supabase
-        .from('invitations')
-        .select('*')
-        .eq('token', token)
-        .eq('status', 'pending')
-        .single();
+        .rpc('get_invitation_by_token', { invitation_token: token });
 
-      if (error || !data) {
+      if (error || !data || data.length === 0) {
         toast.error("Invitación no válida o expirada");
         setLoadingInvitation(false);
         return;
       }
 
-      if (new Date(data.expires_at) < new Date()) {
+      const invitationData = data[0];
+
+      if (new Date(invitationData.expires_at) < new Date()) {
         toast.error("Esta invitación ha expirado");
         setLoadingInvitation(false);
         return;
       }
 
-      setInvitation(data);
-      setEmail(data.email);
+      setInvitation({
+        id: invitationData.id,
+        email: invitationData.email,
+        role: invitationData.role,
+        status: invitationData.status,
+        expires_at: invitationData.expires_at,
+      });
+      setEmail(invitationData.email);
       setIsLogin(false);
     } catch {
       toast.error("Error al verificar la invitación");
@@ -235,16 +240,22 @@ const Auth = () => {
           </Button>
         </form>
 
-        {!invitation && (
+        {!invitation && !isLogin && (
           <div className="mt-6 text-center">
             <button
               type="button"
-              onClick={() => setIsLogin(!isLogin)}
+              onClick={() => setIsLogin(true)}
               className="text-sm text-primary hover:underline"
             >
-              {isLogin ? "¿No tienes cuenta? Regístrate" : "¿Ya tienes cuenta? Inicia sesión"}
+              ¿Ya tienes cuenta? Inicia sesión
             </button>
           </div>
+        )}
+        
+        {!invitation && isLogin && (
+          <p className="mt-6 text-center text-xs text-muted-foreground">
+            El registro solo está disponible mediante invitación de un administrador.
+          </p>
         )}
       </Card>
     </div>
