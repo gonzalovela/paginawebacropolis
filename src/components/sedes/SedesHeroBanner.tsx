@@ -1,5 +1,5 @@
 import { ParallaxImage } from "@/components/ParallaxImage";
-import sedesImage from "@/assets/culture-mountain-group.jpg";
+import sedesImage from "@/assets/sedes-auditorio-group.jpg";
 
 export const SedesHeroBanner = () => {
   return (
