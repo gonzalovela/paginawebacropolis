@@ -194,7 +194,7 @@ export const Footer = () => {
               <a href="#" className="hover:text-accent transition-colors">
                 Privacidad
               </a>
-              <Link to="/auth" className="hover:text-accent transition-colors opacity-50 hover:opacity-100 text-[10px]">
+              <Link to="/admin" className="hover:text-accent transition-colors opacity-50 hover:opacity-100 text-[10px]">
                 admin
               </Link>
             </div>
