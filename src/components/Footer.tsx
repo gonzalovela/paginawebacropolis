@@ -169,12 +169,12 @@ export const Footer = () => {
               © {new Date().getFullYear()} Nueva Acrópolis Perú. Todos los derechos reservados.
             </p>
             <div className="flex gap-4 sm:gap-6 items-center flex-wrap justify-center">
-              <a href="#" className="hover:text-accent transition-colors">
+              <Link to="/aviso-legal" className="hover:text-accent transition-colors">
                 Aviso Legal
-              </a>
-              <a href="#" className="hover:text-accent transition-colors">
+              </Link>
+              <Link to="/privacidad" className="hover:text-accent transition-colors">
                 Privacidad
-              </a>
+              </Link>
               <Link to="/admin" className="hover:text-accent transition-colors opacity-50 hover:opacity-100 text-[10px]">
                 admin
               </Link>
