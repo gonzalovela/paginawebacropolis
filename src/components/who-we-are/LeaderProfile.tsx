@@ -114,7 +114,7 @@ export const LeaderProfile = ({
   );
 
   const contentSection = (
-    <div className="p-5 sm:p-8 md:p-10 lg:p-12 space-y-4 sm:space-y-6 flex flex-col justify-center">
+    <div className="p-6 sm:p-8 md:p-10 space-y-5 sm:space-y-6">
       <div className="space-y-3 sm:space-y-4">
         <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 ${tagColorClass.replace('text-', 'bg-')}/5 rounded-lg border ${tagColorClass.replace('text-', 'border-')}/10`}>
           <span className={`text-xs sm:text-sm font-semibold ${tagColorClass}`}>{tagLabel}</span>
@@ -154,11 +154,11 @@ export const LeaderProfile = ({
               <TimelineIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               {timelineTitle}
             </h4>
-            <div className="grid sm:grid-cols-2 gap-2 sm:gap-3">
+            <div className="space-y-2 sm:space-y-3">
               {timelineItems.map((item, index) => (
-                <div key={index} className={`flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r ${item.colorClass} rounded-xl border-l-3`}>
-                  <span className="font-bold text-xs sm:text-sm whitespace-nowrap min-w-[60px]">{item.year}</span>
-                  <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed">{item.description}</p>
+                <div key={index} className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r ${item.colorClass} rounded-xl border-l-4`}>
+                  <span className="font-bold text-sm sm:text-base min-w-[80px] sm:min-w-[90px]">{item.year}</span>
+                  <p className="text-sm sm:text-base text-foreground/80">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -177,7 +177,7 @@ export const LeaderProfile = ({
 
   return (
     <Card className={`overflow-hidden border-2 ${cardBorderColor} ${cardGradient}`}>
-      <div className={`grid lg:grid-cols-[380px,1fr] xl:grid-cols-[400px,1fr] gap-0`}>
+      <div className={`grid lg:grid-cols-2 gap-0`}>
         {reversed ? (
           <>
             <div className="order-2 lg:order-1">{contentSection}</div>
