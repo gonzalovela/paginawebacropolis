@@ -141,6 +141,14 @@ export const PageHeroBanner = ({
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
       
+      {/* Side blur overlays for sedes variant to hide neighboring buildings */}
+      {decorativeVariant === "sedes" && (
+        <>
+          <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black/90 via-black/60 to-transparent z-[1]" />
+          <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black/90 via-black/60 to-transparent z-[1]" />
+        </>
+      )}
+      
       {/* Decorative orange graphic elements - hidden on mobile for performance */}
       <div className="absolute inset-0 z-[2] pointer-events-none hidden md:block">
         <DecorativeElements variant={decorativeVariant} />
