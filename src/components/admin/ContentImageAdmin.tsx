@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { Loader2, Upload, Image as ImageIcon } from "lucide-react";
+import { Loader2, Upload, Image as ImageIcon, type LucideIcon } from "lucide-react";
 import { optimizeImage, IMAGE_PRESETS } from "@/hooks/useImageOptimization";
 import { IMAGE_POSITIONS, iconMap } from "@/utils/admin-constants";
 

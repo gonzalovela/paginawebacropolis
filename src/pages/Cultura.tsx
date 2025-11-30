@@ -1,27 +1,18 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Palette, Users, ArrowRight, BookOpen, Globe, Music, Lightbulb, LucideIcon } from "lucide-react";
+import { Palette, Users, BookOpen } from "lucide-react";
 import { SEO, seoConfig } from "@/components/SEO";
 import culturaFilosoficaImage from "@/assets/cultura-filosofica-intro.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Link } from "react-router-dom";
-import { AnimatedButton } from "@/components/ui/animated-button";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
 import { culturaActivities as defaultActivities, culturaValues } from "@/data/cultura-data";
 import { supabase } from "@/integrations/supabase/client";
 import { PageLayout } from "@/components/layouts";
-
-// Icon mapping for database activities
-const iconMap: Record<string, LucideIcon> = {
-  BookOpen,
-  Globe,
-  Music,
-  Lightbulb,
-};
+import { CTASection } from "@/components/CTASection";
+import { iconMap } from "@/utils/admin-constants";
 
 interface CulturaActividad {
   id: string;
@@ -181,52 +172,17 @@ const Cultura = () => {
           </div>
         </section>
 
-        {/* Participation */}
-        <section 
-          ref={participationRef}
-          className={`py-10 md:py-20 bg-background transition-all duration-1000 ${
-            participationVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <Card className="p-6 md:p-8 lg:p-12 bg-gradient-hero text-primary-foreground">
-                <div className="text-center space-y-4 md:space-y-6">
-                  <Users className="h-12 w-12 md:h-16 md:w-16 mx-auto opacity-90" />
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                    Únete a Nuestras Actividades
-                  </h3>
-                  <p className="text-sm md:text-lg opacity-90 max-w-2xl mx-auto">
-                    No importa si eres artista, estudiante, profesional o simplemente alguien curioso. 
-                    En Nueva Acrópolis todos son bienvenidos. La cultura nos enriquece a todos.
-                  </p>
-                  <div className="space-y-3 md:space-y-4 pt-4 md:pt-6">
-                    <p className="text-xs md:text-sm opacity-75">
-                      Muchas de nuestras actividades son gratuitas y no requieren inscripción previa.
-                      Si quieres participar activamente en la organización o como artista, contáctanos.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-                      <AnimatedButton size="lg" variant="secondary" asChild>
-                        <Link to="/inscripcion">
-                          Quiero participar
-                          <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                      </AnimatedButton>
-                      <Button
-                        size="lg" 
-                        variant="outline"
-                        className="bg-background/10 hover:bg-background/20 border-primary-foreground/30"
-                        asChild
-                      >
-                        <Link to="/">Volver al inicio</Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </section>
+        {/* Participation CTA */}
+        <CTASection
+          sectionRef={participationRef}
+          isVisible={participationVisible}
+          icon={Users}
+          title="Únete a Nuestras Actividades"
+          description="No importa si eres artista, estudiante, profesional o simplemente alguien curioso. En Nueva Acrópolis todos son bienvenidos. La cultura nos enriquece a todos."
+          note="Muchas de nuestras actividades son gratuitas y no requieren inscripción previa. Si quieres participar activamente en la organización o como artista, contáctanos."
+          primaryButtonText="Quiero participar"
+          className="bg-background"
+        />
       </PageLayout>
     </>
   );
