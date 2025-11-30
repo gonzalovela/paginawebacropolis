@@ -16,6 +16,23 @@ import { toast } from "sonner";
 import { Loader2, Upload, Image as ImageIcon, Save, Heart, BookOpen, HandHeart, Sprout, Users, Lightbulb } from "lucide-react";
 import { optimizeImage, IMAGE_PRESETS } from "@/hooks/useImageOptimization";
 
+// Default images for preview when no database image exists
+import yoAmoLecturaImage from "@/assets/voluntariado-yo-amo-lectura-warm.jpg";
+import adultoMayorImage from "@/assets/voluntariado-adulto-mayor.jpg";
+import humanitarioSocialImage from "@/assets/voluntariado-humanitario-social-warm.jpg";
+import medioAmbienteImage from "@/assets/voluntariado-medio-ambiente.jpg";
+import formacionImage from "@/assets/voluntariado-formacion.jpg";
+import talleresArtisticosImage from "@/assets/voluntariado-talleres-artisticos.jpg";
+
+const DEFAULT_IMAGES: Record<string, string> = {
+  "yo-amo-lectura": yoAmoLecturaImage,
+  "adulto-mayor": adultoMayorImage,
+  "humanitario-social": humanitarioSocialImage,
+  "medio-ambiente": medioAmbienteImage,
+  "formacion-voluntarios": formacionImage,
+  "talleres-artisticos": talleresArtisticosImage,
+};
+
 const IMAGE_POSITIONS = [
   { value: "center", label: "Centro", description: "La imagen se centra" },
   { value: "top", label: "Arriba", description: "Muestra la parte superior" },
@@ -168,15 +185,31 @@ export const VoluntariadoProgramasAdmin = () => {
                 <div className="grid md:grid-cols-2 gap-4">
                   {/* Image Section */}
                   <div className="relative aspect-video bg-muted">
-                    {programa.imagen_url ? (
-                      <img
-                        src={programa.imagen_url}
-                        alt={programa.titulo}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                        <ImageIcon className="h-12 w-12" />
+                    {(() => {
+                      const imageUrl = programa.imagen_url || DEFAULT_IMAGES[programa.slug];
+                      return imageUrl ? (
+                        <img
+                          src={imageUrl}
+                          alt={programa.titulo}
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: programa.imagen_position || 'center' }}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                          <ImageIcon className="h-12 w-12" />
+                        </div>
+                      );
+                    })()}
+                    
+                    {/* Current image indicator */}
+                    {!programa.imagen_url && DEFAULT_IMAGES[programa.slug] && (
+                      <div className="absolute top-2 left-2 bg-yellow-500/90 text-white text-xs px-2 py-1 rounded">
+                        Imagen por defecto
+                      </div>
+                    )}
+                    {programa.imagen_url && (
+                      <div className="absolute top-2 left-2 bg-green-500/90 text-white text-xs px-2 py-1 rounded">
+                        Imagen personalizada
                       </div>
                     )}
                     
