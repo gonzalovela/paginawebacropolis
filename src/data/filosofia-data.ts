@@ -64,17 +64,32 @@ export const courseModules = [
 export const testimonials = [
   {
     text: "El curso transformó mi forma de ver la vida. Ahora tengo herramientas prácticas para enfrentar cualquier desafío.",
-    author: "María González",
-    role: "Estudiante",
+    author: "María Elena Vargas",
+    role: "Lima",
   },
   {
     text: "Encontré respuestas a preguntas que tenía hace años. La filosofía se volvió algo vivo y aplicable.",
-    author: "Carlos Ruiz",
-    role: "Estudiante",
+    author: "Carlos Mendoza",
+    role: "Arequipa",
   },
   {
     text: "La filosofía dejó de ser algo abstracto. Ahora la aplico en mi día a día y me ha ayudado a conocerme mejor.",
-    author: "Ana Martínez",
-    role: "Estudiante",
+    author: "Patricia Sánchez",
+    role: "Cusco",
+  },
+  {
+    text: "Aprendí a manejar mis emociones y a tomar mejores decisiones. El curso me dio claridad y paz interior.",
+    author: "Roberto Gutiérrez",
+    role: "Trujillo",
+  },
+  {
+    text: "Descubrí un espacio de reflexión y crecimiento personal. Los profesores son excelentes y el ambiente muy acogedor.",
+    author: "Lucía Fernández",
+    role: "Chiclayo",
+  },
+  {
+    text: "Cada clase es una oportunidad para conocerme más. La sabiduría antigua aplicada al mundo moderno.",
+    author: "Jorge Huamán",
+    role: "Huancayo",
   },
 ];
