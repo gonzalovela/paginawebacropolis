@@ -25,6 +25,15 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false, objectPos
 
   const disableParallax = isMobile || prefersReducedMotion;
 
+  // Preload hero images immediately
+  useEffect(() => {
+    if (isHero && src) {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => setIsLoaded(true);
+    }
+  }, [isHero, src]);
+
   useEffect(() => {
     // Check if image is already cached
     if (imgElementRef.current?.complete && imgElementRef.current?.naturalHeight !== 0) {
@@ -82,9 +91,12 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false, objectPos
 
   return (
     <div className="absolute inset-0 overflow-hidden z-0">
-      {/* Skeleton placeholder */}
+      {/* Gradient placeholder for better UX while loading */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-muted animate-pulse" />
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-primary/20 via-muted to-secondary/20 animate-pulse"
+          style={{ animationDuration: '1.5s' }}
+        />
       )}
       
       <div 
@@ -105,9 +117,10 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false, objectPos
           src={src} 
           alt={alt}
           loading={isHero ? "eager" : "lazy"}
-          decoding="async"
+          decoding={isHero ? "sync" : "async"}
+          fetchPriority={isHero ? "high" : "auto"}
           onLoad={() => setIsLoaded(true)}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover transition-opacity duration-200 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
           style={{ objectPosition }}
