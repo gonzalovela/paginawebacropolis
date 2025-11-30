@@ -42,9 +42,9 @@ const Inscripcion = () => {
         />
 
         {/* Form Section with Animated Map Background */}
-        <section id="formulario" className="py-16 md:py-24 bg-background relative overflow-hidden scroll-mt-20">
+        <section id="formulario" className="py-10 sm:py-12 md:py-16 lg:py-24 bg-background relative overflow-hidden scroll-mt-20">
           <AnimatedMapBackground />
-          <div className="container px-4 md:px-6 relative z-10">
+          <div className="container px-4 sm:px-6 relative z-10">
             <ContactForm />
           </div>
         </section>

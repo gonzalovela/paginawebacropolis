@@ -3,7 +3,7 @@ import sedesImage from "@/assets/sedes-community-banner.jpg";
 
 export const SedesHeroBanner = () => {
   return (
-    <div className="relative py-16 sm:py-20 md:py-36 overflow-hidden">
+    <div className="relative py-14 sm:py-16 md:py-28 lg:py-36 overflow-hidden mt-16 sm:mt-20">
       <ParallaxImage 
         src={sedesImage} 
         alt="Comunidad de Nueva Acrópolis Perú - Encuentra tu sede más cercana" 
@@ -27,15 +27,15 @@ export const SedesHeroBanner = () => {
         <div className="absolute bottom-32 left-1/3 w-10 lg:w-14 h-10 lg:h-14 bg-secondary rounded-full opacity-60"></div>
       </div>
       
-      <div className="container relative z-10 px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
-          <div className="inline-block px-4 py-2 md:px-6 md:py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
+      <div className="container relative z-10 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-3 sm:space-y-4 md:space-y-6">
+          <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 bg-secondary/90 backdrop-blur-sm text-white rounded-full text-[10px] sm:text-xs md:text-sm font-bold mb-2 md:mb-4 shadow-lg">
             SEDES
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg px-2">
             Nuestras Sedes
           </h1>
-          <p className="text-base sm:text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
+          <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/95 leading-relaxed drop-shadow-md px-2">
             Encuentra la sede más cercana a ti y comienza tu viaje filosófico
           </p>
         </div>
