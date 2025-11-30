@@ -35,10 +35,11 @@ export const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container px-4 sm:px-6 py-10 sm:py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Logo and description */}
-          <div className="sm:col-span-2 lg:col-span-1 text-center sm:text-left">
+      <div className="container px-4 sm:px-6 py-8 sm:py-12 md:py-16">
+        {/* Desktop: 4 columns, Mobile: 2 columns (Contacto + Síguenos) */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+          {/* Logo and description - Hidden on mobile */}
+          <div className="hidden sm:block sm:col-span-2 lg:col-span-1 text-center sm:text-left">
             <img 
               src={logo} 
               alt="Nueva Acrópolis" 
@@ -52,8 +53,8 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Secciones */}
-          <div className="text-center sm:text-left">
+          {/* Secciones - Hidden on mobile */}
+          <div className="hidden sm:block text-center sm:text-left">
             <h3 className="font-bold mb-3 sm:mb-4">Secciones</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -84,12 +85,12 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact info */}
-          <div className="text-center sm:text-left">
-            <h3 className="font-bold mb-3 sm:mb-4">Contacto</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2 justify-center sm:justify-start">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+          {/* Contact info - Always visible */}
+          <div className="text-left">
+            <h3 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Contacto</h3>
+            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+              <li className="flex items-start gap-2">
+                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 flex-shrink-0" />
                 <span className="text-primary-foreground/80 text-left">
                   {sedePrincipal ? (
                     <>
@@ -103,8 +104,8 @@ export const Footer = () => {
                 </span>
               </li>
               {sedePrincipal?.whatsapp && (
-                <li className="flex items-center gap-2 justify-center sm:justify-start">
-                  <Phone className="h-4 w-4 flex-shrink-0" />
+                <li className="flex items-center gap-2">
+                  <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
                   <a 
                     href={`https://wa.me/${sedePrincipal.whatsapp.replace(/\D/g, '')}`}
                     target="_blank"
@@ -115,8 +116,8 @@ export const Footer = () => {
                   </a>
                 </li>
               )}
-              <li className="flex items-center gap-2 justify-center sm:justify-start">
-                <Mail className="h-4 w-4 flex-shrink-0" />
+              <li className="flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
                 <a 
                   href="mailto:informes@acropolisperu.org" 
                   className="text-primary-foreground/80 hover:text-accent transition-colors break-all"
@@ -127,36 +128,36 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Social media */}
-          <div className="text-center sm:text-left">
-            <h3 className="font-bold mb-3 sm:mb-4">Síguenos</h3>
-            <div className="flex gap-3 justify-center sm:justify-start">
+          {/* Social media - Always visible */}
+          <div className="text-left">
+            <h3 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Síguenos</h3>
+            <div className="flex gap-2 sm:gap-3">
               <a 
                 href={sedePrincipal?.facebook || "https://www.facebook.com/acropolisperu"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
+                className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
                 aria-label="Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
               <a 
                 href={sedePrincipal?.instagram || "https://www.instagram.com/nuevacropolis/"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
+                className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
               <a 
                 href="https://www.youtube.com/@perunuevacropolis" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
+                className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
                 aria-label="YouTube"
               >
-                <Youtube className="h-5 w-5" />
+                <Youtube className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
             </div>
           </div>
