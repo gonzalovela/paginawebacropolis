@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Users, HandHeart, ArrowRight } from "lucide-react";
+import { Users, HandHeart, ArrowRight, Heart, BookOpen, Sprout, Lightbulb, LucideIcon } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import volunteeringImage from "@/assets/voluntariado-filosofico-intro-warm.jpg";
@@ -13,13 +14,65 @@ import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
-import { voluntariadoPrinciples, voluntariadoAreas, voluntariadoValues } from "@/data/voluntariado-data";
+import { voluntariadoPrinciples, voluntariadoAreas as defaultAreas, voluntariadoValues } from "@/data/voluntariado-data";
+import { supabase } from "@/integrations/supabase/client";
+
+// Icon mapping for database programs
+const iconMap: Record<string, LucideIcon> = {
+  Heart,
+  BookOpen,
+  HandHeart,
+  Sprout,
+  Users,
+  Lightbulb,
+};
+
+interface VoluntariadoPrograma {
+  id: string;
+  slug: string;
+  titulo: string;
+  descripcion: string;
+  imagen_url: string | null;
+  icono: string;
+  actividades: string[];
+  orden: number;
+}
 
 const Voluntariado = () => {
+  const [dbPrograms, setDbPrograms] = useState<VoluntariadoPrograma[]>([]);
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
   const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
   const { elementRef: areasRef, isVisible: areasVisible } = useScrollAnimation();
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    const fetchPrograms = async () => {
+      const { data } = await supabase
+        .from('voluntariado_programas')
+        .select('*')
+        .eq('activo', true)
+        .order('orden', { ascending: true });
+      
+      if (data && data.length > 0) {
+        setDbPrograms(data);
+      }
+    };
+    fetchPrograms();
+  }, []);
+
+  // Merge DB programs with default areas (DB images take precedence)
+  const voluntariadoAreas = dbPrograms.length > 0
+    ? dbPrograms.map((dbProg, index) => {
+        const defaultArea = defaultAreas[index];
+        return {
+          icon: iconMap[dbProg.icono] || defaultArea?.icon || Heart,
+          title: dbProg.titulo,
+          description: dbProg.descripcion,
+          activities: dbProg.actividades || defaultArea?.activities || [],
+          image: dbProg.imagen_url || defaultArea?.image,
+        };
+      })
+    : defaultAreas;
 
   return (
     <>
