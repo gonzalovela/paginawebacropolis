@@ -10,7 +10,7 @@ import desarrolloPersonalImage from "@/assets/cultura-desarrollo-personal.jpg";
 const DEFAULT_IMAGES: Record<string, string> = {
   "charlas-conferencias": charlasConferenciasImage,
   "encuentros-culturales": encuentrosCulturalesImage,
-  "musica-artes": musicaArtesImage,
+  "musica-arte": musicaArtesImage,
   "desarrollo-personal": desarrolloPersonalImage,
 };
 
