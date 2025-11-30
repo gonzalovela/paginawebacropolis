@@ -36,10 +36,11 @@ const Filosofia = () => {
       <PageLayout>
         <PageHeroBanner
           bannerImage={bannerFilosofia}
-          bannerAlt="Persona en postura contemplativa frente a paisaje peruano al amanecer - Filosofía práctica y meditación en Nueva Acrópolis"
+          bannerAlt="Dos personas ayudándose a subir una montaña bajo la Vía Láctea al amanecer - Filosofía práctica en Nueva Acrópolis"
           badgeText="ESCUELA DE FILOSOFÍA"
           title={<><SparkleWord>Filosofía</SparkleWord> para la Vida</>}
           description="Una propuesta diferente de filosofía: práctica, viva y aplicable a los desafíos del mundo moderno."
+          objectPosition="center bottom"
           decorativeVariant="filosofia"
         />
 
