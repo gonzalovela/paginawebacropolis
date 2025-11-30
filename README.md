@@ -49,7 +49,7 @@ Este proyecto fue diseñado y desarrollado con dedicación por **Humantech AI Ag
 | TanStack Query | 5.x | Estado del servidor |
 | Shadcn/ui | - | Componentes UI |
 
-### Backend (Lovable Cloud / Supabase)
+### Backend (Cloud / Supabase)
 | Servicio | Propósito |
 |----------|-----------|
 | PostgreSQL | Base de datos relacional |
@@ -208,7 +208,7 @@ WITH CHECK (
 ### Prerrequisitos
 
 - Node.js 18+ o Bun
-- Cuenta en Lovable (para backend)
+
 
 ### Instalación
 
@@ -229,7 +229,7 @@ bun dev
 
 ### Variables de Entorno
 
-El proyecto utiliza Lovable Cloud, las variables se configuran automáticamente:
+El proyecto utiliza Lov Cloud, las variables se configuran automáticamente:
 
 ```env
 VITE_SUPABASE_URL=https://[project-id].supabase.co
@@ -273,12 +273,6 @@ El sitio es instalable como aplicación:
 
 ## 🚀 Despliegue
 
-### Lovable (Recomendado)
-
-1. El frontend se despliega automáticamente al hacer push
-2. Las Edge Functions se despliegan automáticamente
-3. Click en "Publish" → "Update" para publicar cambios
-
 ### Auto-hospedaje
 
 El código es estándar y puede desplegarse en:
@@ -288,7 +282,7 @@ El código es estándar y puede desplegarse en:
 - Cloudflare Pages
 - Cualquier hosting estático
 
-**Nota**: El backend (Supabase) permanece en Lovable Cloud.
+**Nota**: El backend (Supabase) permanece en Lova Cloud.
 
 ---
 
