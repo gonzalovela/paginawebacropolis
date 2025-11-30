@@ -30,6 +30,9 @@ export const WhoWeAreSymbolism = () => {
             <p>
               Se trata de un lugar simbólico para nuestra imaginación, que sugiere <span className="text-secondary font-semibold">ascender hacia lo más elevado de uno mismo</span>.
             </p>
+            <p>
+              <span className="text-secondary font-semibold">«Acro»</span> (<em>"elevado"</em>) se refiere a alcanzar <span className="text-secondary font-semibold">lo mejor de uno mismo</span>; <span className="text-secondary font-semibold">«polis»</span> (<em>"ciudad"</em>) implica estar <span className="text-secondary font-semibold">comprometidos con la sociedad</span>; y <span className="text-secondary font-semibold">«nueva»</span> significa dar una forma actual a estos <span className="text-secondary font-semibold">valores filosóficos atemporales</span>.
+            </p>
             <p className="text-lg sm:text-xl font-semibold text-foreground pt-4">
               Consideramos que el mundo actual necesita <span className="text-secondary">nuevas acrópolis</span>, no hechas de piedra sino de <span className="text-secondary">seres humanos</span>, levantadas en el <span className="text-secondary">corazón</span> de nuestras ciudades, para <span className="text-secondary">crecer interiormente</span> y recuperar los <span className="text-secondary">lazos profundos</span> que nos unan con <span className="text-secondary">los demás y con la naturaleza</span>.
             </p>
