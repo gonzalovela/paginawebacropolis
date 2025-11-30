@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
@@ -7,6 +9,19 @@ import bannerInscripcion from "@/assets/banner-inscripcion.jpg";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
 
 const Inscripcion = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#formulario") {
+      const element = document.getElementById("formulario");
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <SEO 
@@ -27,7 +42,7 @@ const Inscripcion = () => {
         />
 
         {/* Form Section with Animated Map Background */}
-        <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+        <section id="formulario" className="py-16 md:py-24 bg-background relative overflow-hidden scroll-mt-20">
           <AnimatedMapBackground />
           <div className="container px-4 md:px-6 relative z-10">
             <ContactForm />

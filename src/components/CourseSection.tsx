@@ -139,7 +139,7 @@ export const CourseSection = () => {
               {/* CTAs */}
               <div className="flex flex-col gap-3">
                 <AnimatedButton size="lg" className="w-full text-base sm:text-lg bg-primary hover:bg-primary/90" asChild>
-                  <Link to="/inscripcion">
+                  <Link to="/inscripcion#formulario">
                     Inscríbete ahora
                     <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Link>
