@@ -28,7 +28,7 @@ export const AdvancedCoursesSection = ({ isVisible }: AdvancedCoursesSectionProp
   return (
     <section 
       id="cursos-avanzados"
-      className={`py-12 md:py-20 bg-muted/30 transition-all duration-1000 ${
+      className={`py-12 md:py-20 bg-muted/30 transition-all duration-1000 scroll-mt-20 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
