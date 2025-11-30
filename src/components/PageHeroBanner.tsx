@@ -13,7 +13,7 @@ interface PageHeroBannerProps {
   description: string;
   objectPosition?: string;
   imageScale?: number;
-  decorativeVariant?: "default" | "cultura" | "voluntariado" | "inscripcion" | "sedes";
+  decorativeVariant?: "default" | "filosofia" | "cultura" | "voluntariado" | "inscripcion" | "sedes";
 }
 
 // Helper component to wrap sparkle text
@@ -153,6 +153,9 @@ export const PageHeroBanner = ({
       ) : decorativeVariant === "inscripcion" ? (
         /* Lighter gradient for inscripcion to show group photo better */
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-[1]" />
+      ) : decorativeVariant === "filosofia" ? (
+        /* Very light gradient for filosofia to show night sky/stars */
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 z-[1]" />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
       )}
