@@ -1,5 +1,5 @@
 import { PageHeroBanner } from "@/components/PageHeroBanner";
-import sedesImage from "@/assets/culture-mountain-group.jpg";
+import sedesImage from "@/assets/banner-sedes.jpg";
 
 export const SedesHeroBanner = () => {
   return (
