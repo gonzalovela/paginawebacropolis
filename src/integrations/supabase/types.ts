@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      cultura_actividades: {
+        Row: {
+          activo: boolean
+          created_at: string
+          descripcion: string
+          icono: string
+          id: string
+          imagen_position: string | null
+          imagen_url: string | null
+          orden: number
+          slug: string
+          titulo: string
+          updated_at: string
+        }
+        Insert: {
+          activo?: boolean
+          created_at?: string
+          descripcion: string
+          icono?: string
+          id?: string
+          imagen_position?: string | null
+          imagen_url?: string | null
+          orden?: number
+          slug: string
+          titulo: string
+          updated_at?: string
+        }
+        Update: {
+          activo?: boolean
+          created_at?: string
+          descripcion?: string
+          icono?: string
+          id?: string
+          imagen_position?: string | null
+          imagen_url?: string | null
+          orden?: number
+          slug?: string
+          titulo?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       inscripciones: {
         Row: {
           created_at: string
