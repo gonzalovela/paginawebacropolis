@@ -139,8 +139,8 @@ export const LeadershipTabs = () => {
           </div>
           <LeaderProfile
             name="Carlos Adelantado Puchal"
-            years="Presidente desde 2020"
-            role="Presidente Internacional"
+            years="Presidente internacional desde 2020"
+            role=""
             image={carlosAdelantadoPortrait}
             imageAlt="Carlos Adelantado Puchal - Presidente Internacional"
             infoItems={[
