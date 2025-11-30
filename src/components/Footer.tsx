@@ -179,6 +179,18 @@ export const Footer = () => {
               </Link>
             </div>
           </div>
+          
+          {/* Powered by Humantech */}
+          <div className="mt-4 pt-4 border-t border-primary-foreground/10 text-center">
+            <a 
+              href="https://www.humantech.pe" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[10px] text-primary-foreground/40 hover:text-primary-foreground/60 transition-colors"
+            >
+              Powered by Humantech AI Agency
+            </a>
+          </div>
         </div>
       </div>
     </footer>
