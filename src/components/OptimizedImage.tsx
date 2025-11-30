@@ -78,7 +78,8 @@ export const OptimizedImage = ({
           sizes={sizes}
           loading={loading || (priority ? "eager" : "lazy")}
           decoding="async"
-          fetchPriority={priority ? "high" : "auto"}
+          // @ts-ignore - fetchpriority is a valid HTML attribute
+          fetchpriority={priority ? "high" : "auto"}
           onLoad={() => setIsLoaded(true)}
           onError={() => setIsLoaded(true)}
           style={style}
