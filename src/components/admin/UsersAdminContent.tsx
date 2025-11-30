@@ -99,9 +99,9 @@ export const UsersAdminContent = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold">Gestión de Usuarios y Roles</h2>
+        <h2 className="text-2xl font-bold">Gestión de Roles y Accesos</h2>
         <p className="text-sm text-muted-foreground">
-          {users.length} usuarios registrados
+          Controla quién puede acceder al panel de administración
         </p>
       </div>
 
