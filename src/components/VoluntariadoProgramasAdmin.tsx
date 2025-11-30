@@ -117,24 +117,23 @@ export const VoluntariadoProgramasAdmin = () => {
     }
   };
 
-  const handleSaveChanges = async (programaId: string, programa: VoluntariadoPrograma) => {
+  const handleSavePosition = async (programaId: string, position: string) => {
     setSaving(programaId);
 
     try {
       const { error } = await supabase
         .from('voluntariado_programas')
         .update({ 
-          descripcion: programa.descripcion,
-          imagen_position: programa.imagen_position,
+          imagen_position: position,
           updated_at: new Date().toISOString() 
         })
         .eq('id', programaId);
 
       if (error) throw error;
 
-      toast.success("Cambios guardados correctamente");
+      toast.success("Posición guardada correctamente");
     } catch (error) {
-      toast.error("Error al guardar los cambios");
+      toast.error("Error al guardar la posición");
     } finally {
       setSaving(null);
     }
@@ -156,7 +155,7 @@ export const VoluntariadoProgramasAdmin = () => {
           Programas de Voluntariado
         </CardTitle>
         <p className="text-sm text-muted-foreground">
-          Gestiona las imágenes y descripciones de los 6 programas de voluntariado que aparecen en la página de Voluntariado.
+          Gestiona las imágenes de los 6 programas de voluntariado. Los textos descriptivos se mantienen fijos para preservar el SEO.
         </p>
       </CardHeader>
       <CardContent>
@@ -219,25 +218,14 @@ export const VoluntariadoProgramasAdmin = () => {
                       <h3 className="font-semibold text-lg">{programa.titulo}</h3>
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor={`desc-vol-${programa.id}`}>Descripción</Label>
-                      <Textarea
-                        id={`desc-vol-${programa.id}`}
-                        value={programa.descripcion}
-                        onChange={(e) => {
-                          setProgramas(prev =>
-                            prev.map(p => p.id === programa.id ? { ...p, descripcion: e.target.value } : p)
-                          );
-                        }}
-                        rows={5}
-                        className="resize-none"
-                      />
-                    </div>
+                    <p className="text-sm text-muted-foreground line-clamp-3">
+                      {programa.descripcion}
+                    </p>
 
                     <div className="space-y-2">
-                      <Label>Actividades</Label>
+                      <Label className="text-xs">Actividades del programa</Label>
                       <div className="flex flex-wrap gap-1">
-                        {programa.actividades.map((act, i) => (
+                        {programa.actividades?.map((act, i) => (
                           <span key={i} className="text-xs bg-muted px-2 py-1 rounded">
                             {act}
                           </span>
@@ -253,6 +241,7 @@ export const VoluntariadoProgramasAdmin = () => {
                           setProgramas(prev =>
                             prev.map(p => p.id === programa.id ? { ...p, imagen_position: value } : p)
                           );
+                          handleSavePosition(programa.id, value);
                         }}
                       >
                         <SelectTrigger className="w-full bg-background">
@@ -270,19 +259,6 @@ export const VoluntariadoProgramasAdmin = () => {
                         </SelectContent>
                       </Select>
                     </div>
-
-                    <Button
-                      onClick={() => handleSaveChanges(programa.id, programa)}
-                      disabled={saving === programa.id}
-                      className="w-full"
-                    >
-                      {saving === programa.id ? (
-                        <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                      ) : (
-                        <Save className="h-4 w-4 mr-2" />
-                      )}
-                      Guardar cambios
-                    </Button>
                   </div>
                 </div>
               </Card>

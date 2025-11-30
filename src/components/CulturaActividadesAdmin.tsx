@@ -115,24 +115,23 @@ export const CulturaActividadesAdmin = () => {
     }
   };
 
-  const handleSaveChanges = async (actividadId: string, actividad: CulturaActividad) => {
+  const handleSavePosition = async (actividadId: string, position: string) => {
     setSaving(actividadId);
 
     try {
       const { error } = await supabase
         .from('cultura_actividades')
         .update({ 
-          descripcion: actividad.descripcion, 
-          imagen_position: actividad.imagen_position,
+          imagen_position: position,
           updated_at: new Date().toISOString() 
         })
         .eq('id', actividadId);
 
       if (error) throw error;
 
-      toast.success("Cambios guardados correctamente");
+      toast.success("Posición guardada");
     } catch (error) {
-      toast.error("Error al guardar los cambios");
+      toast.error("Error al guardar la posición");
     } finally {
       setSaving(null);
     }
@@ -155,7 +154,7 @@ export const CulturaActividadesAdmin = () => {
           Actividades Culturales
         </CardTitle>
         <p className="text-sm text-muted-foreground">
-          Gestiona las imágenes y descripciones de las 4 actividades culturales principales que aparecen en la página de Cultura.
+          Gestiona las imágenes de las 4 actividades culturales. Los textos descriptivos se mantienen fijos para preservar el SEO.
         </p>
       </CardHeader>
       <CardContent>
@@ -219,20 +218,9 @@ export const CulturaActividadesAdmin = () => {
                       <h3 className="font-semibold text-lg">{actividad.titulo}</h3>
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor={`desc-${actividad.id}`}>Descripción</Label>
-                      <Textarea
-                        id={`desc-${actividad.id}`}
-                        value={actividad.descripcion}
-                        onChange={(e) => {
-                          setActividades(prev =>
-                            prev.map(a => a.id === actividad.id ? { ...a, descripcion: e.target.value } : a)
-                          );
-                        }}
-                        rows={4}
-                        className="resize-none"
-                      />
-                    </div>
+                    <p className="text-sm text-muted-foreground line-clamp-3">
+                      {actividad.descripcion}
+                    </p>
 
                     <div className="space-y-2">
                       <Label>Posición de imagen</Label>
@@ -242,6 +230,7 @@ export const CulturaActividadesAdmin = () => {
                           setActividades(prev =>
                             prev.map(a => a.id === actividad.id ? { ...a, imagen_position: value } : a)
                           );
+                          handleSavePosition(actividad.id, value);
                         }}
                       >
                         <SelectTrigger className="w-full bg-background">
@@ -259,19 +248,6 @@ export const CulturaActividadesAdmin = () => {
                         </SelectContent>
                       </Select>
                     </div>
-
-                    <Button
-                      onClick={() => handleSaveChanges(actividad.id, actividad)}
-                      disabled={saving === actividad.id}
-                      className="w-full"
-                    >
-                      {saving === actividad.id ? (
-                        <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                      ) : (
-                        <Save className="h-4 w-4 mr-2" />
-                      )}
-                      Guardar cambios
-                    </Button>
                   </div>
                 </div>
               </Card>
