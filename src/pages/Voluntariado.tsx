@@ -35,6 +35,7 @@ interface VoluntariadoPrograma {
   imagen_url: string | null;
   icono: string;
   actividades: string[];
+  alt_text: string | null;
   orden: number;
 }
 
@@ -70,9 +71,13 @@ const Voluntariado = () => {
           description: dbProg.descripcion,
           activities: dbProg.actividades || defaultArea?.activities || [],
           image: dbProg.imagen_url || defaultArea?.image,
+          imageAlt: dbProg.alt_text || `${dbProg.titulo} - Programa de voluntariado Nueva Acrópolis Perú`,
         };
       })
-    : defaultAreas;
+    : defaultAreas.map(area => ({
+        ...area,
+        imageAlt: `${area.title} - Programa de voluntariado Nueva Acrópolis Perú`,
+      }));
 
   return (
     <>
@@ -218,6 +223,7 @@ const Voluntariado = () => {
                   title={area.title}
                   description={area.description}
                   image={area.image}
+                  imageAlt={area.imageAlt}
                   items={area.activities}
                   variant="full"
                 />

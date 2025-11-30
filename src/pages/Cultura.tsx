@@ -32,6 +32,7 @@ interface CulturaActividad {
   imagen_url: string | null;
   icono: string;
   imagen_position: string | null;
+  alt_text: string | null;
   orden: number;
 }
 
@@ -65,10 +66,14 @@ const Cultura = () => {
           title: dbAct.titulo,
           description: dbAct.descripcion,
           image: dbAct.imagen_url || defaultAct?.image,
+          imageAlt: dbAct.alt_text || `${dbAct.titulo} - Actividad cultural Nueva Acrópolis Perú`,
           imagePosition: dbAct.imagen_position || (defaultAct as any)?.imagePosition,
         };
       })
-    : defaultActivities;
+    : defaultActivities.map(act => ({
+        ...act,
+        imageAlt: `${act.title} - Actividad cultural Nueva Acrópolis Perú`,
+      }));
 
   return (
     <>
@@ -170,6 +175,7 @@ const Cultura = () => {
                   title={activity.title}
                   description={activity.description}
                   image={activity.image}
+                  imageAlt={activity.imageAlt}
                   imagePosition={activity.imagePosition}
                   variant="compact"
                 />

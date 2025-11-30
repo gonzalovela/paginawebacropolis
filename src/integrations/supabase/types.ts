@@ -17,6 +17,7 @@ export type Database = {
       cultura_actividades: {
         Row: {
           activo: boolean
+          alt_text: string | null
           created_at: string
           descripcion: string
           icono: string
@@ -30,6 +31,7 @@ export type Database = {
         }
         Insert: {
           activo?: boolean
+          alt_text?: string | null
           created_at?: string
           descripcion: string
           icono?: string
@@ -43,6 +45,7 @@ export type Database = {
         }
         Update: {
           activo?: boolean
+          alt_text?: string | null
           created_at?: string
           descripcion?: string
           icono?: string
@@ -271,6 +274,7 @@ export type Database = {
         Row: {
           actividades: string[] | null
           activo: boolean
+          alt_text: string | null
           created_at: string
           descripcion: string
           icono: string
@@ -284,6 +288,7 @@ export type Database = {
         Insert: {
           actividades?: string[] | null
           activo?: boolean
+          alt_text?: string | null
           created_at?: string
           descripcion: string
           icono?: string
@@ -297,6 +302,7 @@ export type Database = {
         Update: {
           actividades?: string[] | null
           activo?: boolean
+          alt_text?: string | null
           created_at?: string
           descripcion?: string
           icono?: string
