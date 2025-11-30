@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Trash2, Upload, Eye, EyeOff, Pencil, AlertTriangle } from "lucide-react";
 import { toast } from "sonner";
+import { optimizeImage, IMAGE_PRESETS } from "@/hooks/useImageOptimization";
 
 type VolunteerPhoto = {
   id: string;
@@ -131,15 +132,21 @@ export const VoluntariadoFotosAdmin = () => {
       }
 
       setUploading(true);
+      
+      // Optimize image before upload
+      toast.info("Optimizando imagen...");
+      const optimizedFile = await optimizeImage(formData.file, IMAGE_PRESETS.gallery);
 
-      // Upload image
-      const fileExt = formData.file.name.split(".").pop();
+      // Upload optimized image
+      const fileExt = optimizedFile.name.split(".").pop();
       const fileName = `${Math.random()}.${fileExt}`;
       const filePath = `${fileName}`;
 
       const { error: uploadError } = await supabase.storage
         .from("voluntariado-fotos")
-        .upload(filePath, formData.file);
+        .upload(filePath, optimizedFile, {
+          contentType: optimizedFile.type,
+        });
 
       if (uploadError) throw uploadError;
 
@@ -163,7 +170,7 @@ export const VoluntariadoFotosAdmin = () => {
       if (insertError) throw insertError;
     },
     onSuccess: () => {
-      toast.success("Foto agregada exitosamente");
+      toast.success("Foto optimizada y agregada exitosamente");
       queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos-admin"] });
       queryClient.invalidateQueries({ queryKey: ["voluntariado-fotos"] });
       setFormData({ titulo: "", descripcion: "", categoria: "yo_amo_lectura", sede_id: "", file: null });

@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2, Upload, Image as ImageIcon, Save } from "lucide-react";
 import { BookOpen, Globe, Music, Lightbulb } from "lucide-react";
+import { optimizeImage, IMAGE_PRESETS } from "@/hooks/useImageOptimization";
 
 interface CulturaActividad {
   id: string;
@@ -57,12 +58,19 @@ export const CulturaActividadesAdmin = () => {
     setUploading(actividadId);
     
     try {
-      const fileExt = file.name.split('.').pop();
+      // Optimize image before upload (resize and compress)
+      toast.info("Optimizando imagen...");
+      const optimizedFile = await optimizeImage(file, IMAGE_PRESETS.programCard);
+      
+      const fileExt = optimizedFile.name.split('.').pop();
       const fileName = `${actividadId}-${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
         .from('cultura-actividades')
-        .upload(fileName, file, { upsert: true });
+        .upload(fileName, optimizedFile, { 
+          upsert: true,
+          contentType: optimizedFile.type,
+        });
 
       if (uploadError) throw uploadError;
 
@@ -81,7 +89,7 @@ export const CulturaActividadesAdmin = () => {
         prev.map(a => a.id === actividadId ? { ...a, imagen_url: publicUrl } : a)
       );
 
-      toast.success("Imagen actualizada correctamente");
+      toast.success("Imagen optimizada y actualizada correctamente");
     } catch (error) {
       toast.error("Error al subir la imagen");
     } finally {
