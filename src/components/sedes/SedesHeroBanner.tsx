@@ -9,7 +9,7 @@ export const SedesHeroBanner = () => {
         alt="Comunidad de Nueva Acrópolis Perú - Encuentra tu sede más cercana" 
         speed={0.5} 
         isHero
-        objectPosition="center 50%"
+        objectPosition="center 60%"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-[1]" />
       
