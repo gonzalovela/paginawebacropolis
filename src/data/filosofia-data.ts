@@ -4,7 +4,7 @@ export const courseModules = [
     description: "Constitución humana y de la naturaleza. Filosofía activa: una forma de vida. ¿Cómo reconocer y desarrollar los valores humanos?",
   },
   {
-    title: "La guerra interior",
+    title: "Cómo enfrentar nuestras batallas interiores",
     description: "Simbolismo del Bhagavad Gîta. Planteamiento del conflicto interior. Las 3 Gunas. La recta acción.",
   },
   {
@@ -20,8 +20,8 @@ export const courseModules = [
     description: "Aristóteles y la autarquía. La ética aristotélica. Los grados del saber.",
   },
   {
-    title: "Importancia del eclecticismo para lograr la convivencia",
-    description: "La Escuela Ecléctica de Alejandría. La comprensión de la unidad del universo. Eros o el Amor.",
+    title: "El Alma y su encuentro con la esencia del Universo",
+    description: "Plotino y la comprensión de la unidad del universo. Las tres vías del acercamiento a la sabiduría: la belleza, la música y la filosofía.",
   },
   {
     title: "El reto de vivir en sociedad",
