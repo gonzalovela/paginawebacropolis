@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { toast } from "sonner";
@@ -19,6 +20,7 @@ const contactSchema = z.object({
   interest: z.enum(["curso", "filosofia", "cultura", "voluntariado", "otro"], { message: "Selecciona una opción" }),
   message: z.string().trim().min(10, { message: "El mensaje es muy corto" }).max(1000, { message: "El mensaje es muy largo" }),
   sedeId: z.string().min(1, { message: "Selecciona una sede" }),
+  acceptPrivacy: z.literal(true, { message: "Debes aceptar la política de privacidad" }),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -32,13 +34,14 @@ interface Sede {
 
 export const ContactForm = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<ContactFormData>({
+  const [formData, setFormData] = useState<Omit<ContactFormData, 'acceptPrivacy'> & { acceptPrivacy: boolean }>({
     name: "",
     email: "",
     phone: "",
     interest: "curso",
     message: "",
     sedeId: "",
+    acceptPrivacy: false,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -256,13 +259,28 @@ export const ContactForm = () => {
           <p className="text-xs text-muted-foreground">{formData.message.length}/1000 caracteres</p>
         </div>
 
+        <div className="space-y-2">
+          <div className="flex items-start space-x-3">
+            <Checkbox
+              id="acceptPrivacy"
+              checked={formData.acceptPrivacy}
+              onCheckedChange={(checked) => setFormData({ ...formData, acceptPrivacy: checked === true })}
+              className={errors.acceptPrivacy ? "border-destructive" : ""}
+            />
+            <Label htmlFor="acceptPrivacy" className="text-sm leading-relaxed cursor-pointer">
+              He leído y acepto la{" "}
+              <Link to="/privacidad" target="_blank" className="text-primary underline hover:text-primary/80">
+                Política de Privacidad
+              </Link>{" "}
+              y el tratamiento de mis datos personales conforme a la Ley N° 29733. *
+            </Label>
+          </div>
+          {errors.acceptPrivacy && <p className="text-sm text-destructive">{errors.acceptPrivacy}</p>}
+        </div>
+
         <AnimatedButton type="submit" size="lg" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? "Enviando..." : "Enviar mensaje"}
         </AnimatedButton>
-
-        <p className="text-xs text-center text-muted-foreground">
-          Al enviar este formulario, aceptas que Nueva Acrópolis se ponga en contacto contigo.
-        </p>
       </form>
     </Card>
   );
