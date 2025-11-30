@@ -5,7 +5,7 @@ import { OptimizedImage } from "@/components/OptimizedImage";
 import { Pointer } from "@/components/ui/pointer";
 import { Heart } from "lucide-react";
 import { BorderBeam } from "@/components/ui/border-beam";
-import philosophyImage from "@/assets/banner-filosofia.jpg";
+import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
 import volunteeringImage from "@/assets/banner-voluntariado.jpg";
 
