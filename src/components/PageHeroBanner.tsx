@@ -12,6 +12,7 @@ interface PageHeroBannerProps {
   title: ReactNode;
   description: string;
   objectPosition?: string;
+  imageScale?: number;
   decorativeVariant?: "default" | "cultura" | "voluntariado" | "inscripcion" | "sedes";
 }
 
@@ -124,6 +125,7 @@ export const PageHeroBanner = ({
   title,
   description,
   objectPosition,
+  imageScale,
   decorativeVariant = "default",
 }: PageHeroBannerProps) => {
   const badgeClasses = badgeVariant === "secondary" 
@@ -138,6 +140,7 @@ export const PageHeroBanner = ({
         speed={0.5} 
         isHero 
         objectPosition={objectPosition}
+        scale={imageScale}
       />
       {/* Base gradient - symmetric for sedes, original for others */}
       {decorativeVariant === "sedes" ? (
