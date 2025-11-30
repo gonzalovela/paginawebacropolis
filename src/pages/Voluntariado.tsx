@@ -5,7 +5,6 @@ import { SEO, seoConfig } from "@/components/SEO";
 import volunteeringImage from "@/assets/voluntariado-filosofico-intro-warm.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
@@ -14,6 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { PageLayout } from "@/components/layouts";
 import { CTASection } from "@/components/CTASection";
 import { iconMap } from "@/utils/admin-constants";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 interface VoluntariadoPrograma {
   id: string;
@@ -30,10 +30,6 @@ interface VoluntariadoPrograma {
 
 const Voluntariado = () => {
   const [dbPrograms, setDbPrograms] = useState<VoluntariadoPrograma[]>([]);
-  const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
-  const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
-  const { elementRef: areasRef, isVisible: areasVisible } = useScrollAnimation();
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   useEffect(() => {
     const fetchPrograms = async () => {
@@ -91,12 +87,7 @@ const Voluntariado = () => {
         />
 
         {/* Key Messages */}
-        <section 
-          ref={principlesRef}
-          className={`py-10 md:py-20 bg-gradient-to-br from-background via-secondary/5 to-background transition-all duration-1000 ${
-            principlesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <AnimatedSection as="section" className="py-10 md:py-20 bg-gradient-to-br from-background via-secondary/5 to-background">
           <div className="container px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
@@ -133,15 +124,10 @@ const Voluntariado = () => {
               })}
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Introduction */}
-        <section 
-          ref={introRef}
-          className={`py-10 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
-            introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <AnimatedSection as="section" className="py-10 md:py-20 bg-gradient-subtle">
           <div className="container px-4 md:px-6">
             <div className="max-w-5xl mx-auto space-y-6 md:space-y-8">
               {/* Hero Image */}
@@ -184,15 +170,10 @@ const Voluntariado = () => {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Areas of Action */}
-        <section 
-          ref={areasRef}
-          className={`py-10 md:py-20 bg-background transition-all duration-1000 ${
-            areasVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <AnimatedSection as="section" className="py-10 md:py-20 bg-background">
           <div className="container px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
@@ -220,7 +201,7 @@ const Voluntariado = () => {
               ))}
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Gallery Section */}
         <section className="py-10 sm:py-12 md:py-20 bg-background">
@@ -239,8 +220,6 @@ const Voluntariado = () => {
 
         {/* Call to Action */}
         <CTASection
-          sectionRef={ctaRef}
-          isVisible={ctaVisible}
           icon={Users}
           title="Únete a Nuestra Comunidad de Voluntarios"
           description="No necesitas experiencia previa, solo ganas de contribuir y aprender. El voluntariado filosófico transforma tanto al que da como al que recibe. Es un camino de crecimiento personal y servicio a la comunidad."

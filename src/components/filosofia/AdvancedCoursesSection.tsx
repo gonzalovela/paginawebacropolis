@@ -1,10 +1,5 @@
 import { Card } from "@/components/ui/card";
 import { GraduationCap, BookOpen, Brain, Globe, Heart, Users, Mic2, History, Compass, Sparkles, Star, Telescope, FlaskConical, Palette } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-interface AdvancedCoursesSectionProps {
-  isVisible: boolean;
-}
 
 const advancedCourses = [
   { name: "Psicología", icon: Brain, description: "Comprensión profunda de la mente humana" },
@@ -24,13 +19,11 @@ const advancedCourses = [
   { name: "Estética y Metafísica", icon: Palette, description: "Belleza y realidades trascendentes" },
 ];
 
-export const AdvancedCoursesSection = ({ isVisible }: AdvancedCoursesSectionProps) => {
+export const AdvancedCoursesSection = () => {
   return (
     <section 
       id="cursos-avanzados"
-      className={`py-12 md:py-20 bg-muted/30 transition-all duration-1000 scroll-mt-20 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      className="py-12 md:py-20 bg-muted/30 scroll-mt-20"
     >
       <div className="container px-4 md:px-6">
         {/* Header */}

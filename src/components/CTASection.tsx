@@ -1,9 +1,9 @@
-import { ReactNode, RefObject } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { ArrowRight, type LucideIcon } from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 interface CTASectionProps {
   icon: LucideIcon;
@@ -15,8 +15,6 @@ interface CTASectionProps {
   secondaryButtonText?: string;
   secondaryButtonLink?: string;
   className?: string;
-  isVisible?: boolean;
-  sectionRef?: RefObject<HTMLElement | null>;
 }
 
 export const CTASection = ({
@@ -29,15 +27,11 @@ export const CTASection = ({
   secondaryButtonText = "Volver al inicio",
   secondaryButtonLink = "/",
   className = "",
-  isVisible = true,
-  sectionRef,
 }: CTASectionProps) => {
   return (
-    <section
-      ref={sectionRef}
-      className={`py-10 sm:py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      } ${className}`}
+    <AnimatedSection
+      as="section"
+      className={`py-10 sm:py-12 md:py-20 bg-gradient-subtle ${className}`}
     >
       <div className="container px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
@@ -82,6 +76,6 @@ export const CTASection = ({
           </Card>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };

@@ -5,17 +5,11 @@ import { Link } from "react-router-dom";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { courseModules } from "@/data/filosofia-data";
 
-interface CourseModulesSectionProps {
-  isVisible: boolean;
-}
-
-export const CourseModulesSection = ({ isVisible }: CourseModulesSectionProps) => {
+export const CourseModulesSection = () => {
   return (
     <section 
       id="conocete-a-ti-mismo"
-      className={`py-12 md:py-20 relative overflow-hidden transition-all duration-1000 scroll-mt-20 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      className="py-12 md:py-20 relative overflow-hidden scroll-mt-20"
     >
       {/* Colorful background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
