@@ -51,12 +51,25 @@ export const ContactForm = () => {
       try {
         const { data, error } = await supabase
           .from("sedes")
-          .select("id, nombre, ciudad, es_principal")
-          .order("es_principal", { ascending: false })
-          .order("ciudad");
+          .select("id, nombre, ciudad, es_principal");
         
         if (error) throw error;
-        setSedes(data || []);
+        
+        // Sort: principal first, then alphabetically by ciudad, then by nombre
+        const sortedData = (data || []).sort((a, b) => {
+          // Principal always first
+          if (a.es_principal && !b.es_principal) return -1;
+          if (!a.es_principal && b.es_principal) return 1;
+          
+          // Then by ciudad alphabetically
+          const ciudadCompare = a.ciudad.localeCompare(b.ciudad, 'es');
+          if (ciudadCompare !== 0) return ciudadCompare;
+          
+          // Then by nombre alphabetically
+          return a.nombre.localeCompare(b.nombre, 'es');
+        });
+        
+        setSedes(sortedData);
       } catch {
         toast.error("Error al cargar las sedes");
       } finally {
@@ -199,7 +212,7 @@ export const ContactForm = () => {
             <SelectContent>
               {sedes.map((sede) => (
                 <SelectItem key={sede.id} value={sede.id}>
-                  {sede.nombre} - {sede.ciudad}
+                  {sede.ciudad} - {sede.nombre}
                   {sede.es_principal && " (Principal)"}
                 </SelectItem>
               ))}
