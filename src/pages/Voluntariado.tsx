@@ -1,30 +1,19 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Users, HandHeart, ArrowRight, Heart, BookOpen, Sprout, Lightbulb, LucideIcon } from "lucide-react";
+import { Users, HandHeart, Heart } from "lucide-react";
 import { SEO, seoConfig } from "@/components/SEO";
 import volunteeringImage from "@/assets/voluntariado-filosofico-intro-warm.jpg";
 import bannerVoluntariado from "@/assets/banner-voluntariado.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Link } from "react-router-dom";
 import { VoluntariadoGallery } from "@/components/VoluntariadoGallery";
-import { AnimatedButton } from "@/components/ui/animated-button";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
 import { voluntariadoPrinciples, voluntariadoAreas as defaultAreas, voluntariadoValues } from "@/data/voluntariado-data";
 import { supabase } from "@/integrations/supabase/client";
 import { PageLayout } from "@/components/layouts";
-
-// Icon mapping for database programs
-const iconMap: Record<string, LucideIcon> = {
-  Heart,
-  BookOpen,
-  HandHeart,
-  Sprout,
-  Users,
-  Lightbulb,
-};
+import { CTASection } from "@/components/CTASection";
+import { iconMap } from "@/utils/admin-constants";
 
 interface VoluntariadoPrograma {
   id: string;
@@ -249,52 +238,15 @@ const Voluntariado = () => {
         </section>
 
         {/* Call to Action */}
-        <section
-          ref={ctaRef}
-          className={`py-10 sm:py-12 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
-            ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <div className="container px-4 sm:px-6">
-            <div className="max-w-4xl mx-auto">
-              <Card className="p-6 sm:p-8 md:p-12 bg-gradient-hero text-primary-foreground">
-                <div className="text-center space-y-4 sm:space-y-6">
-                  <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 mx-auto opacity-90" />
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                    Únete a Nuestra Comunidad de Voluntarios
-                  </h3>
-                  <p className="text-sm sm:text-base md:text-lg opacity-90 max-w-2xl mx-auto leading-relaxed px-2">
-                    No necesitas experiencia previa, solo ganas de contribuir y aprender. 
-                    El voluntariado filosófico transforma tanto al que da como al que recibe. 
-                    Es un camino de crecimiento personal y servicio a la comunidad.
-                  </p>
-                  <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-6">
-                    <p className="text-xs sm:text-sm opacity-75 px-2">
-                      Las actividades de voluntariado se realizan regularmente. 
-                      Puedes participar ocasionalmente o ser parte permanente de nuestros equipos.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                      <AnimatedButton size="lg" variant="secondary" className="w-full sm:w-auto" asChild>
-                        <Link to="/inscripcion">
-                          Quiero ser voluntario
-                          <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                        </Link>
-                      </AnimatedButton>
-                      <Button
-                        size="lg" 
-                        variant="outline"
-                        className="w-full sm:w-auto bg-background/10 hover:bg-background/20 border-primary-foreground/30"
-                        asChild
-                      >
-                        <Link to="/">Volver al inicio</Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </section>
+        <CTASection
+          sectionRef={ctaRef}
+          isVisible={ctaVisible}
+          icon={Users}
+          title="Únete a Nuestra Comunidad de Voluntarios"
+          description="No necesitas experiencia previa, solo ganas de contribuir y aprender. El voluntariado filosófico transforma tanto al que da como al que recibe. Es un camino de crecimiento personal y servicio a la comunidad."
+          note="Las actividades de voluntariado se realizan regularmente. Puedes participar ocasionalmente o ser parte permanente de nuestros equipos."
+          primaryButtonText="Quiero ser voluntario"
+        />
       </PageLayout>
     </>
   );

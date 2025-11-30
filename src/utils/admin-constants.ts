@@ -1,4 +1,14 @@
-import { Heart, BookOpen, HandHeart, Sprout, Users, Lightbulb, Globe, Music } from "lucide-react";
+import { 
+  Heart, 
+  BookOpen, 
+  HandHeart, 
+  Sprout, 
+  Users, 
+  Lightbulb, 
+  Globe, 
+  Music,
+  type LucideIcon 
+} from "lucide-react";
 
 export const IMAGE_POSITIONS = [
   { value: "center", label: "Centro", description: "La imagen se centra" },
@@ -10,7 +20,8 @@ export const IMAGE_POSITIONS = [
   { value: "center 80%", label: "Casi abajo", description: "Enfoca cerca del fondo" },
 ];
 
-export const iconMap: Record<string, React.ElementType> = {
+/** Centralized icon map for database-driven content */
+export const iconMap: Record<string, LucideIcon> = {
   Heart,
   BookOpen,
   HandHeart,
