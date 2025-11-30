@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Palette, Users, ArrowRight, BookOpen, Globe, Music, Lightbulb } from "lucide-react";
+import { Palette, Users, ArrowRight, BookOpen, Globe, Music, Lightbulb, LucideIcon } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import culturaFilosoficaImage from "@/assets/cultura-filosofica-intro.jpg";
@@ -17,7 +17,7 @@ import { culturaActivities as defaultActivities, culturaValues } from "@/data/cu
 import { supabase } from "@/integrations/supabase/client";
 
 // Icon mapping for database activities
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, LucideIcon> = {
   BookOpen,
   Globe,
   Music,

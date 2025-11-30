@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { MapPin, Camera, Mail, Users, LogOut, Shield, Palette } from "lucide-react";
+import { MapPin, Camera, Mail, Users, LogOut, Shield, Palette, HandHeart } from "lucide-react";
 
 // Import admin panels
 import { SedesAdminContent } from "@/components/admin/SedesAdminContent";
 import { VoluntariadoFotosAdmin } from "@/components/VoluntariadoFotosAdmin";
+import { VoluntariadoProgramasAdmin } from "@/components/VoluntariadoProgramasAdmin";
 import { InscripcionesAdminPanel } from "@/components/InscripcionesAdminPanel";
 import { UsersAdminContent } from "@/components/admin/UsersAdminContent";
 import { CulturaActividadesAdmin } from "@/components/CulturaActividadesAdmin";
@@ -66,7 +67,7 @@ const AdminDashboard = () => {
       </div>
 
       <Tabs defaultValue="sedes" className="w-full">
-        <TabsList className={`grid w-full mb-8 ${isAdmin ? 'grid-cols-5' : 'grid-cols-4'}`}>
+        <TabsList className={`grid w-full mb-8 ${isAdmin ? 'grid-cols-6' : 'grid-cols-5'}`}>
           <TabsTrigger value="sedes" className="flex items-center gap-2 text-xs sm:text-sm">
             <MapPin className="h-4 w-4" />
             <span className="hidden sm:inline">Sedes</span>
@@ -74,6 +75,10 @@ const AdminDashboard = () => {
           <TabsTrigger value="fotos" className="flex items-center gap-2 text-xs sm:text-sm">
             <Camera className="h-4 w-4" />
             <span className="hidden sm:inline">Fotos</span>
+          </TabsTrigger>
+          <TabsTrigger value="voluntariado" className="flex items-center gap-2 text-xs sm:text-sm">
+            <HandHeart className="h-4 w-4" />
+            <span className="hidden sm:inline">Voluntariado</span>
           </TabsTrigger>
           <TabsTrigger value="cultura" className="flex items-center gap-2 text-xs sm:text-sm">
             <Palette className="h-4 w-4" />
@@ -86,7 +91,7 @@ const AdminDashboard = () => {
           {isAdmin && (
             <TabsTrigger value="roles" className="flex items-center gap-2 text-xs sm:text-sm">
               <Users className="h-4 w-4" />
-              <span className="hidden sm:inline">Roles y Accesos</span>
+              <span className="hidden sm:inline">Roles</span>
             </TabsTrigger>
           )}
         </TabsList>
@@ -97,6 +102,10 @@ const AdminDashboard = () => {
 
         <TabsContent value="fotos" className="mt-0">
           <VoluntariadoFotosAdmin />
+        </TabsContent>
+
+        <TabsContent value="voluntariado" className="mt-0">
+          <VoluntariadoProgramasAdmin />
         </TabsContent>
 
         <TabsContent value="cultura" className="mt-0">

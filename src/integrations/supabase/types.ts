@@ -267,6 +267,48 @@ export type Database = {
           },
         ]
       }
+      voluntariado_programas: {
+        Row: {
+          actividades: string[] | null
+          activo: boolean
+          created_at: string
+          descripcion: string
+          icono: string
+          id: string
+          imagen_url: string | null
+          orden: number
+          slug: string
+          titulo: string
+          updated_at: string
+        }
+        Insert: {
+          actividades?: string[] | null
+          activo?: boolean
+          created_at?: string
+          descripcion: string
+          icono?: string
+          id?: string
+          imagen_url?: string | null
+          orden?: number
+          slug: string
+          titulo: string
+          updated_at?: string
+        }
+        Update: {
+          actividades?: string[] | null
+          activo?: boolean
+          created_at?: string
+          descripcion?: string
+          icono?: string
+          id?: string
+          imagen_url?: string | null
+          orden?: number
+          slug?: string
+          titulo?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
