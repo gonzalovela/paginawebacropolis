@@ -5,7 +5,6 @@ import { SEO, seoConfig } from "@/components/SEO";
 import culturaFilosoficaImage from "@/assets/cultura-filosofica-intro.jpg";
 import bannerCultura from "@/assets/banner-cultura.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
 import { culturaActivities as defaultActivities, culturaValues } from "@/data/cultura-data";
@@ -13,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { PageLayout } from "@/components/layouts";
 import { CTASection } from "@/components/CTASection";
 import { iconMap } from "@/utils/admin-constants";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 interface CulturaActividad {
   id: string;
@@ -28,9 +28,6 @@ interface CulturaActividad {
 
 const Cultura = () => {
   const [dbActivities, setDbActivities] = useState<CulturaActividad[]>([]);
-  const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
-  const { elementRef: activitiesRef, isVisible: activitiesVisible } = useScrollAnimation();
-  const { elementRef: participationRef, isVisible: participationVisible } = useScrollAnimation();
 
   useEffect(() => {
     const fetchActivities = async () => {
@@ -85,12 +82,7 @@ const Cultura = () => {
         />
 
         {/* Introduction */}
-        <section 
-          ref={introRef}
-          className={`py-10 md:py-20 bg-background transition-all duration-1000 ${
-            introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <AnimatedSection as="section" className="py-10 md:py-20 bg-background">
           <div className="container px-4 md:px-6">
             <div className="max-w-5xl mx-auto space-y-8 md:space-y-12">
               {/* Hero Image */}
@@ -135,15 +127,10 @@ const Cultura = () => {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Activities */}
-        <section 
-          ref={activitiesRef}
-          className={`py-10 md:py-20 bg-gradient-subtle transition-all duration-1000 ${
-            activitiesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <AnimatedSection as="section" className="py-10 md:py-20 bg-gradient-subtle">
           <div className="container px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
@@ -170,12 +157,10 @@ const Cultura = () => {
               ))}
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Participation CTA */}
         <CTASection
-          sectionRef={participationRef}
-          isVisible={participationVisible}
           icon={Users}
           title="Únete a Nuestras Actividades"
           description="No importa si eres artista, estudiante, profesional o simplemente alguien curioso. En Nueva Acrópolis todos son bienvenidos. La cultura nos enriquece a todos."

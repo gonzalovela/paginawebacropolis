@@ -4,17 +4,9 @@ import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
 import { testimonials } from "@/data/filosofia-data";
 
-interface TestimonialsSectionProps {
-  isVisible: boolean;
-}
-
-export const TestimonialsSection = ({ isVisible }: TestimonialsSectionProps) => {
+export const TestimonialsSection = () => {
   return (
-    <section 
-      className={`py-10 md:py-20 bg-muted/30 transition-all duration-1000 overflow-hidden ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-    >
+    <section className="py-10 md:py-20 bg-muted/30 overflow-hidden">
       <div className="container px-4 md:px-6 mb-8 md:mb-12">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-secondary/10 text-secondary rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">

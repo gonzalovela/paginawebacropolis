@@ -3,18 +3,14 @@ import { SEO, seoConfig } from "@/components/SEO";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { CourseModulesSection, TestimonialsSection, AdvancedCoursesSection } from "@/components/filosofia";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { PageLayout } from "@/components/layouts";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Filosofia = () => {
-  const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation();
-  const { elementRef: courseRef, isVisible: courseVisible } = useScrollAnimation();
-  const { elementRef: advancedRef, isVisible: advancedVisible } = useScrollAnimation();
-  const { elementRef: testimonialsRef, isVisible: testimonialsVisible } = useScrollAnimation();
   const location = useLocation();
 
   // Scroll to section if hash is present
@@ -48,12 +44,7 @@ const Filosofia = () => {
         />
 
         {/* Introduction */}
-        <section 
-          ref={introRef}
-          className={`py-10 md:py-20 bg-background transition-all duration-1000 ${
-            introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <AnimatedSection as="section" className="py-10 md:py-20 bg-background">
           <div className="container px-4 md:px-6">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="relative h-[280px] sm:h-[350px] lg:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-elegant order-2 lg:order-1 group">
@@ -87,22 +78,22 @@ const Filosofia = () => {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Course Section */}
-        <div ref={courseRef}>
-          <CourseModulesSection isVisible={courseVisible} />
-        </div>
+        <AnimatedSection>
+          <CourseModulesSection />
+        </AnimatedSection>
 
         {/* Advanced Courses Section */}
-        <div ref={advancedRef}>
-          <AdvancedCoursesSection isVisible={advancedVisible} />
-        </div>
+        <AnimatedSection>
+          <AdvancedCoursesSection />
+        </AnimatedSection>
 
         {/* Testimonials Section */}
-        <div ref={testimonialsRef}>
-          <TestimonialsSection isVisible={testimonialsVisible} />
-        </div>
+        <AnimatedSection>
+          <TestimonialsSection />
+        </AnimatedSection>
       </PageLayout>
     </>
   );
