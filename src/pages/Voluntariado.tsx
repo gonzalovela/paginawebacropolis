@@ -102,7 +102,7 @@ const Voluntariado = () => {
                 <OptimizedImage 
                   src={volunteeringImage} 
                   alt="Equipo de voluntarios de Nueva Acrópolis realizando labor social en comunidad peruana" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[center_35%]"
                   containerClassName="w-full h-full"
                 />
               </div>
