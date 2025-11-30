@@ -74,10 +74,9 @@ export const SEO = ({
       "longitude": -77.0228
     },
     "sameAs": [
-      "https://www.facebook.com/NuevaAcropolisPeru",
-      "https://www.instagram.com/nuevaacropolisperu",
-      "https://www.youtube.com/@NuevaAcropolisPeru",
-      "https://www.tiktok.com/@nuevaacropolisperu",
+      "https://www.facebook.com/acropolisperu",
+      "https://www.instagram.com/nuevacropolis/",
+      "https://www.youtube.com/@perunuevacropolis",
       "https://www.acropolis.org"
     ],
     "areaServed": {

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://acropolisperu.org/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,43 +14,43 @@
   </url>
   
   <url>
+    <loc>https://acropolisperu.org/quienes-somos</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
     <loc>https://acropolisperu.org/filosofia</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://acropolisperu.org/cultura</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://acropolisperu.org/voluntariado</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://acropolisperu.org/quienes-somos</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
     <loc>https://acropolisperu.org/sedes</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://acropolisperu.org/inscripcion</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
