@@ -38,6 +38,7 @@ export const ProgramActivityCard = ({
             alt={imageAlt || title}
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             containerClassName="absolute inset-0"
+            style={{ objectPosition: imagePosition }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:from-black/70 md:via-black/30 group-hover:from-black/80 group-hover:via-black/40 transition-all duration-500" />
           

@@ -279,6 +279,7 @@ export type Database = {
           descripcion: string
           icono: string
           id: string
+          imagen_position: string | null
           imagen_url: string | null
           orden: number
           slug: string
@@ -293,6 +294,7 @@ export type Database = {
           descripcion: string
           icono?: string
           id?: string
+          imagen_position?: string | null
           imagen_url?: string | null
           orden?: number
           slug: string
@@ -307,6 +309,7 @@ export type Database = {
           descripcion?: string
           icono?: string
           id?: string
+          imagen_position?: string | null
           imagen_url?: string | null
           orden?: number
           slug?: string

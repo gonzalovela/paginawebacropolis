@@ -2,12 +2,29 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "sonner";
 import { Loader2, Upload, Image as ImageIcon, Save, Heart, BookOpen, HandHeart, Sprout, Users, Lightbulb } from "lucide-react";
 import { optimizeImage, IMAGE_PRESETS } from "@/hooks/useImageOptimization";
+
+const IMAGE_POSITIONS = [
+  { value: "center", label: "Centro", description: "La imagen se centra" },
+  { value: "top", label: "Arriba", description: "Muestra la parte superior" },
+  { value: "bottom", label: "Abajo", description: "Muestra la parte inferior" },
+  { value: "center 20%", label: "Casi arriba", description: "Enfoca cerca del tope" },
+  { value: "center 35%", label: "Arriba-centro", description: "Entre arriba y centro" },
+  { value: "center 65%", label: "Centro-abajo", description: "Entre centro y abajo" },
+  { value: "center 80%", label: "Casi abajo", description: "Enfoca cerca del fondo" },
+];
 
 interface VoluntariadoPrograma {
   id: string;
@@ -17,6 +34,7 @@ interface VoluntariadoPrograma {
   imagen_url: string | null;
   icono: string;
   actividades: string[];
+  imagen_position: string | null;
   alt_text: string | null;
   orden: number;
 }
@@ -107,6 +125,7 @@ export const VoluntariadoProgramasAdmin = () => {
         .from('voluntariado_programas')
         .update({ 
           descripcion: programa.descripcion,
+          imagen_position: programa.imagen_position,
           updated_at: new Date().toISOString() 
         })
         .eq('id', programaId);
@@ -224,6 +243,32 @@ export const VoluntariadoProgramasAdmin = () => {
                           </span>
                         ))}
                       </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Posición de imagen</Label>
+                      <Select
+                        value={programa.imagen_position || 'center'}
+                        onValueChange={(value) => {
+                          setProgramas(prev =>
+                            prev.map(p => p.id === programa.id ? { ...p, imagen_position: value } : p)
+                          );
+                        }}
+                      >
+                        <SelectTrigger className="w-full bg-background">
+                          <SelectValue placeholder="Selecciona posición" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-popover border shadow-lg">
+                          {IMAGE_POSITIONS.map((pos) => (
+                            <SelectItem key={pos.value} value={pos.value}>
+                              <div className="flex flex-col">
+                                <span className="font-medium">{pos.label}</span>
+                                <span className="text-xs text-muted-foreground">{pos.description}</span>
+                              </div>
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <Button
