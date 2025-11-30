@@ -145,21 +145,23 @@ export const LeadershipTabs = () => {
             imageAlt="Carlos Adelantado Puchal - Presidente Internacional"
             infoItems={[
               { icon: Globe, label: "Lugar de Nacimiento", value: "Onda, Castellón, España" },
-              { icon: BookOpen, label: "Trayectoria", value: "Desde los 19 años estudiando filosofía" },
-              { icon: Heart, label: "Presencia Global", value: "Más de 50 países en 5 continentes" },
+              { icon: BookOpen, label: "Formación", value: "Máster en Filosofía de Oriente y Occidente (OINA)" },
+              { icon: Heart, label: "Experiencia", value: "Profesor de Filosofía aplicada desde hace más de 35 años" },
             ]}
             tagLabel="Liderazgo Actual"
             tagColorClass="text-secondary"
             introduction={
-              <p>Continuó el trabajo de su maestra y predecesora, <strong className="text-secondary">Delia Steinberg Guzmán</strong>, así como del fundador Jorge Ángel Livraga Rizzi. Ha aportado nuevas perspectivas para lograr una identidad filosófica más clara en un mundo complejo.</p>
+              <p>Continuó el trabajo de su maestra y predecesora, <strong className="text-secondary">Delia Steinberg Guzmán</strong>, así como del fundador Jorge Ángel Livraga Rizzi. Ha aportado nuevas perspectivas para lograr una identidad filosófica más clara en un mundo complejo. Es autor del libro <em>"Las esferas de la Conciencia. Yo, los demás y el mundo"</em>, traducido a numerosos idiomas.</p>
             }
-            legacyTitle="Contribuciones (2020-2025)"
-            legacyIcon={Globe}
-            legacyItems={[
-              { title: "Días Internacionales", description: "Actividades en más de 60 países", colorClass: "bg-primary/5 border-primary/10" },
-              { title: "Universitas", description: "Plataforma online de educación universitaria", colorClass: "bg-secondary/5 border-secondary/10" },
-              { title: "Obra Filosófica", description: "Libros sobre filosofía práctica y universal", colorClass: "bg-accent/5 border-accent/10" },
-              { title: "Identidad Filosófica", description: "Nueva visión para el mundo contemporáneo", colorClass: "bg-muted border-border" },
+            legacyTitle="Trayectoria"
+            legacyIcon={Sparkles}
+            timelineTitle="Trayectoria"
+            timelineIcon={Sparkles}
+            timelineItems={[
+              { year: "23 años", description: "Director de la sede Castellón, España", colorClass: "from-primary/5 to-transparent border-primary text-primary" },
+              { year: "2013", description: "Asume la dirección de la sede central de España, en Madrid", colorClass: "from-secondary/5 to-transparent border-secondary text-secondary" },
+              { year: "2017-2020", description: "Presidente internacional adjunto", colorClass: "from-accent/5 to-transparent border-accent text-accent" },
+              { year: "2020", description: "Asume la Dirección internacional de Nueva Acrópolis", colorClass: "from-primary/5 to-transparent border-primary text-primary" },
             ]}
             quote="Ha aportado nuevas perspectivas para lograr una identidad filosófica más clara en un mundo complejo, manteniendo viva la tradición de la escuela."
             cardBorderColor="border-secondary/10"
