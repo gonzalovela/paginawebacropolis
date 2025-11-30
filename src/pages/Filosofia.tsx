@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 import { SEO, seoConfig } from "@/components/SEO";
-import philosophyImage from "@/assets/philosophy-contemplation-peru-warm.jpg";
+import philosophyImage from "@/assets/filosofia-estudiantes-sesion.jpg";
 import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
@@ -51,8 +51,8 @@ const Filosofia = () => {
               <div className="relative h-[280px] sm:h-[350px] lg:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-elegant order-2 lg:order-1 group">
                 <OptimizedImage 
                   src={philosophyImage} 
-                  alt="Grupo de voluntarios de Nueva Acrópolis uniendo sus manos en círculo - Filosofía práctica y comunidad" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Estudiantes de Nueva Acrópolis en sesión de filosofía práctica - Curso Conócete a Ti Mismo" 
+                  className="w-full h-full object-cover object-[center_25%] transition-transform duration-700 group-hover:scale-105"
                   containerClassName="w-full h-full"
                 />
                 {/* Vignette effect - black blur on edges */}
