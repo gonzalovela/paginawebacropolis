@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Clock, Users, CalendarDays, ArrowRight, Sparkles, BookOpen, Heart, Target, Compass, Users2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedButton } from "@/components/ui/animated-button";
+import { Button } from "@/components/ui/button";
 
 export const CourseSection = () => {
   const benefits = [
@@ -30,15 +30,6 @@ export const CourseSection = () => {
       icon: BookOpen,
       text: "Tomar mejores decisiones, con la sabiduría de grandes filósofos y civilizaciones.",
     },
-  ];
-
-  const courseModules = [
-    "El ser humano y el universo",
-    "La guerra interior",
-    "El dominio de la mente",
-    "Cómo desarrollar la fortaleza interior",
-    "La búsqueda de la felicidad",
-    "Importancia del eclecticismo para lograr la convivencia",
   ];
 
   return (
@@ -155,40 +146,6 @@ export const CourseSection = () => {
           </div>
         </div>
 
-        {/* Course Modules Preview */}
-        <div className="bg-card/50 rounded-xl sm:rounded-2xl border border-border/50 p-5 sm:p-8 md:p-10 lg:p-12">
-          <div className="text-center mb-6 sm:mb-10">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3 sm:mb-4">
-              Temas que explorarás
-            </h3>
-            <p className="text-sm sm:text-base text-foreground/60 max-w-2xl mx-auto px-2">
-              Un viaje por las grandes tradiciones filosóficas de Oriente y Occidente
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {courseModules.map((module, index) => (
-              <div 
-                key={index}
-                className="flex items-center gap-3 p-3 sm:p-4 rounded-lg bg-background border border-border hover:border-primary/30 transition-colors"
-              >
-                <span className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 text-primary font-semibold flex items-center justify-center text-xs sm:text-sm">
-                  {index + 1}
-                </span>
-                <span className="text-sm sm:text-base text-foreground/80 font-medium">{module}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-6 sm:mt-8">
-            <Button variant="link" className="text-primary text-sm sm:text-base" asChild>
-              <Link to="/filosofia">
-                Ver temario completo
-                <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
