@@ -35,6 +35,7 @@ const Inscripcion = () => {
           badgeVariant="secondary"
           title="Contáctanos"
           description="Completa el formulario y nos pondremos en contacto contigo. Estamos aquí para acompañarte en tu camino filosófico."
+          imageScale={1.1}
           decorativeVariant="inscripcion"
         />
 

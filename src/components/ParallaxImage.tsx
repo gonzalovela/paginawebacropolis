@@ -7,9 +7,10 @@ interface ParallaxImageProps {
   speed?: number;
   isHero?: boolean;
   objectPosition?: string;
+  scale?: number;
 }
 
-export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false, objectPosition = "center" }: ParallaxImageProps) => {
+export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false, objectPosition = "center", scale = 1 }: ParallaxImageProps) => {
   const imageRef = useRef<HTMLDivElement>(null);
   const imgElementRef = useRef<HTMLImageElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -123,7 +124,7 @@ export const ParallaxImage = ({ src, alt, speed = 0.5, isHero = false, objectPos
           className={`w-full h-full object-cover transition-opacity duration-200 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
-          style={{ objectPosition }}
+          style={{ objectPosition, transform: scale !== 1 ? `scale(${scale})` : undefined }}
         />
       </div>
     </div>
