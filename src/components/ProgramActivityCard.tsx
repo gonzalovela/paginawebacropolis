@@ -9,6 +9,7 @@ interface ProgramActivityCardProps {
   description: string;
   image: string;
   imageAlt?: string;
+  imagePosition?: string;
   items?: string[];
   itemsLabel?: string;
   variant?: "compact" | "full";
@@ -21,6 +22,7 @@ export const ProgramActivityCard = ({
   description,
   image,
   imageAlt,
+  imagePosition = "center",
   items = [],
   itemsLabel = "Temas que exploramos:",
   variant = "compact",
@@ -83,8 +85,9 @@ export const ProgramActivityCard = ({
         <OptimizedImage 
           src={image} 
           alt={imageAlt || title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300`}
           containerClassName="w-full h-full"
+          style={{ objectPosition: imagePosition }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 flex items-center gap-2 md:gap-3">

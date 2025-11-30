@@ -119,6 +119,7 @@ const Cultura = () => {
                   title={activity.title}
                   description={activity.description}
                   image={activity.image}
+                  imagePosition={(activity as any).imagePosition}
                   variant="compact"
                 />
               ))}
