@@ -52,15 +52,10 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick links */}
+          {/* Secciones */}
           <div className="text-center sm:text-left">
-            <h3 className="font-bold mb-3 sm:mb-4">Enlaces</h3>
+            <h3 className="font-bold mb-3 sm:mb-4">Secciones</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/" className="hover:text-accent transition-colors">
-                  Inicio
-                </Link>
-              </li>
               <li>
                 <Link to="/quienes-somos" className="hover:text-accent transition-colors">
                   Quiénes Somos
@@ -68,17 +63,22 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/filosofia" className="hover:text-accent transition-colors">
-                  Curso Conócete a Ti Mismo
+                  Filosofía
                 </Link>
               </li>
               <li>
                 <Link to="/cultura" className="hover:text-accent transition-colors">
-                  Actividades Culturales
+                  Cultura
                 </Link>
               </li>
               <li>
                 <Link to="/voluntariado" className="hover:text-accent transition-colors">
                   Voluntariado
+                </Link>
+              </li>
+              <li>
+                <Link to="/sedes" className="hover:text-accent transition-colors">
+                  Sedes
                 </Link>
               </li>
             </ul>
