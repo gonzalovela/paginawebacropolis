@@ -75,7 +75,7 @@ const Cultura = () => {
                     el pensamiento crítico y la capacidad de conectar con otros.
                   </p>
                   <p className="text-lg md:text-xl font-semibold text-foreground">
-                    "Trabajar por la cultura es trabajar por la vida"
+                    Esta cultura sirve para unir diferencias, aprender del pasado y cultivarse.
                   </p>
                 </div>
               </div>
@@ -106,7 +106,7 @@ const Cultura = () => {
                 Nuestras Actividades Culturales
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-foreground/70">
-                Todas nuestras actividades culturales son gratuitas y abiertas al público. 
+                Muchas de nuestras actividades culturales son gratuitas y abiertas al público. 
                 Te invitamos a participar, aprender y compartir.
               </p>
             </div>
@@ -119,8 +119,6 @@ const Cultura = () => {
                   title={activity.title}
                   description={activity.description}
                   image={activity.image}
-                  items={activity.topics}
-                  itemsLabel="Temas que exploramos:"
                   variant="compact"
                 />
               ))}
@@ -149,7 +147,7 @@ const Cultura = () => {
                   </p>
                   <div className="space-y-3 md:space-y-4 pt-4 md:pt-6">
                     <p className="text-xs md:text-sm opacity-75">
-                      Todas las actividades son gratuitas y no requieren inscripción previa.
+                      Muchas de nuestras actividades son gratuitas y no requieren inscripción previa.
                       Si quieres participar activamente en la organización o como artista, contáctanos.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
