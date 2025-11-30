@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Navigation } from "@/components/Navigation";
 import { ContactForm } from "@/components/ContactForm";
-import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import { AnimatedMapBackground } from "@/components/AnimatedMapBackground";
 import bannerInscripcion from "@/assets/banner-inscripcion.jpg";
 import { PageHeroBanner } from "@/components/PageHeroBanner";
+import { PageLayout } from "@/components/layouts";
 
 const Inscripcion = () => {
   const location = useLocation();
@@ -28,9 +27,7 @@ const Inscripcion = () => {
         {...seoConfig.inscripcion}
         url="https://acropolisperu.org/inscripcion"
       />
-      <div className="min-h-screen">
-        <Navigation />
-
+      <PageLayout>
         <PageHeroBanner
           bannerImage={bannerInscripcion}
           bannerAlt="Grupo de personas caminando juntas hacia una escuela de filosofía al atardecer - Nueva Acrópolis Perú"
@@ -48,9 +45,7 @@ const Inscripcion = () => {
             <ContactForm />
           </div>
         </section>
-
-        <Footer />
-      </div>
+      </PageLayout>
     </>
   );
 };

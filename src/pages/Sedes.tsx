@@ -1,7 +1,6 @@
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
 import { SedesDirectory } from "@/components/SedesDirectory";
 import { SEO, seoConfig } from "@/components/SEO";
+import { PageLayout } from "@/components/layouts";
 
 const Sedes = () => {
   return (
@@ -12,13 +11,9 @@ const Sedes = () => {
         breadcrumbs={[{ name: "Sedes en Perú", url: "https://acropolisperu.org/sedes" }]}
         faq={seoConfig.sedes.faq}
       />
-      <div className="min-h-screen">
-        <Navigation />
-        <main className="pt-20">
-          <SedesDirectory />
-        </main>
-        <Footer />
-      </div>
+      <PageLayout withTopPadding>
+        <SedesDirectory />
+      </PageLayout>
     </>
   );
 };

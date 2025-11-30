@@ -1,11 +1,10 @@
-import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ThreePrinciples } from "@/components/ThreePrinciples";
 import { ThreePillars } from "@/components/ThreePillars";
 import { CourseSection } from "@/components/CourseSection";
-import { Footer } from "@/components/Footer";
 import { SEO, seoConfig } from "@/components/SEO";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { PageLayout } from "@/components/layouts";
 
 const Index = () => {
   const { elementRef: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
@@ -41,8 +40,7 @@ const Index = () => {
         structuredData={courseStructuredData}
         faq={seoConfig.home.faq}
       />
-      <div className="min-h-screen">
-        <Navigation />
+      <PageLayout>
         <Hero />
         <div 
           ref={principlesRef}
@@ -68,8 +66,7 @@ const Index = () => {
         >
           <CourseSection />
         </div>
-        <Footer />
-      </div>
+      </PageLayout>
     </>
   );
 };

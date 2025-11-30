@@ -3,10 +3,9 @@ import { Link, useSearchParams } from "react-router-dom";
 import { CheckCircle, Mail, Phone, MapPin, ArrowLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { fireCelebration } from "@/components/ui/confetti";
+import { PageLayout } from "@/components/layouts";
 
 const Gracias = () => {
   const [searchParams] = useSearchParams();
@@ -27,8 +26,7 @@ const Gracias = () => {
         description="Tu inscripción ha sido recibida exitosamente. El equipo de Nueva Acrópolis Perú se pondrá en contacto contigo pronto."
         noindex={true}
       />
-      <Navigation />
-      <main className="min-h-screen bg-background pt-16 sm:pt-20">
+      <PageLayout withTopPadding>
         {/* Hero Section */}
         <section className="relative py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container mx-auto px-4 sm:px-6">
@@ -138,8 +136,7 @@ const Gracias = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
+      </PageLayout>
     </>
   );
 };
