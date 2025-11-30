@@ -1,5 +1,5 @@
 import { PageHeroBanner } from "@/components/PageHeroBanner";
-import fachadaImage from "@/assets/fachada-san-isidro.jpg";
+import fachadaImage from "@/assets/fachada-san-isidro-clean.jpg";
 
 export const SedesHeroBanner = () => {
   return (
@@ -10,7 +10,7 @@ export const SedesHeroBanner = () => {
       badgeVariant="secondary"
       title="Nuestras Sedes"
       description="Encuentra la sede más cercana a ti y comienza tu viaje filosófico"
-      objectPosition="center 60%"
+      objectPosition="center 30%"
       decorativeVariant="sedes"
     />
   );
