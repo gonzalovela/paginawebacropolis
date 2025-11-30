@@ -17,6 +17,19 @@ import { Loader2, Upload, Image as ImageIcon, Save } from "lucide-react";
 import { BookOpen, Globe, Music, Lightbulb } from "lucide-react";
 import { optimizeImage, IMAGE_PRESETS } from "@/hooks/useImageOptimization";
 
+// Default images for preview when no database image exists
+import charlasConferenciasImage from "@/assets/cultura-charlas-conferencias.jpg";
+import musicaArtesImage from "@/assets/cultura-musica-artes-original.jpg";
+import encuentrosCulturalesImage from "@/assets/cultura-encuentros-culturales-tight.jpg";
+import desarrolloPersonalImage from "@/assets/cultura-desarrollo-personal.jpg";
+
+const DEFAULT_IMAGES: Record<string, string> = {
+  "charlas-conferencias": charlasConferenciasImage,
+  "encuentros-culturales": encuentrosCulturalesImage,
+  "musica-artes": musicaArtesImage,
+  "desarrollo-personal": desarrolloPersonalImage,
+};
+
 const IMAGE_POSITIONS = [
   { value: "center", label: "Centro", description: "La imagen se centra" },
   { value: "top", label: "Arriba", description: "Muestra la parte superior" },
@@ -167,16 +180,31 @@ export const CulturaActividadesAdmin = () => {
                 <div className="grid md:grid-cols-2 gap-4">
                   {/* Image Section */}
                   <div className="relative aspect-video bg-muted">
-                    {actividad.imagen_url ? (
-                      <img
-                        src={actividad.imagen_url}
-                        alt={actividad.titulo}
-                        className="w-full h-full object-cover"
-                        style={{ objectPosition: actividad.imagen_position || 'center' }}
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                        <ImageIcon className="h-12 w-12" />
+                    {(() => {
+                      const imageUrl = actividad.imagen_url || DEFAULT_IMAGES[actividad.slug];
+                      return imageUrl ? (
+                        <img
+                          src={imageUrl}
+                          alt={actividad.titulo}
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: actividad.imagen_position || 'center' }}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                          <ImageIcon className="h-12 w-12" />
+                        </div>
+                      );
+                    })()}
+                    
+                    {/* Current image indicator */}
+                    {!actividad.imagen_url && DEFAULT_IMAGES[actividad.slug] && (
+                      <div className="absolute top-2 left-2 bg-yellow-500/90 text-white text-xs px-2 py-1 rounded">
+                        Imagen por defecto
+                      </div>
+                    )}
+                    {actividad.imagen_url && (
+                      <div className="absolute top-2 left-2 bg-green-500/90 text-white text-xs px-2 py-1 rounded">
+                        Imagen personalizada
                       </div>
                     )}
                     
