@@ -8,6 +8,7 @@ import { BorderBeam } from "@/components/ui/border-beam";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
 import volunteeringImage from "@/assets/banner-voluntariado.jpg";
+import { trackButtonClick } from "@/utils/analytics";
 
 export const ThreePillars = () => {
   const pillars = [
@@ -52,7 +53,10 @@ export const ThreePillars = () => {
             <Card 
               key={index} 
               className="overflow-hidden hover:shadow-elegant transition-all duration-300 group cursor-pointer relative h-full flex flex-col"
-              onClick={() => window.location.href = pillar.link}
+              onClick={() => {
+                trackButtonClick('Áreas de Acción', pillar.title, pillar.link);
+                window.location.href = pillar.link;
+              }}
             >
               <Pointer>
                 <Heart className="w-6 h-6 text-secondary fill-secondary drop-shadow-lg ml-1" />
@@ -79,7 +83,15 @@ export const ThreePillars = () => {
                 </p>
 
                 <div className="relative w-full mt-4 sm:mt-6 overflow-hidden rounded-md">
-                  <Button variant="outline" className="w-full" asChild>
+                  <Button 
+                    variant="outline" 
+                    className="w-full" 
+                    asChild
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      trackButtonClick('Áreas de Acción', `Conoce más - ${pillar.title}`, pillar.link);
+                    }}
+                  >
                     <Link to={pillar.link}>
                       Conoce más
                     </Link>

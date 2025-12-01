@@ -3,6 +3,7 @@ import { CheckCircle2, Clock, Users, CalendarDays, ArrowRight, Sparkles, BookOpe
 import { Link } from "react-router-dom";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { Button } from "@/components/ui/button";
+import { trackButtonClick } from "@/utils/analytics";
 
 export const CourseSection = () => {
   const benefits = [
@@ -129,16 +130,33 @@ export const CourseSection = () => {
 
               {/* CTAs */}
               <div className="flex flex-col gap-3">
-                <AnimatedButton size="lg" className="w-full text-base sm:text-lg bg-primary hover:bg-primary/90" asChild>
+                <AnimatedButton 
+                  size="lg" 
+                  className="w-full text-base sm:text-lg bg-primary hover:bg-primary/90" 
+                  asChild
+                  onClick={() => trackButtonClick('Curso Conócete', 'Inscríbete ahora', '/inscripcion#formulario')}
+                >
                   <Link to="/inscripcion#formulario">
                     Inscríbete ahora
                     <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Link>
                 </AnimatedButton>
-                <Button size="lg" variant="outline" className="w-full text-base sm:text-lg" asChild>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="w-full text-base sm:text-lg" 
+                  asChild
+                  onClick={() => trackButtonClick('Curso Conócete', 'Ver programa completo', '/filosofia#conocete-a-ti-mismo')}
+                >
                   <Link to="/filosofia#conocete-a-ti-mismo">Ver programa completo</Link>
                 </Button>
-                <Button size="lg" variant="ghost" className="w-full text-base sm:text-lg text-secondary hover:text-secondary hover:bg-secondary/10" asChild>
+                <Button 
+                  size="lg" 
+                  variant="ghost" 
+                  className="w-full text-base sm:text-lg text-secondary hover:text-secondary hover:bg-secondary/10" 
+                  asChild
+                  onClick={() => trackButtonClick('Curso Conócete', 'Cursos Avanzados', '/filosofia#cursos-avanzados')}
+                >
                   <Link to="/filosofia#cursos-avanzados">Programa de Cursos Avanzados</Link>
                 </Button>
               </div>

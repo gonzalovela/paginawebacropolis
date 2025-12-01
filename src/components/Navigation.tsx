@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { trackButtonClick } from "@/utils/analytics";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +62,7 @@ export const Navigation = () => {
                 <Link
                   key={link.to}
                   to={link.to}
+                  onClick={() => trackButtonClick('Navigation Desktop', link.label, link.to)}
                   className={cn(
                     "px-3 xl:px-4 py-2 rounded-lg font-medium transition-all hover:bg-primary/10 text-sm xl:text-base",
                     isActive(link.to)
@@ -100,7 +102,10 @@ export const Navigation = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    trackButtonClick('Navigation Mobile', link.label, link.to);
+                    setIsOpen(false);
+                  }}
                   className={cn(
                     "px-4 py-4 rounded-xl font-semibold transition-all text-lg",
                     isActive(link.to)

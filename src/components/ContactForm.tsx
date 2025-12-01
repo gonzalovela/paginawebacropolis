@@ -12,6 +12,7 @@ import { AnimatedButton } from "@/components/ui/animated-button";
 import { toast } from "sonner";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { trackFormInteraction } from "@/utils/analytics";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, { message: "El nombre debe tener al menos 2 caracteres" }).max(100, { message: "El nombre es muy largo" }),
@@ -86,11 +87,12 @@ export const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+    trackFormInteraction('Inscripción', 'start');
     
     // Validate
     const result = contactSchema.safeParse(formData);
     
-    if (!result.success) {
+      if (!result.success) {
       const newErrors: Partial<Record<keyof ContactFormData, string>> = {};
       result.error.issues.forEach((issue) => {
         if (issue.path[0]) {
@@ -98,6 +100,7 @@ export const ContactForm = () => {
         }
       });
       setErrors(newErrors);
+      trackFormInteraction('Inscripción', 'error');
       toast.error("Por favor corrige los errores en el formulario");
       return;
     }
@@ -133,6 +136,9 @@ export const ContactForm = () => {
 
       // Email error is secondary - data already saved
 
+      // Track successful submission
+      trackFormInteraction('Inscripción', 'submit');
+      
       // Redirect to thank you page
       navigate(`/gracias?registro=ok&nombre=${encodeURIComponent(result.data.name)}`);
     } catch {
