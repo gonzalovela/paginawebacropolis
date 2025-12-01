@@ -3,6 +3,7 @@ import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react"
 import logo from "@/assets/logo-escuela-filosofia.png";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { trackButtonClick, trackExternalLink } from "@/utils/analytics";
 
 interface SedePrincipal {
   nombre: string;
@@ -58,27 +59,27 @@ export const Footer = () => {
             <h3 className="font-bold mb-3 sm:mb-4">Secciones</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/quienes-somos" className="hover:text-accent transition-colors">
+                <Link to="/quienes-somos" className="hover:text-accent transition-colors" onClick={() => trackButtonClick('Footer', 'Quiénes Somos', '/quienes-somos')}>
                   Quiénes Somos
                 </Link>
               </li>
               <li>
-                <Link to="/filosofia" className="hover:text-accent transition-colors">
+                <Link to="/filosofia" className="hover:text-accent transition-colors" onClick={() => trackButtonClick('Footer', 'Filosofía', '/filosofia')}>
                   Filosofía
                 </Link>
               </li>
               <li>
-                <Link to="/cultura" className="hover:text-accent transition-colors">
+                <Link to="/cultura" className="hover:text-accent transition-colors" onClick={() => trackButtonClick('Footer', 'Cultura', '/cultura')}>
                   Cultura
                 </Link>
               </li>
               <li>
-                <Link to="/voluntariado" className="hover:text-accent transition-colors">
+                <Link to="/voluntariado" className="hover:text-accent transition-colors" onClick={() => trackButtonClick('Footer', 'Voluntariado', '/voluntariado')}>
                   Voluntariado
                 </Link>
               </li>
               <li>
-                <Link to="/sedes" className="hover:text-accent transition-colors">
+                <Link to="/sedes" className="hover:text-accent transition-colors" onClick={() => trackButtonClick('Footer', 'Sedes', '/sedes')}>
                   Sedes
                 </Link>
               </li>
@@ -138,6 +139,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
                 aria-label="Facebook"
+                onClick={() => trackExternalLink(sedePrincipal?.facebook || "https://www.facebook.com/acropolisperu", 'Footer Social')}
               >
                 <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
@@ -147,6 +149,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
                 aria-label="Instagram"
+                onClick={() => trackExternalLink(sedePrincipal?.instagram || "https://www.instagram.com/nuevacropolis/", 'Footer Social')}
               >
                 <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
@@ -156,6 +159,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/10 hover:bg-accent hover:text-accent-foreground transition-all"
                 aria-label="YouTube"
+                onClick={() => trackExternalLink("https://www.youtube.com/@perunuevacropolis", 'Footer Social')}
               >
                 <Youtube className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>

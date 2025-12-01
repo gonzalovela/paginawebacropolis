@@ -6,6 +6,7 @@ import { ParallaxImage } from "@/components/ParallaxImage";
 import { Link } from "react-router-dom";
 import { Pointer } from "@/components/ui/pointer";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import { trackButtonClick } from "@/utils/analytics";
 
 export const Hero = () => {
   return (
@@ -46,6 +47,7 @@ export const Hero = () => {
               variant="default"
               className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-medium hover:scale-105 transition-transform"
               asChild
+              onClick={() => trackButtonClick('Hero', 'Quiénes Somos', '/quienes-somos')}
             >
               <Link to="/quienes-somos">
                 <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
@@ -64,6 +66,7 @@ export const Hero = () => {
               variant="secondary"
               className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-medium hover:scale-105 transition-transform"
               asChild
+              onClick={() => trackButtonClick('Hero', 'Encuentra tu Sede', '/sedes')}
             >
               <Link to="/sedes">
                 <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />

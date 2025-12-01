@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { ArrowRight, type LucideIcon } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { trackButtonClick } from "@/utils/analytics";
 
 interface CTASectionProps {
   icon: LucideIcon;
@@ -54,6 +55,7 @@ export const CTASection = ({
                     variant="secondary"
                     className="w-full sm:w-auto"
                     asChild
+                    onClick={() => trackButtonClick('CTA Section', primaryButtonText, primaryButtonLink)}
                   >
                     <Link to={primaryButtonLink}>
                       {primaryButtonText}
@@ -66,6 +68,7 @@ export const CTASection = ({
                       variant="outline"
                       className="w-full sm:w-auto bg-background/10 hover:bg-background/20 border-primary-foreground/30"
                       asChild
+                      onClick={() => trackButtonClick('CTA Section', secondaryButtonText, secondaryButtonLink)}
                     >
                       <Link to={secondaryButtonLink}>{secondaryButtonText}</Link>
                     </Button>
