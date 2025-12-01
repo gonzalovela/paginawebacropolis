@@ -136,11 +136,15 @@ export const ContactForm = () => {
 
       // Email error is secondary - data already saved
 
-      // Track successful submission
+      // Get sede name for tracking
+      const selectedSede = sedes.find(s => s.id === result.data.sedeId);
+      const sedeName = selectedSede ? `${selectedSede.ciudad} - ${selectedSede.nombre}` : 'Unknown';
+      
+      // Track successful submission with sede info
       trackFormInteraction('Inscripción', 'submit');
       
-      // Redirect to thank you page
-      navigate(`/gracias?registro=ok&nombre=${encodeURIComponent(result.data.name)}`);
+      // Redirect to thank you page with sede info for conversion tracking
+      navigate(`/gracias?registro=ok&nombre=${encodeURIComponent(result.data.name)}&sede=${encodeURIComponent(sedeName)}&interes=${encodeURIComponent(result.data.interest)}`);
     } catch {
       toast.error("Hubo un error al enviar la inscripción. Por favor intenta de nuevo.");
     } finally {

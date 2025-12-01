@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { CheckCircle, Mail, Phone, MapPin, ArrowLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,18 +6,47 @@ import { Card } from "@/components/ui/card";
 import { SEO } from "@/components/SEO";
 import { fireCelebration } from "@/components/ui/confetti";
 import { PageLayout } from "@/components/layouts";
+import { trackEvent } from "@/utils/analytics";
 
 const Gracias = () => {
   const [searchParams] = useSearchParams();
   const nombre = searchParams.get("nombre") || "participante";
+  const sede = searchParams.get("sede") || "No especificada";
+  const interes = searchParams.get("interes") || "No especificado";
+  const hasTracked = useRef(false);
 
-  // Fire confetti celebration when page loads
+  // Track conversion and fire confetti when page loads
   useEffect(() => {
+    // Only track once per page load
+    if (!hasTracked.current) {
+      hasTracked.current = true;
+      
+      // Track conversion event with sede and interest info
+      trackEvent({
+        action: 'inscripcion_completada',
+        category: 'Conversión',
+        label: sede,
+        value: 1
+      });
+      
+      // Track detailed conversion for GA4 with all parameters
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'Inscripción',
+          sede: sede,
+          interes: interes,
+          currency: 'PEN',
+          value: 1
+        });
+      }
+    }
+
+    // Fire confetti celebration
     const timer = setTimeout(() => {
       fireCelebration();
     }, 300);
     return () => clearTimeout(timer);
-  }, []);
+  }, [sede, interes]);
 
   return (
     <>
