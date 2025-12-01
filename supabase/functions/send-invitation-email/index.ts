@@ -11,8 +11,8 @@ const allowedOrigins = [
 ];
 
 const getCorsHeaders = (origin: string | null) => {
-  // In development, allow localhost and lovable.app
-  const isDev = origin?.includes("localhost") || origin?.includes("lovable.app");
+  // In development, allow localhost, lovable.app and lovableproject.com
+  const isDev = origin?.includes("localhost") || origin?.includes("lovable.app") || origin?.includes("lovableproject.com");
   const isAllowed = isDev || (origin && allowedOrigins.some(allowed => origin.startsWith(allowed)));
   
   return {
@@ -131,7 +131,7 @@ const handler = async (req: Request): Promise<Response> => {
       "https://acropolisperu.org",
       "https://www.acropolisperu.org",
     ];
-    const isDev = baseUrl.includes("localhost") || baseUrl.includes("lovable.app");
+    const isDev = baseUrl.includes("localhost") || baseUrl.includes("lovable.app") || baseUrl.includes("lovableproject.com");
     const isValidBaseUrl = isDev || allowedBaseUrls.some(url => baseUrl.startsWith(url));
     
     if (!isValidBaseUrl) {
