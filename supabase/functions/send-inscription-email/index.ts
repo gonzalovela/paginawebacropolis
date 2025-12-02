@@ -145,7 +145,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to sede and central
     await resend.emails.send({
-      from: "Nueva Acrópolis <onboarding@resend.dev>",
+      from: "Nueva Acrópolis <inscripciones@send.acropolisperu.org>",
       to: recipients,
       subject: `Nueva Inscripción - ${safeSedeNombre}`,
       html: `
@@ -168,7 +168,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the user
     await resend.emails.send({
-      from: "Nueva Acrópolis Perú <onboarding@resend.dev>",
+      from: "Nueva Acrópolis Perú <inscripciones@send.acropolisperu.org>",
       to: [email],
       subject: "¡Gracias por tu inscripción! - Nueva Acrópolis Perú",
       html: `
