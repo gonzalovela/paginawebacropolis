@@ -144,7 +144,7 @@ const handler = async (req: Request): Promise<Response> => {
     const registrationUrl = `${baseUrl}/auth?invitation=${token}`;
 
     await resend.emails.send({
-      from: "Nueva Acrópolis <onboarding@resend.dev>",
+      from: "Nueva Acrópolis <invitaciones@send.acropolisperu.org>",
       to: [email],
       subject: "Invitación al Panel de Administración - Nueva Acrópolis Perú",
       html: `
