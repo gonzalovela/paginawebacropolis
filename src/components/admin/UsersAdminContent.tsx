@@ -196,7 +196,7 @@ export const UsersAdminContent = () => {
         .single();
 
       // Send invitation email
-      const { error: emailError } = await supabase.functions.invoke('send-invitation-email', {
+      const { data: emailData, error: emailError } = await supabase.functions.invoke('send-invitation-email', {
         body: {
           email: inviteEmail,
           role: inviteRole,
@@ -207,8 +207,11 @@ export const UsersAdminContent = () => {
       });
 
       if (emailError) {
-        console.error('Error sending email:', emailError);
-        toast.error('Invitación creada pero hubo un error al enviar el email');
+        console.error('Error sending invitation email:', emailError);
+        toast.error(`Invitación creada pero error al enviar email: ${emailError.message || 'Error desconocido'}`);
+      } else if (emailData?.error) {
+        console.error('Email function error:', emailData.error);
+        toast.error(`Error del servidor: ${emailData.error}`);
       } else {
         toast.success('Invitación enviada exitosamente');
       }
@@ -257,7 +260,7 @@ export const UsersAdminContent = () => {
         .single();
 
       // Resend email
-      await supabase.functions.invoke('send-invitation-email', {
+      const { data: emailData, error: emailError } = await supabase.functions.invoke('send-invitation-email', {
         body: {
           email: invitation.email,
           role: invitation.role,
@@ -267,9 +270,18 @@ export const UsersAdminContent = () => {
         },
       });
 
-      toast.success('Invitación reenviada');
+      if (emailError) {
+        console.error('Error resending invitation email:', emailError);
+        toast.error(`Error al reenviar: ${emailError.message || 'Error desconocido'}`);
+      } else if (emailData?.error) {
+        console.error('Email function error:', emailData.error);
+        toast.error(`Error del servidor: ${emailData.error}`);
+      } else {
+        toast.success('Invitación reenviada');
+      }
       loadInvitations();
-    } catch {
+    } catch (error: any) {
+      console.error('Error resending invitation:', error);
       toast.error('Error al reenviar la invitación');
     }
   };

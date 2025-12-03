@@ -82,11 +82,14 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    console.log("Processing invitation email request...");
     const data: InvitationEmailRequest = await req.json();
+    console.log("Request data:", { email: data.email, role: data.role, baseUrl: data.baseUrl });
 
     // Validate input
     const validationError = validateInput(data);
     if (validationError) {
+      console.error("Validation error:", validationError);
       return new Response(JSON.stringify({ error: validationError }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -101,6 +104,7 @@ const handler = async (req: Request): Promise<Response> => {
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     // Verify invitation exists in database (additional security layer)
+    console.log("Verifying invitation with token:", token);
     const { data: invitation, error: invError } = await supabase
       .from("invitations")
       .select("id, email, token, status, expires_at")
@@ -108,15 +112,27 @@ const handler = async (req: Request): Promise<Response> => {
       .eq("status", "pending")
       .single();
 
-    if (invError || !invitation) {
+    if (invError) {
+      console.error("Database error verifying invitation:", invError);
+      return new Response(JSON.stringify({ error: "Error al verificar invitación" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    if (!invitation) {
+      console.error("Invitation not found for token:", token);
       return new Response(JSON.stringify({ error: "Invitación no válida" }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
     }
 
+    console.log("Invitation found:", invitation.id);
+
     // Verify email matches
     if (invitation.email !== email) {
+      console.error("Email mismatch:", { expected: invitation.email, received: email });
       return new Response(JSON.stringify({ error: "Email no coincide con la invitación" }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -135,6 +151,7 @@ const handler = async (req: Request): Promise<Response> => {
     const isValidBaseUrl = isDev || allowedBaseUrls.some(url => baseUrl.startsWith(url));
     
     if (!isValidBaseUrl) {
+      console.error("Invalid base URL:", baseUrl);
       return new Response(JSON.stringify({ error: "URL base no permitida" }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -142,6 +159,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const registrationUrl = `${baseUrl}/auth?invitation=${token}`;
+    console.log("Sending email to:", email, "with registration URL:", registrationUrl);
 
     try {
       await resend.emails.send({
