@@ -61,7 +61,7 @@ const Gracias = () => {
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-3xl mx-auto text-center">
               {/* Success Icon */}
-              <div className="mb-6 sm:mb-8 flex justify-center">
+              <div className="mb-6 sm:mb-8 flex justify-center animate-scale-in">
                 <div className="relative">
                   <div className="absolute inset-0 animate-ping bg-primary/20 rounded-full" />
                   <div className="relative bg-primary rounded-full p-4 sm:p-5 md:p-6">
@@ -70,32 +70,32 @@ const Gracias = () => {
                 </div>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 sm:mb-6 px-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 sm:mb-6 px-2 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
                 ¡Gracias por tu registro, {nombre}!
               </h1>
               
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed px-2 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
                 Tu inscripción ha sido recibida exitosamente. Hemos enviado una confirmación a tu correo electrónico.
               </p>
 
-              <Card className="p-5 sm:p-6 md:p-8 bg-card/50 backdrop-blur-sm border-primary/20 mb-6 sm:mb-8">
+              <Card className="p-5 sm:p-6 md:p-8 bg-card/50 backdrop-blur-sm border-primary/20 mb-6 sm:mb-8 animate-fade-in" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
                 <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
                   ¿Qué sigue?
                 </h2>
                 <ul className="text-left space-y-3 sm:space-y-4 text-muted-foreground">
-                  <li className="flex items-start gap-2 sm:gap-3">
+                  <li className="flex items-start gap-2 sm:gap-3 animate-fade-in" style={{ animationDelay: '0.7s', animationFillMode: 'both' }}>
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-1 flex-shrink-0" />
                     <span className="text-sm sm:text-base">
                       <strong className="text-foreground">Revisa tu correo:</strong> Te hemos enviado un email de confirmación con los detalles de tu inscripción.
                     </span>
                   </li>
-                  <li className="flex items-start gap-2 sm:gap-3">
+                  <li className="flex items-start gap-2 sm:gap-3 animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-1 flex-shrink-0" />
                     <span className="text-sm sm:text-base">
                       <strong className="text-foreground">Te contactaremos:</strong> Un miembro de nuestro equipo se comunicará contigo en las próximas 24-48 horas.
                     </span>
                   </li>
-                  <li className="flex items-start gap-2 sm:gap-3">
+                  <li className="flex items-start gap-2 sm:gap-3 animate-fade-in" style={{ animationDelay: '0.9s', animationFillMode: 'both' }}>
                     <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-1 flex-shrink-0" />
                     <span className="text-sm sm:text-base">
                       <strong className="text-foreground">Visita tu sede:</strong> Mientras tanto, puedes acercarte a la sede que seleccionaste para más información.
@@ -105,7 +105,7 @@ const Gracias = () => {
               </Card>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
                 <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
                   <Link to="/inscripcion">
                     <ArrowLeft className="w-4 h-4 mr-2" />
