@@ -133,7 +133,7 @@ export const PageHeroBanner = ({
     : "bg-primary/90";
 
   return (
-    <section className="relative py-14 sm:py-16 md:py-28 lg:py-36 overflow-hidden mt-16 sm:mt-20">
+    <section className="relative py-14 sm:py-16 md:py-28 lg:py-36 overflow-hidden mt-16 sm:mt-20 lg:mt-20">
       <ParallaxImage
         src={bannerImage} 
         alt={bannerAlt} 
