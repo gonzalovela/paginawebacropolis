@@ -6,6 +6,8 @@ export interface Sede {
   id: string;
   nombre: string;
   ciudad: string;
+  departamento?: string;
+  distrito?: string;
   direccion: string;
   whatsapp?: string;
   facebook?: string;
@@ -42,7 +44,7 @@ export const SedeCard = ({ sede, isPrincipal = false, onOpenMap }: SedeCardProps
         <div className="flex items-start gap-2">
           <MapPin className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0 mt-0.5 text-primary" />
           <div>
-            {isPrincipal && <p className="font-medium text-foreground text-sm md:text-base">{sede.ciudad}</p>}
+            {sede.distrito && <p className="font-medium text-foreground text-sm md:text-base">{sede.distrito}</p>}
             <p className="text-xs md:text-sm">{sede.direccion}</p>
           </div>
         </div>
