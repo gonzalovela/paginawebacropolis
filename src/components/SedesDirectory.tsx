@@ -21,10 +21,11 @@ export const SedesDirectory = () => {
     if (searchTerm.trim() === "") {
       setFilteredSedes(sedes);
     } else {
+      const searchLower = searchTerm.toLowerCase();
       const filtered = sedes.filter(sede => 
-        sede.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        sede.ciudad.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        sede.direccion.toLowerCase().includes(searchTerm.toLowerCase())
+        (sede.nombre?.toLowerCase() || '').includes(searchLower) ||
+        (sede.ciudad?.toLowerCase() || '').includes(searchLower) ||
+        (sede.direccion?.toLowerCase() || '').includes(searchLower)
       );
       setFilteredSedes(filtered);
     }
