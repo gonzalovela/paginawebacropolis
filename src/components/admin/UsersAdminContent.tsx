@@ -120,10 +120,10 @@ export const UsersAdminContent = () => {
 
   const loadUsers = async () => {
     try {
-      // Fetch profiles with sede info
+      // Fetch profiles with sede info and email
       const { data: profiles, error: profilesError } = await supabase
         .from('profiles')
-        .select('id, nombre, created_at, status, sede_id, sedes(nombre, ciudad)');
+        .select('id, nombre, email, created_at, status, sede_id, sedes(nombre, ciudad)');
 
       if (profilesError) throw profilesError;
 
@@ -133,27 +133,17 @@ export const UsersAdminContent = () => {
 
       if (rolesError) throw rolesError;
 
-      // Get emails from accepted invitations
-      const { data: acceptedInvitations } = await supabase
-        .from('invitations')
-        .select('email')
-        .eq('status', 'accepted');
-
-      const emailMap = new Map<string, string>();
-      // We'll match by looking at profiles that exist
-      
       const basicUsers = profiles.map(profile => {
         const userRoles = roles
           .filter(r => r.user_id === profile.id)
           .map(r => r.role);
 
-        // Try to find email from accepted invitations (we'll need to match by checking user creation)
         const sedeInfo = profile.sedes as { nombre: string; ciudad: string } | null;
 
         return {
           id: profile.id,
           nombre: profile.nombre,
-          email: 'Email no disponible', // We'll update this with accepted invitation emails
+          email: profile.email || 'Email no disponible',
           roles: userRoles,
           created_at: profile.created_at,
           status: profile.status || 'active',
@@ -161,21 +151,6 @@ export const UsersAdminContent = () => {
           sede_nombre: sedeInfo ? `${sedeInfo.nombre} - ${sedeInfo.ciudad}` : null,
         };
       });
-
-      // Try to match users with their invitation emails
-      if (acceptedInvitations) {
-        // Get all invitations that are accepted to match with profiles
-        const { data: fullInvitations } = await supabase
-          .from('invitations')
-          .select('*')
-          .eq('status', 'accepted');
-        
-        if (fullInvitations) {
-          // For simplicity, we'll need the email stored somewhere accessible
-          // Since we can't query auth.users, we use invitations as the email source
-          // Users created via invitation will have a matching email
-        }
-      }
 
       setUsers(basicUsers);
     } catch (error) {
