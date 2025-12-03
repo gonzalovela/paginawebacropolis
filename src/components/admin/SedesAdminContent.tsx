@@ -15,6 +15,8 @@ interface Sede {
   id: string;
   nombre: string;
   ciudad: string;
+  departamento?: string;
+  distrito?: string;
   direccion: string;
   whatsapp?: string;
   facebook?: string;
@@ -28,6 +30,8 @@ interface Sede {
 interface SedeFormData {
   nombre: string;
   ciudad: string;
+  departamento: string;
+  distrito: string;
   direccion: string;
   whatsapp: string;
   facebook: string;
@@ -41,6 +45,8 @@ interface SedeFormData {
 const emptyForm: SedeFormData = {
   nombre: "",
   ciudad: "",
+  departamento: "",
+  distrito: "",
   direccion: "",
   whatsapp: "",
   facebook: "",
@@ -95,6 +101,8 @@ export const SedesAdminContent = () => {
       const sedeData = {
         nombre: formData.nombre,
         ciudad: formData.ciudad,
+        departamento: formData.departamento,
+        distrito: formData.distrito || null,
         direccion: formData.direccion,
         whatsapp: formData.whatsapp || null,
         facebook: formData.facebook || null,
@@ -136,6 +144,8 @@ export const SedesAdminContent = () => {
     setFormData({
       nombre: sede.nombre,
       ciudad: sede.ciudad,
+      departamento: sede.departamento || "",
+      distrito: sede.distrito || "",
       direccion: sede.direccion,
       whatsapp: sede.whatsapp || "",
       facebook: sede.facebook || "",
@@ -202,13 +212,36 @@ export const SedesAdminContent = () => {
             />
           </div>
 
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="departamento">Departamento *</Label>
+              <Input
+                id="departamento"
+                value={formData.departamento}
+                onChange={(e) => setFormData({ ...formData, departamento: e.target.value })}
+                placeholder="Lima, Arequipa, Cusco..."
+                required
+              />
+            </div>
+            <div>
+              <Label htmlFor="ciudad">Ciudad *</Label>
+              <Input
+                id="ciudad"
+                value={formData.ciudad}
+                onChange={(e) => setFormData({ ...formData, ciudad: e.target.value })}
+                placeholder="Lima, Arequipa, Huancayo..."
+                required
+              />
+            </div>
+          </div>
+
           <div>
-            <Label htmlFor="ciudad">Ciudad *</Label>
+            <Label htmlFor="distrito">Distrito</Label>
             <Input
-              id="ciudad"
-              value={formData.ciudad}
-              onChange={(e) => setFormData({ ...formData, ciudad: e.target.value })}
-              required
+              id="distrito"
+              value={formData.distrito}
+              onChange={(e) => setFormData({ ...formData, distrito: e.target.value })}
+              placeholder="San Isidro, Miraflores, Cayma..."
             />
           </div>
 
@@ -354,7 +387,9 @@ export const SedesAdminContent = () => {
                   </Button>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground">{sede.ciudad}</p>
+              <p className="text-sm text-muted-foreground">
+                {sede.departamento}{sede.ciudad !== sede.departamento ? ` - ${sede.ciudad}` : ''}{sede.distrito ? ` - ${sede.distrito}` : ''}
+              </p>
               <p className="text-sm">{sede.direccion}</p>
               {sede.email && (
                 <p className="text-sm text-muted-foreground">Email: {sede.email}</p>

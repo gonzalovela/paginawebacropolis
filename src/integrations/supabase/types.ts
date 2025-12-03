@@ -161,7 +161,9 @@ export type Database = {
         Row: {
           ciudad: string
           created_at: string
+          departamento: string
           direccion: string
+          distrito: string | null
           email: string | null
           es_principal: boolean
           facebook: string | null
@@ -176,7 +178,9 @@ export type Database = {
         Insert: {
           ciudad: string
           created_at?: string
+          departamento?: string
           direccion: string
+          distrito?: string | null
           email?: string | null
           es_principal?: boolean
           facebook?: string | null
@@ -191,7 +195,9 @@ export type Database = {
         Update: {
           ciudad?: string
           created_at?: string
+          departamento?: string
           direccion?: string
+          distrito?: string | null
           email?: string | null
           es_principal?: boolean
           facebook?: string | null

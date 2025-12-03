@@ -25,6 +25,8 @@ export const SedesDirectory = () => {
       const filtered = sedes.filter(sede => 
         (sede.nombre?.toLowerCase() || '').includes(searchLower) ||
         (sede.ciudad?.toLowerCase() || '').includes(searchLower) ||
+        (sede.departamento?.toLowerCase() || '').includes(searchLower) ||
+        (sede.distrito?.toLowerCase() || '').includes(searchLower) ||
         (sede.direccion?.toLowerCase() || '').includes(searchLower)
       );
       setFilteredSedes(filtered);
@@ -53,16 +55,17 @@ export const SedesDirectory = () => {
   const sedePrincipal = filteredSedes.find(sede => sede.es_principal);
   const otherSedes = filteredSedes.filter(sede => !sede.es_principal);
 
-  // Group other sedes by city
-  const sedesByCity = otherSedes.reduce((acc, sede) => {
-    if (!acc[sede.ciudad]) {
-      acc[sede.ciudad] = [];
+  // Group other sedes by departamento then ciudad
+  const sedesByDepartamento = otherSedes.reduce((acc, sede) => {
+    const deptKey = sede.departamento || sede.ciudad;
+    if (!acc[deptKey]) {
+      acc[deptKey] = [];
     }
-    acc[sede.ciudad].push(sede);
+    acc[deptKey].push(sede);
     return acc;
   }, {} as Record<string, Sede[]>);
 
-  const cities = Object.keys(sedesByCity).sort();
+  const departamentos = Object.keys(sedesByDepartamento).sort();
 
   const openMapDialog = (sede: Sede) => {
     setSelectedSede(sede);
@@ -114,14 +117,14 @@ export const SedesDirectory = () => {
               </div>
             )}
 
-            {/* Other sedes grouped by city */}
-            {cities.map((city) => (
-              <div key={city} className="space-y-3 md:space-y-4">
+            {/* Other sedes grouped by departamento */}
+            {departamentos.map((dept) => (
+              <div key={dept} className="space-y-3 md:space-y-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-primary sticky top-16 md:top-20 bg-background/95 backdrop-blur py-3 md:py-4 z-10">
-                  {city}
+                  {dept}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                  {sedesByCity[city].map((sede) => (
+                  {sedesByDepartamento[dept].map((sede) => (
                     <SedeCard key={sede.id} sede={sede} onOpenMap={openMapDialog} />
                   ))}
                 </div>
