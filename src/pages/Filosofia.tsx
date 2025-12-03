@@ -24,7 +24,8 @@ const Filosofia = () => {
           badgeText="ESCUELA DE FILOSOFÍA"
           title={<><SparkleWord>Filosofía</SparkleWord> para la Vida</>}
           description="Una propuesta diferente de filosofía: práctica, viva y aplicable a los desafíos del mundo moderno."
-          objectPosition="center 85%"
+          objectPosition="center bottom"
+          imageScale={0.9}
           decorativeVariant="filosofia"
         />
 
