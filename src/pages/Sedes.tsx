@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { SedesDirectory } from "@/components/SedesDirectory";
 import { SEO, seoConfig } from "@/components/SEO";
 import { PageLayout } from "@/components/layouts";
 
 const Sedes = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <SEO 
