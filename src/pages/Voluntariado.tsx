@@ -31,11 +31,6 @@ interface VoluntariadoPrograma {
 const Voluntariado = () => {
   const [dbPrograms, setDbPrograms] = useState<VoluntariadoPrograma[]>([]);
 
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   useEffect(() => {
     const fetchPrograms = async () => {
       const { data } = await supabase

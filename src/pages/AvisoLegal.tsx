@@ -1,12 +1,7 @@
-import { useEffect } from "react";
 import { PageLayout } from "@/components/layouts/PageLayout";
 import { SEO } from "@/components/SEO";
 
 const AvisoLegal = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageLayout>
       <SEO
