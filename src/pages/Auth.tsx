@@ -252,18 +252,6 @@ const Auth = () => {
           </Button>
         </form>
 
-        {!invitation && !isLogin && (
-          <div className="mt-6 text-center">
-            <button
-              type="button"
-              onClick={() => setIsLogin(true)}
-              className="text-sm text-primary hover:underline"
-            >
-              ¿Ya tienes cuenta? Inicia sesión
-            </button>
-          </div>
-        )}
-        
         {!invitation && isLogin && (
           <p className="mt-6 text-center text-xs text-muted-foreground">
             El registro solo está disponible mediante invitación de un administrador.

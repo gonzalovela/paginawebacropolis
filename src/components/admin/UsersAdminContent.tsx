@@ -150,6 +150,13 @@ export const UsersAdminContent = () => {
       setEmailError(validation.error.issues[0].message);
       return;
     }
+    
+    // Validate domain for admin role - only @acropolisperu.org allowed
+    if (inviteRole === 'admin' && !inviteEmail.toLowerCase().endsWith('@acropolisperu.org')) {
+      setEmailError('Los administradores deben tener un email @acropolisperu.org');
+      return;
+    }
+    
     setEmailError(null);
     setInviting(true);
 
@@ -619,13 +626,15 @@ export const UsersAdminContent = () => {
           <div className="flex items-start gap-2">
             <ShieldCheck className="h-4 w-4 mt-0.5 text-primary" />
             <div>
-              <span className="font-medium text-foreground">Administrador:</span> Puede gestionar sedes, fotos, inscripciones, usuarios y roles
+              <span className="font-medium text-foreground">Administrador:</span> Puede gestionar sedes, fotos, inscripciones, usuarios y roles.
+              <span className="text-xs block text-amber-600">Solo emails @acropolisperu.org</span>
             </div>
           </div>
           <div className="flex items-start gap-2">
             <Shield className="h-4 w-4 mt-0.5 text-secondary" />
             <div>
-              <span className="font-medium text-foreground">Editor:</span> Puede gestionar sedes, fotos e inscripciones (no usuarios)
+              <span className="font-medium text-foreground">Editor:</span> Puede gestionar sedes, fotos e inscripciones (no usuarios).
+              <span className="text-xs block">Cualquier email invitado</span>
             </div>
           </div>
         </div>
@@ -677,6 +686,11 @@ export const UsersAdminContent = () => {
                   </SelectItem>
                 </SelectContent>
               </Select>
+              <p className="text-xs text-muted-foreground mt-2">
+                {inviteRole === 'admin' 
+                  ? "⚠️ Los administradores deben tener email @acropolisperu.org"
+                  : "Los editores pueden tener cualquier email"}
+              </p>
             </div>
             <div className="flex justify-end gap-2 pt-4">
               <Button variant="outline" onClick={() => setShowInviteDialog(false)}>
