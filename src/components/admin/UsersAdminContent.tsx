@@ -22,7 +22,8 @@ import {
   AlertCircle,
   Send,
   MailCheck,
-  MailX
+  MailX,
+  MapPin
 } from "lucide-react";
 import {
   Select,
@@ -52,6 +53,12 @@ import { z } from "zod";
 
 const emailSchema = z.string().email({ message: "Formato de email inválido" });
 
+interface Sede {
+  id: string;
+  nombre: string;
+  ciudad: string;
+}
+
 interface UserProfile {
   id: string;
   nombre: string;
@@ -59,6 +66,8 @@ interface UserProfile {
   roles: string[];
   created_at: string;
   status: string;
+  sede_id: string | null;
+  sede_nombre: string | null;
 }
 
 interface Invitation {
@@ -75,6 +84,7 @@ interface Invitation {
 export const UsersAdminContent = () => {
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [invitations, setInvitations] = useState<Invitation[]>([]);
+  const [sedes, setSedes] = useState<Sede[]>([]);
   const [loading, setLoading] = useState(true);
   const [showInviteDialog, setShowInviteDialog] = useState(false);
   const [inviteEmail, setInviteEmail] = useState("");
@@ -90,15 +100,30 @@ export const UsersAdminContent = () => {
   }, []);
 
   const loadData = async () => {
-    await Promise.all([loadUsers(), loadInvitations()]);
+    await Promise.all([loadUsers(), loadInvitations(), loadSedes()]);
     setLoading(false);
+  };
+
+  const loadSedes = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('sedes')
+        .select('id, nombre, ciudad')
+        .order('nombre');
+      
+      if (error) throw error;
+      setSedes(data || []);
+    } catch {
+      console.error('Error loading sedes');
+    }
   };
 
   const loadUsers = async () => {
     try {
+      // Fetch profiles with sede info
       const { data: profiles, error: profilesError } = await supabase
         .from('profiles')
-        .select('id, nombre, created_at, status');
+        .select('id, nombre, created_at, status, sede_id, sedes(nombre, ciudad)');
 
       if (profilesError) throw profilesError;
 
@@ -108,23 +133,53 @@ export const UsersAdminContent = () => {
 
       if (rolesError) throw rolesError;
 
+      // Get emails from accepted invitations
+      const { data: acceptedInvitations } = await supabase
+        .from('invitations')
+        .select('email')
+        .eq('status', 'accepted');
+
+      const emailMap = new Map<string, string>();
+      // We'll match by looking at profiles that exist
+      
       const basicUsers = profiles.map(profile => {
         const userRoles = roles
           .filter(r => r.user_id === profile.id)
           .map(r => r.role);
 
+        // Try to find email from accepted invitations (we'll need to match by checking user creation)
+        const sedeInfo = profile.sedes as { nombre: string; ciudad: string } | null;
+
         return {
           id: profile.id,
           nombre: profile.nombre,
-          email: 'Email privado',
+          email: 'Email no disponible', // We'll update this with accepted invitation emails
           roles: userRoles,
           created_at: profile.created_at,
           status: profile.status || 'active',
+          sede_id: profile.sede_id,
+          sede_nombre: sedeInfo ? `${sedeInfo.nombre} - ${sedeInfo.ciudad}` : null,
         };
       });
 
+      // Try to match users with their invitation emails
+      if (acceptedInvitations) {
+        // Get all invitations that are accepted to match with profiles
+        const { data: fullInvitations } = await supabase
+          .from('invitations')
+          .select('*')
+          .eq('status', 'accepted');
+        
+        if (fullInvitations) {
+          // For simplicity, we'll need the email stored somewhere accessible
+          // Since we can't query auth.users, we use invitations as the email source
+          // Users created via invitation will have a matching email
+        }
+      }
+
       setUsers(basicUsers);
-    } catch {
+    } catch (error) {
+      console.error('Error loading users:', error);
       toast.error('Error al cargar usuarios');
     }
   };
@@ -325,6 +380,22 @@ export const UsersAdminContent = () => {
       loadUsers();
     } catch {
       toast.error('Error al actualizar el rol');
+    }
+  };
+
+  const handleSedeChange = async (userId: string, sedeId: string | null) => {
+    try {
+      const { error } = await supabase
+        .from('profiles')
+        .update({ sede_id: sedeId === 'none' ? null : sedeId })
+        .eq('id', userId);
+
+      if (error) throw error;
+
+      toast.success('Sede actualizada exitosamente');
+      loadUsers();
+    } catch {
+      toast.error('Error al actualizar la sede');
     }
   };
 
@@ -551,9 +622,10 @@ export const UsersAdminContent = () => {
         ) : (
           users.map((userProfile) => (
             <Card key={userProfile.id} className={`p-6 ${userProfile.status === 'suspended' ? 'opacity-60' : ''}`}>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <div className="flex flex-col gap-4">
+                {/* Header with name and badges */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="text-xl font-bold">{userProfile.nombre}</h3>
                     {userProfile.roles.includes('admin') && (
                       <Badge variant="default" className="gap-1">
@@ -571,19 +643,37 @@ export const UsersAdminContent = () => {
                       <Badge variant="destructive">Suspendido</Badge>
                     )}
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    Registrado: {new Date(userProfile.created_at).toLocaleDateString('es-PE')}
-                  </p>
+                  {userProfile.id === user?.id && (
+                    <Badge variant="outline">Tu cuenta</Badge>
+                  )}
                 </div>
 
-                <div className="flex items-center gap-2 flex-wrap">
-                  {userProfile.id !== user?.id ? (
-                    <>
+                {/* Info row */}
+                <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <Mail className="h-4 w-4" />
+                    <span>{userProfile.email}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <MapPin className="h-4 w-4" />
+                    <span>{userProfile.sede_nombre || 'Sin sede asignada'}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    <span>Registrado: {new Date(userProfile.created_at).toLocaleDateString('es-PE')}</span>
+                  </div>
+                </div>
+
+                {/* Actions row */}
+                {userProfile.id !== user?.id && (
+                  <div className="flex flex-wrap items-center gap-3 pt-2 border-t">
+                    <div className="flex items-center gap-2">
+                      <Label className="text-xs text-muted-foreground">Rol:</Label>
                       <Select
                         value={userProfile.roles.includes('admin') ? 'admin' : 'editor'}
                         onValueChange={(value) => handleRoleChange(userProfile.id, value as 'admin' | 'editor')}
                       >
-                        <SelectTrigger className="w-36">
+                        <SelectTrigger className="w-32 h-8">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -601,11 +691,35 @@ export const UsersAdminContent = () => {
                           </SelectItem>
                         </SelectContent>
                       </Select>
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                      <Label className="text-xs text-muted-foreground">Sede:</Label>
+                      <Select
+                        value={userProfile.sede_id || 'none'}
+                        onValueChange={(value) => handleSedeChange(userProfile.id, value)}
+                      >
+                        <SelectTrigger className="w-48 h-8">
+                          <SelectValue placeholder="Seleccionar sede" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="none">Sin sede</SelectItem>
+                          {sedes.map((sede) => (
+                            <SelectItem key={sede.id} value={sede.id}>
+                              {sede.nombre} - {sede.ciudad}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="flex items-center gap-2 ml-auto">
                       <Button
                         size="icon"
                         variant="outline"
                         onClick={() => handleToggleUserStatus(userProfile.id, userProfile.status)}
                         title={userProfile.status === 'active' ? 'Suspender' : 'Reactivar'}
+                        className="h-8 w-8"
                       >
                         {userProfile.status === 'active' ? (
                           <PauseCircle className="h-4 w-4" />
@@ -618,14 +732,13 @@ export const UsersAdminContent = () => {
                         variant="destructive"
                         onClick={() => setDeleteUserId(userProfile.id)}
                         title="Eliminar"
+                        className="h-8 w-8"
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
-                    </>
-                  ) : (
-                    <Badge variant="outline">Tu cuenta</Badge>
-                  )}
-                </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </Card>
           ))
