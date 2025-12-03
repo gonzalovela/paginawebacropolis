@@ -63,6 +63,7 @@ Este proyecto fue diseñado y desarrollado con dedicación por **Humantech AI Ag
 |----------|-----------|
 | Resend | Envío de emails transaccionales |
 | Google Maps | Mapas de ubicaciones |
+| Google Analytics 4 | Analítica y seguimiento de eventos |
 
 ---
 
@@ -111,12 +112,12 @@ Este proyecto fue diseñado y desarrollado con dedicación por **Humantech AI Ag
 |-------|-------------|
 | `sedes` | Directorio de sedes/ubicaciones |
 | `inscripciones` | Formularios de inscripción |
-| `profiles` | Perfiles de usuarios admin |
+| `profiles` | Perfiles de usuarios admin (nombre, email, sede_id, status) |
 | `user_roles` | Roles de usuarios (admin/editor) |
-| `invitations` | Invitaciones pendientes |
-| `cultura_actividades` | Actividades culturales |
-| `voluntariado_programas` | Programas de voluntariado |
-| `voluntariado_fotos` | Galería de fotos |
+| `invitations` | Invitaciones pendientes con tokens |
+| `cultura_actividades` | Actividades culturales con imágenes |
+| `voluntariado_programas` | Programas de voluntariado con imágenes |
+| `voluntariado_fotos` | Galería de fotos por categoría |
 
 ### Roles de Usuario
 
@@ -255,7 +256,10 @@ Configurar en Lovable Cloud:
 
 ### Configuración de Resend
 
-Los emails se envían desde `noreply@acropolisperu.org` usando el dominio verificado en Resend.
+Los emails se envían usando el subdominio verificado `send.acropolisperu.org`:
+
+- **Inscripciones**: `inscripciones@send.acropolisperu.org`
+- **Invitaciones**: `invitaciones@send.acropolisperu.org`
 
 ---
 
@@ -286,7 +290,7 @@ El código es estándar y puede desplegarse en:
 
 ---
 
-## 📊 SEO y Rendimiento
+## 📊 SEO, Analytics y Rendimiento
 
 ### Optimizaciones Implementadas
 
@@ -297,6 +301,13 @@ El código es estándar y puede desplegarse en:
 - ✅ Compresión de imágenes (vite-imagetools)
 - ✅ Code splitting automático
 - ✅ Skeleton loaders
+- ✅ llms.txt para integración con modelos de lenguaje
+
+### Google Analytics 4
+
+- **ID**: G-CCNZET35XK
+- **Eventos trackeados**: clicks en botones, vistas de sección, interacciones de formulario, links externos
+- **Conversiones**: inscripciones con parámetros de sede e interés
 
 ### Lighthouse Score Objetivo
 
