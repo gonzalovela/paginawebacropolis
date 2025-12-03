@@ -9,7 +9,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { z } from "zod";
-import { Shield, ShieldCheck, UserPlus } from "lucide-react";
+import { Shield, ShieldCheck, UserPlus, Eye, EyeOff } from "lucide-react";
 import logo from "@/assets/logo-escuela-filosofia.png";
 
 const loginSchema = z.object({
@@ -38,6 +38,7 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [nombre, setNombre] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [invitation, setInvitation] = useState<Invitation | null>(null);
   const [loadingInvitation, setLoadingInvitation] = useState(!!invitationToken);
   const { signIn, signUp, user } = useAuth();
@@ -218,14 +219,25 @@ const Auth = () => {
 
           <div>
             <Label htmlFor="password">Contraseña</Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              placeholder="Mínimo 6 caracteres"
-            />
+            <div className="relative">
+              <Input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Mínimo 6 caracteres"
+                className="pr-10"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+              >
+                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
