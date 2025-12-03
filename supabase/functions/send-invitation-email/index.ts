@@ -143,65 +143,91 @@ const handler = async (req: Request): Promise<Response> => {
 
     const registrationUrl = `${baseUrl}/auth?invitation=${token}`;
 
-    await resend.emails.send({
-      from: "Nueva Acrópolis <invitaciones@send.acropolisperu.org>",
-      to: [email],
-      subject: "Invitación al Panel de Administración - Nueva Acrópolis Perú",
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #1a5f4a; margin: 0;">Nueva Acrópolis Perú</h1>
-            <p style="color: #666; margin: 5px 0;">Escuela de Filosofía</p>
-          </div>
-          
-          <div style="background: #f8f9fa; border-radius: 10px; padding: 30px; margin-bottom: 20px;">
-            <h2 style="color: #1a5f4a; margin-top: 0;">¡Has sido invitado!</h2>
-            <p>Hola,</p>
-            <p><strong>${safeInviterName}</strong> te ha invitado a unirte al panel de administración de Nueva Acrópolis Perú con el rol de <strong>${getRoleName(role)}</strong>.</p>
+    try {
+      await resend.emails.send({
+        from: "Nueva Acrópolis <invitaciones@send.acropolisperu.org>",
+        to: [email],
+        subject: "Invitación al Panel de Administración - Nueva Acrópolis Perú",
+        html: `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          </head>
+          <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 30px;">
+              <h1 style="color: #1a5f4a; margin: 0;">Nueva Acrópolis Perú</h1>
+              <p style="color: #666; margin: 5px 0;">Escuela de Filosofía</p>
+            </div>
             
-            <div style="background: #e8f5e9; border-left: 4px solid #1a5f4a; padding: 15px; margin: 20px 0;">
-              <p style="margin: 0;"><strong>Tu rol:</strong> ${getRoleName(role)}</p>
-              <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">
-                ${role === 'admin' 
-                  ? 'Podrás gestionar sedes, fotos, inscripciones, usuarios y roles.' 
-                  : 'Podrás gestionar sedes, fotos e inscripciones.'}
+            <div style="background: #f8f9fa; border-radius: 10px; padding: 30px; margin-bottom: 20px;">
+              <h2 style="color: #1a5f4a; margin-top: 0;">¡Has sido invitado!</h2>
+              <p>Hola,</p>
+              <p><strong>${safeInviterName}</strong> te ha invitado a unirte al panel de administración de Nueva Acrópolis Perú con el rol de <strong>${getRoleName(role)}</strong>.</p>
+              
+              <div style="background: #e8f5e9; border-left: 4px solid #1a5f4a; padding: 15px; margin: 20px 0;">
+                <p style="margin: 0;"><strong>Tu rol:</strong> ${getRoleName(role)}</p>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">
+                  ${role === 'admin' 
+                    ? 'Podrás gestionar sedes, fotos, inscripciones, usuarios y roles.' 
+                    : 'Podrás gestionar sedes, fotos e inscripciones.'}
+                </p>
+              </div>
+              
+              <p>Para aceptar la invitación y crear tu cuenta, haz clic en el siguiente botón:</p>
+              
+              <div style="text-align: center; margin: 30px 0;">
+                <a href="${registrationUrl}" style="background: #1a5f4a; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                  Aceptar Invitación
+                </a>
+              </div>
+              
+              <p style="font-size: 14px; color: #666;">
+                Si el botón no funciona, copia y pega este enlace en tu navegador:<br>
+                <a href="${registrationUrl}" style="color: #1a5f4a; word-break: break-all;">${registrationUrl}</a>
               </p>
             </div>
             
-            <p>Para aceptar la invitación y crear tu cuenta, haz clic en el siguiente botón:</p>
-            
-            <div style="text-align: center; margin: 30px 0;">
-              <a href="${registrationUrl}" style="background: #1a5f4a; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
-                Aceptar Invitación
-              </a>
+            <div style="text-align: center; color: #999; font-size: 12px;">
+              <p>Esta invitación expira en 7 días.</p>
+              <p>Si no esperabas esta invitación, puedes ignorar este correo.</p>
+              <p style="margin-top: 20px;">© ${new Date().getFullYear()} Nueva Acrópolis Perú</p>
             </div>
-            
-            <p style="font-size: 14px; color: #666;">
-              Si el botón no funciona, copia y pega este enlace en tu navegador:<br>
-              <a href="${registrationUrl}" style="color: #1a5f4a; word-break: break-all;">${registrationUrl}</a>
-            </p>
-          </div>
-          
-          <div style="text-align: center; color: #999; font-size: 12px;">
-            <p>Esta invitación expira en 7 días.</p>
-            <p>Si no esperabas esta invitación, puedes ignorar este correo.</p>
-            <p style="margin-top: 20px;">© ${new Date().getFullYear()} Nueva Acrópolis Perú</p>
-          </div>
-        </body>
-        </html>
-      `,
-    });
+          </body>
+          </html>
+        `,
+      });
 
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
+      // Update email_status to 'sent' on success
+      await supabase
+        .from("invitations")
+        .update({ email_status: "sent" })
+        .eq("id", invitation.id);
+
+      console.log(`Invitation email sent successfully to ${email}`);
+
+      return new Response(JSON.stringify({ success: true, email_status: "sent" }), {
+        status: 200,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    } catch (emailError: any) {
+      console.error(`Failed to send invitation email to ${email}:`, emailError.message);
+
+      // Update email_status to 'failed' on error
+      await supabase
+        .from("invitations")
+        .update({ email_status: "failed" })
+        .eq("id", invitation.id);
+
+      return new Response(
+        JSON.stringify({ error: "Error al enviar el email", email_status: "failed" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
   } catch (error: any) {
     // Don't expose internal error details
     return new Response(
