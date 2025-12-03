@@ -139,26 +139,40 @@ export type Database = {
       profiles: {
         Row: {
           created_at: string
+          email: string | null
           id: string
           nombre: string
+          sede_id: string | null
           status: string
           updated_at: string
         }
         Insert: {
           created_at?: string
+          email?: string | null
           id: string
           nombre: string
+          sede_id?: string | null
           status?: string
           updated_at?: string
         }
         Update: {
           created_at?: string
+          email?: string | null
           id?: string
           nombre?: string
+          sede_id?: string | null
           status?: string
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "profiles_sede_id_fkey"
+            columns: ["sede_id"]
+            isOneToOne: false
+            referencedRelation: "sedes"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       sedes: {
         Row: {
