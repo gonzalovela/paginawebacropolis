@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { WhoWeAre } from "@/components/WhoWeAre";
 import { SEO, seoConfig } from "@/components/SEO";
 import { PageLayout } from "@/components/layouts";
 
 const QuienesSomos = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <SEO 

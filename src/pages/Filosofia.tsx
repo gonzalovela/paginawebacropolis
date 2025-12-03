@@ -13,7 +13,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 const Filosofia = () => {
   const location = useLocation();
 
-  // Scroll to section if hash is present
+  // Scroll to section if hash is present, otherwise scroll to top
   useEffect(() => {
     if (location.hash) {
       const element = document.querySelector(location.hash);
@@ -22,6 +22,8 @@ const Filosofia = () => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       }
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [location]);
 
