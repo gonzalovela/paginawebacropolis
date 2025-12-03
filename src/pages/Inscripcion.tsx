@@ -18,6 +18,9 @@ const Inscripcion = () => {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 100);
       }
+    } else {
+      // Scroll to top when no hash
+      window.scrollTo(0, 0);
     }
   }, [location]);
 
