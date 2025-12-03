@@ -20,8 +20,8 @@ export const Hero = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-[1]" />
 
-      <div className="container relative z-10 px-4 sm:px-6 text-center py-8">
-        <div className="animate-fade-in-up mb-4 sm:mb-6 -mt-4 sm:-mt-8">
+      <div className="container relative z-10 px-4 sm:px-6 text-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8">
+        <div className="animate-fade-in-up mb-4 sm:mb-6">
         <img 
             src={logo} 
             alt="Logo de Nueva Acrópolis Perú - Escuela de Filosofía práctica con más de 65 sedes en el país" 
