@@ -18,7 +18,11 @@ import {
   Mail,
   Clock,
   CheckCircle,
-  XCircle
+  XCircle,
+  AlertCircle,
+  Send,
+  MailCheck,
+  MailX
 } from "lucide-react";
 import {
   Select,
@@ -62,6 +66,7 @@ interface Invitation {
   email: string;
   role: string;
   status: string;
+  email_status: string;
   created_at: string;
   expires_at: string;
   token: string;
@@ -215,12 +220,14 @@ export const UsersAdminContent = () => {
 
   const handleResendInvitation = async (invitation: Invitation) => {
     try {
-      // Update expiration
+      // Update expiration and reset email status
       const { error: updateError } = await supabase
         .from('invitations')
         .update({ 
           expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
           token: crypto.randomUUID(),
+          email_status: 'pending',
+          status: 'pending',
         })
         .eq('id', invitation.id)
         .select()
@@ -349,6 +356,32 @@ export const UsersAdminContent = () => {
 
   const isExpired = (expiresAt: string) => new Date(expiresAt) < new Date();
 
+  const getEmailStatusBadge = (emailStatus: string) => {
+    switch (emailStatus) {
+      case 'sent':
+        return (
+          <Badge variant="outline" className="gap-1 bg-green-50 text-green-700 border-green-200">
+            <MailCheck className="h-3 w-3" />
+            Email enviado
+          </Badge>
+        );
+      case 'failed':
+        return (
+          <Badge variant="outline" className="gap-1 bg-red-50 text-red-700 border-red-200">
+            <MailX className="h-3 w-3" />
+            Error al enviar
+          </Badge>
+        );
+      default:
+        return (
+          <Badge variant="outline" className="gap-1 bg-yellow-50 text-yellow-700 border-yellow-200">
+            <Send className="h-3 w-3" />
+            Enviando...
+          </Badge>
+        );
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
@@ -359,6 +392,7 @@ export const UsersAdminContent = () => {
 
   const pendingInvitations = invitations.filter(i => i.status === 'pending' && !isExpired(i.expires_at));
   const expiredInvitations = invitations.filter(i => i.status === 'pending' && isExpired(i.expires_at));
+  const acceptedInvitations = invitations.filter(i => i.status === 'accepted');
 
   return (
     <div className="space-y-6">
@@ -376,59 +410,111 @@ export const UsersAdminContent = () => {
       </div>
 
       {/* Pending Invitations */}
-      {(pendingInvitations.length > 0 || expiredInvitations.length > 0) && (
+      {(pendingInvitations.length > 0 || expiredInvitations.length > 0 || acceptedInvitations.length > 0) && (
         <Card className="p-6">
           <h3 className="font-bold mb-4 flex items-center gap-2">
             <Mail className="h-5 w-5" />
-            Invitaciones Pendientes
+            Invitaciones
           </h3>
           <div className="space-y-3">
-            {pendingInvitations.map((invitation) => (
-              <div key={invitation.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-muted/50 rounded-lg">
-                <div>
-                  <p className="font-medium">{invitation.email}</p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Badge variant="outline" className="gap-1">
-                      {invitation.role === 'admin' ? <ShieldCheck className="h-3 w-3" /> : <Shield className="h-3 w-3" />}
-                      {invitation.role === 'admin' ? 'Admin' : 'Editor'}
-                    </Badge>
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      Expira: {new Date(invitation.expires_at).toLocaleDateString('es-PE')}
-                    </span>
+            {/* Pending */}
+            {pendingInvitations.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+                  <Clock className="h-4 w-4" />
+                  Pendientes ({pendingInvitations.length})
+                </p>
+                {pendingInvitations.map((invitation) => (
+                  <div key={invitation.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-muted/50 rounded-lg">
+                    <div className="space-y-1">
+                      <p className="font-medium">{invitation.email}</p>
+                      <div className="flex flex-wrap items-center gap-2 text-sm">
+                        <Badge variant="outline" className="gap-1">
+                          {invitation.role === 'admin' ? <ShieldCheck className="h-3 w-3" /> : <Shield className="h-3 w-3" />}
+                          {invitation.role === 'admin' ? 'Admin' : 'Editor'}
+                        </Badge>
+                        {getEmailStatusBadge(invitation.email_status)}
+                        <span className="flex items-center gap-1 text-muted-foreground">
+                          <Clock className="h-3 w-3" />
+                          Expira: {new Date(invitation.expires_at).toLocaleDateString('es-PE')}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" onClick={() => handleResendInvitation(invitation)}>
+                        <RefreshCw className="h-4 w-4 mr-1" />
+                        Reenviar
+                      </Button>
+                      <Button size="sm" variant="destructive" onClick={() => setDeleteInvitationId(invitation.id)}>
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-2">
-                  <Button size="sm" variant="outline" onClick={() => handleResendInvitation(invitation)}>
-                    <RefreshCw className="h-4 w-4 mr-1" />
-                    Reenviar
-                  </Button>
-                  <Button size="sm" variant="destructive" onClick={() => setDeleteInvitationId(invitation.id)}>
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
+                ))}
               </div>
-            ))}
-            {expiredInvitations.map((invitation) => (
-              <div key={invitation.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-destructive/10 rounded-lg">
-                <div>
-                  <p className="font-medium text-muted-foreground">{invitation.email}</p>
-                  <div className="flex items-center gap-2 text-sm text-destructive">
-                    <XCircle className="h-3 w-3" />
-                    Invitación expirada
+            )}
+            
+            {/* Expired */}
+            {expiredInvitations.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-destructive flex items-center gap-1">
+                  <AlertCircle className="h-4 w-4" />
+                  Expiradas ({expiredInvitations.length})
+                </p>
+                {expiredInvitations.map((invitation) => (
+                  <div key={invitation.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-destructive/10 rounded-lg">
+                    <div className="space-y-1">
+                      <p className="font-medium text-muted-foreground">{invitation.email}</p>
+                      <div className="flex flex-wrap items-center gap-2 text-sm">
+                        <Badge variant="outline" className="gap-1">
+                          {invitation.role === 'admin' ? <ShieldCheck className="h-3 w-3" /> : <Shield className="h-3 w-3" />}
+                          {invitation.role === 'admin' ? 'Admin' : 'Editor'}
+                        </Badge>
+                        <Badge variant="destructive" className="gap-1">
+                          <XCircle className="h-3 w-3" />
+                          Expirada
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" onClick={() => handleResendInvitation(invitation)}>
+                        <RefreshCw className="h-4 w-4 mr-1" />
+                        Reenviar
+                      </Button>
+                      <Button size="sm" variant="destructive" onClick={() => setDeleteInvitationId(invitation.id)}>
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-2">
-                  <Button size="sm" variant="outline" onClick={() => handleResendInvitation(invitation)}>
-                    <RefreshCw className="h-4 w-4 mr-1" />
-                    Reenviar
-                  </Button>
-                  <Button size="sm" variant="destructive" onClick={() => setDeleteInvitationId(invitation.id)}>
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
+                ))}
               </div>
-            ))}
+            )}
+
+            {/* Accepted */}
+            {acceptedInvitations.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-green-600 flex items-center gap-1">
+                  <CheckCircle className="h-4 w-4" />
+                  Aceptadas ({acceptedInvitations.length})
+                </p>
+                {acceptedInvitations.map((invitation) => (
+                  <div key={invitation.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-green-50 rounded-lg">
+                    <div className="space-y-1">
+                      <p className="font-medium text-green-800">{invitation.email}</p>
+                      <div className="flex flex-wrap items-center gap-2 text-sm">
+                        <Badge variant="outline" className="gap-1 bg-green-100 text-green-700 border-green-200">
+                          <CheckCircle className="h-3 w-3" />
+                          Usuario registrado
+                        </Badge>
+                      </div>
+                    </div>
+                    <Button size="sm" variant="ghost" onClick={() => setDeleteInvitationId(invitation.id)}>
+                      <Trash2 className="h-4 w-4 text-muted-foreground" />
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </Card>
       )}
