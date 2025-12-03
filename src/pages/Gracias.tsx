@@ -122,49 +122,6 @@ const Gracias = () => {
             </div>
           </div>
         </section>
-
-        {/* Additional Info Section */}
-        <section className="py-10 sm:py-12 md:py-16 bg-muted/30">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-xl sm:text-2xl font-semibold text-center text-foreground mb-6 sm:mb-8">
-                Mientras esperas, explora más sobre nosotros
-              </h2>
-              
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                <Card className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow">
-                  <h3 className="font-semibold text-foreground mb-2 text-base sm:text-lg">Filosofía</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-                    Descubre nuestra propuesta de filosofía práctica para la vida diaria.
-                  </p>
-                  <Button asChild variant="link" className="text-primary text-sm sm:text-base">
-                    <Link to="/filosofia">Conocer más →</Link>
-                  </Button>
-                </Card>
-                
-                <Card className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow">
-                  <h3 className="font-semibold text-foreground mb-2 text-base sm:text-lg">Cultura</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-                    Explora nuestras actividades culturales y encuentros artísticos.
-                  </p>
-                  <Button asChild variant="link" className="text-primary text-sm sm:text-base">
-                    <Link to="/cultura">Conocer más →</Link>
-                  </Button>
-                </Card>
-                
-                <Card className="p-4 sm:p-6 text-center hover:shadow-lg transition-shadow sm:col-span-2 md:col-span-1">
-                  <h3 className="font-semibold text-foreground mb-2 text-base sm:text-lg">Voluntariado</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-                    Conoce cómo puedes hacer la diferencia en tu comunidad.
-                  </p>
-                  <Button asChild variant="link" className="text-primary text-sm sm:text-base">
-                    <Link to="/voluntariado">Conocer más →</Link>
-                  </Button>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
       </PageLayout>
     </>
   );
