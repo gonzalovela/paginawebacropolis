@@ -5,28 +5,10 @@ import bannerFilosofia from "@/assets/banner-filosofia.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { CourseModulesSection, TestimonialsSection, AdvancedCoursesSection } from "@/components/filosofia";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { PageLayout } from "@/components/layouts";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Filosofia = () => {
-  const location = useLocation();
-
-  // Scroll to section if hash is present, otherwise scroll to top
-  useEffect(() => {
-    if (location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [location]);
-
   return (
     <>
       <SEO 

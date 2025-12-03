@@ -29,11 +29,6 @@ interface CulturaActividad {
 const Cultura = () => {
   const [dbActivities, setDbActivities] = useState<CulturaActividad[]>([]);
 
-  // Scroll to top on page load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   useEffect(() => {
     const fetchActivities = async () => {
       const { data } = await supabase

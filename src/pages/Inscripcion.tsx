@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { ContactForm } from "@/components/ContactForm";
 import { SEO, seoConfig } from "@/components/SEO";
 import { AnimatedMapBackground } from "@/components/AnimatedMapBackground";
@@ -8,22 +6,6 @@ import { PageHeroBanner } from "@/components/PageHeroBanner";
 import { PageLayout } from "@/components/layouts";
 
 const Inscripcion = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash === "#formulario") {
-      const element = document.getElementById("formulario");
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
-      }
-    } else {
-      // Scroll to top when no hash
-      window.scrollTo(0, 0);
-    }
-  }, [location]);
-
   return (
     <>
       <SEO 
