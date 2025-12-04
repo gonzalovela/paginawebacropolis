@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 interface ProtectedAdminRouteProps {
   children: React.ReactNode;
-  requiredRole?: 'admin' | 'editor';
+  requiredRole?: 'admin' | 'content_manager' | 'editor';
 }
 
 export const ProtectedAdminRoute = ({ 
@@ -27,12 +27,23 @@ export const ProtectedAdminRoute = ({
       }
 
       try {
-        // Check if user has required role (admin or editor)
+        // Determine which roles grant access based on required role
+        type AppRole = "admin" | "content_manager" | "editor";
+        let allowedRoles: AppRole[] = [];
+        if (requiredRole === 'admin') {
+          allowedRoles = ['admin'];
+        } else if (requiredRole === 'content_manager') {
+          allowedRoles = ['admin', 'content_manager'];
+        } else {
+          allowedRoles = ['admin', 'content_manager', 'editor'];
+        }
+
+        // Check if user has required role
         const { data, error } = await supabase
           .from('user_roles')
           .select('role')
           .eq('user_id', user.id)
-          .in('role', requiredRole === 'admin' ? ['admin'] : ['admin', 'editor']);
+          .in('role', allowedRoles);
 
         if (error) {
           setHasAccess(false);
