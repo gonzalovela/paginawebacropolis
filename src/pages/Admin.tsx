@@ -55,7 +55,7 @@ const AdminDashboard = () => {
   };
 
   // Calculate which tabs to show based on role
-  const canViewFotos = isAdmin || (!isContentManager); // Admin or Editor (not content_manager)
+  const canViewFotos = true; // All roles can see photos
   const canViewCultura = isAdmin || isContentManager;
   const canViewVoluntariado = isAdmin || isContentManager;
   const canViewRoles = isAdmin;
