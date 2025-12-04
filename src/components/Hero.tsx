@@ -82,8 +82,8 @@ export const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 z-[2] -mb-1">
         {/* Background fill to cover any gaps at corners */}
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#2a1810] via-[#4a2520] to-transparent -z-10" />
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
-          <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+        <svg viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block" preserveAspectRatio="none">
+          <path d="M0 180L48 165C96 150 192 120 288 97.5C384 75 480 60 576 67.5C672 75 768 105 864 120C960 135 1056 135 1152 120C1248 105 1344 75 1392 60L1440 45V180H1392C1344 180 1248 180 1152 180C1056 180 960 180 864 180C768 180 672 180 576 180C480 180 384 180 288 180C192 180 96 180 48 180H0Z" fill="hsl(var(--background))"/>
         </svg>
       </div>
     </section>
