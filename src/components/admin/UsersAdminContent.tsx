@@ -23,7 +23,8 @@ import {
   Send,
   MailCheck,
   MailX,
-  MapPin
+  MapPin,
+  Palette
 } from "lucide-react";
 import {
   Select,
@@ -88,7 +89,7 @@ export const UsersAdminContent = () => {
   const [loading, setLoading] = useState(true);
   const [showInviteDialog, setShowInviteDialog] = useState(false);
   const [inviteEmail, setInviteEmail] = useState("");
-  const [inviteRole, setInviteRole] = useState<"admin" | "editor">("editor");
+  const [inviteRole, setInviteRole] = useState<"admin" | "content_manager" | "editor">("editor");
   const [inviting, setInviting] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
   const [deleteUserId, setDeleteUserId] = useState<string | null>(null);
@@ -181,9 +182,9 @@ export const UsersAdminContent = () => {
       return;
     }
     
-    // Validate domain for admin role - only @acropolisperu.org allowed
-    if (inviteRole === 'admin' && !inviteEmail.toLowerCase().endsWith('@acropolisperu.org')) {
-      setEmailError('Los administradores deben tener un email @acropolisperu.org');
+    // Validate domain for admin and content_manager roles - only @acropolisperu.org allowed
+    if ((inviteRole === 'admin' || inviteRole === 'content_manager') && !inviteEmail.toLowerCase().endsWith('@acropolisperu.org')) {
+      setEmailError('Administradores y gestores de contenido deben tener email @acropolisperu.org');
       return;
     }
     
@@ -336,7 +337,7 @@ export const UsersAdminContent = () => {
     }
   };
 
-  const handleRoleChange = async (userId: string, newRole: 'admin' | 'editor') => {
+  const handleRoleChange = async (userId: string, newRole: 'admin' | 'content_manager' | 'editor') => {
     try {
       const { error: deleteError } = await supabase
         .from('user_roles')
@@ -608,7 +609,13 @@ export const UsersAdminContent = () => {
                         Admin
                       </Badge>
                     )}
-                    {userProfile.roles.includes('editor') && !userProfile.roles.includes('admin') && (
+                    {userProfile.roles.includes('content_manager') && !userProfile.roles.includes('admin') && (
+                      <Badge variant="default" className="gap-1 bg-purple-600">
+                        <Palette className="h-3 w-3" />
+                        Contenido
+                      </Badge>
+                    )}
+                    {userProfile.roles.includes('editor') && !userProfile.roles.includes('admin') && !userProfile.roles.includes('content_manager') && (
                       <Badge variant="secondary" className="gap-1">
                         <Shield className="h-3 w-3" />
                         Editor
@@ -645,10 +652,10 @@ export const UsersAdminContent = () => {
                     <div className="flex items-center gap-2">
                       <Label className="text-xs text-muted-foreground">Rol:</Label>
                       <Select
-                        value={userProfile.roles.includes('admin') ? 'admin' : 'editor'}
-                        onValueChange={(value) => handleRoleChange(userProfile.id, value as 'admin' | 'editor')}
+                        value={userProfile.roles.includes('admin') ? 'admin' : userProfile.roles.includes('content_manager') ? 'content_manager' : 'editor'}
+                        onValueChange={(value) => handleRoleChange(userProfile.id, value as 'admin' | 'content_manager' | 'editor')}
                       >
-                        <SelectTrigger className="w-32 h-8">
+                        <SelectTrigger className="w-36 h-8">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -656,6 +663,12 @@ export const UsersAdminContent = () => {
                             <div className="flex items-center gap-2">
                               <ShieldCheck className="h-4 w-4" />
                               Admin
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="content_manager">
+                            <div className="flex items-center gap-2">
+                              <Palette className="h-4 w-4" />
+                              Contenido
                             </div>
                           </SelectItem>
                           <SelectItem value="editor">
@@ -726,14 +739,21 @@ export const UsersAdminContent = () => {
           <div className="flex items-start gap-2">
             <ShieldCheck className="h-4 w-4 mt-0.5 text-primary" />
             <div>
-              <span className="font-medium text-foreground">Administrador:</span> Puede gestionar sedes, fotos, inscripciones, usuarios y roles.
+              <span className="font-medium text-foreground">Administrador:</span> Control total del panel, incluye gestión de usuarios y roles.
+              <span className="text-xs block text-amber-600">Solo emails @acropolisperu.org</span>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Palette className="h-4 w-4 mt-0.5 text-purple-600" />
+            <div>
+              <span className="font-medium text-foreground">Gestor de Contenido:</span> Gestiona imágenes de Cultura y Voluntariado (secciones principales).
               <span className="text-xs block text-amber-600">Solo emails @acropolisperu.org</span>
             </div>
           </div>
           <div className="flex items-start gap-2">
             <Shield className="h-4 w-4 mt-0.5 text-secondary" />
             <div>
-              <span className="font-medium text-foreground">Editor:</span> Puede gestionar sedes, fotos e inscripciones (no usuarios).
+              <span className="font-medium text-foreground">Editor:</span> Gestiona sedes, fotos de galería e inscripciones.
               <span className="text-xs block">Cualquier email invitado</span>
             </div>
           </div>
@@ -767,7 +787,7 @@ export const UsersAdminContent = () => {
             </div>
             <div>
               <Label htmlFor="invite-role">Rol</Label>
-              <Select value={inviteRole} onValueChange={(v) => setInviteRole(v as 'admin' | 'editor')}>
+              <Select value={inviteRole} onValueChange={(v) => setInviteRole(v as 'admin' | 'content_manager' | 'editor')}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -775,7 +795,13 @@ export const UsersAdminContent = () => {
                   <SelectItem value="editor">
                     <div className="flex items-center gap-2">
                       <Shield className="h-4 w-4" />
-                      Editor - Gestiona contenido
+                      Editor - Solo fotos de galería
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="content_manager">
+                    <div className="flex items-center gap-2">
+                      <Palette className="h-4 w-4" />
+                      Contenido - Cultura y Voluntariado
                     </div>
                   </SelectItem>
                   <SelectItem value="admin">
@@ -787,8 +813,8 @@ export const UsersAdminContent = () => {
                 </SelectContent>
               </Select>
               <p className="text-xs text-muted-foreground mt-2">
-                {inviteRole === 'admin' 
-                  ? "⚠️ Los administradores deben tener email @acropolisperu.org"
+                {inviteRole === 'admin' || inviteRole === 'content_manager'
+                  ? "⚠️ Requiere email @acropolisperu.org"
                   : "Los editores pueden tener cualquier email"}
               </p>
             </div>
