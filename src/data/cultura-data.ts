@@ -32,6 +32,14 @@ export const culturaActivities = [
   },
 ];
 
+// Default images mapped by slug for database fallback
+export const culturaDefaultImages: Record<string, { image: string; imagePosition?: string }> = {
+  "charlas-conferencias": { image: charlasConferenciasImage },
+  "encuentros-culturales": { image: encuentrosCulturalesImage },
+  "musica-arte": { image: musicaArtesImage },
+  "desarrollo-personal": { image: desarrolloPersonalImage, imagePosition: "center 25%" },
+};
+
 export const culturaValues = [
   {
     title: "Unir diferencias",

@@ -7,7 +7,7 @@ import bannerCultura from "@/assets/banner-cultura.jpg";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { PageHeroBanner, SparkleWord } from "@/components/PageHeroBanner";
 import { ProgramActivityCard } from "@/components/ProgramActivityCard";
-import { culturaActivities as defaultActivities, culturaValues } from "@/data/cultura-data";
+import { culturaActivities as defaultActivities, culturaValues, culturaDefaultImages } from "@/data/cultura-data";
 import { supabase } from "@/integrations/supabase/client";
 import { PageLayout } from "@/components/layouts";
 import { CTASection } from "@/components/CTASection";
@@ -44,17 +44,17 @@ const Cultura = () => {
     fetchActivities();
   }, []);
 
-  // Merge DB activities with default activities (DB images take precedence)
+  // Merge DB activities with default activities (DB images take precedence, match by slug)
   const activities = dbActivities.length > 0
-    ? dbActivities.map((dbAct, index) => {
-        const defaultAct = defaultActivities[index];
+    ? dbActivities.map((dbAct) => {
+        const defaultImg = culturaDefaultImages[dbAct.slug];
         return {
-          icon: iconMap[dbAct.icono] || defaultAct?.icon || BookOpen,
+          icon: iconMap[dbAct.icono] || BookOpen,
           title: dbAct.titulo,
           description: dbAct.descripcion,
-          image: dbAct.imagen_url || defaultAct?.image,
+          image: dbAct.imagen_url || defaultImg?.image || "",
           imageAlt: dbAct.alt_text || `${dbAct.titulo} - Actividad cultural Nueva Acrópolis Perú`,
-          imagePosition: dbAct.imagen_position || (defaultAct as any)?.imagePosition,
+          imagePosition: dbAct.imagen_position || defaultImg?.imagePosition || "center",
         };
       })
     : defaultActivities.map(act => ({
