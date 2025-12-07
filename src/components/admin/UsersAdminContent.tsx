@@ -339,22 +339,36 @@ export const UsersAdminContent = () => {
 
   const handleRoleChange = async (userId: string, newRole: 'admin' | 'content_manager' | 'editor') => {
     try {
-      const { error: deleteError } = await supabase
+      // Use update instead of delete+insert to avoid constraint issues
+      const { data: existingRole, error: fetchError } = await supabase
         .from('user_roles')
-        .delete()
-        .eq('user_id', userId);
+        .select('id')
+        .eq('user_id', userId)
+        .maybeSingle();
 
-      if (deleteError) throw deleteError;
+      if (fetchError) throw fetchError;
 
-      const { error: insertError } = await supabase
-        .from('user_roles')
-        .insert({ user_id: userId, role: newRole });
+      if (existingRole) {
+        // Update existing role
+        const { error: updateError } = await supabase
+          .from('user_roles')
+          .update({ role: newRole })
+          .eq('user_id', userId);
 
-      if (insertError) throw insertError;
+        if (updateError) throw updateError;
+      } else {
+        // Insert new role if none exists
+        const { error: insertError } = await supabase
+          .from('user_roles')
+          .insert({ user_id: userId, role: newRole });
+
+        if (insertError) throw insertError;
+      }
 
       toast.success('Rol actualizado exitosamente');
       loadUsers();
-    } catch {
+    } catch (error: any) {
+      console.error('Error updating role:', error);
       toast.error('Error al actualizar el rol');
     }
   };
