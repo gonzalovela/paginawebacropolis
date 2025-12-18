@@ -158,7 +158,8 @@ export const SedesAdminContent = () => {
   };
 
   const handleEdit = (sede: Sede) => {
-    setFormData({
+    console.log('handleEdit called with sede:', sede);
+    const newFormData = {
       nombre: sede.nombre,
       ciudad: sede.ciudad,
       departamento: sede.departamento || "",
@@ -171,8 +172,14 @@ export const SedesAdminContent = () => {
       es_principal: sede.es_principal,
       google_maps_url: sede.google_maps_url || "",
       email: sede.email || "",
-    });
+    };
+    console.log('Setting formData to:', newFormData);
+    setFormData(newFormData);
     setEditingId(sede.id);
+    console.log('Set editingId to:', sede.id);
+    
+    // Scroll to form for better UX
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDelete = async (id: string) => {
@@ -390,8 +397,14 @@ export const SedesAdminContent = () => {
                 <div className="flex gap-2">
                   <Button
                     size="icon"
-                    variant="outline"
-                    onClick={() => handleEdit(sede)}
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      console.log('Edit button clicked for:', sede.nombre);
+                      handleEdit(sede);
+                    }}
+                    type="button"
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
