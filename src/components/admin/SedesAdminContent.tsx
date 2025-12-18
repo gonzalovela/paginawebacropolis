@@ -119,22 +119,39 @@ export const SedesAdminContent = () => {
           .update(sedeData)
           .eq('id', editingId);
 
-        if (error) throw error;
+        if (error) {
+          console.error('Error updating sede:', error);
+          if (error.code === '42501' || error.message?.includes('policy')) {
+            toast.error('No tienes permisos para actualizar esta sede');
+          } else {
+            toast.error(`Error al actualizar: ${error.message}`);
+          }
+          return;
+        }
         toast.success('Sede actualizada exitosamente');
       } else {
         const { error } = await supabase
           .from('sedes')
           .insert([sedeData]);
 
-        if (error) throw error;
+        if (error) {
+          console.error('Error creating sede:', error);
+          if (error.code === '42501' || error.message?.includes('policy')) {
+            toast.error('No tienes permisos para crear sedes');
+          } else {
+            toast.error(`Error al crear: ${error.message}`);
+          }
+          return;
+        }
         toast.success('Sede creada exitosamente');
       }
 
       setFormData(emptyForm);
       setEditingId(null);
       loadSedes();
-    } catch {
-      toast.error('Error al guardar la sede');
+    } catch (err: any) {
+      console.error('Unexpected error:', err);
+      toast.error(`Error inesperado: ${err?.message || 'Error desconocido'}`);
     } finally {
       setLoading(false);
     }
