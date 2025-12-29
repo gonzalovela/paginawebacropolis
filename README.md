@@ -261,6 +261,10 @@ Los emails se envían usando el subdominio verificado `send.acropolisperu.org`:
 - **Inscripciones**: `inscripciones@send.acropolisperu.org`
 - **Invitaciones**: `invitaciones@send.acropolisperu.org`
 
+### Zona Horaria
+
+Los emails de inscripción muestran la fecha y hora de registro en **zona horaria de Perú** (`America/Lima`, UTC-5). Esto se implementa usando `Intl.DateTimeFormat` con la opción `timeZone: "America/Lima"` en las Edge Functions para evitar discrepancias de hora con respecto a UTC.
+
 ---
 
 ## 📱 PWA (Progressive Web App)
