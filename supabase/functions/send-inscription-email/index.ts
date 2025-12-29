@@ -143,6 +143,13 @@ const handler = async (req: Request): Promise<Response> => {
       recipients.push(centralEmail);
     }
 
+    // Format current date/time in Peru timezone (America/Lima, UTC-5)
+    const fechaRegistro = new Intl.DateTimeFormat("es-PE", {
+      dateStyle: "full",
+      timeStyle: "short",
+      timeZone: "America/Lima",
+    }).format(new Date());
+
     // Send email to sede and central
     await resend.emails.send({
       from: "Nueva Acrópolis <inscripciones@send.acropolisperu.org>",
@@ -151,6 +158,7 @@ const handler = async (req: Request): Promise<Response> => {
       html: `
         <h1>Nueva Inscripción Recibida</h1>
         <p><strong>Sede:</strong> ${safeSedeNombre}, ${safeSedeCiudad}</p>
+        <p><strong>Fecha de registro:</strong> ${fechaRegistro}</p>
         <hr />
         <h2>Datos del Interesado</h2>
         <p><strong>Nombre:</strong> ${safeNombre}</p>
@@ -202,6 +210,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <!-- Details Box -->
                       <div style="background-color: #f8f9fa; border-radius: 8px; padding: 25px; margin: 25px 0; border-left: 4px solid #2E7D32;">
                         <h2 style="color: #2E7D32; font-size: 18px; margin: 0 0 15px 0;">Resumen de tu inscripción</h2>
+                        <p style="margin: 8px 0; color: #555;"><strong>Fecha de registro:</strong> ${fechaRegistro}</p>
                         <p style="margin: 8px 0; color: #555;"><strong>Interés:</strong> ${interestLabels[interes] || sanitizeHtml(interes)}</p>
                         <p style="margin: 8px 0; color: #555;"><strong>Sede seleccionada:</strong> ${safeSedeNombre}, ${safeSedeCiudad}</p>
                         <p style="margin: 8px 0; color: #555;"><strong>Tu mensaje:</strong></p>
