@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, BookOpen, ArrowUpRight, ArrowRight, Heart, Compass, Target, Sparkles, Users2, Users, Clock, CalendarDays, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-sunset-young.jpg";
+import heroImage from "@/assets/hero-sunset-wide.jpg";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
 import volunteeringImage from "@/assets/banner-voluntariado.jpg";
@@ -13,7 +13,7 @@ const gradientText = "bg-gradient-to-r from-secondary via-accent to-secondary bg
 const Hero = () => (
   <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
     <img src={heroImage} alt="Joven profesional contemplando el atardecer en la playa" width={1672} height={940}
-      className="absolute inset-0 w-full h-full object-cover object-[70%_center]"
+      className="absolute inset-0 w-full h-full object-cover object-center"
       style={{ filter: "contrast(1.08) saturate(1.12)" }} />
     <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/25 to-transparent" />
     <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
@@ -130,16 +130,10 @@ const details = [
 const Course = () => (
   <section className="py-24 bg-background">
     <div className="container px-6">
-      <div className="relative rounded-3xl overflow-hidden mb-12">
-        <img src={heroImage} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/50 to-transparent" />
-        <div className="relative p-10 md:p-16 max-w-2xl">
-          <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4">Curso introductorio</p>
-          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[0.95] text-primary-foreground mb-6">
-            Conócete <span className={gradientText}>a ti mismo.</span>
-          </h2>
-          <p className="text-lg text-primary-foreground/85">¿Quién eres en realidad? Acompáñanos en un apasionante viaje hacia la autoconciencia y descubre las fortalezas de tu mundo interior.</p>
-        </div>
+      <div className="max-w-3xl mb-14">
+        <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4">Curso introductorio</p>
+        <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-6">Conócete <span className={gradientText}>a ti mismo.</span></h2>
+        <p className="text-lg text-muted-foreground">¿Quién eres en realidad? Acompáñanos en un apasionante viaje hacia la autoconciencia y descubre las fortalezas de tu mundo interior.</p>
       </div>
       <div className="grid lg:grid-cols-5 gap-8 items-start">
         <div className="lg:col-span-3">
