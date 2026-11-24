@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, BookOpen, ArrowUpRight } from "lucide-react";
+import { MapPin, BookOpen, ArrowUpRight, ArrowRight, Heart, Compass, Target, Sparkles, Users2, Users, Clock, CalendarDays, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-sunset-young.jpg";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
@@ -113,10 +113,24 @@ const Pillars = () => (
   </section>
 );
 
+const benefits = [
+  { icon: Heart, text: "Conocerte más para desarrollar tus fortalezas y ser mejor persona." },
+  { icon: Compass, text: "Encontrar respuestas a tus interrogantes sobre la vida." },
+  { icon: Target, text: "Descubrir el sentido profundo de la existencia." },
+  { icon: Sparkles, text: "Definir tus valores, para dejar una huella en el mundo." },
+  { icon: Users2, text: "Comprender a los demás y el porqué de las circunstancias que vives." },
+  { icon: BookOpen, text: "Tomar mejores decisiones, con la sabiduría de grandes filósofos y civilizaciones." },
+];
+const details = [
+  { icon: Clock, t: "Duración", d: "24 horas pedagógicas" },
+  { icon: Users, t: "Modalidad", d: "Presencial en tu sede más cercana" },
+  { icon: CalendarDays, t: "Frecuencia", d: "1 vez por semana" },
+];
+
 const Course = () => (
   <section className="py-24 bg-background">
     <div className="container px-6">
-      <div className="relative rounded-3xl overflow-hidden">
+      <div className="relative rounded-3xl overflow-hidden mb-12">
         <img src={heroImage} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/50 to-transparent" />
         <div className="relative p-10 md:p-16 max-w-2xl">
@@ -124,8 +138,50 @@ const Course = () => (
           <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[0.95] text-primary-foreground mb-6">
             Conócete <span className={gradientText}>a ti mismo.</span>
           </h2>
-          <p className="text-lg text-primary-foreground/85 mb-8">Filosofía práctica para enfrentar con éxito los desafíos de la vida.</p>
-          <Button size="lg" variant="secondary" className="px-8 py-6" asChild><Link to="/inscripcion">Inscríbete</Link></Button>
+          <p className="text-lg text-primary-foreground/85">¿Quién eres en realidad? Acompáñanos en un apasionante viaje hacia la autoconciencia y descubre las fortalezas de tu mundo interior.</p>
+        </div>
+      </div>
+      <div className="grid lg:grid-cols-5 gap-8 items-start">
+        <div className="lg:col-span-3">
+          <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-6">En este curso aprenderás a</p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {benefits.map((b, i) => (
+              <div key={i} className="group rounded-2xl border bg-card p-6 hover:shadow-medium hover:-translate-y-1 transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-full bg-secondary/15 text-secondary flex items-center justify-center"><b.icon className="h-5 w-5" /></div>
+                  <span className="text-3xl font-bold text-muted-foreground/20">0{i + 1}</span>
+                </div>
+                <p className="text-foreground/80 leading-relaxed">{b.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="lg:col-span-2 rounded-3xl bg-foreground text-background p-8 md:p-10 lg:sticky lg:top-24">
+          <h3 className="text-3xl font-bold tracking-tight mb-4">Información <span className={gradientText}>del curso</span></h3>
+          <p className="text-background/70 leading-relaxed mb-8">A través de las enseñanzas de grandes pensadores y civilizaciones, exploraremos la filosofía de manera práctica y vivencial para convertirnos en mejores personas y tomar decisiones acertadas.</p>
+          <div className="divide-y divide-background/15 border-y border-background/15 mb-8">
+            {details.map((d) => (
+              <div key={d.t} className="flex items-center gap-4 py-4">
+                <d.icon className="h-5 w-5 text-secondary shrink-0" />
+                <div className="flex-1 flex justify-between gap-4"><span className="font-semibold">{d.t}</span><span className="text-background/70 text-right">{d.d}</span></div>
+              </div>
+            ))}
+          </div>
+          <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-3">Incluye</p>
+          <ul className="space-y-2 mb-8 text-background/80">
+            <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-secondary mt-1 shrink-0" />Prácticas y dinámicas en clase</li>
+            <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-secondary mt-1 shrink-0" /><a href="http://acropolischannel.pe/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary">Acceso gratuito a Acrópolis Channel por 3 meses</a></li>
+            <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-secondary mt-1 shrink-0" />Certificado de participación</li>
+          </ul>
+          <div className="flex flex-col gap-3">
+            <Button size="lg" variant="secondary" className="py-6 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.6)] transition-shadow" asChild>
+              <Link to="/inscripcion#formulario">Inscríbete ahora<ArrowRight className="ml-2 h-4 w-4" /></Link>
+            </Button>
+            <Button size="lg" variant="ghost" className="py-6 border border-background/30 text-background hover:bg-background/10 hover:text-background" asChild>
+              <Link to="/filosofia#conocete-a-ti-mismo">Ver programa completo</Link>
+            </Button>
+            <Link to="/filosofia#cursos-avanzados" className="text-center text-sm text-secondary hover:underline pt-1">Programa de Cursos Avanzados</Link>
+          </div>
         </div>
       </div>
     </div>
