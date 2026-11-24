@@ -10,7 +10,8 @@ export const SedesHeroBanner = () => {
       badgeVariant="secondary"
       title="Nuestras Sedes"
       description="Encuentra la sede más cercana a ti y comienza tu viaje filosófico"
-      objectPosition="center 30%"
+      objectPosition="center 0%"
+      imageScale={1}
       decorativeVariant="sedes"
     />
   );
