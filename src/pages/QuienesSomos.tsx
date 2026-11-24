@@ -11,7 +11,7 @@ const QuienesSomos = () => {
         breadcrumbs={[{ name: "¿Qué es Nueva Acrópolis?", url: "https://acropolisperu.org/quienes-somos" }]}
         faq={seoConfig.quienesSomos.faq}
       />
-      <PageLayout withTopPadding>
+      <PageLayout>
         <WhoWeAre />
       </PageLayout>
     </>

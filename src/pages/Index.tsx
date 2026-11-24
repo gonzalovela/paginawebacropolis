@@ -1,10 +1,6 @@
-import { Hero } from "@/components/Hero";
-import { ThreePrinciples } from "@/components/ThreePrinciples";
-import { ThreePillars } from "@/components/ThreePillars";
-import { CourseSection } from "@/components/CourseSection";
+import HomeSections from "@/components/home/HomeSections";
 import { SEO, seoConfig } from "@/components/SEO";
 import { PageLayout } from "@/components/layouts";
-import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Index = () => {
   // Course structured data for rich snippets
@@ -37,16 +33,7 @@ const Index = () => {
         faq={seoConfig.home.faq}
       />
       <PageLayout>
-        <Hero />
-        <AnimatedSection className="-mt-8">
-          <ThreePrinciples />
-        </AnimatedSection>
-        <AnimatedSection>
-          <ThreePillars />
-        </AnimatedSection>
-        <AnimatedSection>
-          <CourseSection />
-        </AnimatedSection>
+        <HomeSections />
       </PageLayout>
     </>
   );

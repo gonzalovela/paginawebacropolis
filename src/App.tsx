@@ -21,7 +21,6 @@ import Instalar from "./pages/Instalar";
 import AvisoLegal from "./pages/AvisoLegal";
 import Privacidad from "./pages/Privacidad";
 import NotFound from "./pages/NotFound";
-import PreviewHero from "./pages/PreviewHero";
 
 const queryClient = new QueryClient();
 
@@ -49,7 +48,6 @@ const App = () => (
               <Route path="/design-system" element={<DesignSystem />} />
               <Route path="/aviso-legal" element={<AvisoLegal />} />
               <Route path="/privacidad" element={<Privacidad />} />
-              <Route path="/preview-hero" element={<PreviewHero />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

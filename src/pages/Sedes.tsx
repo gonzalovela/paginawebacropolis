@@ -11,7 +11,7 @@ const Sedes = () => {
         breadcrumbs={[{ name: "Sedes en Perú", url: "https://acropolisperu.org/sedes" }]}
         faq={seoConfig.sedes.faq}
       />
-      <PageLayout withTopPadding>
+      <PageLayout>
         <SedesDirectory />
       </PageLayout>
     </>

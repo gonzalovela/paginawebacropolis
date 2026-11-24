@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { MapPin, BookOpen, ArrowUpRight, ArrowRight, Heart, Compass, Target, Sparkles, Users2, Users, Clock, CalendarDays, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,7 +5,6 @@ import heroImage from "@/assets/hero-sunset-wide.jpg";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
 import volunteeringImage from "@/assets/banner-voluntariado.jpg";
-import { PageLayout } from "@/components/layouts";
 import { principios } from "@/data/principios-data";
 import CourseAdvisor from "@/components/preview/CourseAdvisor";
 
@@ -185,11 +183,10 @@ const Course = () => (
   </section>
 );
 
-export default function PreviewHero() {
+export default function HomeSections() {
   return (
-    <PageLayout>
-      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
+    <>
       <Hero /><Principles /><Pillars /><Course /><CourseAdvisor />
-    </PageLayout>
+    </>
   );
 }
