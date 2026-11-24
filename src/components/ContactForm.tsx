@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { BorderBeam } from "@/components/ui/border-beam";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -153,23 +152,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <Card className="relative p-4 sm:p-6 md:p-8 max-w-2xl mx-auto overflow-hidden">
-      <BorderBeam
-        colorFrom="hsl(var(--primary))" 
-        colorTo="hsl(var(--secondary))" 
-        size={80}
-        duration={8}
-        borderWidth={2}
-      />
-      <BorderBeam 
-        colorFrom="hsl(var(--secondary))" 
-        colorTo="hsl(var(--primary))" 
-        size={80}
-        duration={8}
-        delay={4}
-        reverse
-        borderWidth={2}
-      />
+    <Card className="relative p-6 md:p-10 max-w-2xl mx-auto rounded-3xl border bg-card shadow-medium">
       <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
         <div className="space-y-2">
           <Label htmlFor="name">Nombre completo *</Label>
@@ -288,7 +271,7 @@ export const ContactForm = () => {
           {errors.acceptPrivacy && <p className="text-sm text-destructive">{errors.acceptPrivacy}</p>}
         </div>
 
-        <AnimatedButton type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+        <AnimatedButton type="submit" size="lg" variant="secondary" className="w-full py-6 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.6)] transition-shadow" disabled={isSubmitting}>
           {isSubmitting ? "Enviando..." : "Enviar mensaje"}
         </AnimatedButton>
       </form>

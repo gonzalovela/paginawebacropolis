@@ -4,10 +4,10 @@ import acropolisImage from "@/assets/acropolis-athens-elevated-clean.jpg";
 
 export const WhoWeAreSymbolism = () => {
   return (
-    <Card className="overflow-hidden bg-gradient-subtle">
+    <Card className="overflow-hidden rounded-3xl border border-secondary/20 bg-secondary/5">
       <div className="space-y-0">
         <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-center text-foreground px-4 sm:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6">
-          El Simbolismo de Nueva Acrópolis
+          El Simbolismo de <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Nueva Acrópolis</span>
         </h3>
         
         {/* Wide horizontal image */}

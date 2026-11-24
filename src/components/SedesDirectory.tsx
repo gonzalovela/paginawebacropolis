@@ -108,8 +108,8 @@ export const SedesDirectory = () => {
             {/* Sede Principal - Always first */}
             {sedePrincipal && (
               <div className="space-y-3 md:space-y-4">
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-primary sticky top-16 md:top-20 bg-background/95 backdrop-blur py-3 md:py-4 z-10">
-                  Sede Principal
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground sticky top-16 md:top-20 bg-background/95 backdrop-blur py-3 md:py-4 z-10">
+                  <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Sede Principal</span>
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   <SedeCard sede={sedePrincipal} isPrincipal onOpenMap={openMapDialog} />
@@ -120,7 +120,7 @@ export const SedesDirectory = () => {
             {/* Other sedes grouped by departamento */}
             {departamentos.map((dept) => (
               <div key={dept} className="space-y-3 md:space-y-4">
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-primary sticky top-16 md:top-20 bg-background/95 backdrop-blur py-3 md:py-4 z-10">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground sticky top-16 md:top-20 bg-background/95 backdrop-blur py-3 md:py-4 z-10">
                   {dept}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
