@@ -14,8 +14,9 @@ const gradientText = "bg-gradient-to-r from-secondary via-accent to-secondary bg
 const Hero = () => (
   <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
     <img src={heroImage} alt="Joven profesional contemplando el atardecer en la playa" width={1672} height={940}
-      className="absolute inset-0 w-full h-full object-cover object-center"
+      className="absolute inset-0 w-full h-full object-cover object-[80%_center] sm:object-center"
       style={{ filter: "contrast(1.08) saturate(1.12)" }} />
+    <div className="absolute inset-0 bg-foreground/25 sm:hidden" />
     <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/25 to-transparent" />
     <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
     <div className="relative z-10 container px-6 pb-10 pt-32">
@@ -24,7 +25,7 @@ const Hero = () => (
           <span className="h-2 w-2 rounded-full bg-secondary animate-pulse" /> Inscripciones abiertas
         </span>
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-primary-foreground leading-[0.95] mb-6">
-          Filosofía<br /><span className={gradientText}>para la vida.</span>
+          Filosofía<br /><span className="text-secondary [text-shadow:0_2px_12px_hsl(var(--foreground)/0.6)] sm:hidden">para la vida.</span><span className={`hidden sm:inline ${gradientText}`}>para la vida.</span>
         </h1>
         <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-10">
           Respuestas profundas, cultura viva y voluntariado. Una escuela para conocerte a ti mismo.
