@@ -14,7 +14,7 @@ export const TestimonialsSection = () => {
             Testimonios
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
-            Lo que dicen nuestros estudiantes
+            Lo que dicen nuestros <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">estudiantes</span>
           </h2>
         </div>
       </div>
@@ -28,7 +28,7 @@ export const TestimonialsSection = () => {
             <Card 
               key={index} 
               className={cn(
-                "w-[320px] md:w-[380px] p-6 bg-card border border-border/50",
+                "w-[320px] md:w-[380px] p-6 rounded-2xl bg-card border border-border/60 hover:-translate-y-1",
                 "hover:shadow-lg transition-all duration-300 group cursor-pointer"
               )}
             >

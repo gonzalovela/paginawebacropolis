@@ -33,7 +33,7 @@ export const AdvancedCoursesSection = () => {
             FORMACIÓN CONTINUA
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-6">
-            Programa de <span className="text-secondary">Cursos Avanzados</span>
+            Programa de <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Cursos Avanzados</span>
           </h2>
           <p className="text-lg text-foreground/70 leading-relaxed">
             Después del curso introductorio, continúa tu formación filosófica con nuestro programa de cursos especializados. 
@@ -57,7 +57,7 @@ export const AdvancedCoursesSection = () => {
             return (
               <Card 
                 key={index}
-                className={`p-5 bg-card border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${colorClass}`}
+                className="p-5 rounded-2xl bg-card border border-border/60 transition-all duration-300 hover:shadow-medium hover:-translate-y-1 hover:border-secondary/40"
               >
                 <div className="flex items-start gap-4">
                   <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center ${iconColor}`}>

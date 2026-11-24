@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, Clock, Users, CalendarDays, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedButton } from "@/components/ui/animated-button";
+import ctaImage from "@/assets/banner-filosofia.jpg";
 import { courseModules } from "@/data/filosofia-data";
 
 export const CourseModulesSection = () => {
@@ -82,33 +83,29 @@ export const CourseModulesSection = () => {
           </div>
         </div>
 
-        {/* CTA - Integrated */}
-        <div className="relative max-w-4xl mx-auto">
-          <Card className="p-6 md:p-8 lg:p-12 rounded-3xl border border-secondary/20 bg-secondary/5 text-foreground text-center overflow-hidden">
-            {/* Decorative elements inside CTA */}
-            
-            <div className="relative z-10">
-              <Sparkles className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-3 md:mb-4 opacity-80" />
-              <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] mb-3 md:mb-4">
-                Comienza tu camino filosófico
-              </h3>
-              <p className="text-sm md:text-lg opacity-90 mb-6 md:mb-8 max-w-2xl mx-auto">
-                La filosofía te espera. No importa tu edad, formación o experiencia previa. 
-                Solo necesitas curiosidad y ganas de conocerte mejor.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-                <AnimatedButton size="lg" variant="secondary" className="text-lg" asChild>
-                  <Link to="/inscripcion">
-                    Inscríbete ahora
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </AnimatedButton>
-                <Button size="lg" variant="ghost" className="text-lg border border-border hover:bg-secondary/10" asChild>
-                  <Link to="/sedes">Encuentra tu sede</Link>
-                </Button>
-              </div>
+        {/* CTA - Premium photographic */}
+        <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-medium">
+          <img src={ctaImage} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/60 to-foreground/30" />
+          <div className="relative z-10 p-8 md:p-14 text-left max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-background/30 bg-background/10 backdrop-blur-md px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-background mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-secondary" /> Tu primer paso
             </div>
-          </Card>
+            <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-background mb-4 [text-shadow:0_2px_16px_hsl(var(--foreground)/0.4)]">
+              Comienza tu <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">camino filosófico</span>
+            </h3>
+            <p className="text-base md:text-lg text-background/85 mb-8">
+              La filosofía te espera. No importa tu edad, formación o experiencia previa. Solo necesitas curiosidad y ganas de conocerte mejor.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <AnimatedButton size="lg" variant="secondary" className="text-lg" asChild>
+                <Link to="/inscripcion">Inscríbete ahora<ArrowRight className="ml-2 h-5 w-5" /></Link>
+              </AnimatedButton>
+              <Button size="lg" variant="ghost" className="text-lg text-background border border-background/40 bg-background/10 backdrop-blur-md hover:bg-background/20 hover:text-background" asChild>
+                <Link to="/sedes">Encuentra tu sede</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
