@@ -204,6 +204,17 @@ WITH CHECK (
 
 ---
 
+### Línea Visual 2026 (landing actual)
+- **Títulos editoriales:** kicker en mayúsculas + título grande con palabra clave en degradado dorado (`SparkleWord`).
+- **Héroes fotográficos:** imagen a sangre con degradados oscuros, texto alineado a la izquierda, badge translúcido; versión móvil adaptada.
+- **Iconos:** dentro de círculos dorados suaves (`bg-amber-500/10`, borde sutil).
+- **Tarjetas e imágenes:** `rounded-2xl` en todo el sitio, elevación suave al hover, sin bordes animados.
+- **Paneles destacados:** fondo dorado claro, nunca bloques oscuros.
+- **Botones:** planos (sin animación de borde), CTA principal "Inscríbete" con brillo suave.
+- **Menú:** glassmorphism, transparente sobre el héroe y esmerilado al hacer scroll; enlace activo con subrayado dorado.
+- **Diálogo Filosófico:** recomendador con IA en la portada (función `recomendar-curso`).
+- Referencia viva: `/design-system`.
+
 ## ⚙️ Configuración Local
 
 ### Prerrequisitos

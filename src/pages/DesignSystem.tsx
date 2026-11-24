@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BookOpen, Palette, Heart, ArrowRight } from "lucide-react";
+import { BookOpen, Palette, Heart, ArrowRight, Sparkles, Users, Compass } from "lucide-react";
+import { SparkleWord } from "@/components/PageHeroBanner";
 
 const DesignSystem = () => {
   const colors = [
@@ -40,6 +41,43 @@ const DesignSystem = () => {
             de Nueva Acrópolis Perú. Siguiendo los principios de diseño cálido, claro y vertical, cada componente 
             está diseñado para reflejar nuestra identidad filosófica y humanista.
           </p>
+        </section>
+
+        {/* Línea Visual 2026 */}
+        <section>
+          <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-secondary mb-3">Línea visual 2026</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 leading-tight">Títulos <SparkleWord>editoriales</SparkleWord></h2>
+          <p className="text-foreground/80 max-w-3xl mb-10">Kicker en mayúsculas + título grande con palabra clave en degradado dorado (componente SparkleWord). Se usa en héroes y encabezados de sección de todas las páginas.</p>
+
+          <h3 className="text-xl font-semibold text-primary mb-4">Iconos en círculo dorado</h3>
+          <div className="flex gap-4 mb-10">
+            {[Sparkles, Users, Compass, Heart].map((I, i) => (
+              <div key={i} className="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <I className="w-5 h-5 text-amber-600" />
+              </div>
+            ))}
+          </div>
+
+          <h3 className="text-xl font-semibold text-primary mb-4">Tarjetas e imágenes</h3>
+          <div className="grid sm:grid-cols-2 gap-6 mb-10">
+            <div className="rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4"><BookOpen className="w-5 h-5 text-amber-600" /></div>
+              <h4 className="font-semibold text-primary mb-2">Tarjeta estándar</h4>
+              <p className="text-sm text-foreground/70">rounded-2xl, borde sutil, elevación suave al pasar el cursor. Sin bordes animados.</p>
+            </div>
+            <div className="rounded-2xl p-6 bg-amber-500/5 border border-amber-500/20">
+              <h4 className="font-semibold text-primary mb-2">Panel destacado</h4>
+              <p className="text-sm text-foreground/70">Fondo dorado claro para información clave (no usar bloques oscuros que opaquen el contenido).</p>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-semibold text-primary mb-4">Botones y badges</h3>
+          <div className="rounded-2xl bg-gradient-hero p-6 flex flex-wrap items-center gap-4">
+            <Button variant="secondary" size="lg" className="shadow-lg shadow-secondary/30">Inscríbete <ArrowRight className="ml-2 h-4 w-4" /></Button>
+            <Button variant="ghost" size="lg" className="text-primary-foreground hover:bg-primary-foreground/10">Conocer más</Button>
+            <span className="px-4 py-1.5 rounded-full text-xs font-medium bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 text-primary-foreground">Badge translúcido</span>
+          </div>
+          <p className="text-sm text-foreground/60 mt-3">Botones planos, sin animaciones de borde. Imágenes siempre con bordes redondeados (rounded-2xl).</p>
         </section>
 
         {/* Color Palette */}
