@@ -127,16 +127,17 @@ Después del curso introductorio, los estudiantes pueden acceder a 15 cursos ava
 - Astrología
 - Y otros cursos especializados
 
-## Páginas del Sitio Web
+## Páginas
 
-- **Inicio**: https://acropolisperu.org/
-- **Quiénes Somos**: https://acropolisperu.org/quienes-somos
-- **Filosofía**: https://acropolisperu.org/filosofia
-- **Cultura**: https://acropolisperu.org/cultura
-- **Voluntariado**: https://acropolisperu.org/voluntariado
-- **Sedes**: https://acropolisperu.org/sedes
-- **Inscripción**: https://acropolisperu.org/inscripcion
+- [Inicio](https://acropolisperu.org/): Presentación de la escuela y curso introductorio.
+- [Quiénes Somos](https://acropolisperu.org/quienes-somos): Historia, principios y equipo.
+- [Filosofía](https://acropolisperu.org/filosofia): Curso "Conócete a Ti Mismo" y filosofía práctica.
+- [Cultura](https://acropolisperu.org/cultura): Actividades culturales y artísticas.
+- [Voluntariado](https://acropolisperu.org/voluntariado): Programas de voluntariado social y ecológico.
+- [Sedes](https://acropolisperu.org/sedes): Directorio de sedes en todo el Perú.
+- [Inscripción](https://acropolisperu.org/inscripcion): Formulario para inscribirse al curso.
 
----
-Última actualización: Diciembre 2024
-Organización: Nueva Acrópolis Perú - Escuela de Filosofía
+## Optional
+
+- [Aviso Legal](https://acropolisperu.org/aviso-legal): Condiciones de uso.
+- [Privacidad](https://acropolisperu.org/privacidad): Política de privacidad.
