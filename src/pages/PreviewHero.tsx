@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { MapPin, BookOpen, ArrowUpRight, ArrowRight, Heart, Compass, Target, Sparkles, Users2, Users, Clock, CalendarDays, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -187,6 +188,7 @@ const Course = () => (
 export default function PreviewHero() {
   return (
     <PageLayout>
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <Hero /><Principles /><Pillars /><Course /><CourseAdvisor />
     </PageLayout>
   );
