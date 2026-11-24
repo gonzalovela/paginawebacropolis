@@ -50,25 +50,25 @@ const Hero = () => (
 );
 
 const SectionTitle = ({ kicker, a, b }: { kicker: string; a: string; b: string }) => (
-  <div className="max-w-3xl mb-14">
+  <div className="max-w-3xl mb-10 md:mb-14">
     <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4">{kicker}</p>
-    <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
+    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
       {a} <span className={gradientText}>{b}</span>
     </h2>
   </div>
 );
 
 const Principles = () => (
-  <section className="py-24 bg-background">
+  <section className="py-16 md:py-24 bg-background">
     <div className="container px-6">
       <SectionTitle kicker="Nuestros principios" a="Tres principios," b="un camino." />
       <div className="grid md:grid-cols-3 gap-6">
         {principios.map((p, i) => {
           const Icon = p.icon;
           return (
-            <div key={i} className="group rounded-2xl border bg-card p-8 hover:shadow-medium hover:-translate-y-1 transition-all">
+            <div key={i} className="group rounded-2xl border bg-card p-6 md:p-8 hover:shadow-medium hover:-translate-y-1 transition-all">
               <div className="flex items-center justify-between mb-8">
-                <div className={`w-12 h-12 rounded-full ${p.color} text-primary-foreground flex items-center justify-center`}><Icon className="h-6 w-6" /></div>
+                <div className={`w-12 h-12 rounded-full bg-secondary/15 text-secondary flex items-center justify-center`}><Icon className="h-6 w-6" /></div>
                 <span className="text-5xl font-bold text-muted-foreground/20">0{i + 1}</span>
               </div>
               <h3 className="text-2xl font-bold tracking-tight mb-2">{p.title}</h3>
@@ -89,12 +89,12 @@ const pillars = [
 ];
 
 const Pillars = () => (
-  <section className="py-24 bg-muted/40">
+  <section className="py-16 md:py-24 bg-muted/40">
     <div className="container px-6">
       <SectionTitle kicker="Nuestros pilares" a="Aprende, vive" b="y transforma." />
       <div className="grid md:grid-cols-3 gap-6">
         {pillars.map((p) => (
-          <Link key={p.t} to={p.to} className="group relative h-[480px] rounded-2xl overflow-hidden">
+          <Link key={p.t} to={p.to} className="group relative h-[360px] md:h-[480px] rounded-2xl overflow-hidden">
             <img src={p.img} alt={p.t} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" />
             <div className="absolute bottom-0 p-8 w-full flex items-end justify-between">
@@ -128,11 +128,11 @@ const details = [
 ];
 
 const Course = () => (
-  <section className="py-24 bg-background">
+  <section className="py-16 md:py-24 bg-background">
     <div className="container px-6">
-      <div className="max-w-3xl mb-14">
+      <div className="max-w-3xl mb-10 md:mb-14">
         <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4">Curso introductorio</p>
-        <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-6">Conócete <span className={gradientText}>a ti mismo.</span></h2>
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-6">Conócete <span className={gradientText}>a ti mismo.</span></h2>
         <p className="text-lg text-muted-foreground">¿Quién eres en realidad? Acompáñanos en un apasionante viaje hacia la autoconciencia y descubre las fortalezas de tu mundo interior.</p>
       </div>
       <div className="grid lg:grid-cols-5 gap-8 items-start">
@@ -150,19 +150,19 @@ const Course = () => (
             ))}
           </div>
         </div>
-        <div className="lg:col-span-2 rounded-3xl bg-foreground text-background p-8 md:p-10 lg:sticky lg:top-24">
+        <div className="lg:col-span-2 rounded-3xl border border-secondary/20 bg-secondary/5 text-foreground p-6 md:p-10 lg:sticky lg:top-24">
           <h3 className="text-3xl font-bold tracking-tight mb-4">Información <span className={gradientText}>del curso</span></h3>
-          <p className="text-background/70 leading-relaxed mb-8">A través de las enseñanzas de grandes pensadores y civilizaciones, exploraremos la filosofía de manera práctica y vivencial para convertirnos en mejores personas y tomar decisiones acertadas.</p>
-          <div className="divide-y divide-background/15 border-y border-background/15 mb-8">
+          <p className="text-muted-foreground leading-relaxed mb-8">A través de las enseñanzas de grandes pensadores y civilizaciones, exploraremos la filosofía de manera práctica y vivencial para convertirnos en mejores personas y tomar decisiones acertadas.</p>
+          <div className="divide-y divide-border border-y border-border mb-8">
             {details.map((d) => (
               <div key={d.t} className="flex items-center gap-4 py-4">
-                <d.icon className="h-5 w-5 text-secondary shrink-0" />
-                <div className="flex-1 flex justify-between gap-4"><span className="font-semibold">{d.t}</span><span className="text-background/70 text-right">{d.d}</span></div>
+                <div className="w-10 h-10 rounded-full bg-secondary/15 text-secondary flex items-center justify-center shrink-0"><d.icon className="h-5 w-5" /></div>
+                <div className="flex-1 flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span className="font-semibold">{d.t}</span><span className="text-muted-foreground sm:text-right">{d.d}</span></div>
               </div>
             ))}
           </div>
           <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-3">Incluye</p>
-          <ul className="space-y-2 mb-8 text-background/80">
+          <ul className="space-y-2 mb-8 text-foreground/80">
             <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-secondary mt-1 shrink-0" />Prácticas y dinámicas en clase</li>
             <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-secondary mt-1 shrink-0" /><a href="http://acropolischannel.pe/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary">Acceso gratuito a Acrópolis Channel por 3 meses</a></li>
             <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-secondary mt-1 shrink-0" />Certificado de participación</li>
@@ -171,7 +171,7 @@ const Course = () => (
             <Button size="lg" variant="secondary" className="py-6 hover:shadow-[0_0_30px_hsl(var(--secondary)/0.6)] transition-shadow" asChild>
               <Link to="/inscripcion#formulario">Inscríbete ahora<ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
-            <Button size="lg" variant="ghost" className="py-6 border border-background/30 text-background hover:bg-background/10 hover:text-background" asChild>
+            <Button size="lg" variant="ghost" className="py-6 border border-border text-foreground hover:bg-secondary/10" asChild>
               <Link to="/filosofia#conocete-a-ti-mismo">Ver programa completo</Link>
             </Button>
             <Link to="/filosofia#cursos-avanzados" className="text-center text-sm text-secondary hover:underline pt-1">Programa de Cursos Avanzados</Link>
