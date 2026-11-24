@@ -82,7 +82,7 @@ export const LeaderProfile = ({
       />
       {instagramUrl && (
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-3">
-          <Instagram className="h-5 w-5 sm:h-6 sm:w-6 text-white drop-shadow-lg" />
+          <Instagram className="h-5 w-5 sm:h-6 sm:w-6 text-primary-foreground drop-shadow-lg" />
         </div>
       )}
     </div>
@@ -110,7 +110,7 @@ export const LeaderProfile = ({
       </div>
       
       <div className="text-center space-y-1 sm:space-y-2">
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
+        <h3 className="text-xl sm:text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
           {name}
         </h3>
         <p className={`text-base sm:text-lg font-medium ${tagColorClass}`}>
@@ -176,7 +176,7 @@ export const LeaderProfile = ({
         <>
           <div className="space-y-3 sm:space-y-4">
             <h4 className="text-lg sm:text-xl font-bold text-foreground flex items-center gap-2">
-              <TimelineIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+              <TimelineIcon className="h-4 w-4 sm:h-5 sm:w-5 text-secondary" />
               {timelineTitle}
             </h4>
             <div className="space-y-2 sm:space-y-3">

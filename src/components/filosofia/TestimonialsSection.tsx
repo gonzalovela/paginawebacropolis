@@ -6,14 +6,14 @@ import { testimonials } from "@/data/filosofia-data";
 
 export const TestimonialsSection = () => {
   return (
-    <section className="py-10 md:py-20 bg-muted/30 overflow-hidden">
-      <div className="container px-4 md:px-6 mb-8 md:mb-12">
+    <section className="py-16 md:py-24 bg-muted/30 overflow-hidden">
+      <div className="container px-6 mb-8 md:mb-12">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-secondary/10 text-secondary rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">
+          <div className="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-3 md:mb-4">
             <Quote className="w-3.5 h-3.5 md:w-4 md:h-4" />
             Testimonios
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
             Lo que dicen nuestros estudiantes
           </h2>
         </div>

@@ -87,10 +87,10 @@ const Voluntariado = () => {
         />
 
         {/* Key Messages */}
-        <AnimatedSection as="section" className="py-10 md:py-20 bg-gradient-to-br from-background via-secondary/5 to-background">
-          <div className="container px-4 md:px-6">
+        <AnimatedSection as="section" className="py-16 md:py-24 bg-gradient-to-br from-background via-secondary/5 to-background">
+          <div className="container px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 md:mb-6">
                 Mensajes que nos Inspiran
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-foreground/70">
@@ -107,8 +107,8 @@ const Voluntariado = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="flex flex-col items-center text-center space-y-2 md:space-y-4">
-                      <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                        <Icon className="h-5 w-5 md:h-8 md:w-8 text-white" />
+                      <div className="w-12 h-12 rounded-full bg-secondary/15 text-secondary flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-soft">
+                        <Icon className="h-6 w-6" />
                       </div>
                       <div className="space-y-1 md:space-y-2">
                         <h3 className="font-bold text-sm md:text-lg text-foreground leading-tight">
@@ -127,11 +127,11 @@ const Voluntariado = () => {
         </AnimatedSection>
 
         {/* Introduction */}
-        <AnimatedSection as="section" className="py-10 md:py-20 bg-gradient-subtle">
-          <div className="container px-4 md:px-6">
+        <AnimatedSection as="section" className="py-16 md:py-24 bg-gradient-subtle">
+          <div className="container px-6">
             <div className="max-w-5xl mx-auto space-y-6 md:space-y-8">
               {/* Hero Image */}
-              <div className="relative h-[250px] sm:h-[350px] md:h-[400px] rounded-xl overflow-hidden shadow-elegant">
+              <div className="relative h-[250px] sm:h-[350px] md:h-[400px] rounded-2xl overflow-hidden">
                 <OptimizedImage 
                   src={volunteeringImage} 
                   alt="Equipo de voluntarios de Nueva Acrópolis realizando labor social en comunidad peruana" 
@@ -141,7 +141,7 @@ const Voluntariado = () => {
               </div>
               
               <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
                   ¿Qué es el Voluntariado Filosófico?
                 </h2>
                 <div className="space-y-3 md:space-y-4 text-base md:text-lg text-foreground/70 leading-relaxed">
@@ -162,7 +162,7 @@ const Voluntariado = () => {
               {/* Values Grid */}
               <div className="grid sm:grid-cols-2 gap-4 md:gap-6 pt-4 md:pt-8">
                 {voluntariadoValues.map((value, index) => (
-                  <Card key={index} className="p-4 md:p-6 hover:shadow-medium transition-all">
+                  <Card key={index} className="p-4 md:p-6 rounded-2xl hover:shadow-medium hover:-translate-y-1 transition-all">
                     <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">{value.title}</h3>
                     <p className="text-sm md:text-base text-foreground/60 leading-relaxed">{value.description}</p>
                   </Card>
@@ -173,10 +173,10 @@ const Voluntariado = () => {
         </AnimatedSection>
 
         {/* Areas of Action */}
-        <AnimatedSection as="section" className="py-10 md:py-20 bg-background">
-          <div className="container px-4 md:px-6">
+        <AnimatedSection as="section" className="py-16 md:py-24 bg-background">
+          <div className="container px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 md:mb-6">
                 Nuestros Programas de Voluntariado
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-foreground/70">
@@ -204,10 +204,10 @@ const Voluntariado = () => {
         </AnimatedSection>
 
         {/* Gallery Section */}
-        <section className="py-10 sm:py-12 md:py-20 bg-background">
+        <section className="py-16 md:py-24 bg-background">
           <div className="container px-4 sm:px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 sm:mb-6">
                 Galería de Programas en Acción
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-foreground/70 px-2">

@@ -4,16 +4,16 @@ import { principios } from "@/data/principios-data";
 export const WhoWeArePrinciples = () => {
   return (
     <div>
-      <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground text-center mb-8 sm:mb-12">
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground text-center mb-8 sm:mb-12">
         Nuestros Principios
       </h2>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
         {principios.map((principio, index) => {
           const Icon = principio.icon;
           return (
-            <Card key={index} className="p-5 sm:p-6 md:p-8 text-center hover:shadow-medium transition-all">
+            <Card key={index} className="p-5 sm:p-6 md:p-8 text-center rounded-2xl hover:shadow-medium hover:-translate-y-1 transition-all">
               <div className="mb-4 sm:mb-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-xl sm:rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                <div className="w-12 h-12 mx-auto rounded-full bg-secondary/15 text-secondary flex items-center justify-center">
                   <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
                 </div>
               </div>

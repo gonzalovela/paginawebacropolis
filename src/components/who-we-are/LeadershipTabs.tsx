@@ -10,7 +10,7 @@ export const LeadershipTabs = () => {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-6 sm:mb-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-3">
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-2 sm:mb-3">
           Fundador y Dirección
         </h2>
         <p className="text-foreground/70 text-base sm:text-lg px-2">
@@ -20,19 +20,19 @@ export const LeadershipTabs = () => {
 
       <Tabs defaultValue="fundador" className="w-full">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-6 sm:mb-8 h-auto gap-1 sm:gap-2 p-1">
-          <TabsTrigger value="fundador" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-primary/10 data-[state=active]:text-primary min-h-[52px] sm:min-h-[60px]">
+          <TabsTrigger value="fundador" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-secondary/15 data-[state=active]:text-secondary min-h-[52px] sm:min-h-[60px]">
             <span className="text-[9px] sm:text-xs md:text-sm font-semibold leading-tight">Fundador</span>
             <span className="text-[8px] sm:text-xs text-muted-foreground leading-tight hidden xs:block">Jorge Á. Livraga</span>
           </TabsTrigger>
-          <TabsTrigger value="delia" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-primary/10 data-[state=active]:text-primary min-h-[52px] sm:min-h-[60px]">
+          <TabsTrigger value="delia" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-secondary/15 data-[state=active]:text-secondary min-h-[52px] sm:min-h-[60px]">
             <span className="text-[9px] sm:text-xs md:text-sm font-semibold leading-tight">Pres. Honoraria</span>
             <span className="text-[8px] sm:text-xs text-muted-foreground leading-tight hidden xs:block">Delia Steinberg</span>
           </TabsTrigger>
-          <TabsTrigger value="internacional" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-secondary/10 data-[state=active]:text-secondary min-h-[52px] sm:min-h-[60px]">
+          <TabsTrigger value="internacional" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-secondary/15 data-[state=active]:text-secondary min-h-[52px] sm:min-h-[60px]">
             <span className="text-[9px] sm:text-xs md:text-sm font-semibold leading-tight">Pres. Internacional</span>
             <span className="text-[8px] sm:text-xs text-muted-foreground leading-tight hidden xs:block">Carlos Adelantado</span>
           </TabsTrigger>
-          <TabsTrigger value="peru" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent min-h-[52px] sm:min-h-[60px]">
+          <TabsTrigger value="peru" className="flex flex-col gap-0.5 sm:gap-1 py-2 sm:py-3 px-1.5 sm:px-2 data-[state=active]:bg-secondary/15 data-[state=active]:text-secondary min-h-[52px] sm:min-h-[60px]">
             <span className="text-[9px] sm:text-xs md:text-sm font-semibold leading-tight">Dir. Nacional</span>
             <span className="text-[8px] sm:text-xs text-muted-foreground leading-tight hidden xs:block">Beatriz D.C.</span>
           </TabsTrigger>
@@ -40,7 +40,7 @@ export const LeadershipTabs = () => {
 
         <TabsContent value="fundador" className="mt-0">
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm">
+            <div className="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-secondary font-semibold">
               <Users className="h-4 w-4" />
               Nuestro Fundador
             </div>
@@ -87,7 +87,7 @@ export const LeadershipTabs = () => {
 
         <TabsContent value="delia" className="mt-0">
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 rounded-full text-primary font-bold text-sm">
+            <div className="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-secondary font-semibold">
               <Users className="h-4 w-4" />
               Presidenta Honoraria Internacional
             </div>
@@ -134,7 +134,7 @@ export const LeadershipTabs = () => {
 
         <TabsContent value="internacional" className="mt-0">
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-secondary/10 rounded-full text-secondary font-bold text-sm">
+            <div className="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-secondary font-semibold">
               <Users className="h-4 w-4" />
               Presidente Internacional
             </div>
@@ -176,7 +176,7 @@ export const LeadershipTabs = () => {
 
         <TabsContent value="peru" className="mt-0">
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-accent/10 rounded-full text-accent font-bold text-sm">
+            <div className="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-secondary font-semibold">
               <Users className="h-4 w-4" />
               Directora Nacional Perú
             </div>

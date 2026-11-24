@@ -16,8 +16,8 @@ export const WhoWeAre = () => {
       <WhoWeAreHero />
 
       {/* Main Content */}
-      <section className="py-12 sm:py-16 md:py-32 bg-background">
-        <div className="container px-4 md:px-6">
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container px-6">
           <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
             
             {/* Video Section */}

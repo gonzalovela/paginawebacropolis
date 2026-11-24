@@ -25,14 +25,14 @@ export const AdvancedCoursesSection = () => {
       id="cursos-avanzados"
       className="py-12 md:py-20 bg-muted/30 scroll-mt-20"
     >
-      <div className="container px-4 md:px-6">
+      <div className="container px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-bold mb-6">
+          <div className="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-6">
             <GraduationCap className="w-4 h-4" />
             FORMACIÓN CONTINUA
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-6">
             Programa de <span className="text-secondary">Cursos Avanzados</span>
           </h2>
           <p className="text-lg text-foreground/70 leading-relaxed">
@@ -50,7 +50,7 @@ export const AdvancedCoursesSection = () => {
               "border-secondary/20 hover:border-secondary/40 hover:bg-secondary/5",
               "border-accent/20 hover:border-accent/40 hover:bg-accent/5",
             ];
-            const iconColors = ["text-primary", "text-secondary", "text-accent"];
+            const iconColors = ["text-secondary","text-secondary","text-secondary"];
             const colorClass = colors[index % 3];
             const iconColor = iconColors[index % 3];
             
@@ -60,7 +60,7 @@ export const AdvancedCoursesSection = () => {
                 className={`p-5 bg-card border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${colorClass}`}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-background flex items-center justify-center ${iconColor}`}>
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center ${iconColor}`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">

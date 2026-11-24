@@ -4,7 +4,7 @@ import { Globe, Building2, HandHeart } from "lucide-react";
 export const FoundationInfo = () => {
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-      <Card className="p-5 sm:p-6 md:p-8 hover:shadow-medium transition-all">
+      <Card className="p-5 sm:p-6 md:p-8 rounded-2xl hover:shadow-medium hover:-translate-y-1 transition-all">
         <Globe className="h-10 w-10 sm:h-12 sm:w-12 text-primary mb-4 sm:mb-6" />
         <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Fundación</h3>
         <p className="text-sm sm:text-base text-foreground/70 leading-relaxed">
@@ -12,7 +12,7 @@ export const FoundationInfo = () => {
         </p>
       </Card>
 
-      <Card className="p-5 sm:p-6 md:p-8 hover:shadow-medium transition-all">
+      <Card className="p-5 sm:p-6 md:p-8 rounded-2xl hover:shadow-medium hover:-translate-y-1 transition-all">
         <Building2 className="h-10 w-10 sm:h-12 sm:w-12 text-primary mb-4 sm:mb-6" />
         <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Organización</h3>
         <p className="text-sm sm:text-base text-foreground/70 leading-relaxed">
@@ -20,7 +20,7 @@ export const FoundationInfo = () => {
         </p>
       </Card>
 
-      <Card className="p-5 sm:p-6 md:p-8 hover:shadow-medium transition-all sm:col-span-2 md:col-span-1">
+      <Card className="p-5 sm:p-6 md:p-8 rounded-2xl hover:shadow-medium hover:-translate-y-1 transition-all sm:col-span-2 md:col-span-1">
         <HandHeart className="h-10 w-10 sm:h-12 sm:w-12 text-primary mb-4 sm:mb-6" />
         <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Estructura</h3>
         <p className="text-sm sm:text-base text-foreground/70 leading-relaxed">

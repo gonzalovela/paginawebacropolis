@@ -30,10 +30,10 @@ const Filosofia = () => {
         />
 
         {/* Introduction */}
-        <AnimatedSection as="section" className="py-10 md:py-20 bg-background">
-          <div className="container px-4 md:px-6">
+        <AnimatedSection as="section" className="py-16 md:py-24 bg-background">
+          <div className="container px-6">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="relative h-[280px] sm:h-[350px] lg:h-[500px] rounded-xl lg:rounded-2xl overflow-hidden shadow-elegant order-2 lg:order-1 group">
+              <div className="relative h-[280px] sm:h-[350px] lg:h-[500px] rounded-2xl overflow-hidden order-2 lg:order-1 group">
                 <OptimizedImage 
                   src={philosophyImage} 
                   alt="Gran comunidad de estudiantes de Nueva Acrópolis saludando - La filosofía es para todos" 
@@ -41,15 +41,14 @@ const Filosofia = () => {
                   containerClassName="w-full h-full"
                 />
                 {/* Vignette effect - black blur on edges */}
-                <div className="absolute inset-0 shadow-[inset_0_0_80px_30px_rgba(0,0,0,0.5)] pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="space-y-4 md:space-y-6 order-1 lg:order-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 text-primary rounded-full text-xs md:text-sm font-medium">
+                <div className="inline-flex items-center gap-2 uppercase tracking-[0.3em] text-xs text-secondary font-semibold">
                   <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
                   Filosofía Práctica
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
                   ¿Qué es la Filosofía?
                 </h2>
                 <div className="space-y-3 md:space-y-4 text-base md:text-lg text-foreground/70 leading-relaxed">

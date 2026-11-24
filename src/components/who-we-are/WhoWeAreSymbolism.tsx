@@ -6,7 +6,7 @@ export const WhoWeAreSymbolism = () => {
   return (
     <Card className="overflow-hidden bg-gradient-subtle">
       <div className="space-y-0">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground px-4 sm:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6">
+        <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-center text-foreground px-4 sm:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6">
           El Simbolismo de Nueva Acrópolis
         </h3>
         

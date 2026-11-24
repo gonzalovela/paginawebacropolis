@@ -82,11 +82,11 @@ const Cultura = () => {
         />
 
         {/* Introduction */}
-        <AnimatedSection as="section" className="py-10 md:py-20 bg-background">
-          <div className="container px-4 md:px-6">
+        <AnimatedSection as="section" className="py-16 md:py-24 bg-background">
+          <div className="container px-6">
             <div className="max-w-5xl mx-auto space-y-8 md:space-y-12">
               {/* Hero Image */}
-              <div className="relative h-[250px] sm:h-[350px] md:h-[500px] rounded-xl overflow-hidden shadow-elegant">
+              <div className="relative h-[250px] sm:h-[350px] md:h-[500px] rounded-2xl overflow-hidden">
                 <OptimizedImage 
                   src={culturaFilosoficaImage} 
                   alt="Grupo cultural visitando Sacsayhuamán - Viajes culturales Nueva Acrópolis Perú" 
@@ -97,7 +97,7 @@ const Cultura = () => {
               </div>
               
               <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground">
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
                   ¿Qué es la Cultura Filosófica?
                 </h2>
                 <div className="space-y-3 md:space-y-4 text-base md:text-lg text-foreground/70 leading-relaxed">
@@ -119,7 +119,7 @@ const Cultura = () => {
               {/* Values */}
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 {culturaValues.map((value, index) => (
-                  <Card key={index} className="p-4 md:p-6 text-center hover:shadow-medium transition-all">
+                  <Card key={index} className="p-4 md:p-6 text-center rounded-2xl hover:shadow-medium hover:-translate-y-1 transition-all">
                     <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 md:mb-3">{value.title}</h3>
                     <p className="text-sm md:text-base text-foreground/60 leading-relaxed">{value.description}</p>
                   </Card>
@@ -130,10 +130,10 @@ const Cultura = () => {
         </AnimatedSection>
 
         {/* Activities */}
-        <AnimatedSection as="section" className="py-10 md:py-20 bg-gradient-subtle">
-          <div className="container px-4 md:px-6">
+        <AnimatedSection as="section" className="py-16 md:py-24 bg-gradient-subtle">
+          <div className="container px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 md:mb-6">
                 Nuestras Actividades Culturales
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-foreground/70">

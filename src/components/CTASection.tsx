@@ -32,28 +32,28 @@ export const CTASection = ({
   return (
     <AnimatedSection
       as="section"
-      className={`py-10 sm:py-12 md:py-20 bg-gradient-subtle ${className}`}
+      className={`py-16 md:py-24 bg-gradient-subtle ${className}`}
     >
       <div className="container px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
-          <Card className="p-6 sm:p-8 md:p-12 bg-gradient-hero text-primary-foreground">
+          <Card className="p-6 sm:p-8 md:p-12 rounded-3xl border border-secondary/20 bg-secondary/5 text-foreground">
             <div className="text-center space-y-4 sm:space-y-6">
-              <Icon className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 mx-auto opacity-90" />
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                {title}
+              <div className="w-12 h-12 mx-auto rounded-full bg-secondary/15 text-secondary flex items-center justify-center"><Icon className="h-6 w-6" /></div>
+              <h3 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95]">
+                <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">{title}</span>
               </h3>
-              <p className="text-sm sm:text-base md:text-lg opacity-90 max-w-2xl mx-auto leading-relaxed px-2">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2">
                 {description}
               </p>
               <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-6">
                 {note && (
-                  <p className="text-xs sm:text-sm opacity-75 px-2">{note}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground px-2">{note}</p>
                 )}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <AnimatedButton
                     size="lg"
                     variant="secondary"
-                    className="w-full sm:w-auto"
+                    className="w-full sm:w-auto hover:shadow-[0_0_30px_hsl(var(--secondary)/0.6)] transition-shadow"
                     asChild
                     onClick={() => trackButtonClick('CTA Section', primaryButtonText, primaryButtonLink)}
                   >
@@ -65,8 +65,8 @@ export const CTASection = ({
                   {secondaryButtonText && (
                     <Button
                       size="lg"
-                      variant="outline"
-                      className="w-full sm:w-auto bg-background/10 hover:bg-background/20 border-primary-foreground/30"
+                      variant="ghost"
+                      className="w-full sm:w-auto border border-border hover:bg-secondary/10"
                       asChild
                       onClick={() => trackButtonClick('CTA Section', secondaryButtonText, secondaryButtonLink)}
                     >
