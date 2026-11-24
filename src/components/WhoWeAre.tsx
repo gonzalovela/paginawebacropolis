@@ -1,4 +1,4 @@
-import { ThreePillars } from "@/components/ThreePillars";
+import { Pillars as ThreePillars } from "@/components/home/HomeSections";
 import {
   WhoWeAreHero,
   WhoWeAreVideo,

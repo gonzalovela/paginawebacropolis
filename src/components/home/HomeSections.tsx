@@ -89,7 +89,7 @@ const pillars = [
   { img: volunteeringImage, t: "Voluntariado", s: "para transformar", to: "/voluntariado" },
 ];
 
-const Pillars = () => (
+export const Pillars = () => (
   <section className="py-16 md:py-24 bg-muted/40">
     <div className="container px-6">
       <SectionTitle kicker="Nuestros pilares" a="Aprende, vive" b="y transforma." />
