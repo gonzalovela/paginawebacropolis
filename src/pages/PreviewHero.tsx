@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 import { MapPin, BookOpen, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-sunset-adult.jpg";
+import heroImage from "@/assets/hero-sunset-young.jpg";
 import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
 import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
 import volunteeringImage from "@/assets/banner-voluntariado.jpg";
+import { PageLayout } from "@/components/layouts";
 import { principios } from "@/data/principios-data";
 
 const gradientText = "bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent";
 
 const Hero = () => (
   <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
-    <img src={heroImage} alt="Adulto contemplando el atardecer en la playa" width={1920} height={1088}
+    <img src={heroImage} alt="Joven profesional contemplando el atardecer en la playa" width={1672} height={940}
       className="absolute inset-0 w-full h-full object-cover object-[70%_center]"
       style={{ filter: "contrast(1.08) saturate(1.12)" }} />
     <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/25 to-transparent" />
@@ -44,7 +45,7 @@ const Hero = () => (
           </div>
         ))}
       </div>
-    </div>
+    </PageLayout>
   </section>
 );
 
@@ -77,7 +78,7 @@ const Principles = () => (
           );
         })}
       </div>
-    </div>
+    </PageLayout>
   </section>
 );
 
@@ -108,7 +109,7 @@ const Pillars = () => (
           </Link>
         ))}
       </div>
-    </div>
+    </PageLayout>
   </section>
 );
 
@@ -127,14 +128,14 @@ const Course = () => (
           <Button size="lg" variant="secondary" className="px-8 py-6" asChild><Link to="/inscripcion">Inscríbete</Link></Button>
         </div>
       </div>
-    </div>
+    </PageLayout>
   </section>
 );
 
 export default function PreviewHero() {
   return (
-    <div className="bg-background">
+    <PageLayout>
       <Hero /><Principles /><Pillars /><Course />
-    </div>
+    </PageLayout>
   );
 }
