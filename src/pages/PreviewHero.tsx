@@ -1,42 +1,20 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, BookOpen } from "lucide-react";
+import { MapPin, BookOpen, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-sunset-vibrant.jpg";
-import logo from "@/assets/logo-escuela-filosofia.png";
+import heroImage from "@/assets/hero-sunset-adult.jpg";
+import philosophyImage from "@/assets/philosophy-contemplation-peru.jpg";
+import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
+import volunteeringImage from "@/assets/banner-voluntariado.jpg";
+import { principios } from "@/data/principios-data";
 
-const HeroOption1 = () => (
-  <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-    <img src={heroImage} alt="Atardecer" className="absolute inset-0 w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" style={{ filter: "saturate(1.1) contrast(1.05)" }} />
-    <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-background" />
-    <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 40%, hsl(var(--foreground) / 0.55) 100%)" }} />
-    <div className="relative z-10 container px-6 text-center max-w-4xl animate-fade-in-up">
-      <img src={logo} alt="Nueva Acrópolis" className="h-16 md:h-20 mx-auto mb-8 brightness-0 invert opacity-90" />
-      <p className="uppercase tracking-[0.4em] text-xs md:text-sm text-primary-foreground/80 mb-6">Filosofía · Cultura · Voluntariado</p>
-      <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl text-primary-foreground leading-[1.1] mb-6">
-        Una escuela de filosofía<br /><em className="text-secondary not-italic font-light italic">para la vida</em>
-      </h1>
-      <div className="w-16 h-px bg-secondary mx-auto mb-6" />
-      <p className="text-lg md:text-xl text-primary-foreground/85 max-w-2xl mx-auto mb-10 font-light">
-        Encuentra respuestas profundas sobre la vida y vive la experiencia práctica de la cultura y el voluntariado.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button size="lg" variant="secondary" className="px-8 py-6 rounded-full shadow-medium" asChild>
-          <Link to="/quienes-somos">Quiénes Somos <ArrowRight className="ml-2 h-4 w-4" /></Link>
-        </Button>
-        <Button size="lg" variant="outline" className="px-8 py-6 rounded-full bg-primary-foreground/10 border-primary-foreground/40 text-primary-foreground backdrop-blur-md hover:bg-primary-foreground/20 hover:text-primary-foreground" asChild>
-          <Link to="/sedes"><MapPin className="mr-2 h-4 w-4" />Encuentra tu Sede</Link>
-        </Button>
-      </div>
-      <p className="mt-14 text-sm tracking-widest uppercase text-primary-foreground/70">Más de 65 sedes en todo el Perú</p>
-    </div>
-  </section>
-);
+const gradientText = "bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent";
 
-const HeroOption2 = () => (
+const Hero = () => (
   <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
-    <img src={heroImage} alt="Atardecer" className="absolute inset-0 w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/40 to-transparent" />
+    <img src={heroImage} alt="Adulto contemplando el atardecer en la playa" width={1920} height={1088}
+      className="absolute inset-0 w-full h-full object-cover object-[70%_center]"
+      style={{ filter: "contrast(1.08) saturate(1.12)" }} />
+    <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/25 to-transparent" />
     <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
     <div className="relative z-10 container px-6 pb-10 pt-32">
       <div className="max-w-3xl animate-fade-in-up">
@@ -44,10 +22,9 @@ const HeroOption2 = () => (
           <span className="h-2 w-2 rounded-full bg-secondary animate-pulse" /> Inscripciones abiertas
         </span>
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-primary-foreground leading-[0.95] mb-6">
-          Filosofía<br />
-          <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">para la vida.</span>
+          Filosofía<br /><span className={gradientText}>para la vida.</span>
         </h1>
-        <p className="text-lg md:text-xl text-primary-foreground/85 max-w-xl mb-10">
+        <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-10">
           Respuestas profundas, cultura viva y voluntariado. Una escuela para conocerte a ti mismo.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
@@ -71,19 +48,93 @@ const HeroOption2 = () => (
   </section>
 );
 
-export default function PreviewHero() {
-  const [opt, setOpt] = useState<1 | 2>(1);
-  return (
-    <div className="relative bg-background">
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex gap-1 rounded-full bg-background/90 backdrop-blur p-1 shadow-medium border">
-        {[1, 2].map((n) => (
-          <button key={n} onClick={() => setOpt(n as 1 | 2)} className={`px-4 py-2 rounded-full text-sm font-medium transition ${opt === n ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-muted"}`}>
-            Opción {n}
-          </button>
+const SectionTitle = ({ kicker, a, b }: { kicker: string; a: string; b: string }) => (
+  <div className="max-w-3xl mb-14">
+    <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4">{kicker}</p>
+    <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
+      {a} <span className={gradientText}>{b}</span>
+    </h2>
+  </div>
+);
+
+const Principles = () => (
+  <section className="py-24 bg-background">
+    <div className="container px-6">
+      <SectionTitle kicker="Nuestros principios" a="Tres principios," b="un camino." />
+      <div className="grid md:grid-cols-3 gap-6">
+        {principios.map((p, i) => {
+          const Icon = p.icon;
+          return (
+            <div key={i} className="group rounded-2xl border bg-card p-8 hover:shadow-medium hover:-translate-y-1 transition-all">
+              <div className="flex items-center justify-between mb-8">
+                <div className={`w-12 h-12 rounded-full ${p.color} text-primary-foreground flex items-center justify-center`}><Icon className="h-6 w-6" /></div>
+                <span className="text-5xl font-bold text-muted-foreground/20">0{i + 1}</span>
+              </div>
+              <h3 className="text-2xl font-bold tracking-tight mb-2">{p.title}</h3>
+              <p className="text-xs uppercase tracking-widest text-secondary font-semibold mb-4">{p.subtitle}</p>
+              <p className="text-muted-foreground leading-relaxed">{p.description}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+);
+
+const pillars = [
+  { img: philosophyImage, t: "Filosofía", s: "para conocerse", to: "/filosofia" },
+  { img: cultureImage, t: "Cultura", s: "para encontrarnos", to: "/cultura" },
+  { img: volunteeringImage, t: "Voluntariado", s: "para transformar", to: "/voluntariado" },
+];
+
+const Pillars = () => (
+  <section className="py-24 bg-muted/40">
+    <div className="container px-6">
+      <SectionTitle kicker="Nuestros pilares" a="Aprende, vive" b="y transforma." />
+      <div className="grid md:grid-cols-3 gap-6">
+        {pillars.map((p) => (
+          <Link key={p.t} to={p.to} className="group relative h-[480px] rounded-2xl overflow-hidden">
+            <img src={p.img} alt={p.t} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" />
+            <div className="absolute bottom-0 p-8 w-full flex items-end justify-between">
+              <div>
+                <h3 className="text-4xl font-bold text-primary-foreground tracking-tight">{p.t}</h3>
+                <p className={`text-xl font-semibold ${gradientText}`}>{p.s}</p>
+              </div>
+              <span className="w-12 h-12 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 backdrop-blur-md flex items-center justify-center text-primary-foreground group-hover:bg-secondary transition-colors">
+                <ArrowUpRight className="h-5 w-5" />
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
-      {opt === 1 ? <HeroOption1 /> : <HeroOption2 />}
-      <div className="h-40" />
+    </div>
+  </section>
+);
+
+const Course = () => (
+  <section className="py-24 bg-background">
+    <div className="container px-6">
+      <div className="relative rounded-3xl overflow-hidden">
+        <img src={heroImage} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/50 to-transparent" />
+        <div className="relative p-10 md:p-16 max-w-2xl">
+          <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4">Curso introductorio</p>
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[0.95] text-primary-foreground mb-6">
+            Conócete <span className={gradientText}>a ti mismo.</span>
+          </h2>
+          <p className="text-lg text-primary-foreground/85 mb-8">Filosofía práctica para enfrentar con éxito los desafíos de la vida.</p>
+          <Button size="lg" variant="secondary" className="px-8 py-6" asChild><Link to="/inscripcion">Inscríbete</Link></Button>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+export default function PreviewHero() {
+  return (
+    <div className="bg-background">
+      <Hero /><Principles /><Pillars /><Course />
     </div>
   );
 }
