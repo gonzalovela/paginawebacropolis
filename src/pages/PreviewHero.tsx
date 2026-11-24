@@ -45,7 +45,7 @@ const Hero = () => (
           </div>
         ))}
       </div>
-    </PageLayout>
+    </div>
   </section>
 );
 
@@ -78,7 +78,7 @@ const Principles = () => (
           );
         })}
       </div>
-    </PageLayout>
+    </div>
   </section>
 );
 
@@ -109,7 +109,7 @@ const Pillars = () => (
           </Link>
         ))}
       </div>
-    </PageLayout>
+    </div>
   </section>
 );
 
@@ -128,7 +128,7 @@ const Course = () => (
           <Button size="lg" variant="secondary" className="px-8 py-6" asChild><Link to="/inscripcion">Inscríbete</Link></Button>
         </div>
       </div>
-    </PageLayout>
+    </div>
   </section>
 );
 
