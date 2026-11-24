@@ -18,10 +18,12 @@ export default function CourseAdvisor() {
   const enviar = async () => {
     if (texto.trim().length < 5) return setError("Cuéntanos un poco más (mínimo 5 caracteres).");
     setLoading(true); setError(""); setRec(null);
+    window.__lovableEvents?.track?.("project.recommendation_requested", { used_example: ejemplos.includes(texto) });
     const { data, error } = await supabase.functions.invoke("recomendar-curso", { body: { texto } });
     setLoading(false);
     if (error || data?.error) return setError(data?.error || "No pudimos generar tu recomendación. Intenta de nuevo.");
     setRec(data);
+    window.__lovableEvents?.track?.("project.recommendation_received", { aprendizajes: data?.aprendizajes?.length ?? 0 });
   };
 
   return (
@@ -34,7 +36,7 @@ export default function CourseAdvisor() {
           <Textarea value={texto} onChange={(e) => setTexto(e.target.value.slice(0, 600))} placeholder="Ej.: Siento mucho estrés y quiero aprender a dominar mis pensamientos…" className="min-h-[110px] text-base resize-none border-0 focus-visible:ring-0 p-0 shadow-none" />
           <div className="flex flex-wrap gap-2 my-4">
             {ejemplos.map((e) => (
-              <button key={e} type="button" onClick={() => setTexto(e)} className="text-xs sm:text-sm rounded-full border border-secondary/30 px-3 py-1.5 text-foreground/80 hover:bg-secondary/10">{e}</button>
+              <button key={e} type="button" onClick={() => { setTexto(e); window.__lovableEvents?.track?.("project.advisor_example_selected", { example_index: ejemplos.indexOf(e) }); }} className="text-xs sm:text-sm rounded-full border border-secondary/30 px-3 py-1.5 text-foreground/80 hover:bg-secondary/10">{e}</button>
             ))}
           </div>
           <Button onClick={enviar} disabled={loading} size="lg" variant="secondary" className="w-full sm:w-auto py-6">
@@ -57,7 +59,7 @@ export default function CourseAdvisor() {
               <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-3">Actividades para ti</p>
               <ul className="space-y-2 mb-6">{rec.actividades.map((a, i) => <li key={i} className="flex gap-2 text-foreground/80"><CheckCircle2 className="h-4 w-4 text-secondary mt-1 shrink-0" />{a}</li>)}</ul>
             </>}
-            <Button size="lg" variant="secondary" className="w-full sm:w-auto py-6" asChild><Link to="/inscripcion#formulario">Inscríbete en tu sede<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto py-6" asChild><Link to="/inscripcion#formulario" onClick={() => window.__lovableEvents?.track?.("project.advisor_enroll_clicked")}>Inscríbete en tu sede<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
           </div>
         )}
       </div>

@@ -28,3 +28,9 @@ declare module '*&as=picture' {
   };
   export default src;
 }
+
+interface Window {
+  __lovableEvents?: {
+    track?: (event: string, properties?: Record<string, unknown>) => string | null;
+  };
+}

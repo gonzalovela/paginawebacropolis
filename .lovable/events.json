@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "events": {
+    "project.advisor_enroll_clicked": {
+      "event_schema_version": 1,
+      "description": "Visitor clicked the enroll button after a recommendation.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    "project.advisor_example_selected": {
+      "event_schema_version": 1,
+      "description": "Visitor tapped an example in the Diálogo Filosófico advisor.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "example_index"
+        ],
+        "properties": {
+          "example_index": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "project.recommendation_received": {
+      "event_schema_version": 1,
+      "description": "Advisor returned a recommendation successfully.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "aprendizajes"
+        ],
+        "properties": {
+          "aprendizajes": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "project.recommendation_requested": {
+      "event_schema_version": 1,
+      "description": "Visitor asked the advisor for a recommendation.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "used_example"
+        ],
+        "properties": {
+          "used_example": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

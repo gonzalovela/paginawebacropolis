@@ -36,19 +36,20 @@ Deno.serve(async (req) => {
     });
     const result = streamText({
       model: openai.responses("openai/gpt-6.1-sol"),
-      system: SYSTEM,
+      system: SYSTEM + '\nResponde SOLO con JSON válido: {"intro":string,"aprendizajes":[{"titulo":string,"porque":string}],"actividades":[string]}',
       prompt: texto.trim(),
-      experimental_output: Output.object({ schema }),
       abortSignal: req.signal,
       providerOptions: { openai: { forceReasoning: true, reasoningEffort: "low", store: false } },
     });
     const text = await result.text;
-    return json(JSON.parse(text));
+    const m = text.replace(/```(?:json)?/g, "").match(/\{[\s\S]*\}/);
+    if (!m) throw new Error("sin JSON: " + text.slice(0, 200));
+    return json(JSON.parse(m[0]));
   } catch (e) {
     const status = (e as { statusCode?: number })?.statusCode;
     if (status === 429) return json({ error: "Muchas consultas ahora, intenta en un momento." }, 429);
     if (status === 402) return json({ error: "El servicio de IA no está disponible por ahora." }, 402);
-    console.error("recomendar-curso error", status);
+    console.error("recomendar-curso error", status, String((e as Error)?.message).slice(0, 500));
     return json({ error: "No pudimos generar tu recomendación." }, 500);
   }
 });
