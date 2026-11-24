@@ -7,6 +7,7 @@ import cultureImage from "@/assets/cultura-filosofica-sacsayhuaman.jpg";
 import volunteeringImage from "@/assets/banner-voluntariado.jpg";
 import { PageLayout } from "@/components/layouts";
 import { principios } from "@/data/principios-data";
+import CourseAdvisor from "@/components/preview/CourseAdvisor";
 
 const gradientText = "bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent";
 
@@ -185,7 +186,7 @@ const Course = () => (
 export default function PreviewHero() {
   return (
     <PageLayout>
-      <Hero /><Principles /><Pillars /><Course />
+      <Hero /><Principles /><Pillars /><Course /><CourseAdvisor />
     </PageLayout>
   );
 }
