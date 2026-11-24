@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
 
 type Rec = { intro: string; aprendizajes: { titulo: string; porque: string }[]; actividades: string[] };
-const ejemplos = ["Quiero manejar mejor el estrés", "Busco un propósito en mi vida", "Me interesa la filosofía estoica"];
+const ejemplos = ["Hacer voluntariado y ayudar a los demás", "Conocerme a mí mismo para superarme", "Encontrar sentido y propósito a mi vida", "Dominar el estrés y mis emociones", "Tomar mejores decisiones", "Profundizar en la sabiduría clásica y el estoicismo"];
 const gradientText = "bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent";
 
 export default function CourseAdvisor() {
@@ -27,7 +27,7 @@ export default function CourseAdvisor() {
   return (
     <section className="py-16 md:py-24 bg-muted/40">
       <div className="container px-6 max-w-4xl">
-        <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4 flex items-center gap-2"><Sparkles className="h-4 w-4" />Orientador con IA</p>
+        <p className="uppercase tracking-[0.3em] text-xs text-secondary font-semibold mb-4 flex items-center gap-2"><Sparkles className="h-4 w-4" />Diálogo Filosófico</p>
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[0.95] text-foreground mb-4">¿Qué buscas <span className={gradientText}>aprender?</span></h2>
         <p className="text-base sm:text-lg text-muted-foreground mb-8">Cuéntanos con tus palabras qué te inquieta o te interesa y te mostramos lo que el curso tiene para ti.</p>
         <div className="rounded-3xl border bg-card p-4 sm:p-6 shadow-soft">
@@ -38,7 +38,7 @@ export default function CourseAdvisor() {
             ))}
           </div>
           <Button onClick={enviar} disabled={loading} size="lg" variant="secondary" className="w-full sm:w-auto py-6">
-            {loading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Pensando…</> : <>Recomiéndame<ArrowRight className="ml-2 h-4 w-4" /></>}
+            {loading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Pensando…</> : <>Descubrir qué tiene para mí<ArrowRight className="ml-2 h-4 w-4" /></>}
           </Button>
           {error && <p className="text-destructive text-sm mt-3">{error}</p>}
         </div>
