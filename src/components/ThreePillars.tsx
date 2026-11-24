@@ -82,7 +82,7 @@ export const ThreePillars = () => {
                   {pillar.description}
                 </p>
 
-                <div className="relative w-full mt-4 sm:mt-6 overflow-hidden rounded-md">
+                <div className="relative w-full mt-4 sm:mt-6 overflow-hidden rounded-2xl">
                   <Button 
                     variant="outline" 
                     className="w-full" 

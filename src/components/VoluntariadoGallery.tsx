@@ -131,7 +131,7 @@ export const VoluntariadoGallery = () => {
                   key={photo.id}
                   className="overflow-hidden border-0 hover:shadow-elevated transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="relative aspect-square overflow-hidden">
+                  <div className="relative aspect-square overflow-hidden rounded-2xl">
                     <OptimizedImage
                       src={photo.imagen_url}
                       alt={photo.titulo}

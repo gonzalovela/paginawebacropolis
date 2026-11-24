@@ -11,7 +11,7 @@ export const WhoWeAreSymbolism = () => {
         </h3>
         
         {/* Wide horizontal image */}
-        <div className="w-full aspect-[16/9] sm:aspect-[21/9] overflow-hidden">
+        <div className="w-full aspect-[16/9] sm:aspect-[21/9] overflow-hidden rounded-2xl">
           <OptimizedImage 
             src={acropolisImage} 
             alt="Vista panorámica de la Acrópolis de Atenas desde la ciudad baja - Simbolismo de Nueva Acrópolis como ciudad alta del pensamiento filosófico" 
