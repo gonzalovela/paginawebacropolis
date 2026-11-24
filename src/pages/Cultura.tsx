@@ -98,7 +98,7 @@ const Cultura = () => {
               
               <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
-                  ¿Qué es la Cultura Filosófica?
+                  ¿Qué es la <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Cultura Filosófica?</span>
                 </h2>
                 <div className="space-y-3 md:space-y-4 text-base md:text-lg text-foreground/70 leading-relaxed">
                   <p>
@@ -134,7 +134,7 @@ const Cultura = () => {
           <div className="container px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 md:mb-6">
-                Nuestras Actividades Culturales
+                Nuestras <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Actividades Culturales</span>
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-foreground/70">
                 Muchas de nuestras actividades culturales son gratuitas y abiertas al público. 

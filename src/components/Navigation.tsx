@@ -37,11 +37,19 @@ export const Navigation = () => {
     { to: "/inscripcion", label: "Inscripción" },
   ];
 
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-background border-b border-border">
+      <header className={cn("fixed top-0 left-0 right-0 z-[100] transition-all duration-500 border-b", scrolled ? "bg-background/85 backdrop-blur-xl border-border/60 shadow-soft" : "bg-background/70 backdrop-blur-md border-transparent")}>
         <div className="container px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
@@ -58,21 +66,26 @@ export const Navigation = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
+              {navLinks.filter((l) => l.to !== "/inscripcion").map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => trackButtonClick('Navigation Desktop', link.label, link.to)}
                   className={cn(
-                    "px-3 xl:px-4 py-2 rounded-lg font-medium transition-all hover:bg-primary/10 text-sm xl:text-base",
-                    isActive(link.to)
-                      ? "text-primary bg-primary/10"
-                      : "text-foreground/70 hover:text-foreground"
+                    "group relative px-3 xl:px-4 py-2 text-sm font-medium tracking-wide transition-colors",
+                    isActive(link.to) ? "text-foreground" : "text-foreground/65 hover:text-foreground"
                   )}
                 >
                   {link.label}
+                  <span className={cn(
+                    "absolute left-3 right-3 xl:left-4 xl:right-4 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-secondary via-accent to-secondary origin-left transition-transform duration-300",
+                    isActive(link.to) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  )} />
                 </Link>
               ))}
+              <Button size="sm" variant="secondary" className="ml-3 rounded-full px-5 hover:shadow-[0_0_24px_hsl(var(--secondary)/0.55)] transition-shadow" asChild>
+                <Link to="/inscripcion" onClick={() => trackButtonClick('Navigation Desktop', 'Inscripción', '/inscripcion')}>Inscríbete</Link>
+              </Button>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -107,10 +120,10 @@ export const Navigation = () => {
                     setIsOpen(false);
                   }}
                   className={cn(
-                    "px-4 py-4 rounded-xl font-semibold transition-all text-lg",
+                    "px-4 py-4 rounded-2xl font-semibold transition-all text-2xl tracking-tight border-l-2",
                     isActive(link.to)
-                      ? "text-primary bg-primary/10"
-                      : "text-foreground hover:text-primary hover:bg-muted active:bg-muted"
+                      ? "border-secondary text-secondary bg-secondary/10"
+                      : "border-transparent text-foreground hover:text-secondary hover:bg-secondary/5"
                   )}
                 >
                   {link.label}

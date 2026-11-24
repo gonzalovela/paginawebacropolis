@@ -91,7 +91,7 @@ const Voluntariado = () => {
           <div className="container px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 md:mb-6">
-                Mensajes que nos Inspiran
+                Mensajes que nos <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Inspiran</span>
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-foreground/70">
                 Ideas que guían nuestra acción voluntaria y transforman la filosofía en realidad
@@ -142,7 +142,7 @@ const Voluntariado = () => {
               
               <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground">
-                  ¿Qué es el Voluntariado Filosófico?
+                  ¿Qué es el <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Voluntariado Filosófico?</span>
                 </h2>
                 <div className="space-y-3 md:space-y-4 text-base md:text-lg text-foreground/70 leading-relaxed">
                   <p>
@@ -177,7 +177,7 @@ const Voluntariado = () => {
           <div className="container px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 md:mb-6">
-                Nuestros Programas de Voluntariado
+                Nuestros <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Programas de Voluntariado</span>
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-foreground/70">
                 Programas concretos de acción solidaria que realizamos en Nueva Acrópolis Perú. 
@@ -208,7 +208,7 @@ const Voluntariado = () => {
           <div className="container px-4 sm:px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12">
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95] text-foreground mb-4 sm:mb-6">
-                Galería de Programas en Acción
+                Galería de <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">Programas en Acción</span>
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-foreground/70 px-2">
                 Fotos de nuestros programas de voluntariado y las actividades que realizamos en todo el Perú
